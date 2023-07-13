@@ -1,0 +1,51 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Velt",
+  "logo": "/logo.png",
+  "favicon": "/favicon.png",
+  "colors": {
+    "primary": "#272728",
+    "light": "#D5D5D5",
+    "dark": "#06A6D1"
+  },
+  "modeToggle": {
+    "default": "dark",
+    "isHidden": true
+  },
+  "topbarCtaButton": {
+    "name": "Sign in",
+    "url": "https://console.velt.dev/"
+  },
+  "topbarLinks": [
+    {
+      "name": "Get Started",
+      "url": "https://console.velt.dev/"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "Community",
+      "url": "https://discord.gg/GupvcYH27h"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Get Started",
+      "pages": [
+        {
+          "group": "Setup",
+          "pages": [
+            "get-started/setup/install",
+            "get-started/setup/authenticate",
+            "get-started/setup/initialize-document"
+          ]
+        }
+      ]
+    }
+  ],
+  "footerSocials": {
+    "twitter": "https://twitter.com/veltjs",
+    "linkedin": "https://www.linkedin.com/company/veltjs",
+    "disord": "https://discord.gg/GupvcYH27h"
+  }
+}

@@ -1,0 +1,39 @@
+---
+title: "1. Install"
+---
+
+## 1. Install React package
+
+```bash
+$ npm install @veltdev/react
+```
+
+<RequestExample>
+
+```java Install
+import { VeltProvider } from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <VeltProvider apiKey="YOUR_API_KEY">
+      // Your app goes here
+    </VeltProvider>
+  );
+}
+```
+
+</RequestExample>
+
+## 2. Install types (optional)
+
+If you're using TypeScript, you can install the types package.
+
+```bash
+$ npm install --save-dev @snippyly/types
+```
+
+## 3. Add VeltProvider
+
+Add the VeltProvider component to the root of your app.
+Add your Velt API key.
