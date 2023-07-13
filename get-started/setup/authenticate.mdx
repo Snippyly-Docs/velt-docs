@@ -1,0 +1,58 @@
+---
+title: "2. Authenticate"
+description: "Autheticate your logged in user with the SDK."
+---
+
+## 1) Get the Velt client
+
+Import the `useVeltClient` React hook. You can use this hook within your
+component to fetch the Velt client.
+
+## 2) Create a useEffect hook
+
+Create the hook with the `client` and `your authenticated user` as dependencies.
+
+## 3) Fetch relevant user info
+
+Create a Velt User object by taking the relevant fields from your authenticated User object.
+
+## 4) Pass the user object to the SDK
+
+Call the `identify()` method and pass in the Velt User.
+
+<RequestExample>
+
+```java Authenticate
+import { useVeltClient } from '@veltdev/react';
+import { useEffect } from 'react';
+
+export default function App() {
+
+  const { client } = useVeltClient();
+
+  useEffect(() => {
+    if (client && yourAuthenticatedUser) {
+
+      // Fetch the relevant user info from your authenticated user object.
+      const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
+
+      // Create the Velt user object
+      const user = {
+        userId: uid,
+        name: displayName,
+        email: email,
+        photoUrl: photoURL
+      };
+
+      client.identify(user);
+    }
+  }, [client, yourAuthenticatedUser]);
+
+  return (
+    // Your app template
+  );
+}
+
+```
+
+</RequestExample>
