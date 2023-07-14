@@ -1,5 +1,5 @@
 ---
-title: React"
+title: "React"
 ---
 
 <Tabs>
@@ -179,21 +179,83 @@ export default function App() {
 
   </Tab>
   <Tab title="Text">
-    <iframe
-      src="https://snippyly-docs-demo.web.app/comments-text?documentId=mxn16rt1bh5j8a905ufvx&amp;userIndex=0"
-      allow="camera; microphone"
-      scrolling="no"
-      frameborder="0"
-      class="w-full"
-    ></iframe>{" "}
+### 1) Import Comment components
+Import the VeltComments component.
+
+### 2) Add Comment component with Text mode
+
+Add the VeltComments component to the root of your app and mark the textMode property as true.
+
+This component is required to render comments in your app.
+
+Text mode allows users to select any text and attach comments to it similar to Google Docs.
+
+### 3) Test Integration
+
+**Test it out by opening the page with Velt components in your browser.**
+
+Select any text, a comment tool will appear near the highlighted text. Click on it to add a comment.
+
+```java
+
+import { VeltProvider, VeltComments } from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <VeltProvider apiKey="API_KEY">
+
+      <VeltComments textMode={true} />
+
+    </VeltProvider>
+  );
+}
+```
+
   </Tab>
   <Tab title="Inbox">
-    <iframe
-      src="https://snippyly-docs-demo.web.app/comments-inbox?documentId=5bv8zgwqizdor6sey7lzq&amp;userIndex=0"
-      allow="camera; microphone"
-      scrolling="no"
-      frameborder="0"
-      class="w-full"
-    ></iframe>{" "}
+### 1) Import Comment components
+
+Import the VeltComments component.
+
+### 2)Add Comment component with Inbox mode
+
+Add the VeltComments component to the root of your app and mark the inboxMode property as true.
+
+This component is required to render comments in your app.
+
+This mode enable a more focused inbox style UI for each comment on the right side. Instead of showing a comment dialog box, it shows the given comment in a sidebar. You can combine this with other modes like Freestyle, Popover, Stream or Text.
+
+### 3) Add Comment Tool component
+
+Add the VeltCommentTool component wherever you want to show the comment tool button.
+
+Clicking on it initiates comment mode & changes your mouse cursor to a comment pin. Now you can click anywhere on the document to attach comments to any elements.
+
+### 4) Test Integration
+
+Test it out by opening the page with Velt components in your browser.
+
+You should be able to leave a comment by selecting some text or using the comment tool.
+
+```java
+import { VeltProvider, VeltComments, VeltCommentTool } from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <VeltProvider apiKey="API_KEY">
+
+      <VeltComments inboxMode={true} />
+
+      <div class="toolbar">
+        <VeltCommentTool />
+      </div>
+
+    </VeltProvider>
+  );
+}
+```
+
   </Tab>
 </Tabs>

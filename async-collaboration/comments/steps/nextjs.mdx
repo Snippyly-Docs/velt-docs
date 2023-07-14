@@ -1,0 +1,261 @@
+---
+title: "Next.js"
+---
+
+<Tabs>
+  <Tab title="Freestyle">
+### 1) Import Comment components
+Import the `VeltComments` component and the `VeltCommentTool` component.
+
+### 2) Add Comments component
+
+Add the `VeltComments` component to the root of your app.
+This component is required to render comments in your app.
+
+### 3) Add Comment Tool component
+
+Add the `VeltCommentTool` component wherever you want to show the comment tool button.
+Clicking on it initiates comment mode & changes your mouse cursor to a comment pin. Now you can click anywhere on the document to attach comments to any elements.
+
+### 4) Test Integration
+
+Test it out by opening the page with Velt components in your browser.
+Click on the comment tool and click anywhere on the page to add a comment.
+
+```java
+import {
+  VeltProvider,
+  VeltComments,
+  VeltCommentTool
+} from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <VeltProvider apiKey="API_KEY">
+      <VeltComments />
+
+      <div className="toolbar">
+        <VeltCommentTool />
+      </div>
+    </VeltProvider>
+  );
+}
+```
+
+  </Tab>
+  <Tab title="Popover">
+### 1) Import Comment components
+Import the `VeltComments` component and the `VeltCommentTool` component.
+
+### 2) Add Comments component with Popover mode
+
+Add the `VeltComments` component to the root of your app and mark the `popoverMode` property as `true`.
+This component is required to render comments in your app.
+
+Popover mode means that comments can be attached to specific target elements. The UX pattern is very similar to commenting in Google Sheets.
+
+### 3) Add Comment Tool component
+
+Add the `VeltCommentTool` component on each component where you want to enable commenting.
+
+For example, in a table you could add this tool to each cell and show it on hover or right click context menu.
+
+You **must specify** a target element ID which binds the tool to that element. When users click on the comment tool, it will attach a comment to the target element.
+
+Once the comment is saved, you will notice a triangle on the top right corner of the element indicating that a comment is present on this element.
+
+### 4) Add the Comment Bubble component=
+
+**(optional) This component accepts a target element ID & binds to the comment associated with it.**
+
+It also shows the total number of threads in the given comment.
+
+This gives you a lot of flexibility as you can place this component anywhere and provides a more obvious affordance to your users.
+
+### 5) Test Integration
+
+Test it out by opening the page with Velt components in your browser.
+
+Click on the comment tool and leave a comment on the target element.
+
+```java
+import {
+  VeltProvider,
+  VeltComments,
+  VeltCommentTool
+} from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <VeltProvider apiKey="API_KEY">
+      <VeltComments popoverMode={true} />
+
+      <div class="table">
+        <div className="cell" id="cell-id">
+
+          <VeltCommentTool
+            targetCommentElementId="cell-id"
+          />
+
+          <VeltCommentBubble
+            targetCommentElementId="cell-id"
+          />
+
+        </div>
+      </div>
+    </VeltProvider>
+  );
+}
+
+```
+
+  </Tab>
+  <Tab title="Stream">
+### 1) Import Comment components
+Import the `VeltComments`  component to the root of your app and mark the `streamMode` property as `true`.
+
+This component is required to render comments in your app.
+
+Stream mode renders all comment dialog boxes in a column on the right side similar to Google Docs.
+
+### 2) Add Comments component with Popover mode
+
+Add the `VeltComments` component to the root of your app and mark the `popoverMode` property as `true`.
+This component is required to render comments in your app.
+
+Popover mode means that comments can be attached to specific target elements. The UX pattern is very similar to commenting in Google Sheets.
+
+### 3) Add the Stream View container ID
+
+Pass the DOM ID of the main scrolling element. This helps us position & scroll the comment stream as the user scrolls.
+
+Alternatively, you can move `VeltComments` component inside the scrolling container and ensure that its the sibling of the target content.
+
+### 4) Add Comment Tool component
+
+**(optional) Add the `VeltCommentTool` component wherever you want to show the comment tool button.**
+
+This is optional as most developers use Stream mode to enable commenting on text vs any element on the DOM. However, if you do need to enable commenting on any element, you can use this tool.
+
+Clicking on it initiates comment mode & changes your mouse cursor to a comment pin. Now you can click anywhere on the document to attach comments to any elements.
+
+### 5) Test Integration
+
+Test it out by opening the page with Velt components in your browser.
+Select text to attach a comment to it. If you have added VeltCommentTool, click on it and click anywhere on the page to add a comment.
+
+```java
+import { VeltProvider, VeltComments, VeltCommentTool } from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <VeltProvider apiKey="API_KEY">
+
+      <div id="scrolling-container-id">
+
+        //This element is scrollable
+        <div class="target-content">
+          //This element contains the content that you want to be commented.
+        </div>
+
+        <VeltComments
+          streamMode={true}
+          streamViewContainerId="scrolling-container-id"
+        />
+
+      </div>
+
+      <div class="toolbar">
+        <VeltCommentTool />
+      </div>
+
+    </VeltProvider>
+  );
+}
+```
+
+  </Tab>
+  <Tab title="Text">
+### 1) Import Comment components
+Import the VeltComments component.
+
+### 2) Add Comment component with Text mode
+
+Add the VeltComments component to the root of your app and mark the textMode property as true.
+
+This component is required to render comments in your app.
+
+Text mode allows users to select any text and attach comments to it similar to Google Docs.
+
+### 3) Test Integration
+
+**Test it out by opening the page with Velt components in your browser.**
+
+Select any text, a comment tool will appear near the highlighted text. Click on it to add a comment.
+
+```java
+
+import { VeltProvider, VeltComments } from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <VeltProvider apiKey="API_KEY">
+
+      <VeltComments textMode={true} />
+
+    </VeltProvider>
+  );
+}
+```
+
+  </Tab>
+  <Tab title="Inbox">
+### 1) Import Comment components
+
+Import the VeltComments component.
+
+### 2)Add Comment component with Inbox mode
+
+Add the VeltComments component to the root of your app and mark the inboxMode property as true.
+
+This component is required to render comments in your app.
+
+This mode enable a more focused inbox style UI for each comment on the right side. Instead of showing a comment dialog box, it shows the given comment in a sidebar. You can combine this with other modes like Freestyle, Popover, Stream or Text.
+
+### 3) Add Comment Tool component
+
+Add the VeltCommentTool component wherever you want to show the comment tool button.
+
+Clicking on it initiates comment mode & changes your mouse cursor to a comment pin. Now you can click anywhere on the document to attach comments to any elements.
+
+### 4) Test Integration
+
+Test it out by opening the page with Velt components in your browser.
+
+You should be able to leave a comment by selecting some text or using the comment tool.
+
+```java
+import { VeltProvider, VeltComments, VeltCommentTool } from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <VeltProvider apiKey="API_KEY">
+
+      <VeltComments inboxMode={true} />
+
+      <div class="toolbar">
+        <VeltCommentTool />
+      </div>
+
+    </VeltProvider>
+  );
+}
+```
+
+  </Tab>
+</Tabs>
