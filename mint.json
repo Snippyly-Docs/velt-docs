@@ -47,7 +47,17 @@
       "pages": [
         {
           "group": "Comments",
-          "pages": ["async-collaboration/comments/steps"]
+          "pages": [
+            "async-collaboration/comments/comments",
+            {
+              "group": "Steps",
+              "pages": [
+                "async-collaboration/comments/steps/react",
+                "async-collaboration/comments/steps/nextjs",
+                "async-collaboration/comments/steps/html"
+              ]
+            }
+          ]
         }
       ]
     }
