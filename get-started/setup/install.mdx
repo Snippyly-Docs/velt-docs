@@ -2,11 +2,50 @@
 title: "1. Install"
 ---
 
+<Tabs>
+  <Tab title="React">
 ## 1) Install React package
 
 ```bash
 $ npm install @veltdev/react
 ```
+
+## 2) Install types (optional)
+
+If you're using TypeScript, you can install the types package.
+
+```bash
+$ npm install --save-dev @snippyly/types
+```
+
+## 3) Add VeltProvider
+
+Add the VeltProvider component to the root of your app.
+Add your Velt API key.
+
+  </Tab>
+  <Tab title="Next.js">
+## 1) Install React package
+
+```bash
+$ npm install @veltdev/react
+```
+
+## 2) Install types (optional)
+
+If you're using TypeScript, you can install the types package.
+
+```bash
+$ npm install --save-dev @snippyly/types
+```
+
+## 3) Add VeltProvider
+
+Add the VeltProvider component to the root of your app.
+Add your Velt API key.
+
+  </Tab>
+</Tabs>
 
 <RequestExample>
 
@@ -24,16 +63,3 @@ export default function App() {
 ```
 
 </RequestExample>
-
-## 2) Install types (optional)
-
-If you're using TypeScript, you can install the types package.
-
-```bash
-$ npm install --save-dev @snippyly/types
-```
-
-## 3) Add VeltProvider
-
-Add the VeltProvider component to the root of your app.
-Add your Velt API key.
