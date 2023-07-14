@@ -41,6 +41,15 @@
           ]
         }
       ]
+    },
+    {
+      "group": "Async Collaboration",
+      "pages": [
+        {
+          "group": "Comments",
+          "pages": ["async-collaboration/comments/steps"]
+        }
+      ]
     }
   ],
   "footerSocials": {
