@@ -24,6 +24,10 @@
   ],
   "tabs": [
     {
+      "name": "API Reference",
+      "url": "api-reference"
+    },
+    {
       "name": "Community",
       "url": "https://discord.gg/GupvcYH27h"
     }
@@ -43,6 +47,15 @@
       ]
     },
     {
+      "group": "Users",
+      "pages": [
+        {
+          "group": "Add User Contacts",
+          "pages": ["users/add-user-contacts/enable-at-mentions"]
+        }
+      ]
+    },
+    {
       "group": "Async Collaboration",
       "pages": [
         {
@@ -57,6 +70,99 @@
                 "async-collaboration/comments/steps/html"
               ]
             }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "API Reference",
+      "pages": [
+        {
+          "group": "Velt Client",
+          "pages": ["api-reference/velt-client/client"]
+        },
+        {
+          "group": "General",
+          "pages": [
+            "api-reference/general/featuretype",
+            "api-reference/general/user",
+            "api-reference/general/usercontact"
+          ]
+        },
+        {
+          "group": "Presence",
+          "pages": [
+            "api-reference/presence/presence-model",
+            "api-reference/presence/presence-element"
+          ]
+        },
+        {
+          "group": "Cursors",
+          "pages": [
+            "api-reference/cursors/cursor-model",
+            "api-reference/cursors/cursor-element"
+          ]
+        },
+        {
+          "group": "Flock",
+          "pages": ["api-reference/flock/pageinfo"]
+        },
+        {
+          "group": "Comments",
+          "pages": [
+            "api-reference/comments/comment-annotation-model",
+            "api-reference/comments/comment-model",
+            "api-reference/comments/comment-element"
+          ]
+        },
+        {
+          "group": "Comments Sidebar",
+          "pages": ["api-reference/comments-sidebar/sidebar"]
+        },
+        {
+          "group": "Notifications",
+          "pages": [
+            "api-reference/notifications/comment-notification-data",
+            "api-reference/notifications/comment-notification-raw-data"
+          ]
+        },
+        {
+          "group": "Area",
+          "pages": [
+            "api-reference/area/area-annotation",
+            "api-reference/area/area-element"
+          ]
+        },
+        {
+          "group": "Reorder",
+          "pages": [
+            "api-reference/reorder/reorder-annotation-model",
+            "api-reference/reorder/reorder-element"
+          ]
+        },
+        {
+          "group": "Huddle",
+          "pages": ["api-reference/huddle/huddle-element"]
+        },
+        {
+          "group": "Rewriter",
+          "pages": [
+            "api-reference/rewriter/rewriter-annotation",
+            "api-reference/rewriter/rewriter-element"
+          ]
+        },
+        {
+          "group": "Live Selection",
+          "pages": [
+            "api-reference/live-selection/selection-annotation",
+            "api-reference/live-selection/selection-element"
+          ]
+        },
+        {
+          "group": "Tag",
+          "pages": [
+            "api-reference/tag/tag-annotation",
+            "api-reference/tag/tag-element"
           ]
         }
       ]
