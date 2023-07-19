@@ -1,0 +1,97 @@
+---
+title: "Tag Element"
+---
+
+The TagElement class contains the following fields:
+
+### 1. getAllTagAnnotations()
+
+This method retrieves all tag annotations.
+
+**Signature**
+
+```java
+public getAllTagAnnotations(documentId?: string, location?: Location): Observable<TagAnnotation[] | null>;
+```
+
+**Params**
+
+`documentId?: string`
+
+`location?: Location`
+
+**Returns**
+
+`Observable<TagAnnotation[] | null>`
+
+### 2. deleteTag()
+
+To delete selected tags.
+
+**Signature**
+
+```java
+public deleteTag(): any;
+```
+
+**Params**
+
+`None`
+
+**Returns**
+
+`any`
+
+### 3. allowedElementIds()
+
+This method allows specific element IDs.
+
+**Signature**
+
+```java
+public allowedElementIds(elementIds: string[]): any;
+```
+
+**Params**
+
+`elementIds: string[]`
+
+**Returns**
+
+`any`
+
+### 4. attachTag()
+
+To add tags on specific elements.
+
+**Signature**
+
+```java
+public attachTag(elementId: string): any;
+```
+
+**Params**
+
+`elementId: string`
+
+**Returns**
+
+`any`
+
+### 5. addTagModeChange()
+
+Subscribe to add tag mode change.
+
+**Signature**
+
+```java
+public addTagModeChange(): Observable<boolean>;
+```
+
+**Params**
+
+`None`
+
+**Returns**
+
+`Observable<boolean>`
