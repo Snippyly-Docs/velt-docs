@@ -56,6 +56,52 @@
       ]
     },
     {
+      "group": "Realtime Collaboration",
+      "pages": [
+        {
+          "group": "Presence",
+          "pages": [
+            "realtime-collaboration/presence/overview",
+            "realtime-collaboration/presence/steps",
+            "realtime-collaboration/presence/customize-behavior",
+            "realtime-collaboration/presence/customize-ui"
+          ]
+        },
+        {
+          "group": "Cursors",
+          "pages": [
+            "realtime-collaboration/cursors/overview",
+            "realtime-collaboration/cursors/steps",
+            "realtime-collaboration/cursors/customize-behavior",
+            "realtime-collaboration/cursors/customize-ui"
+          ]
+        },
+        {
+          "group": "Flock Mode",
+          "pages": [
+            "realtime-collaboration/flock-mode/overview",
+            "realtime-collaboration/flock-mode/steps",
+            "realtime-collaboration/flock-mode/customize-behavior",
+            "realtime-collaboration/flock-mode/api"
+          ]
+        },
+        {
+          "group": "Huddle",
+          "pages": [
+            "realtime-collaboration/huddle/overview",
+            "realtime-collaboration/huddle/steps"
+          ]
+        },
+        {
+          "group": "Live Selection",
+          "pages": [
+            "realtime-collaboration/live-selection/overview",
+            "realtime-collaboration/live-selection/steps"
+          ]
+        }
+      ]
+    },
+    {
       "group": "Async Collaboration",
       "pages": [
         {

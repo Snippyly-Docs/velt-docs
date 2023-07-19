@@ -36,7 +36,60 @@ In the UserContact object set the `visibility` field to `'private'`. This will a
 
 <RequestExample>
 
-```java Enable @ Mentions & User Tagging
+```java React
+
+import { useVeltClient } from '@veltdev/react';
+import { useEffect } from 'react';
+
+export default function App() {
+
+  const { client } = useVeltClient();
+
+  useEffect(() => {
+    if (client && yourAuthenticatedUser) {
+      const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
+
+      const user = {
+        userId: uid,
+        name: displayName,
+        email: email,
+        photoUrl: photoURL
+      };
+
+      // Use your own logic to determine the group the user belongs to
+      user.groupId = 'some-group-id';
+
+      // You can pass contacts as an array of UserContact objects.
+      // These contacts will show up in various features (eg: comments) so that user can tag, @mention them.
+      const contacts = [
+        {
+          userId: 'd5558f1f-bdea-4eb5-9fd5-ed657e460307',
+          name: 'John Doe',
+          photoUrl: 'https://i.pravatar.cc/300',
+          email: 'john.doe@snippyly.com',
+          visibility: 'group'
+        },
+        {
+          userId: 'd5558f1f-bdea-4eb5-9fd5-ed657e460308',
+          name: 'Mary Doe',
+          photoUrl: 'https://i.pravatar.cc/300',
+          email: 'mary.doe@snippyly.com',
+          visibility: 'private'
+        }
+      ];
+      user.contacts = contacts;
+
+      client.identify(user);
+    }
+  }, [client, yourAuthenticatedUser]);
+
+  return (
+    // Your app template
+  );
+}
+```
+
+```java Next.js
 
 import { useVeltClient } from '@veltdev/react';
 import { useEffect } from 'react';
