@@ -1,17 +1,70 @@
+---
+title: "Steps"
+---
+
 <Tabs>
   <Tab title="React">
+### 1) Enable Flock mode on Presence
+Enable Flock mode feature.
+
+You need to add Presence feature to trigger Flock mode. This will enable Flock mode as an option for your users globally, wherever Presence is shown.
+
+To start the shared flock session, click on a user's avatar to start following them.
+
+### 2) Test Integration
+
+Test it out by opening the target page in two browsers with two different users logged in.
+
+You should see the avatars of the users rendered where you added the presence component. Now click on any avatar to start following them.
+
   </Tab>
   <Tab title="Next.js">
+### 1) Enable Flock mode on Presence
+Enable Flock mode feature.
+
+You need to add Presence feature to trigger Flock mode. This will enable Flock mode as an option for your users globally, wherever Presence is shown.
+
+To start the shared flock session, click on a user's avatar to start following them.
+
+### 2) Test Integration
+
+Test it out by opening the target page in two browsers with two different users logged in.
+
+You should see the avatars of the users rendered where you added the presence component. Now click on any avatar to start following them.
+
   </Tab>
 </Tabs>
 
 <RequestExample>
 
 ```java React
+  import { VeltPresence } from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <div className="toolbar">
+      <VeltPresence
+        flockMode={true}
+      />
+    </div>
+  );
+}
 ```
 
 ```java Next.js
+  import { VeltPresence } from '@veltdev/react';
 
+export default function App() {
+
+  return (
+    <div className="toolbar">
+      <VeltPresence
+        flockMode={true}
+      />
+    </div>
+  );
+}
 ```
 
 </RequestExample>

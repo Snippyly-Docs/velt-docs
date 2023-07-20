@@ -1,17 +1,78 @@
 <Tabs>
   <Tab title="React">
+### 1) Get the Velt client
+Import the useVeltClient React hook.
+
+You can use this hook within your component to fetch the Velt client.
+
+### 2) Create a useEffect hook
+
+Create the hook with the client as dependency.
+
+### 3) Enable live selection
+
+By default Users will be able to see the live selection from other users on Text nodes, Input tags & Contenteditable DIVs. To enable live selection on other HTML elements, add data-live-selection-enabled="true" attribute to it.
+
   </Tab>
   <Tab title="Next.js">
+### 1) Get the Velt client
+Import the useVeltClient React hook.
+
+You can use this hook within your component to fetch the Velt client.
+
+### 2) Create a useEffect hook
+
+Create the hook with the client as dependency.
+
+### 3) Enable live selection
+
+By default Users will be able to see the live selection from other users on Text nodes, Input tags & Contenteditable DIVs. To enable live selection on other HTML elements, add data-live-selection-enabled="true" attribute to it.
+
   </Tab>
 </Tabs>
 
 <RequestExample>
 
 ```java React
+import { useVeltClient } from '@veltdev/react';
+import { useEffect } from 'react';
+
+export default function App() {
+
+  const { client } = useVeltClient();
+
+  useEffect(() => {
+    if (client) {
+      const selectionElement = client.getSelectionElement();
+      selectionElement.enableLiveSelection();
+    }
+  }, [client]);
+
+  return (
+    //... rest of the component code...
+  );
+}
 ```
 
 ```java Next.js
+import { useVeltClient } from '@veltdev/react';
+import { useEffect } from 'react';
 
+export default function App() {
+
+  const { client } = useVeltClient();
+
+  useEffect(() => {
+    if (client) {
+      const selectionElement = client.getSelectionElement();
+      selectionElement.enableLiveSelection();
+    }
+  }, [client]);
+
+  return (
+    //... rest of the component code...
+  );
+}
 ```
 
 </RequestExample>

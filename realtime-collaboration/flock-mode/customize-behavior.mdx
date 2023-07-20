@@ -1,17 +1,143 @@
+---
+title: "Customize Behavior"
+---
+
 <Tabs>
   <Tab title="React">
+### 1) Enable custom navigation
+Use a callback for custom navigation or side-effects.
+
+When the leader of a flock navigates, we can use the React Router to update the follower's position. In the callback you will receive a PageInfo object.
+
+### 2 )Disable default flock navigation
+
+Disable default flock navigation.
+
+Our default navigation uses window.location.href to detect navigation. If you are handling navigation using the callback method above, you should disable our default navigation.
+
+### PageInfo
+
+| Field   | Type   | Description                 |
+| ------- | ------ | --------------------------- |
+| baseUrl | string | The base URL of the site    |
+| path    | string | The path after the base URL |
+| url     | string | The full URL                |
+
   </Tab>
   <Tab title="Next.js">
+### 1) Enable custom navigation
+Use a callback for custom navigation or side-effects.
+
+When the leader of a flock navigates, we can use the React Router to update the follower's position. In the callback you will receive a PageInfo object.
+
+### 2 )Disable default flock navigation
+
+Disable default flock navigation.
+
+Our default navigation uses window.location.href to detect navigation. If you are handling navigation using the callback method above, you should disable our default navigation.
+
+### PageInfo
+
+| Field   | Type   | Description                 |
+| ------- | ------ | --------------------------- |
+| baseUrl | string | The base URL of the site    |
+| path    | string | The path after the base URL |
+| url     | string | The full URL                |
+
+  </Tab>
+    <Tab title="HTML">
+    
+### 1)Pass in a callback for navigation
+Use a callback for custom navigation or side-effects.
+
+When the leader of a flock navigates, this callback will be called.
+
+### 2) Disable default flock navigation
+
+Disable default flock navigation.
+
+If you are handling navigation using a callback, you can opt to disable our default navigation using window.location.href.
+
+### PageInfo
+
+| Field   | Type   | Description                 |
+| ------- | ------ | --------------------------- |
+| baseUrl | string | The base URL of the site    |
+| path    | string | The path after the base URL |
+| url     | string | The full URL                |
+
   </Tab>
 </Tabs>
 
 <RequestExample>
 
 ```java React
+import { VeltPresence } from '@veltdev/react';
+import { useNavigate } from 'react-router-dom';
+
+export default function App() {
+
+  const navigate = useNavigate();
+
+  return (
+    <div className="toolbar">
+      <VeltPresence
+        flockMode={true}
+        onNavigate={(pageInfo) => navigate(pageInfo.path)}
+        defaultFlockNavigation={true}
+      />
+    </div>
+  );
+}
 ```
 
 ```java Next.js
+import { VeltPresence } from '@veltdev/react';
+import { useNavigate } from 'react-router-dom';
 
+export default function App() {
+
+  const navigate = useNavigate();
+
+  return (
+    <div className="toolbar">
+      <VeltPresence
+        flockMode={true}
+        onNavigate={(pageInfo) => navigate(pageInfo.path)}
+        defaultFlockNavigation={true}
+      />
+    </div>
+  );
+}
+```
+
+```html HTML
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Flock mode documentation</title>
+  </head>
+  <body>
+    <script>
+      function onNavigateHandler(pageInfo) {
+        // Do something with pageInfo
+      }
+
+      const presenceDOMElement = document.querySelector("snippyly-presence");
+
+      if (presenceDOMElement) {
+        presenceDOMElement.addEventListener("navigate", onNavigateHandler);
+      }
+    </script>
+
+    <div class="toolbar">
+      <snippyly-presence
+        flock-mode="true"
+        disable-flock-navigation="true"
+      ></snippyly-presence>
+    </div>
+  </body>
+</html>
 ```
 
 </RequestExample>
