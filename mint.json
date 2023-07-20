@@ -337,6 +337,48 @@
       ]
     },
     {
+      "group": "In-App User Feedback",
+      "pages": [
+        {
+          "group": "User Feedback",
+          "pages": [
+            "in-app-user-feedback/overview",
+            "in-app-user-feedback/steps",
+            "in-app-user-feedback/customize-behavior",
+            "in-app-user-feedback/customize-ui"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Permission Management",
+      "pages": [
+        {
+          "group": "Share & Invite",
+          "pages": [
+            "permission-management/share-and-invite/overview",
+            "permission-management/share-and-invite/steps",
+            "permission-management/share-and-invite/customize-behavior",
+            "permission-management/share-and-invite/customize-ui"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "AI Copilot",
+      "pages": [
+        {
+          "group": "Design",
+          "pages": [
+            "ai-copilot/design/overview",
+            "ai-copilot/design/steps",
+            "ai-copilot/design/customize-behavior",
+            "ai-copilot/design/customize-ui"
+          ]
+        }
+      ]
+    },
+    {
       "group": "API Reference",
       "pages": [
         {
