@@ -149,6 +149,190 @@
               ]
             }
           ]
+        },
+        {
+          "group": "Comments Sidebar",
+          "pages": [
+            "async-collaboration/comments-sidebar/overview",
+            {
+              "group": "Freestyle",
+              "pages": [
+                "async-collaboration/comments-sidebar/freestyle/steps",
+                "async-collaboration/comments-sidebar/freestyle/behavior",
+                "async-collaboration/comments-sidebar/freestyle/ui"
+              ]
+            },
+            {
+              "group": "Popover",
+              "pages": [
+                "async-collaboration/comments-sidebar/popover/steps",
+                "async-collaboration/comments-sidebar/popover/behavior",
+                "async-collaboration/comments-sidebar/popover/ui"
+              ]
+            },
+            {
+              "group": "Stream",
+              "pages": [
+                "async-collaboration/comments-sidebar/stream/steps",
+                "async-collaboration/comments-sidebar/stream/behavior",
+                "async-collaboration/comments-sidebar/stream/ui"
+              ]
+            },
+            {
+              "group": "Text",
+              "pages": [
+                "async-collaboration/comments-sidebar/text/steps",
+                "async-collaboration/comments-sidebar/text/behavior",
+                "async-collaboration/comments-sidebar/text/ui"
+              ]
+            },
+            {
+              "group": "Inbox",
+              "pages": [
+                "async-collaboration/comments-sidebar/inbox/steps",
+                "async-collaboration/comments-sidebar/inbox/behavior",
+                "async-collaboration/comments-sidebar/inbox/ui"
+              ]
+            }
+          ]
+        },
+        {
+          "group": "System Comments",
+          "pages": [
+            "async-collaboration/system-comments/overview",
+            {
+              "group": "Freestyle",
+              "pages": [
+                "async-collaboration/system-comments/freestyle/steps",
+                "async-collaboration/system-comments/freestyle/behavior",
+                "async-collaboration/system-comments/freestyle/ui"
+              ]
+            },
+            {
+              "group": "Popover",
+              "pages": [
+                "async-collaboration/system-comments/popover/steps",
+                "async-collaboration/system-comments/popover/behavior",
+                "async-collaboration/system-comments/popover/ui"
+              ]
+            },
+            {
+              "group": "Stream",
+              "pages": [
+                "async-collaboration/system-comments/stream/steps",
+                "async-collaboration/system-comments/stream/behavior",
+                "async-collaboration/system-comments/stream/ui"
+              ]
+            },
+            {
+              "group": "Text",
+              "pages": [
+                "async-collaboration/system-comments/text/steps",
+                "async-collaboration/system-comments/text/behavior",
+                "async-collaboration/system-comments/text/ui"
+              ]
+            },
+            {
+              "group": "Inbox",
+              "pages": [
+                "async-collaboration/system-comments/inbox/steps",
+                "async-collaboration/system-comments/inbox/behavior",
+                "async-collaboration/system-comments/inbox/ui"
+              ]
+            }
+          ]
+        },
+        {
+          "group": "Arrows",
+          "pages": [
+            "async-collaboration/arrows/overview",
+            {
+              "group": "Freestyle",
+              "pages": [
+                "async-collaboration/arrows/freestyle/steps",
+                "async-collaboration/arrows/freestyle/behavior",
+                "async-collaboration/arrows/freestyle/ui"
+              ]
+            },
+            {
+              "group": "Popover",
+              "pages": [
+                "async-collaboration/arrows/popover/steps",
+                "async-collaboration/arrows/popover/behavior",
+                "async-collaboration/arrows/popover/ui"
+              ]
+            },
+            {
+              "group": "Stream",
+              "pages": [
+                "async-collaboration/arrows/stream/steps",
+                "async-collaboration/arrows/stream/behavior",
+                "async-collaboration/arrows/stream/ui"
+              ]
+            },
+            {
+              "group": "Text",
+              "pages": [
+                "async-collaboration/arrows/text/steps",
+                "async-collaboration/arrows/text/behavior",
+                "async-collaboration/arrows/text/ui"
+              ]
+            },
+            {
+              "group": "Inbox",
+              "pages": [
+                "async-collaboration/arrows/inbox/steps",
+                "async-collaboration/arrows/inbox/behavior",
+                "async-collaboration/arrows/inbox/ui"
+              ]
+            }
+          ]
+        },
+        {
+          "group": "Reorder",
+          "pages": [
+            "async-collaboration/reorder/overview",
+            {
+              "group": "Freestyle",
+              "pages": [
+                "async-collaboration/reorder/freestyle/steps",
+                "async-collaboration/reorder/freestyle/behavior",
+                "async-collaboration/reorder/freestyle/ui"
+              ]
+            },
+            {
+              "group": "Popover",
+              "pages": [
+                "async-collaboration/reorder/popover/steps",
+                "async-collaboration/reorder/popover/behavior",
+                "async-collaboration/reorder/popover/ui"
+              ]
+            },
+            {
+              "group": "Stream",
+              "pages": [
+                "async-collaboration/reorder/stream/steps",
+                "async-collaboration/reorder/stream/behavior",
+                "async-collaboration/reorder/stream/ui"
+              ]
+            },
+            {
+              "group": "Text",
+              "pages": [
+                "async-collaboration/reorder/text/steps",
+                "async-collaboration/reorder/text/behavior",
+                "async-collaboration/reorder/text/ui"
+              ]
+            },
+            {
+              "group": "Inbox",
+              "pages": [
+                "async-collaboration/reorder/inbox/steps",
+                "async-collaboration/reorder/inbox/behavior",
+                "async-collaboration/reorder/inbox/ui"
+              ]
+            }
+          ]
         }
       ]
     },
