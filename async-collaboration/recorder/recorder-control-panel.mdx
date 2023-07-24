@@ -1,0 +1,29 @@
+### Recorder Control Panel
+
+The Recorder Control Panel is a component that When the recording starts shows the recording preview and options to save, pause or delete the recording.
+
+![](https://files.readme.io/38580c5-Frame_8253.png)
+
+You can add it whever you want it to appear. Eg: You can add it in your comment input box container where users type the comment.
+
+We support 2 modes:
+ - "thread": The preview is shown wherever you put this component.
+ - "floating": (default) The preview is shown on the bottom left of the page no matter where you put this component.
+
+
+To add the Recorder Control Panel:
+
+```react
+import { VeltRecorderControlPanel, VeltRecorderTool } from '@veltdev/react'
+
+function TaskInputBox() {
+    return (
+    	//... rest of the component code...
+      <VeltRecorderControlPanel mode="thread" />
+
+      //... rest of the component code...
+    )
+}
+```
+
+
