@@ -1,22 +1,100 @@
 <Tabs>
   <Tab title="React">
+### 1) Import Comment components
+Import the VeltComments component.
+
+### 2) Add Comment component with Text mode
+
+Add the VeltComments component to the root of your app and mark the textMode property as true.
+
+This component is required to render comments in your app.
+
+Text mode allows users to select any text and attach comments to it similar to Google Docs.
+
+### 3) Test Integration
+
+Test it out by opening the page with Velt components in your browser.
+
+Select any text, a comment tool will appear near the highlighted text. Click on it to add a comment.
+
   </Tab>
   <Tab title="Next.js">
+### 1) Import Comment components
+Import the VeltComments component.
+
+### 2) Add Comment component with Text mode
+
+Add the VeltComments component to the root of your app and mark the textMode property as true.
+
+This component is required to render comments in your app.
+
+Text mode allows users to select any text and attach comments to it similar to Google Docs.
+
+### 3) Test Integration
+
+Test it out by opening the page with Velt components in your browser.
+
+Select any text, a comment tool will appear near the highlighted text. Click on it to add a comment.
+
   </Tab>
     <Tab title="HTML">
+### 1) Add Comment component with Text mode
+Add the comment component to your template.
+
+This component is required to render comments in your app. Text mode allows users to attach comments to highlighted text.
+
+### 2) Test Integration
+
+Test it out by adding a comment.
+
+You should be able to leave a comment by selecting some text.
+
   </Tab>
 </Tabs>
 
 <RequestExample>
 
 ```java React
+import { VeltProvider, VeltComments } from '@veltdev/react';
 
+export default function App() {
+
+  return (
+    <VeltProvider apiKey="API_KEY">
+
+      <VeltComments textMode={true} />
+
+    </VeltProvider>
+  );
+}
 ```
 
 ```java Next.js
+import { VeltProvider, VeltComments } from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <VeltProvider apiKey="API_KEY">
+
+      <VeltComments textMode={true} />
+
+    </VeltProvider>
+  );
+}
+
 ```
 
 ```html HTML
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Comment documentation</title>
+  </head>
+  <body>
+    <snippyly-comments text-mode="true"></snippyly-comments>
+  </body>
+</html>
 ```
 
 </RequestExample>
