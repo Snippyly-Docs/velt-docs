@@ -2,17 +2,3 @@
 
 The Recorder Player Component displays the recorded data with controls such as pause, play and delete.
 
-Whenever a recording is created, the control panel component emits a callback event called onRecordedData with the recorder player component data. Add a callback method to the <VeltRecorderControlPanel onRecordedData=''> component you added in the previous step. This is the response object that you get back:
-
-
-There are two ways to add the Recorder Player Component:
-
-## Using React Component
-
-You can add SnippylyRecorderPlayer react component wherever you want to show the recorded data. You need to pass recorder ID to fetch the right recorded data. You get the recorderId in the above onRecordedData callback event. You can store the recorderId on your end with your comment data.
-
-
-
-
-## Using HTML Tag
-The returned data has a tag field. It contains the Recorder Player Component HTML tag. Insert that wherever you want to show the recorded data. In this example, we inserted in your comment box.
