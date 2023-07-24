@@ -4,7 +4,8 @@ title: "Steps"
 
 <Tabs>
   <Tab title="HTML">
-### 1) Import Presence Component
+
+### 1) Enable Rewriter 
 
 ```js
 if (Velt) {
@@ -14,15 +15,67 @@ if (Velt) {
 ```
 
   </Tab>
+  <Tab title="React">
+### 1) Enable Rewriter 
+
+First, import `useVeltClient` from `@veltdev/react`.
+
+Then create a client object using the `useVeltClient` hook.
+
+Lastly, within a `useEffect` hook, call getRewriterElement() and then enableRewriter() to enable Rewriter.
+
+```react
+import { useEffect } from "react";
+import { useVeltClient } from "@veltdev/react";
+
+export default function App() {
+  let { client } = useVeltClient();
+
+  useEffect(() => {
+    if (client) {
+      const rewriterElement = client.getRewriterElement();
+      rewriterElement.enableRewriter();
+    }
+  }, [client]);
+
+  return (
+    // your app template
+  );
+}
+
+```
+
+  </Tab>
 </Tabs>
 
 <RequestExample>
 
-```java JavaScript
+```html
 if (Velt) {
   const rewriterElement = Velt.getRewriterElement();
   rewriterElement.enableRewriter();
 }
+```
+
+```react
+import { useEffect } from "react";
+import { useVeltClient } from "@veltdev/react";
+
+export default function App() {
+  let { client } = useVeltClient();
+
+  useEffect(() => {
+    if (client) {
+      const rewriterElement = client.getRewriterElement();
+      rewriterElement.enableRewriter();
+    }
+  }, [client]);
+
+  return (
+    // your app template
+  );
+}
+
 ```
 
 </RequestExample>
