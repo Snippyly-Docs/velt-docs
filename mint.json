@@ -199,47 +199,7 @@
         {
           "group": "System Comments",
           "pages": [
-            "async-collaboration/system-comments/overview",
-            {
-              "group": "Freestyle",
-              "pages": [
-                "async-collaboration/system-comments/freestyle/steps",
-                "async-collaboration/system-comments/freestyle/behavior",
-                "async-collaboration/system-comments/freestyle/ui"
-              ]
-            },
-            {
-              "group": "Popover",
-              "pages": [
-                "async-collaboration/system-comments/popover/steps",
-                "async-collaboration/system-comments/popover/behavior",
-                "async-collaboration/system-comments/popover/ui"
-              ]
-            },
-            {
-              "group": "Stream",
-              "pages": [
-                "async-collaboration/system-comments/stream/steps",
-                "async-collaboration/system-comments/stream/behavior",
-                "async-collaboration/system-comments/stream/ui"
-              ]
-            },
-            {
-              "group": "Text",
-              "pages": [
-                "async-collaboration/system-comments/text/steps",
-                "async-collaboration/system-comments/text/behavior",
-                "async-collaboration/system-comments/text/ui"
-              ]
-            },
-            {
-              "group": "Inbox",
-              "pages": [
-                "async-collaboration/system-comments/inbox/steps",
-                "async-collaboration/system-comments/inbox/behavior",
-                "async-collaboration/system-comments/inbox/ui"
-              ]
-            }
+            "async-collaboration/system-comments/overview"
           ]
         },
         {
