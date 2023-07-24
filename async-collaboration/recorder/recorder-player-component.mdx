@@ -4,6 +4,10 @@ The Recorder Player Component displays the recorded data with controls such as p
 
 Whenever a recording is created, the control panel component emits a callback event called onRecordedData with the recorder player component data. Add a callback method to the `<VeltRecorderControlPanel onRecordedData=''>` component you added in the previous step. This is the response object that you get back:
 
+| Field    | Type                          | Example                                                                            |
+| -------- | ------------------------------| -----------------------------------------------------------------------------------|
+| id       | string                        | "recorder_id"                                                                      |
+| tag      | string                        | "<snippyly-recorder-player recorder-id=\"RECORDER_ID\"></snippyly-recorder-player>"|
 
 
 There are two ways to add the Recorder Player Component:
