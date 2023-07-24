@@ -258,7 +258,7 @@
             "async-collaboration/recorder/install",
             "async-collaboration/recorder/customizations",
             "async-collaboration/recorder/recorder-control-panel",
-            "async-collaboration/recorder/recorder-player-component",
+            "async-collaboration/recorder/recorder-player-component"
           ]
         }
       ]
