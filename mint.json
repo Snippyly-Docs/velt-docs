@@ -252,49 +252,13 @@
           ]
         },
         {
-          "group": "Reorder",
+          "group": "Recorder",
           "pages": [
-            "async-collaboration/reorder/overview",
-            {
-              "group": "Freestyle",
-              "pages": [
-                "async-collaboration/reorder/freestyle/steps",
-                "async-collaboration/reorder/freestyle/behavior",
-                "async-collaboration/reorder/freestyle/ui"
-              ]
-            },
-            {
-              "group": "Popover",
-              "pages": [
-                "async-collaboration/reorder/popover/steps",
-                "async-collaboration/reorder/popover/behavior",
-                "async-collaboration/reorder/popover/ui"
-              ]
-            },
-            {
-              "group": "Stream",
-              "pages": [
-                "async-collaboration/reorder/stream/steps",
-                "async-collaboration/reorder/stream/behavior",
-                "async-collaboration/reorder/stream/ui"
-              ]
-            },
-            {
-              "group": "Text",
-              "pages": [
-                "async-collaboration/reorder/text/steps",
-                "async-collaboration/reorder/text/behavior",
-                "async-collaboration/reorder/text/ui"
-              ]
-            },
-            {
-              "group": "Inbox",
-              "pages": [
-                "async-collaboration/reorder/inbox/steps",
-                "async-collaboration/reorder/inbox/behavior",
-                "async-collaboration/reorder/inbox/ui"
-              ]
-            }
+            "async-collaboration/recorder/overview",
+            "async-collaboration/recorder/install",
+            "async-collaboration/recorder/customizations",
+            "async-collaboration/recorder/recorder-control-panel",
+            "async-collaboration/recorder/recorder-player"
           ]
         }
       ]
