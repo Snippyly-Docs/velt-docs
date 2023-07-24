@@ -3,9 +3,51 @@ title: "Steps"
 ---
 
 <Tabs>
-  <Tab title="HTML">
+  <Tab title="React">
 
+### 1) Get the Velt client
+Import the useVeltClient React hook.
+
+You can use this hook within your component to fetch the Velt client.
+
+### 2) Create a useEffect hook
+Create the hook with the client as dependency.
+
+### 3) Enable Rewriter
+Within the `useEffect` hook, call getRewriterElement() and then enableRewriter() on the client object to enable Rewriter. Now when a user highlights text on your website, the Rewriter tool will pop up.
+
+
+```react
+import { useEffect } from "react";
+import { useVeltClient } from "@veltdev/react";
+
+export default function App() {
+  let { client } = useVeltClient();
+
+  useEffect(() => {
+    if (client) {
+      const rewriterElement = client.getRewriterElement();
+      rewriterElement.enableRewriter();
+    }
+  }, [client]);
+
+  return (
+    // your app template
+  );
+}
+
+```
+
+
+  </Tab>
+  <Tab title="HTML">
 ### 1) Enable Rewriter 
+
+# Enable Rewriter
+
+Call getRewriterElement() and then enableRewriter() on the Velt client object to enable Rewriter. Now when a user highlights text on your website, the Rewriter tool will pop up.
+
+
 
 ```js
 if (Velt) {
@@ -15,14 +57,9 @@ if (Velt) {
 ```
 
   </Tab>
-  <Tab title="React">
-### 1) Enable Rewriter 
+</Tabs>
 
-First, import `useVeltClient` from `@veltdev/react`.
-
-Then create a client object using the `useVeltClient` hook.
-
-Lastly, within a `useEffect` hook, call getRewriterElement() and then enableRewriter() to enable Rewriter.
+<RequestExample>
 
 ```react
 import { useEffect } from "react";
@@ -44,11 +81,6 @@ export default function App() {
 }
 
 ```
-
-  </Tab>
-</Tabs>
-
-<RequestExample>
 
 ```html
 if (Velt) {
@@ -57,25 +89,6 @@ if (Velt) {
 }
 ```
 
-```react
-import { useEffect } from "react";
-import { useVeltClient } from "@veltdev/react";
 
-export default function App() {
-  let { client } = useVeltClient();
-
-  useEffect(() => {
-    if (client) {
-      const rewriterElement = client.getRewriterElement();
-      rewriterElement.enableRewriter();
-    }
-  }, [client]);
-
-  return (
-    // your app template
-  );
-}
-
-```
 
 </RequestExample>
