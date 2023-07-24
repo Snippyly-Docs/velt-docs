@@ -181,6 +181,57 @@ With custom statuses, you can replace the default statuses with your own values.
 2. Set Status Icon:
    You can pass in a serialized SVG. We automatically parse and colorize SVGs. If insptead you pass in an icon URL, you will have to colorize each icon yourself to match the status color.
 
+
+### 23) Ability to accept or reject comments
+
+To accept comments, set suggestion-mode to `true`.
+```html
+<velt-comments
+	suggestion-mode="true">
+</velt-comments>
+```
+
+### 24) To retrieve comments in the frontend
+
+To retrieve comments in the frontend, call getCommentElement() on the Velt client and then subscribe() to getAllCommentAnnotations() and pass in a callback function.
+
+```html
+if (Velt) {
+  const commentElement = Velt.getCommentElement();
+  commentElement.getAllCommentAnnotations().subscribe((comments) => {
+    // Do something with the comments
+  });
+}
+```
+
+### 25) To retrieve comments in the backend
+
+For this you should use our Webhook service. Let's say you want to be notified whenever a comment is added or updated, you can provide us an endpoint and we will send the comment data to that end point as and when there is an update. You can then process it further. Note that you cannot retrieve historical comments using this.
+
+You can enable and configure webhook in your Velt Console as shown below. After you enable this, you need to provide an endpoint url. We will make a post request to that endpoint to send the comment data.
+
+![](https://files.readme.io/0ac5e4a-image.png)
+
+### 26) Remove Status Dropdown
+
+To remove the status dropdown, set the `status` attribute to `false`.
+
+```html
+<velt-comments
+  status="false">
+</velt-comments>
+```
+
+### 27) Remove Resolve Button
+
+To remove the resolve button, set the `resolve-button` attribute to `false`.
+
+```html
+<velt-comments
+  resolve-button="false">
+</velt-comments>
+```
+
   </Tab>
   <Tab title="Next.js">
 ### 1) Area selection in Freestyle mode
