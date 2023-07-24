@@ -1,0 +1,60 @@
+---
+title: "System Comments"
+sidebarTitle: "Delete System Comments"
+description: "TBD"
+---
+
+<Tabs>
+  <Tab title="HTML">
+### Delete System Comment
+URL: https://us-central1-snippyly-sdk-prod.cloudfunctions.net/deleteSystemComment
+
+Method: POST
+
+a. Delete the entire comment annotation.
+
+Body:
+
+```JSON
+{
+  "apiKey": "your_api_key_here",
+  "authToken": "your_token_here",
+  "documentId": "your_document_id_here",
+  "annotationId": "COMMENT_ANNOTATION_ID",
+}
+```
+
+### Delete Child Comment
+This will delete a specific child comment inside parent annotation. If there are no more comments available inside comment annotation, then comment annotation will also be deleted.
+
+Body:
+
+```JSON
+{
+  "apiKey": "API_KEY",
+  "authToken": "AUTH_TOKEN",
+  "documentId": "client-document-id",
+  "annotationId": "COMMENT_ANNOTATION_ID",
+  "commentId": 123456 // child comment id to delete
+}
+```
+
+Response:
+
+```JSON
+{
+  "status": "success",
+  "message": "System Comment thread deleted successfully.",
+  "data": {
+    "annotationId": "COMMENT_ANNOTATION_ID",
+    "commentIds": [ // remaining comment ids
+      456789
+    ]
+  }
+}
+```
+
+
+  </Tab>
+
+</Tabs>

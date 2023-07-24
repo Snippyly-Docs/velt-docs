@@ -1,0 +1,74 @@
+---
+title: "System Comments"
+sidebarTitle: "Overview"
+description: "TBD"
+---
+
+<Tabs>
+  <Tab title="HTML">
+### Add System Comment
+
+To add system comment, send POST request to below cloud function with the data in body as mentioned below.
+
+Note the following configurations:
+
+selectAllContent: If this is true then the comment is added to the entire text in the element vs the element itself.
+commentHtml: You can pass HTML content here and we will parse this in the comment and also add the html to the target element when the accept button is clicked.
+URL: https://us-central1-snippyly-sdk-prod.cloudfunctions.net/addSystemComment
+
+Method: POST
+
+Body:
+
+```JSON
+{
+  "apiKey": "your_api_key_here",
+  "authToken": "your_token_here",
+  "documentId": "your_document_id_here",
+  "targetElement": {
+    "elementId": "element_id", // optional (pass elementId if you want to add comment on a specific element)
+    "targetText": "target_text", // optional (pass targetText if you want to add comment on a specific text)
+    "occurrence": 1, // optional (default: 1) This is relevant for text comment. By default, we will attach comment to the first occurence of the target text in your document. You can change this to attach your comment on a more specific text.
+  	"selectAllContent": true, // Set to `true` if you want to select all the text content of the target element.
+  },
+  "status": "open", // optional (default: open)
+  "commentData": [
+    {
+      "commentText": "This is awesome! Well done.", // To set plain text content
+      "commentHtml": "This <span style=\"color: green; background-color: aliceblue; display: inline-block; padding: 4px; border-radius: 4px;\">is test</span> comment.", // To set HTML formatted content
+      "replaceContentText": "This is new comment", // provide this replaceContentText to replace current text with
+      "replaceContentHtml": "<span>This is <b>new</b> comment.</span>", // If replacement text contains html formatted text, then provide it here
+      "from": {
+        "email": "user1@domain.com", // required
+        "name": "User1" // optional
+      }
+    }
+  ]
+}
+```
+
+Response:
+
+```JSON
+	{
+  "status": "success",
+  "message": "System Comment added successfully.",
+  "data": {
+    "annotationId": "COMMENT_ANNOTATION_ID", // this is the parent comment annotation id.
+    "commentIds": [ // all the child comment ids will be provided in order in this array.
+      123456
+    ]
+  }
+}
+```
+
+This is the priority order of the text to be replaced when comment is accepted:
+
+replaceContentHtml > replaceContentText > commentHtml > commentText
+
+
+
+
+  </Tab>
+
+</Tabs>

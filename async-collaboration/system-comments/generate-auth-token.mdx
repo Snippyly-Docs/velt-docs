@@ -1,0 +1,65 @@
+---
+title: "System Comments"
+sidebarTitle: "Overview"
+description: "TBD"
+---
+
+<Tabs>
+  <Tab title="HTML">
+### Generate Auth Token
+
+a. Open Velt Console
+
+b. Under the Auth Token section, click on Generate Token button:
+
+![](https://files.readme.io/78efa84-image.png)
+
+c. Copy the generated token
+
+![](https://files.readme.io/97c5e80-image.png)
+
+d. Click on Save button to save the token.
+
+2. Send POST request
+
+a. Prepare a POST request:
+
+Now, prepare a POST API request using the JSON data mentioned below.
+
+Replace your_token_here with the token you copied earlier. Replace 'apiKey', 'documentId' and other values with your actual data.
+
+```JSON
+{
+    "apiKey": "your_api_key_here",
+    "authToken": "your_token_here",
+    "documentId": "your_document_id_here",
+    "targetElement": {
+        "elementId": "element_id", // optional (pass elementId if you want to add comment on a specific element)
+        "targetText": "target_text", // optional (pass targetText if you want to add comment on a specific text)
+        "occurrence": 1 // optional (default: 1) This is relevant for text comment. By default, we will attach comment to the first occurence of the target text in your document. You can change this to attach your comment on a more specific text.
+    },
+    "status": "open", // optional (default: open)
+    "commentData": [
+        {
+            "commentText": "Replace: 'This is old comment' with 'This is new comment'", // required
+          	"replaceContentText": "This is new comment", // provide this replaceContentText to replace current text with
+            "replaceContentHtml": "<span>This is <b>new</b> comment.</span>", // If replacement text contains html formatted text, then provide it here
+            "from": {
+                "email": "user1@domain.com", // required
+                "name": "User1" // optional
+            }
+        }
+    ]
+}```
+
+b. Send the POST request
+
+Finally, send the POST API request to https://us-central1-snippyly-sdk-prod.cloudfunctions.net/addSystemComment API endpoint.
+
+If the request is successful, you should receive a 200 OK HTTP status code, along with a response from the server confirming that the comment has been added.
+
+
+
+  </Tab>
+
+</Tabs>

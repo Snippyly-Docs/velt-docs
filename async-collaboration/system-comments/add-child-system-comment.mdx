@@ -1,0 +1,54 @@
+---
+title: "System Comments"
+sidebarTitle: "Add a Child System Comment"
+description: "TBD"
+---
+
+<Tabs>
+  <Tab title="HTML">
+### Add a Child System Comment
+
+You can use the annotationId returned on system comment response to add a child comment to it in the future:
+
+URL: https://us-central1-snippyly-sdk-prod.cloudfunctions.net/addSystemComment
+
+Method: POST
+
+Body:
+
+```JSON
+{
+  "apiKey": "your_api_key_here",
+  "authToken": "your_token_here",
+  "documentId": "your_document_id_here",
+  "annotationId": "COMMENT_ANNOTATION_ID", // Pass the annotation ID to add a child comment to it.
+  "commentData": [ // NOTE: this will be appeneded to the previous comments array
+    {
+      "commentText": "This is awesome! Well done.", // To set plain text content
+      "commentHtml": "This <span style=\"color: green; background-color: aliceblue; display: inline-block; padding: 4px; border-radius: 4px;\">is test</span> comment.", // To set HTML formatted content
+      "from": {
+        "email": "user1@domain.com", // required
+        "name": "User1" // optional
+      }
+    }
+  ]
+}
+```
+
+Response:
+
+```JSON
+{
+    "status": "success",
+    "message": "System Comment added successfully.",
+    "data": {
+        "annotationId": "COMMENT_ANNOTATION_ID", // this is the parent comment annotation id.
+        "commentIds": [ // all the child comment ids will be provided in order in this array.
+            123456
+        ]
+    }
+}
+```
+  </Tab>
+
+</Tabs>
