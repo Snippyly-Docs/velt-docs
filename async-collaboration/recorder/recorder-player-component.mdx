@@ -30,3 +30,24 @@ function ReactComponent() {
 ## Using HTML Tag
 The returned data has atag field. It contains the Recorder Player Component HTML tag. Insert that wherever you want to show the recorded data. In this example, we inserted in your comment box.
 
+```js
+import { SnippylyRecorderControlPanel, SnippylyRecorderTool } from '@snippyly/react'
+
+function TaskInputBox() {
+  // Method to insert the returned recorder player component tag into your comment input box container.
+  const onRecordedData = (data) => {
+    const inputBox = document.getElementById('inputBox');
+    if (inputBox && data) {
+      inputBox.innerHTML = inputBox.innerHTML + data.tag + '<br/>';
+    }
+  }
+  
+    return (
+    	//... rest of the component code...
+      <SnippylyRecorderControlPanel mode="thread" onRecordedData={(data) => onRecordedData(data)} />
+
+			//... rest of the component code...
+    )
+}
+```
+
