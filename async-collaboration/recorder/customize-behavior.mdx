@@ -52,9 +52,9 @@ This is the response object that you get back:
 | tag       | string                        | `<snippyly-recorder-player recorder-id=\"RECORDER_ID\"></snippyly-recorder-player>` |
 
 ```js
-import { VeltRecorderControlPanel, VeltRecorderTool } from '@veltdev/react'
+import { VeltRecorderControlPanel } from '@veltdev/react'
 
-function TaskInputBox() {
+const SomeComponent = () => {
 
     const onRecordedData = (id,tag) => {
         console.log(id,tag)
@@ -66,4 +66,7 @@ function TaskInputBox() {
       //... rest of the component code...
     )
 }
+
+export default SomeComponent;
+
 ```
