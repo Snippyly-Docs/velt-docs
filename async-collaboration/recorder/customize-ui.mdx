@@ -1,0 +1,23 @@
+## Custom CSS
+You can override the CSS of the entire component yourself.
+
+## Custom Button
+You can create your own button instead of using the button we provided. To do so, pass in your button as a child component to `VeltRecorderTool`
+
+```js
+import { VeltRecorderTool } from '@veltdev/react'
+
+const SomeComponent = () => {
+  return (
+    //... rest of the component code...
+
+		<VeltRecorderTool type="all">
+            <button>Start Recording</button> //you can add any html code here.
+        </VeltRecorderTool>
+    
+    //... rest of the component code...
+  )
+}
+
+export default SomeComponent;
+```

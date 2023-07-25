@@ -256,9 +256,9 @@
           "pages": [
             "async-collaboration/recorder/overview",
             "async-collaboration/recorder/steps",
-            "async-collaboration/recorder/customizations",
-            "async-collaboration/recorder/recorder-control-panel",
-            "async-collaboration/recorder/recorder-player-component"
+            "async-collaboration/recorder/customize-ui",
+            "async-collaboration/recorder/customize-behavior"
+
           ]
         }
       ]

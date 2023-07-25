@@ -1,0 +1,53 @@
+## Recording Types
+
+The VeltRecorderTool can be configured to record a user's audio, video or screen. There is also the option to allow the user to record all types of media instead of just one.
+
+## Floating Mode vs Thread Mode
+
+The VeltRecorderControlPanel can be configured in either Floating mode or Thread mode. Floating mode will 
+
+![](https://files.readme.io/38580c5-Frame_8253.png)
+
+Floating mode will show a preview in the bottom left of the page, no matter where you put the component.
+
+Thread mode will show the componenet wherever it is placed.
+
+## onDelete callback
+
+The creator of the recordings sees the option to delete the recording. Once the user deletes the recording, the VeltRecorderPlayer component will publish a callback method called onDelete with the recorder ID. You can listen to the callback and use the response object to perform any clean up on your end. This is the response object that you get back:
+
+| Field    | Type                          | Example       |
+| -------- | ------------------------------| --------------|
+| id       | string                        | "recorder_id" |
+
+```js
+import { VeltRecorderPlayer } from '@veltdev/react'
+
+const SomeComponent = () => {
+  
+  const onDelete = (data) => {
+    console.log('on delete: ', data);
+  }
+   
+  return (
+  	//... rest of the component code...
+		<VeltRecorderPlayer recorderId={RECORDER_ID} onDelete={(data) => onDelete(data)} />
+
+    //... rest of the component code...
+  )
+}
+
+export default SomeComponent;
+```
+
+## onRecordedData callback
+
+Whenever a recording is created, the VeltControlPanel component emits a callback event called onRecordedData with the recorder player component data. 
+
+This is the response object that you get back:
+
+| Field    | Type                          | Example                                                                            |
+| -------- | ------------------------------| -----------------------------------------------------------------------------------|
+| id       | string                        | "recorder_id"                                                                      |
+| tag       | string                        | `<snippyly-recorder-player recorder-id=\"RECORDER_ID\"></snippyly-recorder-player>` |
+
