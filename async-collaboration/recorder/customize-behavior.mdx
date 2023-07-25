@@ -51,3 +51,19 @@ This is the response object that you get back:
 | id       | string                        | "recorder_id"                                                                      |
 | tag       | string                        | `<snippyly-recorder-player recorder-id=\"RECORDER_ID\"></snippyly-recorder-player>` |
 
+```js
+import { VeltRecorderControlPanel, VeltRecorderTool } from '@veltdev/react'
+
+function TaskInputBox() {
+
+    const onRecordedData = (id,tag) => {
+        console.log(id,tag)
+    }
+    return (
+    	//... rest of the component code...
+      <VeltRecorderControlPanel mode="thread" onRecordedData={onRecordedData} />
+
+      //... rest of the component code...
+    )
+}
+```
