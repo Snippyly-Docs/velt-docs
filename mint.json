@@ -255,7 +255,7 @@
           "group": "Recorder",
           "pages": [
             "async-collaboration/recorder/overview",
-            "async-collaboration/recorder/install",
+            "async-collaboration/recorder/steps",
             "async-collaboration/recorder/customizations",
             "async-collaboration/recorder/recorder-control-panel",
             "async-collaboration/recorder/recorder-player-component"

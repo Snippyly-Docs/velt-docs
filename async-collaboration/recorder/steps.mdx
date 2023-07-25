@@ -1,0 +1,29 @@
+### 1) Import VeltRecorderTool component
+Import the `VeltRecorderTool` from `@veltdev/react`
+
+### 2) Add VeltRecorderTool component
+Next, simply add the the VeltRecorderTool component wherever you want the recorder button to appear.
+
+### 3) Choose the recording type
+
+Set `type` attribute of the VeltRecorderTool component to one of the following:
+ - all
+ - audio 
+ - video
+ - screen
+
+```js
+import { VeltRecorderTool } from '@veltdev/react'
+
+function TaskInputBox() {
+    return (
+    	//... rest of the component code...
+      <SnippylyRecorderTool type='all' />
+      
+      //... rest of the component code...
+    )
+}
+```
+
+
+
