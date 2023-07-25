@@ -1,0 +1,138 @@
+---
+title: "4. Build your own UI"
+---
+
+<Tabs>
+<Tab title="React">
+
+## 1) Get the Velt client
+
+Import the `useVeltClient` React hook.
+
+You can use this hook within your component to fetch the Velt client.
+
+## 2) Create a useEffect hook
+
+Create an effect with the `client` as a dependency.
+
+Make sure to check if the `client` is `null` or `undefined` before you use it.
+
+## 3) Filter comments by document id and location (optional)
+
+You can fetch the comments that correspond to a document and location.
+
+You can pass a document in by itself or with a corresponding location. We will send back an `Observable` which will listen to comment changes for that document and location.
+
+## 4) Subscribe to comments
+
+Subscribe to constant comment changes.
+
+We will send you a new list of comments everytime there is a change so you can build out your own user UI and logic. You can pass in a `documentId` and `location` to filter out unwanted comments.
+
+</Tab>
+
+<Tab title="Next.js">
+## 1) Get the Velt client
+
+Import the `useVeltClient` React hook.
+
+You can use this hook within your component to fetch the Velt client.
+
+## 2) Create a useEffect hook
+
+Create an effect with the `client` as a dependency.
+
+Make sure to check if the `client` is `null` or `undefined` before you use it.
+
+## 3) Filter comments by document id and location (optional)
+
+You can fetch the comments that correspond to a document and location.
+
+You can pass a document in by itself or with a corresponding location. We will send back an `Observable` which will listen to comment changes for that document and location.
+
+## 4) Subscribe to comments
+
+Subscribe to constant comment changes.
+
+We will send you a new list of comments everytime there is a change so you can build out your own user UI and logic. You can pass in a `documentId` and `location` to filter out unwanted comments.
+
+
+</Tab>
+
+</Tabs>
+
+<RequestExample>
+
+```java React
+import { SnippylyComments, useVeltClient } from '@veltdev/react';
+import { useEffect } from 'react';
+
+export default function App() {
+
+  const { client } = useVeltClient();
+
+  useEffect(() => {
+    if (client) {
+
+      const commentElement = client.getCommentElement();
+
+      // Provide your own logic to determine the documentId and location
+      const documentId = 'example-document-id';
+
+      const location = {
+        page: 'example-page'
+      };
+
+      commentElement.getAllCommentAnnotations(documentId, location).subscribe((comments) => {
+        // Do something with comments list
+      });
+
+    }
+  }, [client]);
+
+  return (
+    <>
+      <SnippylyComments />
+      {/* ... */}
+    </>
+  );
+}
+```
+
+```java Next.js
+import { SnippylyComments, useVeltClient } from '@veltdev/react';
+import { useEffect } from 'react';
+
+export default function App() {
+
+  const { client } = useVeltClient();
+
+  useEffect(() => {
+    if (client) {
+
+      const commentElement = client.getCommentElement();
+
+      // Provide your own logic to determine the documentId and location
+      const documentId = 'example-document-id';
+
+      const location = {
+        page: 'example-page'
+      };
+
+      commentElement.getAllCommentAnnotations(documentId, location).subscribe((comments) => {
+        // Do something with comments list
+      });
+
+    }
+  }, [client]);
+
+  return (
+    <>
+      <SnippylyComments />
+      {/* ... */}
+    </>
+  );
+}
+```
+
+</RequestExample>

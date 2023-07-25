@@ -113,7 +113,22 @@
               "pages": [
                 "async-collaboration/comments/freestyle/steps",
                 "async-collaboration/comments/freestyle/behavior",
-                "async-collaboration/comments/freestyle/ui"
+                {
+                  "group": "Customize UI",
+                  "pages": [
+                    {
+                      "group": "1. Slots",
+                      "pages": [
+                        "async-collaboration/comments/freestyle/customize-ui/slots/pin",
+                        "async-collaboration/comments/freestyle/customize-ui/slots/bubble",
+                        "async-collaboration/comments/freestyle/customize-ui/slots/tool"
+                      ]
+                    },
+                    "async-collaboration/comments/freestyle/customize-ui/parts",
+                    "async-collaboration/comments/freestyle/customize-ui/variables",
+                    "async-collaboration/comments/freestyle/customize-ui/build-your-own"
+                  ]
+                }
               ]
             },
             {

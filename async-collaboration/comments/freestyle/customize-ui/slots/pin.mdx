@@ -1,0 +1,131 @@
+---
+title: "Pin"
+---
+<Tabs>
+  <Tab title="React">
+   ## 1) Replace the Comment Pin
+
+   Provide a template for the Comment Pin.
+   Target the `comment-pin` slot in order to replace comment pins on the screen.
+
+   ## 2) Bind data to the element style
+
+  Use data attributes to bind information like the comment status or priority color.
+
+  Set the style property target as the value of the data attribute. If you don't provide one, we'll make our best guess.
+
+  ## 3) Bind data to an element attribute
+  Use data attributes to bind information like the user's avatar `src`, the comment thread length, etc.
+
+  Set the attribute target as the value of the data attribute. If you don't provide one, we'll make our best guess.
+
+  </Tab>
+  <Tab title="Next.js">
+
+  ## 1) Replace the Comment Pin
+
+  Provide a template for the Comment Pin.
+
+  Target the `comment-pin` slot in order to replace comment pins on the screen.
+
+  ## 2) Bind data to the element style
+  Use data attributes to bind information like the comment status or priority color.
+
+  Set the style property target as the value of the data attribute. If you don't provide one, we'll make our best guess.
+
+  ## 3) Bind data to an element attribute
+  Use data attributes to bind information like the user's avatar `src`, the comment thread length, etc.
+  
+  Set the attribute target as the value of the data attribute. If you don't provide one, we'll make our best guess.
+  </Tab>
+  <Tab title="HTML">
+  ## 1) Replace the Comment Pin
+  Provide a template for the Comment Pin.
+  
+  Target the `comment-pin` slot in order to replace comment pins on the screen.
+
+  ## 2) Bind data to the element style
+  Use data attributes to bind information like the comment status or priority color.
+
+  Set the style property target as the value of the data attribute. If you don't provide one, we'll make our best guess.
+
+  ## 3) Bind data to an element attribute
+  Use data attributes to bind information like the user's avatar src, the comment thread length, etc.
+
+  Set the attribute target as the value of the data attribute. If you don't provide one, we'll make our best guess.
+  </Tab>
+</Tabs>
+
+<RequestExample>
+
+```java React
+import { 
+  SnippylyProvider, 
+  SnippylyComments
+} from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <SnippylyProvider apiKey="API_KEY">
+
+      <SnippylyComments>
+        <div 
+          slot="comment-pin" 
+          data-snippyly-priority-color="border-color"
+        >
+          <img data-snippyly-avatar-img="src" />
+        </div>
+      </SnippylyComments>
+
+    </SnippylyProvider>
+  );
+}
+```
+
+```java Next.js
+import { 
+  SnippylyProvider, 
+  SnippylyComments
+} from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <SnippylyProvider apiKey="API_KEY">
+
+      <SnippylyComments>
+        <div 
+          slot="comment-pin" 
+          data-snippyly-priority-color="border-color"
+        >
+          <img data-snippyly-avatar-img="src" />
+        </div>
+      </SnippylyComments>
+
+    </SnippylyProvider>
+  );
+}
+```
+```html HTML
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Comment documentation</title>
+  </head>
+  <body>
+
+    <snippyly-comments>
+      <div 
+        slot="comment-pin" 
+        data-snippyly-priority-color="border-color"
+      >
+        <img data-snippyly-avatar-img="src" />
+      </div>
+    </snippyly-comments>
+
+  </body>
+</html>
+```
+
+</RequestExample>
