@@ -1,10 +1,10 @@
-### 1) Import VeltRecorderTool component
-Import the `VeltRecorderTool` from `@veltdev/react`
+### 1) Import VeltRecorderTool, VeltRecorderControlPanel, and VeltRecorderPlayer components
+Import the `VeltRecorderTool`, `VeltRecorderControlPanel`, and `VeltRecorderPlayer` from `@veltdev/react`
 
 ### 2) Add VeltRecorderTool component
-Next, simply add the the VeltRecorderTool component wherever you want the recorder button to appear.
+Add the VeltRecorderTool component wherever you want the recorder button to appear. 
 
-### 3) Choose the recording type
+## Choose the recording type
 
 Set the `type` attribute of the VeltRecorderTool component to one of the following:
  - all
@@ -12,16 +12,35 @@ Set the `type` attribute of the VeltRecorderTool component to one of the followi
  - video
  - screen
 
+### 3) Add VeltRecorderControlPanel component
+Add the VeltRecorderControlPanel component wherever you want the control panel to appear.
+
+When a user clicks on the VeltRecorderTool button, the VeltControlPanel component will show the recording preview with options to save, pause, or delete the recording.
+
+
+## Choose the Control Panel mode
+Set the `mode` attribute on the VeltRecorderControlPanel component to either `floating`(default) or `thread`. 
+
+### 5) Add VeltRecorderPlayer component
+Add the VeltRecorderPlayer component wherever you want to show recorded data.
+
+The Recorder Player Component displays the recorded data with controls such as pause, play and delete.
+
+## Set the `recorderId` of the VeltRecorderPlayer component as the Id of the recording you are trying to show.
+
+
+
 
 <RequestExample>
 ```js React
-import { VeltRecorderTool } from '@veltdev/react'
+import { VeltRecorderTool, VeltRecorderControlPanel, VeltRecorderPlayer } from '@veltdev/react'
 
 function TaskInputBox() {
     return (
     	//... rest of the component code...
-      <SnippylyRecorderTool type='all' />
-      
+      <VeltRecorderTool type='all' />
+      <VeltRecorderControlPanel mode="thread" />
+      <VeltPlayer recorderId={RECORDER_ID} />
       //... rest of the component code...
     )
 }
