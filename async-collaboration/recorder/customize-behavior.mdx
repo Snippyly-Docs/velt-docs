@@ -25,6 +25,13 @@ Floating mode will show a preview in the bottom left of the page, no matter wher
 
 Thread mode will show the component wherever it is placed.
 
+To configure the mode, set the `mode` attribute to `floating` or `thread`:
+
+```js
+<VeltRecorderControlPanel mode="floating" />
+<VeltRecorderControlPanel mode="thread" />
+```
+
 ## onDelete callback
 
 The creator of the recordings sees the option to delete the recording. Once the user deletes the recording, the VeltRecorderPlayer component will publish a callback method called onDelete with the recorder ID. You can listen to the callback and use the response object to perform any clean up on your end. This is the response object that you get back:
