@@ -6,6 +6,10 @@ title: "Customize Behavior"
 ### Feedback Mode
 By default the component will be in Feedback mode. This will make your component say "Give Feedback" and have a heart icon.
 
+```js
+<VeltUserRequestTool/>
+```
+
 <Frame>
 <iframe
       src="https://snippyly-docs-demo.web.app/user-feedback?documentId=user-request-docs&amp;userIndex=0"
@@ -18,6 +22,11 @@ By default the component will be in Feedback mode. This will make your component
 
 ### Report Bugs Mode
 To enable Report Bugs mode, set the type attribute to 'reportBug`. This will make your component say "Report Bugs" and have a bug icon.
+
+```js
+<VeltUserRequestTool type="reportBug"/>
+```
+
 <Frame>
 <iframe
       src="https://snippyly-docs-demo.web.app/report-bug?documentId=user-request-docs&amp;userIndex=0"
@@ -31,6 +40,10 @@ To enable Report Bugs mode, set the type attribute to 'reportBug`. This will mak
 ### Contact Us Mode
 To enable Report Bugs mode, set the type attribute to 'contactUs`. This will make your component say "Contact Us" and have an email icon.
 
+```js
+<VeltUserRequestTool type="contactUs"/>
+```
+
 <Frame>
 <iframe
       src="https://snippyly-docs-demo.web.app/contact-us?documentId=user-request-docs&amp;userIndex=0"
@@ -40,3 +53,30 @@ To enable Report Bugs mode, set the type attribute to 'contactUs`. This will mak
     >
 </iframe>
 </Frame>
+
+<RequestExample>
+
+```js React
+import { VeltUserRequestTool } from '@veltdev/react';
+
+function YourComponent() {
+
+  return (
+		...
+    <VeltUserRequestTool /> // Feedback Mode
+    <VeltUserRequestTool type="reportBug"/> // Report Bug Mode
+    <VeltUserRequestTool type="contactUs"/> // Contact Us Mode
+    ...
+  )
+}
+```
+
+```js HTML
+import { VeltUserRequestTool } from '@veltdev/react';
+
+<velt-user-request-tool></velt-user-request-tool>
+<velt-user-request-tool type="reportBug"></velt-user-request-tool>
+<velt-user-request-tool type="contactUs"></velt-user-request-tool>
+
+```
+</RequestExample>
