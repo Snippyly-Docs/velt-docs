@@ -4,7 +4,9 @@ Import the `VeltRecorderTool`, `VeltRecorderControlPanel`, and `VeltRecorderPlay
 ### 2) Add VeltRecorderTool component
 Add the VeltRecorderTool component wherever you want the recorder button to appear. 
 
-`<VeltRecorderTool type='all' />`
+```js
+<VeltRecorderTool type='all' />
+```
 
 #### Choose the recording type
 
@@ -17,7 +19,9 @@ Set the `type` attribute of the VeltRecorderTool component to one of the followi
 ### 3) Add VeltRecorderControlPanel component
 Add the VeltRecorderControlPanel component wherever you want the control panel to appear.
 
-`<VeltRecorderControlPanel mode="thread" />`
+```js
+<VeltRecorderControlPanel mode="thread" />
+```
 
 When a user clicks on the VeltRecorderTool button, the VeltControlPanel component will show the recording preview with options to save, pause, or delete the recording.
 
@@ -28,7 +32,9 @@ Set the `mode` attribute on the VeltRecorderControlPanel component to either `fl
 ### 4) Add VeltRecorderPlayer component
 Add the VeltRecorderPlayer component wherever you want to show recorded data.
 
-`<VeltPlayer recorderId={RECORDER_ID} />`
+```js
+<VeltPlayer recorderId={RECORDER_ID} />
+```
 
 The Recorder Player Component displays the recorded data with controls such as pause, play and delete.
 
