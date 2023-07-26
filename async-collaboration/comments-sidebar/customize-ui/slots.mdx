@@ -1,0 +1,71 @@
+---
+title: "Slots"
+sidebarTitle: "2. Slots"
+---
+
+## 1) Replace the Sidebar Button
+
+**Provide a template for the sidebar button.**
+
+Target the button slot with your own custom template.
+
+<RequestExample>
+
+```java React
+import {
+  SnippylySidebarButton
+} from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <>
+
+      <SnippylySidebarButton>
+        <div class="sidebar-button">
+          <img src="..." />
+        </div>
+      </SnippylySidebarButton>
+
+    </>
+  );
+}
+```
+```java Next.js
+import {
+  SnippylySidebarButton
+} from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <>
+
+      <SnippylySidebarButton>
+        <div class="sidebar-button">
+          <img src="..." />
+        </div>
+      </SnippylySidebarButton>
+
+    </>
+  );
+}
+```
+```html HTML
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Comment Sidebar documentation</title>
+  </head>
+  <body>
+
+    <snippyly-sidebar-button>
+        <div class="sidebar-button">
+          <img src="..." />
+        </div>
+    </snippyly-sidebar-button>
+
+  </body>
+</html>
+```
+</RequestExample>

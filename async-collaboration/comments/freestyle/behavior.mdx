@@ -1,7 +1,11 @@
+---
+title: "Customize Behavior"
+---
+
 <Tabs>
   <Tab title="React">
 ### 1) Area selection in Freestyle mode
-Whether area selection is enabled.
+**Whether area selection is enabled.**
 
 `Default: true`
 
@@ -9,17 +13,17 @@ With this mode, users can select an arbitrary area on the DOM and attach a comme
 
 ### 2) Allow comments only on certain elements
 
-Provide a list of element DOM IDs where commenting should be allowed.
+**Provide a list of element DOM IDs where commenting should be allowed.**
 
 Comments will be disabled for all other elements. Note, this does not impact `Popover` mode.
 
 ### 3) Disable comments on certain elements
 
-Add `data-velt-comment-disabled` attribute to elements where you want to disable commenting.
+**Add `data-velt-comment-disabled` attribute to elements where you want to disable commenting.**
 
 ### 4) File attachments
 
-Whether file attachments are enabled.
+**Whether file attachments are enabled.**
 
 `Default: true`
 
@@ -29,11 +33,11 @@ Currently we support `.png, .jpg, .gif (static & animated), .svg` file types upt
 
 ### 5) AI auto categorization of comments
 
-Whether AI auto-categorization is enabled.
+**Whether AI auto-categorization is enabled.**
 
 ### 6) Comment index
 
-Whether comment index is enabled.
+**Whether comment index is enabled.**
 
 `Default: true`
 
@@ -41,7 +45,7 @@ This appears in the comment sidebar and on the comment pins. When this is on, we
 
 ### 7) Device type indicator
 
-Whether device type indicator is enabled.
+**Whether device type indicator is enabled.**
 
 `Default: false`
 
@@ -49,25 +53,25 @@ When this is on, we show a small device type icon indicating which device the co
 
 ### 8) Comment dialog on hover
 
-Whether the comment dialog shows on hover over the comment pin or the target element.
+**Whether the comment dialog shows on hover over the comment pin or the target element.**
 
 `Default: true`
 
 ### 9) Comment dialog on target element click
 
-Whether the comment dialog opens when target element is clicked. This is relevant only for Popover mode.
+**Whether the comment dialog opens when target element is clicked. This is relevant only for Popover mode.**
 
 `Default: true`
 
 ### 10) Floating comment dialog
 
-Whether floating comment dialog is shown next to comment pin on hover or click.
+**Whether floating comment dialog is shown next to comment pin on hover or click.**
 
 `Default: true`
 
 ### 11) Ghost comments
 
-Whether to show ghost comments on the DOM.
+**Whether to show ghost comments on the DOM.**
 
 `Default: false`
 
@@ -75,7 +79,7 @@ Ghost comments are comments that were once linked to certain content on the DOM 
 
 ### 12) Ghost comments indicator
 
-Whether to show ghost comment labels in the comment sidebar.
+**Whether to show ghost comment labels in the comment sidebar.**
 
 `Default: true`
 
@@ -83,7 +87,7 @@ Ghost comments are always shown in the comments sidebar so that users can see th
 
 ### 13) Moderator mode
 
-Whether comments require moderator approval.
+**Whether comments require moderator approval.**
 
 `Default: false`
 
@@ -93,7 +97,7 @@ You can set some users as `admin` by setting the `isAdmin` property in the `User
 
 ### 14) Priority
 
-Whether to enable setting priorty on comments.
+**Whether to enable setting priorty on comments.**
 
 `Default: false`
 
@@ -101,7 +105,7 @@ When this is on, users can assign a priorty to each comment & filter comment by 
 
 ### 15) Resolve button
 
-Whether to show resolve button on comments.
+**Whether to show resolve button on comments.**
 
 `Default: true`
 
@@ -109,7 +113,7 @@ This adds a tick mark button on the top right corner of the comment dialog. Clic
 
 ### 16) Status
 
-Whether to enable the default status dropdown & filters.
+**Whether to enable the default status dropdown & filters.**
 
 `Default: true`
 
@@ -117,7 +121,7 @@ When this is on, users can assign a status to each comment & filter comment by s
 
 ### 17) Sign In button
 
-Whether to enable Sign In button on comment dialog when user is anonymous or signed out.
+**Whether to enable Sign In button on comment dialog when user is anonymous or signed out.**
 
 `Default: false`
 
@@ -125,7 +129,7 @@ This allows anonymous or signed out users to still read the comments but encoura
 
 ### 18) Attach additional context to each comment
 
-This event is emitted when a new comment is created
+**This event is emitted when a new comment is created**
 
 `Default: false`
 
@@ -133,7 +137,7 @@ This allows anonymous or signed out users to still read the comments but encoura
 
 ### 19) Take action when comment is updated
 
-Whether to enable Sign In button on comment dialog when user is anonymous or signed out.
+**Whether to enable Sign In button on comment dialog when user is anonymous or signed out.**
 
 `Default: false`
 
@@ -141,7 +145,7 @@ This allows anonymous or signed out users to still read the comments but encoura
 
 ### 20) Set Custom Categories
 
-Pass custom categories in the `customCategory` prop.
+**Pass custom categories in the `customCategory` prop.**
 
 `Default categories: Question, Feedback, Bug, Other.`
 
@@ -153,7 +157,7 @@ Currently, categories are used in the AI autocategorize feature where we autmati
 
 ### 21) Set Custom Priorites
 
-Pass custom priorities in the `customPriority` prop.
+**Pass custom priorities in the `customPriority` prop.**
 
 `Default priorities: P0, P1, P2.`
 
@@ -167,7 +171,7 @@ This will work if you have enabled the `priority` feature.
 
 ### 22) Set Custom Statuses
 
-Set custom statuses in the `customStatus` prop.
+**Set custom statuses in the `customStatus` prop.**
 
 `Default statuses: Open, In Progress, Resolved.`
 
@@ -184,7 +188,7 @@ With custom statuses, you can replace the default statuses with your own values.
   </Tab>
   <Tab title="Next.js">
 ### 1) Area selection in Freestyle mode
-Whether area selection is enabled.
+**Whether area selection is enabled.**
 
 `Default: true`
 
@@ -192,17 +196,17 @@ With this mode, users can select an arbitrary area on the DOM and attach a comme
 
 ### 2) Allow comments only on certain elements
 
-Provide a list of element DOM IDs where commenting should be allowed.
+**Provide a list of element DOM IDs where commenting should be allowed.**
 
 Comments will be disabled for all other elements. Note, this does not impact `Popover` mode.
 
 ### 3) Disable comments on certain elements
 
-Add `data-velt-comment-disabled` attribute to elements where you want to disable commenting.
+**Add `data-velt-comment-disabled` attribute to elements where you want to disable commenting.**
 
 ### 4) File attachments
 
-Whether file attachments are enabled.
+**Whether file attachments are enabled.**
 
 `Default: true`
 
@@ -212,11 +216,11 @@ Currently we support `.png, .jpg, .gif (static & animated), .svg` file types upt
 
 ### 5) AI auto categorization of comments
 
-Whether AI auto-categorization is enabled.
+**Whether AI auto-categorization is enabled.**
 
 ### 6) Comment index
 
-Whether comment index is enabled.
+**Whether comment index is enabled.**
 
 `Default: true`
 
@@ -224,7 +228,7 @@ This appears in the comment sidebar and on the comment pins. When this is on, we
 
 ### 7) Device type indicator
 
-Whether device type indicator is enabled.
+**Whether device type indicator is enabled.**
 
 `Default: false`
 
@@ -232,25 +236,25 @@ When this is on, we show a small device type icon indicating which device the co
 
 ### 8) Comment dialog on hover
 
-Whether the comment dialog shows on hover over the comment pin or the target element.
+**Whether the comment dialog shows on hover over the comment pin or the target element.**
 
 `Default: true`
 
 ### 9) Comment dialog on target element click
 
-Whether the comment dialog opens when target element is clicked. This is relevant only for Popover mode.
+**Whether the comment dialog opens when target element is clicked. This is relevant only for Popover mode.**
 
 `Default: true`
 
 ### 10) Floating comment dialog
 
-Whether floating comment dialog is shown next to comment pin on hover or click.
+**Whether floating comment dialog is shown next to comment pin on hover or click.**
 
 `Default: true`
 
 ### 11) Ghost comments
 
-Whether to show ghost comments on the DOM.
+**Whether to show ghost comments on the DOM.**
 
 `Default: false`
 
@@ -258,7 +262,7 @@ Ghost comments are comments that were once linked to certain content on the DOM 
 
 ### 12) Ghost comments indicator
 
-Whether to show ghost comment labels in the comment sidebar.
+**Whether to show ghost comment labels in the comment sidebar.**
 
 `Default: true`
 
@@ -266,7 +270,7 @@ Ghost comments are always shown in the comments sidebar so that users can see th
 
 ### 13) Moderator mode
 
-Whether comments require moderator approval.
+**Whether comments require moderator approval.**
 
 `Default: false`
 
@@ -276,7 +280,7 @@ You can set some users as `admin` by setting the `isAdmin` property in the `User
 
 ### 14) Priority
 
-Whether to enable setting priorty on comments.
+**Whether to enable setting priorty on comments.**
 
 `Default: false`
 
@@ -284,7 +288,7 @@ When this is on, users can assign a priorty to each comment & filter comment by 
 
 ### 15) Resolve button
 
-Whether to show resolve button on comments.
+**Whether to show resolve button on comments.**
 
 `Default: true`
 
@@ -292,7 +296,7 @@ This adds a tick mark button on the top right corner of the comment dialog. Clic
 
 ### 16) Status
 
-Whether to enable the default status dropdown & filters.
+**Whether to enable the default status dropdown & filters.**
 
 `Default: true`
 
@@ -300,7 +304,7 @@ When this is on, users can assign a status to each comment & filter comment by s
 
 ### 17) Sign In button
 
-Whether to enable Sign In button on comment dialog when user is anonymous or signed out.
+**Whether to enable Sign In button on comment dialog when user is anonymous or signed out.**
 
 `Default: false`
 
@@ -308,7 +312,7 @@ This allows anonymous or signed out users to still read the comments but encoura
 
 ### 18) Attach additional context to each comment
 
-This event is emitted when a new comment is created
+**This event is emitted when a new comment is created**
 
 `Default: false`
 
@@ -316,7 +320,7 @@ This allows anonymous or signed out users to still read the comments but encoura
 
 ### 19) Take action when comment is updated
 
-Whether to enable Sign In button on comment dialog when user is anonymous or signed out.
+**Whether to enable Sign In button on comment dialog when user is anonymous or signed out.**
 
 `Default: false`
 
@@ -324,7 +328,7 @@ This allows anonymous or signed out users to still read the comments but encoura
 
 ### 20) Set Custom Categories
 
-Pass custom categories in the `customCategory` prop.
+**Pass custom categories in the `customCategory` prop.**
 
 `Default categories: Question, Feedback, Bug, Other.`
 
@@ -336,7 +340,7 @@ Currently, categories are used in the AI autocategorize feature where we autmati
 
 ### 21) Set Custom Priorites
 
-Pass custom priorities in the `customPriority` prop.
+**Pass custom priorities in the `customPriority` prop.**
 
 `Default priorities: P0, P1, P2.`
 
@@ -350,7 +354,7 @@ This will work if you have enabled the `priority` feature.
 
 ### 22) Set Custom Statuses
 
-Set custom statuses in the `customStatus` prop.
+**Set custom statuses in the `customStatus` prop.**
 
 `Default statuses: Open, In Progress, Resolved.`
 
