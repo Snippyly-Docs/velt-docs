@@ -228,7 +228,8 @@
           "group": "User Feedback",
           "pages": [
             "in-app-user-feedback/overview",
-            "in-app-user-feedback/setup"
+            "in-app-user-feedback/setup",
+            "in-app-user-feedback/customize-behavior"
           ]
         }
       ]
