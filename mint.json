@@ -279,9 +279,7 @@
           "group": "Share & Invite",
           "pages": [
             "permission-management/share-and-invite/overview",
-            "permission-management/share-and-invite/steps",
-            "permission-management/share-and-invite/customize-behavior",
-            "permission-management/share-and-invite/customize-ui"
+            "permission-management/share-and-invite/setup"
           ]
         }
       ]
