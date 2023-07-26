@@ -204,46 +204,9 @@
           "group": "Arrows",
           "pages": [
             "async-collaboration/arrows/overview",
-            {
-              "group": "Freestyle",
-              "pages": [
-                "async-collaboration/arrows/freestyle/steps",
-                "async-collaboration/arrows/freestyle/behavior",
-                "async-collaboration/arrows/freestyle/ui"
-              ]
-            },
-            {
-              "group": "Popover",
-              "pages": [
-                "async-collaboration/arrows/popover/steps",
-                "async-collaboration/arrows/popover/behavior",
-                "async-collaboration/arrows/popover/ui"
-              ]
-            },
-            {
-              "group": "Stream",
-              "pages": [
-                "async-collaboration/arrows/stream/steps",
-                "async-collaboration/arrows/stream/behavior",
-                "async-collaboration/arrows/stream/ui"
-              ]
-            },
-            {
-              "group": "Text",
-              "pages": [
-                "async-collaboration/arrows/text/steps",
-                "async-collaboration/arrows/text/behavior",
-                "async-collaboration/arrows/text/ui"
-              ]
-            },
-            {
-              "group": "Inbox",
-              "pages": [
-                "async-collaboration/arrows/inbox/steps",
-                "async-collaboration/arrows/inbox/behavior",
-                "async-collaboration/arrows/inbox/ui"
-              ]
-            }
+            "async-collaboration/arrows/setup"
+
+            
           ]
         },
         {
