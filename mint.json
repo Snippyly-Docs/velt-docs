@@ -166,7 +166,9 @@
           "group": "Arrows",
           "pages": [
             "async-collaboration/arrows/overview",
-            "async-collaboration/arrows/setup"
+            "async-collaboration/arrows/setup",
+            "async-collaboration/arrows/customize-ui"
+
 
             
           ]
