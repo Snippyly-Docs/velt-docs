@@ -193,8 +193,7 @@
         {
           "group": "System Comments",
           "pages": [
-            "async-collaboration/system-comments/overview",
-            "async-collaboration/system-comments/steps"
+            "async-collaboration/system-comments/overview"
           ]
         },
         {
