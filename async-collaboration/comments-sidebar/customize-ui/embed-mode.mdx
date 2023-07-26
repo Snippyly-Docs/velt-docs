@@ -1,0 +1,65 @@
+---
+title: "Embed Mode"
+sidebarTitle: "1. Embed Mode"
+---
+
+
+## 1) Embed the Sidebar in a component
+
+**You can customize the location of the sidebar.**
+
+By default, the sidebar will open up from the right corner of the page. Instead with embed mode, you can move the sidebar anywhere and it will take up the full width and height of its container.
+
+<RequestExample>
+```java React
+import {
+  SnippylyCommentsSidebar,
+} from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <>
+    
+      <div className="sidebar-container">
+        <SnippylyCommentsSidebar embedMode={true} />
+      </div>
+
+    </>
+  );
+}
+```
+```java Next.js
+import {
+  SnippylyCommentsSidebar,
+} from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <>
+    
+      <div className="sidebar-container">
+        <SnippylyCommentsSidebar embedMode={true} />
+      </div>
+
+    </>
+  );
+}
+```
+```html HTML 
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Comment Sidebar documentation</title>
+  </head>
+  <body>
+
+    <div class="sidebar-container">
+      <snippyly-comments-sidebar embed-mode="true"></snippyly-comments-sidebar>
+    </div>
+    
+  </body>
+</html>
+```
+</RequestExample>

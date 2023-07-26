@@ -1,0 +1,142 @@
+---
+title: "3. Variables"
+---
+
+
+<Tabs>
+<Tab title="Pin">
+## 1) Select the Comment Pin component
+
+You can select the Comment Pin component.
+Our CSS variables are set at the component level.
+
+## 2) Modify a CSS variable
+Set the variable to anything you want.
+We expose a set of variables so you can customize the component to better match your UI.
+
+## 3) Check out the table below
+
+Reference the table below to see what parts we expose.
+Alternatively, you can directly inspect the component HTML to see what parts are available.
+
+<ResponseField name="--snippyly-comment-pin-size" default="2.5rem">
+Sets the comment pin size
+</ResponseField>
+
+<ResponseField name="--snippyly-comment-pin-avatar-size" default="1.5rem">
+Sets the comment pin avatar size
+</ResponseField>
+
+<ResponseField name="--snippyly-comment-pin-bg-color" default="--snippyly-purple">
+Set this to `!important` to override status color styling
+</ResponseField>
+
+<ResponseField name="--snippyly-comment-pin-box-shadow" default="0px 8px 16px -8px rgba(15, 15, 15, 0.1)">
+Sets the comment pin box shadow
+</ResponseField>
+
+<ResponseField name="--snippyly-comment-pin-ghost-color" default="--snippyly-grey-3-color">
+Sets the color of ghost comment pins
+</ResponseField>
+
+<ResponseField name="--snippyly-comment-pin-popover-color" default="#a259fe">
+Sets the color of the default popover comment pin triangle
+</ResponseField>
+
+<ResponseField name="--snippyly-comment-pin-border" default="2px solid white">
+Sets the color of the comment pin border
+</ResponseField>
+
+<ResponseField name="--snippyly-comment-pin-index-border" default="1px solid rgb(210, 210, 210)">
+Sets the color of the comment index border
+</ResponseField>
+
+<ResponseField name="--snippyly-comment-pin-index-font-size" default="0.55rem">
+Sets the font size of the comment index
+</ResponseField>
+
+<ResponseField name="--snippyly-comment-pin-index-bg" default="white">
+Sets the background color of the comment index
+</ResponseField>
+
+<ResponseField name="--snippyly-internal-lock-icon-color" default="white">
+Sets the color of the comment pin lock icon
+</ResponseField>
+
+<ResponseField name="--snippyly-internal-lock-bg-color" default="grey">
+Sets the background color of the comment pin lock icon
+</ResponseField>
+
+
+</Tab>
+
+<Tab title="Bubble">
+## 1) Select the Comment Pin component
+
+You can select the Comment Pin component.
+Our CSS variables are set at the component level.
+
+## 2) Modify a CSS variable
+Set the variable to anything you want.
+We expose a set of variables so you can customize the component to better match your UI.
+
+## 3) Check out the table below
+
+Reference the table below to see what parts we expose.
+Alternatively, you can directly inspect the component HTML to see what parts are available.
+
+|Variable Name	|Default	|What does it do?|
+|---------------|-----------|----------------|
+|`--snippyly-comment-bubble-container-gap`|`4px`|Sets the comment pin bubble container gap|
+|`--snippyly-comment-bubble-count-container-height`|`24px`|Sets the height of the bubble count container|
+|`--snippyly-comment-bubble-count-container-width`|`28px`|Sets the width of the bubble count container|
+|`--snippyly-comment-bubble-icon-stroke-width`|`2`|Sets the stroke width of the bubble icon|
+
+</Tab>
+
+<Tab title="Tool">
+## 1) Select the Comment Pin component
+
+You can select the Comment Pin component.
+Our CSS variables are set at the component level.
+
+## 2) Modify a CSS variable
+Set the variable to anything you want.
+We expose a set of variables so you can customize the component to better match your UI.
+
+## 3) Check out the table below
+
+Reference the table below to see what parts we expose.
+Alternatively, you can directly inspect the component HTML to see what parts are available.
+
+|Variable Name	|Default	|What does it do?|
+|---------------|-----------|----------------|
+|`--snippyly-comment-tool-icon-size`|`2rem`|Sets the icon size of the comment tool|
+|`--snippyly-comment-tool-border-radius`|`50px`|Sets the border radius of the comment tool|
+|`--snippyly-comment-tool-icon-color`|`#8F95B2`|Sets the icon color of the comment tool|
+|`--snippyly-comment-tool-hover-bg-color`|`#EAE8F9`|`Sets the hover background color of the comment tool`|
+|`--snippyly-comment-tool-active-fill-color`|`white`|Sets the active fill color of the comment tool|
+|`--snippyly-comment-tool-active-bg-color`|`--snippyly-purple`|Sets the active background color of the comment tool|
+
+</Tab>
+</Tabs>
+
+<RequestExample>
+```css Pin
+snippyly-comment-pin {
+  --snippyly-comment-pin-orphan-color: red;
+}
+```
+```css Bubble
+snippyly-comment-bubble {
+  --snippyly-comment-bubble-count-icon-fill-color: lightgrey;
+}
+```
+```css Tool
+snippyly-comment-tool {
+  --snippyly-comment-tool-icon-fill-color: slategrey;
+  --snippyly-comment-tool-border-color: slate-grey;
+}
+```
+
+</RequestExample>

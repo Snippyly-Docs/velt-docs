@@ -1,0 +1,102 @@
+---
+title: "Steps"
+---
+
+<Tabs>
+<Tab title="React">
+## 1) Import Comments Sidebar and Sidebar button
+**Import the comments sidebar component.**
+
+We offer specific components for our users that use React.
+
+## 2) Add Comments Sidebar component
+**Add the comment component to the root of your app.**
+
+This component is required to render comments in your app.
+
+## 3) Add Sidebar button
+**Add the Sidebar button to toggle the sidebar.**
+
+This is completely optional and you can toggle the sidebar in the comment dialog as well.
+
+## 4) Test Integration
+**Test it out by opening the sidebar.**
+
+You should be able to click the `All comments` link in a comment dialog box on the bottom.
+</Tab>
+
+<Tab title="Next.js">
+
+## 1) Import Comments Sidebar and Sidebar button
+**Import the comments sidebar component.**
+
+We offer specific components for our users that use React.
+
+## 2) Add Comments Sidebar component
+**Add the comment component to the root of your app.**
+
+This component is required to render comments in your app.
+
+## 3) Add Sidebar button
+**Add the Sidebar button to toggle the sidebar.**
+
+This is completely optional and you can toggle the sidebar in the comment dialog as well.
+
+## 4) Test Integration
+**Test it out by opening the sidebar.**
+
+You should be able to click the `All comments` link in a comment dialog box on the bottom.
+
+</Tab>
+</Tabs>
+
+<RequestExample>
+```java React
+import { 
+  SnippylyProvider, 
+  SnippylyCommentsSidebar, 
+  SnippylySidebarButton,
+  SnippylyCommentTool 
+} from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <SnippylyProvider apiKey="API_KEY">
+      <SnippylyComments />
+      <SnippylyCommentsSidebar />
+
+      <div className="toolbar">
+        <SnippylyCommentTool />
+        <SnippylySidebarButton />
+      </div>
+
+    </SnippylyProvider>
+  );
+}
+```
+```java Next.js
+import { 
+  SnippylyProvider, 
+  SnippylyCommentsSidebar, 
+  SnippylySidebarButton,
+  SnippylyCommentTool 
+} from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <SnippylyProvider apiKey="API_KEY">
+      <SnippylyComments />
+      <SnippylyCommentsSidebar />
+
+      <div className="toolbar">
+        <SnippylyCommentTool />
+        <SnippylySidebarButton />
+      </div>
+
+    </SnippylyProvider>
+  );
+}
+```
+</RequestExample>

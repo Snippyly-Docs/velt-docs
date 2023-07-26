@@ -1,0 +1,150 @@
+---
+title: "2. Parts"
+---
+
+<Tabs>
+<Tab title="Pin">
+## 1) Select the part you want to modify
+
+We offer several parts which can be used like classes. Full list below.
+The component is encapsulated in Shadow DOM, which is isolated from the normal DOM.
+
+## 2) Apply your CSS rules
+
+Set whatever CSS rules you want.
+The part lets you target a specific element within a Shadow DOM.
+
+## 3) Check out the table below
+
+Reference the table below to see what parts we expose.
+Alternatively, you can directly inspect the component HTML to see what parts are available.
+
+<ResponseField name="comment-pin-bubble">
+Targets bubble comment pin container
+</ResponseField>
+
+<ResponseField name="comment-pin-popover"> 
+Targets the popover comment pin container
+</ResponseField>
+
+<ResponseField name="comment-pin">
+Targets the default comment pin container
+</ResponseField>
+
+<ResponseField name="index-container">
+Targets the comment pin index label container
+</ResponseField>
+
+<ResponseField name="index-container-span">
+ Targets comment pin index label
+</ResponseField>
+
+<ResponseField name="lock-container">
+Targets the comment pin internal lock container
+</ResponseField>
+
+<ResponseField name="lock-icon">
+ Targets the comment pin internal lock icon
+</ResponseField>
+</Tab>
+
+<Tab title="Bubble">
+## 1) Select the part you want to modify
+
+We offer several parts which can be used like classes. Full list below.
+The component is encapsulated in Shadow DOM, which is isolated from the normal DOM.
+
+## 2) Apply your CSS rules
+
+Set whatever CSS rules you want.
+The part lets you target a specific element within a Shadow DOM.
+
+## 3) Check out the table below
+
+Reference the table below to see what parts we expose.
+Alternatively, you can directly inspect the component HTML to see what parts are available.
+
+<ResponseField name="comment-pin">
+Targets the comment pin component used in the comment bubble
+</ResponseField>
+
+<ResponseField name="container">
+Targets the container of the comment bubble
+</ResponseField> 
+
+<ResponseField name="count-container">
+Targets the container of the comment count
+</ResponseField>
+
+<ResponseField name="count-icon">
+Targets the SVG icon used in the comment count
+</ResponseField>
+
+<ResponseField name="count-icon-path">
+Targets the SVG icon path used in the comment count
+</ResponseField>
+
+<ResponseField name="count">
+Targets the count text container
+</ResponseField>
+
+<ResponseField name="user-avatar">
+ Targets the user avatar component used in the comment bubble
+</ResponseField>
+
+
+</Tab>
+
+<Tab title="Tool">
+## 1) Select the part you want to modify
+
+We offer several parts which can be used like classes. Full list below.
+The component is encapsulated in Shadow DOM, which is isolated from the normal DOM.
+
+## 2) Apply your CSS rules
+
+Set whatever CSS rules you want.
+The part lets you target a specific element within a Shadow DOM.
+
+## 3) Check out the table below
+
+Reference the table below to see what parts we expose.
+Alternatively, you can directly inspect the component HTML to see what parts are available.
+
+<ResponseField name="container">
+Targets the comment tool container
+</ResponseField>
+
+<ResponseField name="button-container">
+Targets the comment tool button container
+</ResponseField>
+
+<ResponseField name="button-icon">
+Targets the comment tool button SVG icon
+</ResponseField>
+
+
+</Tab>
+</Tabs>
+
+<RequestExample>
+```css Pin
+snippyly-comment-pin::part(lock-icon) {
+  width: 0.8rem;
+  height: 0.8rem;
+  color: grey;
+}
+```
+```css Bubble
+snippyly-comment-bubble::part(count) {
+  font-size: 14px;
+}
+```
+```css Tool
+snippyly-comment-tool::part(icon) {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+```
+
+</RequestExample>
