@@ -10,20 +10,28 @@ Import the useVeltClient React hook.
 
 You can use this hook within your component to fetch the Velt client.
 
+```js React
+    let { client } = useVeltClient();
+```
+
+
+
 ### 2) Create a useEffect hook
 Create the hook with the client as dependency.
+
+```js React
+  useEffect(() => {
+    
+  }, [client]);
+```
 
 ### 3) Enable Rewriter
 Within the `useEffect` hook, call getRewriterElement() and then enableRewriter() on the client object to enable Rewriter. Now when a user highlights text on your website, the Rewriter tool will pop up.
 
 
 ```js React
-  useEffect(() => {
-    if (client) {
       const rewriterElement = client.getRewriterElement();
       rewriterElement.enableRewriter();
-    }
-  }, [client]);
 ```
 
 
