@@ -176,8 +176,8 @@
           "pages": [
             "async-collaboration/recorder/overview",
             "async-collaboration/recorder/steps",
-            "async-collaboration/recorder/customize-ui",
-            "async-collaboration/recorder/customize-behavior"
+            "async-collaboration/recorder/customize-behavior",
+            "async-collaboration/recorder/customize-ui"
 
           ]
         }
