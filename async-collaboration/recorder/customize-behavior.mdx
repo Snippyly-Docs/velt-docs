@@ -1,16 +1,29 @@
 ## Recording Types
 
-The VeltRecorderTool can be configured to record a user's audio, video or screen. There is also the option to allow the user to record all types of media instead of just one.
+The VeltRecorderTool can be configured to record a user's audio, video or screen.
+
+To set the configuration mode, set the `type` attribute to one of the following:
+ - all
+ - audio 
+ - video
+ - screen
+
+```js
+<VeltRecorderTool type='all' />
+<VeltRecorderControlPanel mode="floating" />
+<VeltPlayer recorderId={RECORDER_ID} />
+```
+
 
 ## Floating Mode vs Thread Mode
 
-The VeltRecorderControlPanel can be configured in either Floating mode or Thread mode. Floating mode will 
+The VeltRecorderControlPanel can be configured in either Floating mode or Thread mode. 
 
 ![](https://files.readme.io/38580c5-Frame_8253.png)
 
 Floating mode will show a preview in the bottom left of the page, no matter where you put the component.
 
-Thread mode will show the componenet wherever it is placed.
+Thread mode will show the component wherever it is placed.
 
 ## onDelete callback
 
