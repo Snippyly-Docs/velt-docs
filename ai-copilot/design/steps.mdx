@@ -18,24 +18,12 @@ Within the `useEffect` hook, call getRewriterElement() and then enableRewriter()
 
 
 ```js React
-import { useEffect } from "react";
-import { useVeltClient } from "@veltdev/react";
-
-export default function App() {
-  let { client } = useVeltClient();
-
   useEffect(() => {
     if (client) {
       const rewriterElement = client.getRewriterElement();
       rewriterElement.enableRewriter();
     }
   }, [client]);
-
-  return (
-    // your app template
-  );
-}
-
 ```
 
 
@@ -60,7 +48,7 @@ if (Velt) {
 
 <RequestExample>
 
-```react
+```js React
 import { useEffect } from "react";
 import { useVeltClient } from "@veltdev/react";
 
@@ -81,7 +69,7 @@ export default function App() {
 
 ```
 
-```html
+```html HTML
 if (Velt) {
   const rewriterElement = Velt.getRewriterElement();
   rewriterElement.enableRewriter();
