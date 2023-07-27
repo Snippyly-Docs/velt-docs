@@ -38,11 +38,21 @@ Pass a unique ID representing your document. Whenever your document initializes,
 Users logged into the same document ID can see each other's presence, cursors, comments etc.
 
   </Tab>
+  <Tab title="HTML">
+## 1) Set a document ID
+
+The document ID needs to be unique. Users on the same document ID can see each other's comments.
+
+```js
+Velt.setDocumentId('CUSTOM_DOCUMENT_ID');
+```
+
+  </Tab>
 </Tabs>
 
 <RequestExample>
 
-```java React
+```js React
 import { useVeltClient } from '@veltdev/react';
 import { useEffect, useState } from 'react';
 
@@ -62,7 +72,7 @@ export default function Collaboration() {
 }
 ```
 
-```java Next.js
+```js Next.js
 import { useVeltClient } from '@veltdev/react';
 import { useEffect, useState } from 'react';
 
@@ -80,6 +90,14 @@ export default function Collaboration() {
     // Your app template
   );
 }
+```
+
+```html HTML
+ <script>
+Velt.setDocumentId('CUSTOM_DOCUMENT_ID');
+</script>
+
+
 ```
 
 </RequestExample>
