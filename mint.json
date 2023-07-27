@@ -51,7 +51,7 @@
       "pages": [
         {
           "group": "Add User Contacts",
-          "pages": ["users/add-user-contacts/enable-at-mentions"]
+          "pages": ["users/add-user-contacts/setup"]
         }
       ]
     },
