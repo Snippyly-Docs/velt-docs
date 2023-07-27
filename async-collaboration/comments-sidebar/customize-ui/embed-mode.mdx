@@ -11,9 +11,9 @@ sidebarTitle: "1. Embed Mode"
 By default, the sidebar will open up from the right corner of the page. Instead with embed mode, you can move the sidebar anywhere and it will take up the full width and height of its container.
 
 <RequestExample>
-```java React
+```js React
 import {
-  SnippylyCommentsSidebar,
+  VeltCommentsSidebar,
 } from '@veltdev/react';
 
 export default function App() {
@@ -22,16 +22,16 @@ export default function App() {
     <>
     
       <div className="sidebar-container">
-        <SnippylyCommentsSidebar embedMode={true} />
+        <VeltCommentsSidebar embedMode={true} />
       </div>
 
     </>
   );
 }
 ```
-```java Next.js
+```js Next.js
 import {
-  SnippylyCommentsSidebar,
+  VeltCommentsSidebar,
 } from '@veltdev/react';
 
 export default function App() {
@@ -40,7 +40,7 @@ export default function App() {
     <>
     
       <div className="sidebar-container">
-        <SnippylyCommentsSidebar embedMode={true} />
+        <VeltCommentsSidebar embedMode={true} />
       </div>
 
     </>
@@ -56,7 +56,7 @@ export default function App() {
   <body>
 
     <div class="sidebar-container">
-      <snippyly-comments-sidebar embed-mode="true"></snippyly-comments-sidebar>
+      <velt-comments-sidebar embed-mode="true"></velt-comments-sidebar>
     </div>
     
   </body>

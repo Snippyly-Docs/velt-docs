@@ -118,8 +118,8 @@ Any context data passed when the comment was added
 
 ```java React
 import { 
-  SnippylyProvider, 
-  SnippylyCommentsSidebar
+  VeltProvider, 
+  VeltCommentsSidebar
 } from '@veltdev/react';
 import { useState } from 'react';
 
@@ -141,24 +141,24 @@ export default function App() {
   };
 
   return (
-    <SnippylyProvider apiKey="API_KEY">
+    <VeltProvider apiKey="API_KEY">
 
-      <SnippylyComments
+      <VeltComments
         contextProvider={provideContext}
       />
 
-      <SnippylyCommentsSidebar 
+      <VeltCommentsSidebar 
         onSidebarCommentClick={onCommentClick}
       />
 
-    </SnippylyProvider>
+    </VeltProvider>
   );
 }
 ```
 ```java Next.js
 import { 
-  SnippylyProvider, 
-  SnippylyCommentsSidebar
+  VeltProvider, 
+  VeltCommentsSidebar
 } from '@veltdev/react';
 import { useState } from 'react';
 
@@ -180,17 +180,17 @@ export default function App() {
   };
 
   return (
-    <SnippylyProvider apiKey="API_KEY">
+    <VeltProvider apiKey="API_KEY">
 
-      <SnippylyComments
+      <VeltComments
         contextProvider={provideContext}
       />
 
-      <SnippylyCommentsSidebar 
+      <VeltCommentsSidebar 
         onSidebarCommentClick={onCommentClick}
       />
 
-    </SnippylyProvider>
+    </VeltProvider>
   );
 }
 ```
@@ -202,8 +202,8 @@ export default function App() {
   </head>
   <body>
 
-    <snippyly-comments></snippyly-comments>
-    <snippyly-comments-sidebar></snippyly-comments-sidebar>
+    <velt-comments></velt-comments>
+    <velt-comments-sidebar></velt-comments-sidebar>
 
     <script>
 
@@ -214,7 +214,7 @@ export default function App() {
       event.detail.addContext({ selectedTabIndex: tabIndex });
     }
 
-    const commentElement = document.querySelector('snippyly-comments');
+    const commentElement = document.querySelector('velt-comments');
     commentElement.addEventListener('commentAdded', onCommentAdded);
 
     function onCommentClick(data) {
@@ -222,7 +222,7 @@ export default function App() {
       tabIndex = selectedTabIndex;
     }
 
-    const sidebarElement = document.querySelector('snippyly-comments-sidebar');
+    const sidebarElement = document.querySelector('velt-comments-sidebar');
     sidebarElement.addEventListener('sidebarCommentClicked', onCommentClick);
 
     </script>

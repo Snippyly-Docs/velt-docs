@@ -85,6 +85,29 @@ This is completely optional and you can toggle the sidebar in the comment dialog
 You should be able to click the `All comments` link in a comment dialog box on the bottom.
 
 </Tab>
+<Tab title="HTML>
+    ### 1) Import the Velt Script tag
+    ```html
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@veltdev/sdk@1.0.11/velt.js" onload="loadVelt()"></script>
+    ```
+
+    ### 2) Initialize with your API Key
+
+    Put this in your root app script:
+    ```js
+    async function loadVelt() {
+        await Velt.init("YOUR_VELT_API_KEY");
+    }
+    ```
+
+    ### 3) Place the `<velt-comments-sidebar>` component
+    Place the component wherever you want the invite button to appear.
+
+    ### 4) Place the `<velt-sidebar-button>` component
+    Place the component wherever you want the invite button to appear.
+
+
+</Tab
 </Tabs>
 
 <RequestExample>
@@ -135,5 +158,10 @@ export default function App() {
     </VeltProvider>
   );
 }
+```
+
+```html HTML
+<velt-comments-sidebar></velt-comments-sidebar>
+<velt-sidebar-button></velt-sidebar-button>
 ```
 </RequestExample>
