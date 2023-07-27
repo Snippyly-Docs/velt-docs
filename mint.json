@@ -81,8 +81,7 @@
           "pages": [
             "realtime-collaboration/flock-mode/overview",
             "realtime-collaboration/flock-mode/setup",
-            "realtime-collaboration/flock-mode/customize-behavior",
-            "realtime-collaboration/flock-mode/api"
+            "realtime-collaboration/flock-mode/customize-behavior"
           ]
         },
         {
