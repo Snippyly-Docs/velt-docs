@@ -4,18 +4,37 @@ title: "Steps"
 
 <Tabs>
 <Tab title="React">
-## 1) Import Comments Sidebar and Sidebar button
+## 1) Import VeltCommentsSidebar and VeltSidebarButton ffom `@veltdev/react`
 **Import the comments sidebar component.**
+
+```js
+import { 
+  VeltProvider, 
+  VeltCommentsSidebar, 
+  VeltSidebarButton,
+  VeltCommentTool 
+} from '@veltdev/react';
+```
 
 We offer specific components for our users that use React.
 
 ## 2) Add Comments Sidebar component
 **Add the comment component to the root of your app.**
 
+```js
+      <VeltComments />
+      <VeltCommentsSidebar />
+
+```
+
 This component is required to render comments in your app.
 
 ## 3) Add Sidebar button
 **Add the Sidebar button to toggle the sidebar.**
+
+```js
+<VeltSidebarButton />
+```
 
 This is completely optional and you can toggle the sidebar in the comment dialog as well.
 
@@ -27,18 +46,37 @@ You should be able to click the `All comments` link in a comment dialog box on t
 
 <Tab title="Next.js">
 
-## 1) Import Comments Sidebar and Sidebar button
+## 1) Import VeltCommentsSidebar and VeltSidebarButton ffom `@veltdev/react`
 **Import the comments sidebar component.**
+
+```js
+import { 
+  VeltProvider, 
+  VeltCommentsSidebar, 
+  VeltSidebarButton,
+  VeltCommentTool 
+} from '@veltdev/react';
+```
 
 We offer specific components for our users that use React.
 
 ## 2) Add Comments Sidebar component
 **Add the comment component to the root of your app.**
 
+```js
+      <VeltComments />
+      <VeltCommentsSidebar />
+
+```
+
 This component is required to render comments in your app.
 
 ## 3) Add Sidebar button
 **Add the Sidebar button to toggle the sidebar.**
+
+```js
+<VeltSidebarButton />
+```
 
 This is completely optional and you can toggle the sidebar in the comment dialog as well.
 
@@ -51,51 +89,51 @@ You should be able to click the `All comments` link in a comment dialog box on t
 </Tabs>
 
 <RequestExample>
-```java React
+```js React
 import { 
-  SnippylyProvider, 
-  SnippylyCommentsSidebar, 
-  SnippylySidebarButton,
-  SnippylyCommentTool 
+  VeltProvider, 
+  VeltCommentsSidebar, 
+  VeltSidebarButton,
+  VeltCommentTool 
 } from '@veltdev/react';
 
 export default function App() {
 
   return (
-    <SnippylyProvider apiKey="API_KEY">
-      <SnippylyComments />
-      <SnippylyCommentsSidebar />
+    <VeltProvider apiKey="API_KEY">
+      <VeltComments />
+      <VeltCommentsSidebar />
 
       <div className="toolbar">
-        <SnippylyCommentTool />
-        <SnippylySidebarButton />
+        <VeltCommentTool />
+        <VeltSidebarButton />
       </div>
 
-    </SnippylyProvider>
+    </VeltProvider>
   );
 }
 ```
-```java Next.js
+```js Next.js
 import { 
-  SnippylyProvider, 
-  SnippylyCommentsSidebar, 
-  SnippylySidebarButton,
-  SnippylyCommentTool 
+  VeltProvider, 
+  VeltCommentsSidebar, 
+  VeltSidebarButton,
+  VeltCommentTool 
 } from '@veltdev/react';
 
 export default function App() {
 
   return (
-    <SnippylyProvider apiKey="API_KEY">
-      <SnippylyComments />
-      <SnippylyCommentsSidebar />
+    <VeltProvider apiKey="API_KEY">
+      <VeltComments />
+      <VeltCommentsSidebar />
 
       <div className="toolbar">
-        <SnippylyCommentTool />
-        <SnippylySidebarButton />
+        <VeltCommentTool />
+        <VeltSidebarButton />
       </div>
 
-    </SnippylyProvider>
+    </VeltProvider>
   );
 }
 ```
