@@ -1,13 +1,13 @@
 ---
 title: "Add System Comments"
 sidebarTitle: "Add System Comments"
-description: "This process outlines the steps to add system comments through the API. It involves generating an authentication token from the configurations menu, then using this token to construct and send a POST API request. The API call uses JSON data and includes the token in the body, alongside other required inputs."
+description: "This process outlines the steps to add system comments as well as child system comments through the API."
 api: "POST https://us-central1-snipply-sdk-staging.cloudfunctions.net/addSystemComment"
 ---
 
-### Add System Comment
+### Adding a System Comment
 
-To add a system comment via the API, send POST request to `https://us-central1-snipply-sdk-staging.cloudfunctions.net/addSystemComment` with the following body data.
+To add a system comment via the API, send a POST request to `https://us-central1-snipply-sdk-staging.cloudfunctions.net/addSystemComment` with the following body data.
 
 Body:
 
@@ -37,12 +37,16 @@ Body:
   ]
 }
 ```
+#### selectAllContent
+If the `selectAllContent` field is `true` then the comment is added to the entire text in the element vs the element itself.
 
-Note the following configurations in the body:
- - selectAllContent: If this is true then the comment is added to the entire text in the element vs the element itself.
- - commentHtml: You can pass HTML content here and we will parse this in the comment and also add the html to the target element when the accept button is clicked.
+#### commentHtml
+You can pass HTML content here and we will parse this in the comment and also add the html to the target element when the accept button is clicked.
 
+#### Priority Order of Text to Be Repalced
+This is the priority order of the text to be replaced when comment is accepted:
 
+replaceContentHtml > replaceContentText > commentHtml > commentText
 
 
 Response:
@@ -60,11 +64,30 @@ Response:
 }
 ```
 
-This is the priority order of the text to be replaced when comment is accepted:
+### Adding a Child System Comment
 
-replaceContentHtml > replaceContentText > commentHtml > commentText
+To add a child system comment, we use the same endpoint for sending system comments, except we also need to add the `annotationId` field to the body data.
 
+The `annotationId` field will contain the annotation ID of the parent comment that your child comment will be added to.
 
+```JSON
+{
+  "apiKey": "your_api_key_here",
+  "authToken": "your_token_here",
+  "documentId": "your_document_id_here",
+  "annotationId": "COMMENT_ANNOTATION_ID", // Pass the annotation ID to add a child comment to it.
+  "commentData": [ // NOTE: this will be appeneded to the previous comments array
+    {
+      "commentText": "This is awesome! Well done.", // To set plain text content
+      "commentHtml": "This <span style=\"color: green; background-color: aliceblue; display: inline-block; padding: 4px; border-radius: 4px;\">is test</span> comment.", // To set HTML formatted content
+      "from": {
+        "email": "user1@domain.com", // required
+        "name": "User1" // optional
+      }
+    }
+  ]
+}
+```
 
 
 
