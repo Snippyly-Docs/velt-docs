@@ -47,11 +47,19 @@ Add the VeltProvider component to the root of your app.
 Add your Velt API key.
 
   </Tab>
+  <Tab title="HTML">
+
+   ### 1) Import the Velt Script tag
+    ```html
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@veltdev/sdk@1.0.11/velt.js" onload="loadVelt()"></script>
+    ```
+
+  </Tab>
 </Tabs>
 
 <RequestExample>
 
-```java React
+```js React
 import { VeltProvider } from '@veltdev/react';
 
 export default function App() {
@@ -64,7 +72,7 @@ export default function App() {
 }
 ```
 
-```java Next.js
+```js Next.js
 import { VeltProvider } from '@veltdev/react';
 
 export default function App() {
@@ -76,5 +84,18 @@ export default function App() {
   );
 }
 ```
+
+```html HTML
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Cursors documentation</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@veltdev/sdk@1.0.11/velt.js" onload="loadVelt()"></script>
+  </head>
+  <body>
+    
+  </body>
+</html>
 
 </RequestExample>
