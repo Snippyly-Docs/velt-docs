@@ -159,7 +159,8 @@
             "async-collaboration/system-comments/add-system-comment",
             "async-collaboration/system-comments/add-child-system-comment",
             "async-collaboration/system-comments/delete-system-comments",
-            "async-collaboration/system-comments/overview"
+            "async-collaboration/system-comments/overview",
+            "async-collaboration/system-comments/api-add-system-comment"
           ]
         },
         {
