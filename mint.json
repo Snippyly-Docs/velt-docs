@@ -71,7 +71,7 @@
           "group": "Cursors",
           "pages": [
             "realtime-collaboration/cursors/overview",
-            "realtime-collaboration/cursors/steps",
+            "realtime-collaboration/cursors/setup",
             "realtime-collaboration/cursors/customize-behavior",
             "realtime-collaboration/cursors/customize-ui"
           ]
