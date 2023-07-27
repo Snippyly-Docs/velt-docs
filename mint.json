@@ -141,7 +141,7 @@
           "group": "Comments Sidebar",
           "pages": [
             "async-collaboration/comments-sidebar/overview",
-            "async-collaboration/comments-sidebar/steps",
+            "async-collaboration/comments-sidebar/setup",
             "async-collaboration/comments-sidebar/customize-behavior",
             {
               "group": "Customize UI",
