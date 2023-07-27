@@ -80,32 +80,18 @@ Subscribe to the realtime Presence users data on the current document and locati
 
 We will send you a new list of users everytime there is a change in the status of any user, so you can build out your own Presence UI.
 
-```java React
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>Presence documentation</title>
-  </head>
-  <body>
+```js React
+useEffect(() => {
+    if (client) {
 
-    <velt-presence></velt-presence>
+      const presenceElement = client.getPresenceElement();
 
-    <script>
+      presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
+        // Do something with users list
+      });
 
-      if (window.Velt) {
-
-        const presenceElement = window.Velt.getPresenceElement();
-
-        presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
-          // Do something with users list
-        });
-
-      }
-
-    </script>
-
-  </body>
-</html>
+    }
+  }, [client]);
 ```
 
   </Tab>
@@ -128,32 +114,18 @@ Subscribe to the realtime Presence users data on the current document and locati
 
 We will send you a new list of users everytime there is a change in the status of any user, so you can build out your own Presence UI.
 
-```java Next.js
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>Presence documentation</title>
-  </head>
-  <body>
+```js Next.js
+useEffect(() => {
+    if (client) {
 
-    <velt-presence></velt-presence>
+      const presenceElement = client.getPresenceElement();
 
-    <script>
+      presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
+        // Do something with users list
+      });
 
-      if (window.Velt) {
-
-        const presenceElement = window.Velt.getPresenceElement();
-
-        presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
-          // Do something with users list
-        });
-
-      }
-
-    </script>
-
-  </body>
-</html>
+    }
+  }, [client]);
 ```
 
   </Tab>
