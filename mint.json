@@ -155,7 +155,7 @@
         {
           "group": "System Comments",
           "pages": [
-            "async-collaboration/system-comments/generate-auth-token",
+            "async-collaboration/system-comments/setup",
             "async-collaboration/system-comments/add-system-comment",
             "async-collaboration/system-comments/add-child-system-comment",
             "async-collaboration/system-comments/delete-system-comments",
