@@ -96,7 +96,7 @@
           "group": "Live Selection",
           "pages": [
             "realtime-collaboration/live-selection/overview",
-            "realtime-collaboration/live-selection/steps"
+            "realtime-collaboration/live-selection/setup"
           ]
         }
       ]
