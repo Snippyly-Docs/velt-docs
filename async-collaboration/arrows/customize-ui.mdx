@@ -2,13 +2,33 @@
 title: "Customize UI"
 ---
 
-## Custom Arrow Button
-
-If you want to replace the default arrow button with your own custom button, you can pass it in as a child component.
 
 <Tabs>
     <Tab title="React">
 
+## Custom Arrow Button
+
+If you want to replace the default arrow button with your own custom button, you can pass it in as a child component.
+
+
+    </Tab>
+    <Tab title="Next.js">
+## Custom Arrow Button
+
+If you want to replace the default arrow button with your own custom button, you can pass it in as a child component.
+
+    </Tab>
+    <Tab title="HTML">
+## Custom Arrow Button
+
+If you want to replace the default arrow button with your own custom button, you can pass it in as a child component.
+
+    </Tab>
+
+</Tabs>
+
+
+<RequestExample>
 ```js React
 import { VeltArrowsTool } from '@veltdev/react';
 
@@ -25,9 +45,25 @@ return (
 }
 ```
 
+```js Next.js
+import { VeltArrowsTool } from '@veltdev/react';
 
-    </Tab>
-    <Tab title="HTML">
+function YourComponent() {
+
+return (
+    //
+    <VeltArrowsTool>
+        //custom arrow button goes here
+    </VeltArrowsTool>
+    //
+  )
+  
+}
+```
+
+
+
+   
 
 ```html HTML
 <velt-arrows-tool>
@@ -35,5 +71,5 @@ return (
 </velt-arrows-tool>
 ```
 
-    </Tab>
-</Tabs>
+</RequestExample>
+ 

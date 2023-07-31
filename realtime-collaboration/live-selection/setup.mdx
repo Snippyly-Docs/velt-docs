@@ -29,11 +29,38 @@ Create the hook with the client as dependency.
 By default Users will be able to see the live selection from other users on Text nodes, Input tags & Contenteditable DIVs. To enable live selection on other HTML elements, add data-live-selection-enabled="true" attribute to it.
 
   </Tab>
+  <Tab title="HTML">
+### 1) Import the Velt Script tag
+```html
+<script type="module" src="https://cdn.jsdelivr.net/npm/@veltdev/sdk@1.0.11/velt.js" onload="loadVelt()"></script>
+```
+
+### 2) Initialize with your API Key
+
+Put this in your root app script:
+```js
+async function loadVelt() {
+    await Velt.init("YOUR_VELT_API_KEY");
+}
+```
+
+### 3) Enable live selection
+By default Users will be able to see the live selection from other users on Text nodes, Input tags & Contenteditable DIVs. To enable live selection on other HTML elements, add data-live-selection-enabled=“true” attribute to it.
+
+```js HTML
+if(Velt){
+  const selectionElement = Velt.getSelectionElement();
+  selectionElement.enableLiveSelection();
+}
+```
+
+
+  </Tab>
 </Tabs>
 
 <RequestExample>
 
-```java React
+```js React
 import { useVeltClient } from '@veltdev/react';
 import { useEffect } from 'react';
 
@@ -54,7 +81,7 @@ export default function App() {
 }
 ```
 
-```java Next.js
+```js Next.js
 import { useVeltClient } from '@veltdev/react';
 import { useEffect } from 'react';
 
@@ -73,6 +100,15 @@ export default function App() {
     //... rest of the component code...
   );
 }
+```
+
+```js HTML
+<script>
+if(Velt){
+  const selectionElement = Velt.getSelectionElement();
+  selectionElement.enableLiveSelection();
+}
+</script>
 ```
 
 </RequestExample>

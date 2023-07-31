@@ -108,13 +108,13 @@
           "pages": [
             "async-collaboration/comments/overview",
             {
-              "group": "Steps",
+              "group": "Setup",
               "pages": [
-                "async-collaboration/comments/steps/freestyle",
-                "async-collaboration/comments/steps/inbox",
-                "async-collaboration/comments/steps/popover",
-                "async-collaboration/comments/steps/stream",
-                "async-collaboration/comments/steps/text"
+                "async-collaboration/comments/setup/freestyle",
+                "async-collaboration/comments/setup/inbox",
+                "async-collaboration/comments/setup/popover",
+                "async-collaboration/comments/setup/stream",
+                "async-collaboration/comments/setup/text"
               ]
             },
             "async-collaboration/comments/customize-behavior",

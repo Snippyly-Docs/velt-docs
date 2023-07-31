@@ -30,6 +30,8 @@ In the UserContact object set the `visibility` field to `'private'`. This will a
 
   </Tab>
   <Tab title="Next.js">
+### 1) Set a user group
+
 Users in the same group get added to each other's contact list.
 
 They can then access this list across all the features wherever a contact list is needed. Eg: @mention other users in comments to tag or assign tasks.
@@ -50,6 +52,34 @@ You still need to implement the previous step. Then set the contacts field with 
 Make some contacts private to the current user.
 
 In the UserContact object set the `visibility` field to `'private'`. This will add all such contacts to only this User's contact list.
+
+  </Tab>
+
+  <Tab title="HTML">
+
+### 1) Set a user group
+
+Users in the same group get added to each other's contact list.
+
+They can then access this list across all the features wherever a contact list is needed. Eg: @mention other users in comments to tag or assign tasks.
+
+Over time, as users from the same `groupId` sign in, they will be automatically added to each other's contact list.
+
+### 2) Manually bootstrap user contact list
+
+Bootstrap with the complete contact list from the get go.
+In the previous step, the users will only get added to each others' contact list as & when users in the group log in.
+
+To show the entire user contact list from the get go, you need to manually provide us the list of user contacts during the `identify()` call.
+
+You still need to implement the previous step. Then set the contacts field with a `UserContact` list. In the `UserContact` object you need to set the `visibility` field to `'group'`.
+
+### 3) Add private contacts (optional)
+
+Make some contacts private to the current user.
+
+In the UserContact object set the `visibility` field to `'private'`. This will add all such contacts to only this User's contact list.
+
 
   </Tab>
 </Tabs>
@@ -160,6 +190,49 @@ export default function App() {
     // Your app template
   );
 }
+```
+
+```js HTML
+<script>
+const { client } = useVeltClient();
+
+  useEffect(() => {
+    if (Velt && yourAuthenticatedUser) {
+      const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
+
+      const user = {
+        userId: uid,
+        name: displayName,
+        email: email,
+        photoUrl: photoURL
+      };
+
+      // Use your own logic to determine the group the user belongs to
+      user.groupId = 'some-group-id';
+
+      // You can pass contacts as an array of UserContact objects.
+      // These contacts will show up in various features (eg: comments) so that user can tag, @mention them.
+      const contacts = [
+        {
+          userId: 'd5558f1f-bdea-4eb5-9fd5-ed657e460307',
+          name: 'John Doe',
+          photoUrl: 'https://i.pravatar.cc/300',
+          email: 'john.doe@snippyly.com',
+          visibility: 'group'
+        },
+        {
+          userId: 'd5558f1f-bdea-4eb5-9fd5-ed657e460308',
+          name: 'Mary Doe',
+          photoUrl: 'https://i.pravatar.cc/300',
+          email: 'mary.doe@snippyly.com',
+          visibility: 'private'
+        }
+      ];
+      user.contacts = contacts;
+
+      Velt.identify(user);
+</script>
+
 ```
 
 </RequestExample>
