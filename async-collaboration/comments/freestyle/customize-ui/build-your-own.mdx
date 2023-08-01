@@ -59,11 +59,41 @@ We will send you a new list of comments everytime there is a change so you can b
 
 </Tab>
 
+<Tab title="HTML">
+
+## 1) Import the Velt Script tag
+```html
+<script type="module" src="https://cdn.jsdelivr.net/npm/@veltdev/sdk@1.0.11/velt.js" onload="loadVelt()"></script>
+```
+
+## 2) Initialize with your API Key
+
+Put this in your root app script:
+```js
+async function loadVelt() {
+    await Velt.init("YOUR_VELT_API_KEY");
+}
+```
+
+## 3) Filter comments by document id and location (optional)
+
+You can fetch the comments that correspond to a document and location.
+
+You can pass a document in by itself or with a corresponding location. We will send back an `Observable` which will listen to comment changes for that document and location.
+
+## 4) Subscribe to comments
+
+Subscribe to constant comment changes.
+
+We will send you a new list of comments everytime there is a change so you can build out your own user UI and logic. You can pass in a `documentId` and `location` to filter out unwanted comments.
+
+</Tab>
+
 </Tabs>
 
 <RequestExample>
 
-```java React
+```js React
 import { SnippylyComments, useVeltClient } from '@veltdev/react';
 import { useEffect } from 'react';
 
@@ -99,7 +129,7 @@ export default function App() {
 }
 ```
 
-```java Next.js
+```js Next.js
 import { SnippylyComments, useVeltClient } from '@veltdev/react';
 import { useEffect } from 'react';
 
@@ -135,4 +165,24 @@ export default function App() {
 }
 ```
 
+```js HTML
+<script>
+if (Velt) {
+
+      const commentElement = Velt.getCommentElement();
+
+      // Provide your own logic to determine the documentId and location
+      const documentId = 'example-document-id';
+
+      const location = {
+        page: 'example-page'
+      };
+
+      commentElement.getAllCommentAnnotations(documentId, location).subscribe((comments) => {
+        // Do something with comments list
+      });
+
+    }
+</script>
+```
 </RequestExample>
