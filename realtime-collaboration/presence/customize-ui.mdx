@@ -2,6 +2,9 @@
 title: "Customize UI"
 ---
 
+<Tabs>
+  <Tab title="React">
+
 ## 1. Parts
 
 ### 1) Select the part you want to modify
@@ -60,8 +63,101 @@ Alternatively, you can directly inspect the component CSS to see what variables 
 
 ## 3. Build your own UI
 
-<Tabs>
-  <Tab title="React">
+
+### 1) Get the Velt client
+
+Import the useVeltClient React hook.
+
+You can use this hook within your component to fetch the Velt client.
+
+### 2) Create a useEffect hook
+
+Create an effect with the client as a dependency.
+
+Make sure to check if the client is null or undefined before you use it.
+
+### 3) Subscribe to presence users
+
+Subscribe to the realtime Presence users data on the current document and location.
+
+We will send you a new list of users everytime there is a change in the status of any user, so you can build out your own Presence UI.
+
+```js React
+useEffect(() => {
+    if (client) {
+
+      const presenceElement = client.getPresenceElement();
+
+      presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
+        // Do something with users list
+      });
+
+    }
+  }, [client]);
+```
+
+
+  </Tab>
+  <Tab title="Next.js">
+## 1. Parts
+
+### 1) Select the part you want to modify
+
+We offer several parts which can be used like classes. Full list below.
+
+The component is encapsulated in Shadow DOM, which is isolated from the normal DOM.
+
+### 2) Apply your CSS rules
+
+Set whatever CSS rules you want.
+
+The part lets you target a specific element within a Shadow DOM.
+
+### 3) Check out the table below
+
+Reference the table below to see what parts we expose.
+
+Alternatively, you can directly inspect the component HTML to see what parts are available.
+
+| Part Name      | What does it do?                   |
+| -------------- | ---------------------------------- |
+| tooltip        | Targets the tooltip container      |
+| tooltip-avatar | Targets the tooltip avatar         |
+| tooltip-text   | Targets the tooltip text container |
+| user-avatar    | Targets the user avatar container  |
+| more-users     | Targets the more users container   |
+
+## 2. Variables
+
+### 1) Select the Presence component
+
+You can select the Presence component.
+Our CSS variables are set at the component level.
+
+### 2) Modify a CSS variable
+
+Set the variable to anything you want.
+
+We expose a set of variables so you can customize the component to better match your UI.
+
+### 3) Check out the table below
+
+Reference the table below to see what variables we expose.
+
+Alternatively, you can directly inspect the component CSS to see what variables are available.
+
+| Variable Name                        | Default (light) | Default (dark) | What does it do?                  |
+| ------------------------------------ | --------------- | -------------- | --------------------------------- |
+| --velt-presence-avatar-size          | 2rem            | 2rem           | Sets the Presence avatar size     |
+| --velt-presence-primary-text-color   | #141416         | #E5E5E9        | Sets the primary text color       |
+| --velt-presence-secondary-text-color | #777E90         | #91919C        | Sets the secondary text color     |
+| --velt-tooltip-bg-color              | #FCFCFD         | #141416        | Sets the tooltip background color |
+| --velt-tooltip-border-color          | #E6E8EC         | #303034        | Sets the tooltip border color     |
+| --velt-more-users-color              | #D4D6DF         | #404044        | Sets the more users color         |
+
+## 3. Build your own UI
+
+
 ### 1) Get the Velt client
 
 Import the useVeltClient React hook.
@@ -95,7 +191,67 @@ useEffect(() => {
 ```
 
   </Tab>
-  <Tab title="Next.js">
+  <Tab title="HTML">
+
+## 1. Parts
+
+### 1) Select the part you want to modify
+
+We offer several parts which can be used like classes. Full list below.
+
+The component is encapsulated in Shadow DOM, which is isolated from the normal DOM.
+
+### 2) Apply your CSS rules
+
+Set whatever CSS rules you want.
+
+The part lets you target a specific element within a Shadow DOM.
+
+### 3) Check out the table below
+
+Reference the table below to see what parts we expose.
+
+Alternatively, you can directly inspect the component HTML to see what parts are available.
+
+| Part Name      | What does it do?                   |
+| -------------- | ---------------------------------- |
+| tooltip        | Targets the tooltip container      |
+| tooltip-avatar | Targets the tooltip avatar         |
+| tooltip-text   | Targets the tooltip text container |
+| user-avatar    | Targets the user avatar container  |
+| more-users     | Targets the more users container   |
+
+## 2. Variables
+
+### 1) Select the Presence component
+
+You can select the Presence component.
+Our CSS variables are set at the component level.
+
+### 2) Modify a CSS variable
+
+Set the variable to anything you want.
+
+We expose a set of variables so you can customize the component to better match your UI.
+
+### 3) Check out the table below
+
+Reference the table below to see what variables we expose.
+
+Alternatively, you can directly inspect the component CSS to see what variables are available.
+
+| Variable Name                        | Default (light) | Default (dark) | What does it do?                  |
+| ------------------------------------ | --------------- | -------------- | --------------------------------- |
+| --velt-presence-avatar-size          | 2rem            | 2rem           | Sets the Presence avatar size     |
+| --velt-presence-primary-text-color   | #141416         | #E5E5E9        | Sets the primary text color       |
+| --velt-presence-secondary-text-color | #777E90         | #91919C        | Sets the secondary text color     |
+| --velt-tooltip-bg-color              | #FCFCFD         | #141416        | Sets the tooltip background color |
+| --velt-tooltip-border-color          | #E6E8EC         | #303034        | Sets the tooltip border color     |
+| --velt-more-users-color              | #D4D6DF         | #404044        | Sets the more users color         |
+
+## 3. Build your own UI
+
+
 ### 1) Get the Velt client
 
 Import the useVeltClient React hook.
@@ -113,34 +269,6 @@ Make sure to check if the client is null or undefined before you use it.
 Subscribe to the realtime Presence users data on the current document and location.
 
 We will send you a new list of users everytime there is a change in the status of any user, so you can build out your own Presence UI.
-
-```js Next.js
-useEffect(() => {
-    if (client) {
-
-      const presenceElement = client.getPresenceElement();
-
-      presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
-        // Do something with users list
-      });
-
-    }
-  }, [client]);
-```
-
-  </Tab>
-  <Tab title="HTML">
-### 1) Get an instance of the presence element
-
-Fetch the presence element from the Velt client.
-
-At this point, the Velt instance should be loaded and available to you on the window object.
-
-### 2) Subscribe to presence users
-
-Subscribe to constant user changes.
-
-We will send you a new list of users everytime there is a change so you can build out your own presence UI and logic.
 
 ```html HTML
 <!DOCTYPE html>
@@ -163,9 +291,10 @@ We will send you a new list of users everytime there is a change so you can buil
   </body>
 </html>
 ```
-
   </Tab>
 </Tabs>
+
+
 
 <RequestExample>
 
