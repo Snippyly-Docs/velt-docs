@@ -1,3 +1,6 @@
+<Tabs>
+  <Tab title="React">
+
 ### 1) Import VeltRecorderTool, VeltRecorderControlPanel, and VeltRecorderPlayer components
 Import the `VeltRecorderTool`, `VeltRecorderControlPanel`, and `VeltRecorderPlayer` from `@veltdev/react`
 
@@ -33,7 +36,7 @@ Set the `mode` attribute on the VeltRecorderControlPanel component to either `fl
 Add the VeltRecorderPlayer component wherever you want to show recorded data.
 
 ```js
-<VeltPlayer recorderId={RECORDER_ID} />
+<VeltRecorderPlayer recorderId={RECORDER_ID} />
 ```
 
 The Recorder Player Component displays the recorded data with controls such as pause, play and delete.
@@ -41,6 +44,104 @@ The Recorder Player Component displays the recorded data with controls such as p
 #### Set the recorderId
 Set the `recorderId` of the VeltRecorderPlayer component as the Id of the recording you are trying to show.
 
+
+
+  </Tab>
+  <Tab title="Next.js">
+### 1) Import VeltRecorderTool, VeltRecorderControlPanel, and VeltRecorderPlayer components
+Import the `VeltRecorderTool`, `VeltRecorderControlPanel`, and `VeltRecorderPlayer` from `@veltdev/react`
+
+### 2) Add VeltRecorderTool component
+Add the VeltRecorderTool component wherever you want the recorder button to appear. 
+
+```js
+<VeltRecorderTool type='all' />
+```
+
+#### Choose the recording type
+
+Set the `type` attribute of the VeltRecorderTool component to one of the following:
+ - all
+ - audio 
+ - video
+ - screen
+
+### 3) Add VeltRecorderControlPanel component
+Add the VeltRecorderControlPanel component wherever you want the control panel to appear.
+
+```js
+<VeltRecorderControlPanel mode="thread" />
+```
+
+When a user clicks on the VeltRecorderTool button, the VeltControlPanel component will show the recording preview with options to save, pause, or delete the recording.
+
+
+#### Choose the Control Panel mode
+Set the `mode` attribute on the VeltRecorderControlPanel component to either `floating`(default) or `thread`. 
+
+### 4) Add VeltRecorderPlayer component
+Add the VeltRecorderPlayer component wherever you want to show recorded data.
+
+```js
+<VeltRecorderPlayer recorderId={RECORDER_ID} />
+```
+
+The Recorder Player Component displays the recorded data with controls such as pause, play and delete.
+
+#### Set the recorderId
+Set the `recorderId` of the VeltRecorderPlayer component as the Id of the recording you are trying to show.
+
+
+
+  </Tab>
+  <Tab title="HTML">
+### 1) Import the Recorder components
+Import the `<velt-recorder-tool>`, `<velt-recorder-control-panel>`, and `<velt-recorder-player>`
+
+### 2) Add `<velt-recorder-tool>` component
+Add the `<velt-recorder-tool>` component wherever you want the recorder button to appear. 
+
+```js
+<velt-recorder-tool type='all' ><velt-recorder-tool>
+```
+
+#### Choose the recording type
+
+Set the `type` attribute of the `<velt-recorder-tool>` component to one of the following:
+ - all
+ - audio 
+ - video
+ - screen
+
+### 3) Add `<velt-recorder-control-panel>` component
+Add the `<velt-recorder-control-panel>` component wherever you want the control panel to appear.
+
+```js
+`<velt-recorder-control-panel mode="thread">`<velt-recorder-control-panel>`
+```
+
+When a user clicks on the `<velt-recorder-tool>` button, the `<velt-recorder-control-panel>` component will show the recording preview with options to save, pause, or delete the recording.
+
+
+#### Choose the Control Panel mode
+Set the `mode` attribute on the `<velt-recorder-control-panel>` component to either `floating`(default) or `thread`. 
+
+### 4) Add `<velt-recorder-player>` component
+Add the `<velt-recorder-player>` component wherever you want to show recorded data.
+
+```js
+`<velt-recorder-player recorderId={RECORDER_ID}></velt-recorder-player>
+```
+
+The Recorder Player Component displays the recorded data with controls such as pause, play and delete.
+
+#### Set the recorderId
+Set the `recorderId` of the `<velt-recorder-player>` component as the Id of the recording you are trying to show.
+
+
+
+  </Tab>
+</Tabs>
 
 
 
@@ -53,10 +154,31 @@ function TaskInputBox() {
     	//... rest of the component code...
       <VeltRecorderTool type='all' />
       <VeltRecorderControlPanel mode="floating" />
-      <VeltPlayer recorderId={RECORDER_ID} />
+      <VeltRecorderPlayer recorderId={RECORDER_ID} />
       //... rest of the component code...
     )
 }
+```
+```js Next.js
+import { VeltRecorderTool, VeltRecorderControlPanel, VeltRecorderPlayer } from '@veltdev/react'
+
+function TaskInputBox() {
+    return (
+    	//... rest of the component code...
+      <VeltRecorderTool type='all' />
+      <VeltRecorderControlPanel mode="floating" />
+      <VeltRecorderPlayer recorderId={RECORDER_ID} />
+      //... rest of the component code...
+    )
+}
+```
+```js HTML
+<div>
+      <velt-recorder-tool type='all'></velt-recorder-tool>
+      <velt-recorder-control-panel mode="floating"></velt-recorder-control-panel>
+      <velt-recorder-player recorderId={RECORDER_ID}></velt-recorder-player>
+</div>
+    
 ```
 </RequestExample>
 
