@@ -8,29 +8,50 @@ title: "1. Install"
   <Tab title="React">
 ## 1) Install React package
 
+npm:
 ```bash
 $ npm install @veltdev/react
 ```
+
+yarn:
+```bash
+$ yarn add @veltdev/react
+```
+
 
 ## 2) Install types (optional)
 
 If you're using TypeScript, you can install the types package.
 
 ```bash
-$ npm install --save-dev @snippyly/types
+$ npm install --save-dev @velt/types
 ```
 
 ## 3) Add VeltProvider
 
 Add the VeltProvider component to the root of your app.
 Add your Velt API key.
+
+
+```js
+<VeltProvider apiKey="YOUR_API_KEY">
+      // Your app goes here
+</VeltProvider>
+```
+
 
   </Tab>
   <Tab title="Next.js">
 ## 1) Install React package
 
+npm:
 ```bash
 $ npm install @veltdev/react
+```
+
+yarn:
+```bash
+$ yarn add @veltdev/react
 ```
 
 ## 2) Install types (optional)
@@ -38,13 +59,19 @@ $ npm install @veltdev/react
 If you're using TypeScript, you can install the types package.
 
 ```bash
-$ npm install --save-dev @snippyly/types
+$ npm install --save-dev @velt/types
 ```
 
 ## 3) Add VeltProvider
 
 Add the VeltProvider component to the root of your app.
 Add your Velt API key.
+
+```js
+<VeltProvider apiKey="YOUR_API_KEY">
+      // Your app goes here
+</VeltProvider>
+```
 
   </Tab>
   <Tab title="HTML">
@@ -99,7 +126,7 @@ export default function App() {
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Cursors documentation</title>
+    <title>Collaboration App</title>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@veltdev/sdk@1.0.11/velt.js" onload="loadVelt()"></script>
     <script>
       async function loadVelt() {

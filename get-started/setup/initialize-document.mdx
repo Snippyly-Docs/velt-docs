@@ -10,15 +10,32 @@ description: "Document is the space where you want your users to collaborate.For
 Import the `useVeltClient` React hook.
 You can use this hook within your component to fetch the Velt client.
 
+```js
+import { useVeltClient } from '@veltdev/react';
+```
+
 ## 2) Create a useEffect hook
 
 Create an effect with the client as a dependency.
 Make sure to check if the client is `null` or `undefined` before you use it.
 
+```js
+useEffect(() => {
+  if (client) {
+    //set document ID
+  }
+}, [client]);
+```
+
 ## 3) Set a document ID
 
-Pass a unique ID representing your document. Whenever your document initializes, you should call this method. The SDK will not work without this call.
+Pass a unique ID representing your document. Whenever your document initializes your canvas is ready for collaboration, you should call this method. The SDK will not work without this call.
 Users logged into the same document ID can see each other's presence, cursors, comments etc.
+
+
+```js
+  client.setDocumentId('unique-document-id');
+```
 
   </Tab>
   <Tab title="Next.js">
@@ -27,24 +44,44 @@ Users logged into the same document ID can see each other's presence, cursors, c
 Import the `useVeltClient` React hook.
 You can use this hook within your component to fetch the Velt client.
 
+```js
+import { useVeltClient } from '@veltdev/react';
+```
+
 ## 2) Create a useEffect hook
 
 Create an effect with the client as a dependency.
 Make sure to check if the client is `null` or `undefined` before you use it.
 
+```js
+useEffect(() => {
+  if (client) {
+    //set document ID
+  }
+}, [client]);
+```
+
 ## 3) Set a document ID
 
-Pass a unique ID representing your document. Whenever your document initializes, you should call this method. The SDK will not work without this call.
+Pass a unique ID representing your document. Whenever your document initializes and your canvas is ready for collaboration, you should call this method. The SDK will not work without this call.
 Users logged into the same document ID can see each other's presence, cursors, comments etc.
+
+```js
+  client.setDocumentId('unique-document-id');
+```
 
   </Tab>
   <Tab title="HTML">
 ## 1) Set a document ID
 
-The document ID needs to be unique. Users on the same document ID can see each other's comments.
+Pass a unique ID representing your document. Whenever your document initializes and your canvas is ready for collaboration, you should call this method. The SDK will not work without this call.
+Users logged into the same document ID can see each other's presence, cursors, comments etc.
+
 
 ```js
-Velt.setDocumentId('CUSTOM_DOCUMENT_ID');
+if(Velt){
+    Velt.setDocumentId('CUSTOM_DOCUMENT_ID');
+}
 ```
 
   </Tab>
@@ -56,7 +93,7 @@ Velt.setDocumentId('CUSTOM_DOCUMENT_ID');
 import { useVeltClient } from '@veltdev/react';
 import { useEffect, useState } from 'react';
 
-export default function Collaboration() {
+export default function YourCollaborationApp() {
 
   const { client } = useVeltClient();
 
@@ -76,7 +113,7 @@ export default function Collaboration() {
 import { useVeltClient } from '@veltdev/react';
 import { useEffect, useState } from 'react';
 
-export default function Collaboration() {
+export default function YourCollaborationApp() {
 
   const { client } = useVeltClient();
 
@@ -93,8 +130,10 @@ export default function Collaboration() {
 ```
 
 ```html HTML
- <script>
-Velt.setDocumentId('CUSTOM_DOCUMENT_ID');
+<script>
+  if(Velt){
+    Velt.setDocumentId('CUSTOM_DOCUMENT_ID');
+  }
 </script>
 
 

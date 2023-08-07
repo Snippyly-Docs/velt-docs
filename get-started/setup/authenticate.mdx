@@ -8,19 +8,50 @@ description: "Autheticate your logged in user with the SDK."
 ## 1) Get the Velt client
 
 Import the `useVeltClient` React hook. You can use this hook within your
-component to fetch the Velt client.
+component to fetch the Velt client. 
+
+Be sure to use the client in a child component of `<VeltProvider>` and not within the same component as `<VeltProvider>`.
+
+```js
+import { useVeltClient } from '@veltdev/react';
+```
 
 ## 2) Create a useEffect hook
 
 Create the hook with the `client` and `your authenticated user` as dependencies.
 
+```js
+  useEffect(() => {
+    if (client && yourAuthenticatedUser) {
+      // Fetch the relevant user info from your authenticated user object.
+    }
+  }, [client, yourAuthenticatedUser]);
+```
+
 ## 3) Fetch relevant user info
 
 Create a Velt User object by taking the relevant fields from your authenticated User object.
 
+```js
+  // Create the Velt user object
+  const user = {
+    userId: uid,
+    name: displayName,
+    email: email,
+    photoUrl: photoURL
+  };
+```
+
+To enable @mention in the comments, you need to pass the user's contacts. Learn more about how it works [here](https://docs.velt.dev/users/add-user-contacts/setup).
+
+
 ## 4) Pass the user object to the SDK
 
 Call the `identify()` method and pass in the Velt User.
+
+```js
+  client.identify(user);
+```
 
   </Tab>
   <Tab title="Next.js">
@@ -29,62 +60,62 @@ Call the `identify()` method and pass in the Velt User.
 Import the `useVeltClient` React hook. You can use this hook within your
 component to fetch the Velt client.
 
+Be sure to use the client in a child component of `<VeltProvider>` and not within the same component as `<VeltProvider>`.
+
+
+```js
+import { useVeltClient } from '@veltdev/react';
+```
+
 ## 2) Create a useEffect hook
 
 Create the hook with the `client` and `your authenticated user` as dependencies.
+
+```js
+  useEffect(() => {
+    if (client && yourAuthenticatedUser) {
+      // Fetch the relevant user info from your authenticated user object.
+    }
+  }, [client, yourAuthenticatedUser]);
+```
 
 ## 3) Fetch relevant user info
 
 Create a Velt User object by taking the relevant fields from your authenticated User object.
 
+```js
+  // Create the Velt user object
+  const user = {
+    userId: uid,
+    name: displayName,
+    email: email,
+    photoUrl: photoURL
+  };
+```
+
+To enable @mention in the comments, you need to pass the user's contacts. Learn more about how it works [here](https://docs.velt.dev/users/add-user-contacts/setup).
+
+
 ## 4) Pass the user object to the SDK
 
 Call the `identify()` method and pass in the Velt User.
+
+```js
+  client.identify(user);
+```
 
   </Tab>
   <Tab title="HTML">
 
 ## 1) Identify the Logged In User
 
-Call this function in the component where you authenticate your users once your Velt client and your user object is available.
-
+Call this function in the component where you authenticate your users once your Velt client and your user object is available. If your .js files are all in one file, you will need to include the .js file on every html page you want the features to be enabled on.
 Make sure you pass the user with the fields defined in the User object or refer to the example below.
 
 To enable @mention in the comments, you need to pass the user's contacts. Learn more about how it works [here](https://docs.velt.dev/users/add-user-contacts/setup).
 
 ```js
-// Call this function once Velt client and your user object is available
-function identifyVelt() {
-	if (Velt) {
-    // You need to pass these fields about your logged in user to us.
-    const yourLoggedInUser = {
-      userId: 'abc123',
-      name: 'Tom T',
-      photoUrl: 'https://i.pravatar.cc/300', //(optional)
-      email: 'tom@xyz.com',
-      plan: 'free', //(optional)
-      groupId: 'customerGroupId123', //(optional) If there are multiple users added to the same account, then use this to help us group them together in our system as well.
-      contacts: [ //(optional) The list of users that will appear in the @mention dropdown.
-        {
-          userId: '2',
-          name: 'Maria Garcia',
-          email: 'maria@trysnippyly.com',
-        },
-        {
-          userId: '3',
-          name: 'Sarah Wilson',
-          email: 'sarah@trysnippyly.com',
-        }
-      ]
-    }
-
-    Velt.identify(yourLoggedInUser).then((res) => {
-      // User auth successful with Velt
-    }).catch((err) => {
-      // Failed to authenticate user with Velt
-    });
-  }
-}
+    Velt.identify(yourLoggedInUser)
 ```
 
   </Tab>
@@ -92,14 +123,16 @@ function identifyVelt() {
 
 <RequestExample>
 
-```java React
+```js React
+// 1) Get the Velt Client
 import { useVeltClient } from '@veltdev/react';
 import { useEffect } from 'react';
 
-export default function App() {
+export default function YourComponent() {
 
   const { client } = useVeltClient();
 
+  // 2) Create a useEffect hook
   useEffect(() => {
     if (client && yourAuthenticatedUser) {
 
@@ -114,6 +147,7 @@ export default function App() {
         photoUrl: photoURL
       };
 
+      //4) Pass the user object to the SDK
       client.identify(user);
     }
   }, [client, yourAuthenticatedUser]);
@@ -125,14 +159,16 @@ export default function App() {
 
 ```
 
-```java Next.js
+```js Next.js
+// 1) Get the Velt Client
 import { useVeltClient } from '@veltdev/react';
 import { useEffect } from 'react';
 
-export default function App() {
+export default function YourComponent() {
 
   const { client } = useVeltClient();
 
+  // 2) Create a useEffect hook
   useEffect(() => {
     if (client && yourAuthenticatedUser) {
 
@@ -147,6 +183,7 @@ export default function App() {
         photoUrl: photoURL
       };
 
+      //4) Pass the user object to the SDK
       client.identify(user);
     }
   }, [client, yourAuthenticatedUser]);
@@ -166,31 +203,16 @@ function identifyVelt() {
 	if (Velt) {
     // You need to pass these fields about your logged in user to us.
     const yourLoggedInUser = {
-      userId: 'abc123',
-      name: 'Tom T',
+      userId: '9snk30djks9e4mndk',
+      name: 'John Doe',
       photoUrl: 'https://i.pravatar.cc/300', //(optional)
-      email: 'tom@xyz.com',
+      email: 'jdoe@xyz.com',
       plan: 'free', //(optional)
       groupId: 'customerGroupId123', //(optional) If there are multiple users added to the same account, then use this to help us group them together in our system as well.
-      contacts: [ //(optional) The list of users that will appear in the @mention dropdown.
-        {
-          userId: '2',
-          name: 'Maria Garcia',
-          email: 'maria@trysnippyly.com',
-        },
-        {
-          userId: '3',
-          name: 'Sarah Wilson',
-          email: 'sarah@trysnippyly.com',
-        }
-      ]
+      
     }
-
-    Velt.identify(yourLoggedInUser).then((res) => {
-      // User auth successful with Velt
-    }).catch((err) => {
-      // Failed to authenticate user with Velt
-    });
+    // 1) Identify the Logged In User
+    Velt.identify(yourLoggedInUser)
   }
 }
 </script>
