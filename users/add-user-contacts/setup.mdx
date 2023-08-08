@@ -16,6 +16,10 @@ They can then access this list across all the features wherever a contact list i
 
 Over time, as users from the same `groupId` sign in, they will be automatically added to each other's contact list.
 
+```js
+  user.groupId = 'some-group-id';
+```
+
 ### 2) Manually bootstrap user contact list
 
 Bootstrap with the complete contact list from the get go.
@@ -25,11 +29,37 @@ To show the entire user contact list from the get go, you need to manually provi
 
 You still need to implement the previous step. Then set the contacts field with a `UserContact` list. In the `UserContact` object you need to set the `visibility` field to `'group'`.
 
+```js
+ const contacts = [
+        {
+          userId: 'd5558f1f-bdea-4eb5-9fd5-ed657e460307',
+          name: 'John Doe',
+          photoUrl: 'https://i.pravatar.cc/300',
+          email: 'john.doe@snippyly.com',
+          visibility: 'group'
+        },
+        {
+          userId: 'd5558f1f-bdea-4eb5-9fd5-ed657e460308',
+          name: 'Mary Doe',
+          photoUrl: 'https://i.pravatar.cc/300',
+          email: 'mary.doe@snippyly.com',
+          visibility: 'private'
+        }
+      ];
+      user.contacts = contacts;
+```
+
 ### 3) Add private contacts (optional)
 
 Make some contacts private to the current user.
 
 In the UserContact object set the `visibility` field to `'private'`. This will add all such contacts to only this User's contact list.
+
+```js
+{
+  visibility: 'private'
+}
+```
 
   </Tab>
   <Tab title="Next.js">
@@ -41,6 +71,10 @@ They can then access this list across all the features wherever a contact list i
 
 Over time, as users from the same `groupId` sign in, they will be automatically added to each other's contact list.
 
+```js
+  user.groupId = 'some-group-id';
+```
+
 ### 2) Manually bootstrap user contact list
 
 Bootstrap with the complete contact list from the get go.
@@ -50,12 +84,37 @@ To show the entire user contact list from the get go, you need to manually provi
 
 You still need to implement the previous step. Then set the contacts field with a `UserContact` list. In the `UserContact` object you need to set the `visibility` field to `'group'`.
 
+```js
+ const contacts = [
+        {
+          userId: 'd5558f1f-bdea-4eb5-9fd5-ed657e460307',
+          name: 'John Doe',
+          photoUrl: 'https://i.pravatar.cc/300',
+          email: 'john.doe@snippyly.com',
+          visibility: 'group'
+        },
+        {
+          userId: 'd5558f1f-bdea-4eb5-9fd5-ed657e460308',
+          name: 'Mary Doe',
+          photoUrl: 'https://i.pravatar.cc/300',
+          email: 'mary.doe@snippyly.com',
+          visibility: 'private'
+        }
+      ];
+      user.contacts = contacts;
+```
+
 ### 3) Add private contacts (optional)
 
 Make some contacts private to the current user.
 
 In the UserContact object set the `visibility` field to `'private'`. This will add all such contacts to only this User's contact list.
 
+```js
+{
+  visibility: 'private'
+}
+```
   </Tab>
 
   <Tab title="HTML">
@@ -68,6 +127,10 @@ They can then access this list across all the features wherever a contact list i
 
 Over time, as users from the same `groupId` sign in, they will be automatically added to each other's contact list.
 
+```js
+  user.groupId = 'some-group-id';
+```
+
 ### 2) Manually bootstrap user contact list
 
 Bootstrap with the complete contact list from the get go.
@@ -77,12 +140,37 @@ To show the entire user contact list from the get go, you need to manually provi
 
 You still need to implement the previous step. Then set the contacts field with a `UserContact` list. In the `UserContact` object you need to set the `visibility` field to `'group'`.
 
+```js
+ const contacts = [
+        {
+          userId: 'd5558f1f-bdea-4eb5-9fd5-ed657e460307',
+          name: 'John Doe',
+          photoUrl: 'https://i.pravatar.cc/300',
+          email: 'john.doe@snippyly.com',
+          visibility: 'group'
+        },
+        {
+          userId: 'd5558f1f-bdea-4eb5-9fd5-ed657e460308',
+          name: 'Mary Doe',
+          photoUrl: 'https://i.pravatar.cc/300',
+          email: 'mary.doe@snippyly.com',
+          visibility: 'private'
+        }
+      ];
+      user.contacts = contacts;
+```
+
 ### 3) Add private contacts (optional)
 
 Make some contacts private to the current user.
 
 In the UserContact object set the `visibility` field to `'private'`. This will add all such contacts to only this User's contact list.
 
+```js
+{
+  visibility: 'private'
+}
+```
 
   </Tab>
 </Tabs>
@@ -109,9 +197,11 @@ export default function App() {
         photoUrl: photoURL
       };
 
+      // 1) Set a user group
       // Use your own logic to determine the group the user belongs to
       user.groupId = 'some-group-id';
 
+      // 2) Manually bootstrap user contact list
       // You can pass contacts as an array of UserContact objects.
       // These contacts will show up in various features (eg: comments) so that user can tag, @mention them.
       const contacts = [
@@ -127,7 +217,7 @@ export default function App() {
           name: 'Mary Doe',
           photoUrl: 'https://i.pravatar.cc/300',
           email: 'mary.doe@snippyly.com',
-          visibility: 'private'
+          visibility: 'private' //3) Add private contacts (optional)
         }
       ];
       user.contacts = contacts;
@@ -162,9 +252,11 @@ export default function App() {
         photoUrl: photoURL
       };
 
+      // 1) Set a user group
       // Use your own logic to determine the group the user belongs to
       user.groupId = 'some-group-id';
 
+      // 2) Manually bootstrap user contact list
       // You can pass contacts as an array of UserContact objects.
       // These contacts will show up in various features (eg: comments) so that user can tag, @mention them.
       const contacts = [
@@ -180,7 +272,7 @@ export default function App() {
           name: 'Mary Doe',
           photoUrl: 'https://i.pravatar.cc/300',
           email: 'mary.doe@snippyly.com',
-          visibility: 'private'
+          visibility: 'private' //3) Add private contacts (optional)
         }
       ];
       user.contacts = contacts;
@@ -197,9 +289,7 @@ export default function App() {
 
 ```js HTML
 <script>
-const { client } = useVeltClient();
 
-  useEffect(() => {
     if (Velt && yourAuthenticatedUser) {
       const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
 
@@ -210,9 +300,11 @@ const { client } = useVeltClient();
         photoUrl: photoURL
       };
 
+      // 1) Set a user group
       // Use your own logic to determine the group the user belongs to
       user.groupId = 'some-group-id';
 
+      // 2) Manually bootstrap user contact list
       // You can pass contacts as an array of UserContact objects.
       // These contacts will show up in various features (eg: comments) so that user can tag, @mention them.
       const contacts = [
@@ -228,14 +320,12 @@ const { client } = useVeltClient();
           name: 'Mary Doe',
           photoUrl: 'https://i.pravatar.cc/300',
           email: 'mary.doe@snippyly.com',
-          visibility: 'private'
+          visibility: 'private' //3) Add private contacts (optional)
         }
       ];
       user.contacts = contacts;
-
       Velt.identify(user);
-</script>
-
+      
 ```
 
 </RequestExample>
