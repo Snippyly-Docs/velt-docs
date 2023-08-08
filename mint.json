@@ -222,6 +222,17 @@
       ]
     },
     {
+      "group": "Beta Features",
+      "pages": [
+        {
+          "group": "Live Co-Editing",
+          "pages": [
+            "live-co-editing/overview"
+          ]
+        }
+      ]
+    },
+    {
       "group": "API Reference",
       "pages": [
         {
