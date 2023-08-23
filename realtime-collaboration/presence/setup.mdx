@@ -11,11 +11,20 @@ title: "Setup"
 
 Import the Presence component from the React library.
 
+```js
+import { VeltPresence } from '@veltdev/react';
+```
+
 ## 2) Add Presence Component
 
 Add it anywhere you want to see the user avatars.
 
+```js
+<VeltPresence />
+```
+
 This component renders the avatars of users on the same document in your web app. We automactically detect when users are active on the document and render their avatars.
+
 
 ## 3) Test Integration
 
@@ -29,11 +38,17 @@ You should see the avatars of the users rendered where you added the presence co
 
 Import the Presence component from the React library.
 
+```js
+import { VeltPresence } from '@veltdev/react';
+```
+
 ## 2) Add Presence Component
 
 Add it anywhere you want to see the user avatars.
 
-This component renders the avatars of users on the same document in your web app. We automactically detect when users are active on the document and render their avatars.
+```js
+<VeltPresence />
+```
 
 ## 3) Test Integration
 
@@ -60,19 +75,21 @@ You should see the avatars of the users rendered where you added the presence co
     ### 3) Place the `<velt-presence>` component
     Place the component wherever you want the avatars to appear.
 
-    ### 4) Test Integration
-
-Test it out by opening the target page in two browsers with two different users logged in.
-
-You should see the avatars of the users rendered where you added the presence component.
-
-```html
+    ```html
 <velt-presence
         inactivity-time="30000"
         location='{"page": 1}'
         max-users="3"
 ></velt-presence>
 ```
+
+    ### 4) Test Integration
+
+Test it out by opening the target page in two browsers with two different users logged in.
+
+You should see the avatars of the users rendered where you added the presence component.
+
+
 
 
   </Tab>

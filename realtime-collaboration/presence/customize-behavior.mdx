@@ -10,6 +10,10 @@ title: "Customize Behavior"
 ## 1) Set inactivity time
 Set the time it takes for a user to go inactive in milliseconds.
 
+```js
+<VeltPresence inactivityTime={30000} />
+```
+
 By default we mark a user as inactive if they do not take any action on the document within a 5 mins timeframe.
 
 If they unfocus the tab, we mark them inactive immediately.
@@ -20,33 +24,60 @@ Show users' presence on a `Location`.
 
 Set the `location` attribute on the Presence element. When there are users at that location, their avatars will show in this Presence element.
 
-Eg: For a Presentation tool, you can add `Presence` component at the main `document` level and add another `Presence` component on the slide thumbnails. This will render avatars at both presentation level & slide thumbnail level. For slide thumbnails, it will only show users active on that slide.
+```js
+<VeltPresence location={{page: 1}}/>
+```
 
+Eg: For a Presentation tool, you can add `Presence` component at the main `document` level and add another `Presence` component on the slide thumbnails. This will render avatars at both presentation level & slide thumbnail level. For slide thumbnails, it will only show users active on that slide.
+v
 ## 3) Set max users
 
 Set how many Presence avatars to display at a time.
 
 You can set this via the maxUsers attribute. Any extra avatars will be hidden and shown in an avatar which indicates the number of extra users.
 
+```js
+<VeltPresence maxUsers={3} />
+```
+
 ## 4) Enable Flock Mode
 
-Enable Flock Mode Feature.
+To enable Flock Mode, set the flockMode attribute to `true`.
+
+```js
+<VeltPresence flockMode={true} />
+```
 
 This will enable Flock mode as an option for your users globally, wherever Presence is shown.
 
 To start the shared flock session, click on a user's avatar to start following them.
 
-Learn more about it in the Flock Mode feature section.
+Learn more about it in the [Flock Mode feature section](/realtime-collaboration/flock-mode/overview).
 
 ## 5) Subscribe to changes in User Presence
 
 Whenever the presence for any user changes, we emit this event with the updated list of users currently online on this document.
+
+```js
+<VeltPresence onPresenceUserChange={(presenceUsers) => yourMethod(presenceUsers)} />
+```
+## 6) Enable Dark Mode
+
+To enable Dark Mode, set the darkMode attribute to `true`.
+
+```js
+<VeltPresence darkMode={true} />
+```
 
   </Tab>
   <Tab title="Next.js">
 ## 1) Set inactivity time
 Set the time it takes for a user to go inactive in milliseconds.
 
+```js
+<VeltPresence inactivityTime={30000} />
+```
+
 By default we mark a user as inactive if they do not take any action on the document within a 5 mins timeframe.
 
 If they unfocus the tab, we mark them inactive immediately.
@@ -57,33 +88,61 @@ Show users' presence on a `Location`.
 
 Set the `location` attribute on the Presence element. When there are users at that location, their avatars will show in this Presence element.
 
-Eg: For a Presentation tool, you can add `Presence` component at the main `document` level and add another `Presence` component on the slide thumbnails. This will render avatars at both presentation level & slide thumbnail level. For slide thumbnails, it will only show users active on that slide.
+```js
+<VeltPresence location={{page: 1}}/>
+```
 
+Eg: For a Presentation tool, you can add `Presence` component at the main `document` level and add another `Presence` component on the slide thumbnails. This will render avatars at both presentation level & slide thumbnail level. For slide thumbnails, it will only show users active on that slide.
+v
 ## 3) Set max users
 
 Set how many Presence avatars to display at a time.
 
 You can set this via the maxUsers attribute. Any extra avatars will be hidden and shown in an avatar which indicates the number of extra users.
 
+```js
+<VeltPresence maxUsers={3} />
+```
+
 ## 4) Enable Flock Mode
 
-Enable Flock Mode Feature.
+To enable Flock Mode, set the flockMode attribute to `true`.
+
+```js
+<VeltPresence flockMode={true} />
+```
 
 This will enable Flock mode as an option for your users globally, wherever Presence is shown.
 
 To start the shared flock session, click on a user's avatar to start following them.
 
-Learn more about it in the Flock Mode feature section.
+Learn more about it in the [Flock Mode feature section](/realtime-collaboration/flock-mode/overview).
 
 ## 5) Subscribe to changes in User Presence
 
 Whenever the presence for any user changes, we emit this event with the updated list of users currently online on this document.
+
+```js
+<VeltPresence onPresenceUserChange={(presenceUsers) => yourMethod(presenceUsers)} />
+```
+
+## 6) Enable Dark Mode
+
+To enable Dark Mode, set the darkMode attribute to `true`.
+
+```js
+<VeltPresence darkMode={true} />
+```
 
   </Tab>
     <Tab title="HTML">
 ## 1) Set inactivity time
 
 Set the time it takes for a user to go inactive.
+
+```html
+<velt-presence inactivity-time="30000"></velt-presence>
+```
 
 By default a user will go inactive after 5 minutes. If they unfocus the tab, then they will immediately go inactive.
 
@@ -93,11 +152,51 @@ Show users' presence on child documents.
 
 Set the location attribute on the Presence element. When there are users at that location, their avatars will show in this Presence element.
 
+```html
+<velt-presence location='{"page": 1}'></velt-presence>
+```
+
 ## 3) Set max users
 
 Max users determines how many Presence avatars to display at a time.
 
 You can set this via the max-users attribute. Any extra avatars will be hidden and shown in an avatar which indicates the number of extra users.
+
+```html
+<velt-presence max-users="3"></velt-presence>
+```
+
+## 4) Enable Flock Mode
+
+To enable Flock Mode, set the flockMode attribute to `true`.
+
+```html
+<velt-presence flockMode="true"></velt-presence>
+```
+
+This will enable Flock mode as an option for your users globally, wherever Presence is shown.
+
+To start the shared flock session, click on a user's avatar to start following them.
+
+Learn more about it in the [Flock Mode feature section](/realtime-collaboration/flock-mode/overview).
+
+## 5) Subscribe to changes in User Presence
+
+Whenever the presence for any user changes, we emit this event with the updated list of users currently online on this document.
+
+```html
+<velt-presence onPresenceUserChange="yourMethod()"></velt-presence>
+```
+
+
+
+## 6) Enable Dark Mode
+
+To enable Dark Mode, set the darkMode attribute to `true`.
+
+```html
+<velt-presence darkMode="true"></velt-presence>
+```
 
   </Tab>
 </Tabs>
@@ -112,11 +211,13 @@ export default function App() {
   return (
     <div className="toolbar">
       <VeltPresence
-        inactivityTime={30000}
-        location={{page: 1}}
-        maxUsers={3}
-        flockMode={true}
-        onPresenceUserChange={(presenceUsers) => yourMethod(presenceUsers)}
+        inactivityTime={30000} // 1) Set inactivity time
+        location={{page: 1}} // 2) Add Presence to a Location
+        maxUsers={3} // 3) Set max users
+        flockMode={true} / /4) Enable Flock Mode
+        onPresenceUserChange={(presenceUsers) => yourMethod(presenceUsers)} //5) Subscribe to changes in User Presence
+        darkMode={true} // 6) Enable Dark Mode
+
       />
     </div>
   );
@@ -131,11 +232,12 @@ export default function App() {
   return (
     <div className="toolbar">
       <VeltPresence
-        inactivityTime={30000}
-        location={{page: 1}}
-        maxUsers={3}
-        flockMode={true}
-        onPresenceUserChange={(presenceUsers) => yourMethod(presenceUsers)}
+        inactivityTime={30000} // 1) Set inactivity time
+        location={{page: 1}} // 2) Add Presence to a Location
+        maxUsers={3} // 3) Set max users
+        flockMode={true} // 4) Enable Flock Mode
+        onPresenceUserChange={(presenceUsers) => yourMethod(presenceUsers)} //5) Subscribe to changes in User Presence
+        darkMode={true} // 6) Enable Dark Mode
       />
     </div>
   );
@@ -151,9 +253,12 @@ export default function App() {
   <body>
     <div class="toolbar">
       <velt-presence
-        inactivity-time="30000"
-        location='{"page": 1}'
-        max-users="3"
+        inactivity-time="30000" // 1) Set inactivity time
+        location='{"page": 1}' // 2) Add Presence to a Location
+        max-users="3" // 3) Set max users
+        flockMode='true' // 4) Enable Flock Mode
+        onPresenceUserChange="yourMethod()" //5) Subscribe to changes in User Presence
+        dark-mode='true' // 6) Enable Dark Mode
       ></velt-presence>
     </div>
   </body>
