@@ -64,7 +64,17 @@
             "realtime-collaboration/presence/overview",
             "realtime-collaboration/presence/setup",
             "realtime-collaboration/presence/customize-behavior",
-            "realtime-collaboration/presence/customize-ui"
+            {
+              "group": "Customize UI",
+              "pages": [
+                "realtime-collaboration/presence/customize-ui/parts",
+                "realtime-collaboration/presence/customize-ui/variables",
+                "realtime-collaboration/presence/customize-ui/create-your-own-ui"
+
+              ]
+            }
+
+            
           ]
         },
         {

@@ -1,0 +1,86 @@
+---
+title: "Create Your Own UI"
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+### 1) Get the Velt client
+
+Import the useVeltClient React hook.
+
+You can use this hook within your component to fetch the Velt client.
+
+
+```js
+import { VeltPresence } from '@veltdev/react';
+```
+
+### 2) Create a useEffect hook
+
+Create an effect with the client as a dependency.
+
+Make sure to check if the client is null or undefined before you use it.
+
+```js React
+useEffect(() => {
+    if (client) {
+
+      //...
+    }
+  }, [client]);
+```
+
+### 3) Subscribe to presence users
+
+Subscribe to the realtime Presence users data on the current document and location.
+
+We will send you a new list of users everytime there is a change in the status of any user, so you can build out your own Presence UI.
+
+```js React
+useEffect(() => {
+    if (client) {
+
+      const presenceElement = client.getPresenceElement();
+
+      presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
+        // Do something with users list
+      });
+
+    }
+  }, [client]);
+```
+
+
+<RequestExample>
+
+```js React
+import { VeltPresence } from '@veltdev/react';
+import {useEffect} from 'react';
+
+export default function App() {
+
+  useEffect(() => {
+    if (client) {
+
+      const presenceElement = client.getPresenceElement();
+
+      presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
+        // Do something with users list
+      });
+
+    }
+  }, [client]);
+
+  return (
+    <div className="toolbar">
+      <VeltPresence />
+    </div>
+  );
+}
+```
+
+
+
+
+</RequestExample>
