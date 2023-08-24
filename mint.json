@@ -83,7 +83,16 @@
             "realtime-collaboration/cursors/overview",
             "realtime-collaboration/cursors/setup",
             "realtime-collaboration/cursors/customize-behavior",
-            "realtime-collaboration/cursors/customize-ui"
+            {
+              "group": "Customize UI",
+              "pages": [
+                "realtime-collaboration/cursors/customize-ui/slots",
+                "realtime-collaboration/cursors/customize-ui/parts",
+                "realtime-collaboration/cursors/customize-ui/variables",
+                "realtime-collaboration/cursors/customize-ui/create-your-own-ui"
+
+              ]
+            }
           ]
         },
         {
@@ -98,7 +107,8 @@
           "group": "Huddle",
           "pages": [
             "realtime-collaboration/huddle/overview",
-            "realtime-collaboration/huddle/setup"
+            "realtime-collaboration/huddle/setup",
+            "realtime-collaboration/huddle/customize-behavior"
           ]
         },
         {

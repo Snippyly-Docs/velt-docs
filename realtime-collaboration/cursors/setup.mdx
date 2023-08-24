@@ -7,13 +7,26 @@
 ### 1) Import Cursor Component
 Import the component from the React library.
 
+```js
+import { VeltProvider, VeltCursor } from '@veltdev/react'
+```
+
 ### 2) Add Cursor Component
 
-Add it to the root component.
+Add it to the root provider component.
+
+```js
+<VeltProvider apiKey="API_KEY">
+      <VeltCursor />
+      {/* ... */}
+</VeltProvider>
+```
 
 This component renders the cursors of users on the same document and location in your web app.
 
 Note that we automatically assign different colors to users & adapt the cursors to different screen sizes and to what's actually present on the screen. So you don't have to worry about building this logic.
+
+
 
 ### 3) Test Integration
 
@@ -26,9 +39,20 @@ You should see the cursors of the users rendered as you move mouse around.
 ### 1) Import Cursor Component
 Import the component from the React library.
 
+```js
+import { VeltProvider, VeltCursor } from '@veltdev/react'
+```
+
 ### 2) Add Cursor Component
 
-Add it to the root component.
+Add it to the root provider component.
+
+```js
+<VeltProvider apiKey="API_KEY">
+      <VeltCursor />
+      {/* ... */}
+</VeltProvider>
+```
 
 This component renders the cursors of users on the same document and location in your web app.
 
@@ -59,11 +83,6 @@ You should see the cursors of the users rendered as you move mouse around.
     ### 3) Place the `<velt-cursor>` component
 Add it to the root component.
 
-This component renders the cursors of users on the same document and location in your web app.
-
-Note that we automatically assign different colors to users & adapt the cursors to different screen sizes and to what's actually present on the screen. So you don't have to worry about building this logic.
-
-
 ```html
     <velt-cursor
       avatar-mode="true"
@@ -71,6 +90,13 @@ Note that we automatically assign different colors to users & adapt the cursors 
       allowed-element-ids='["element-1", "element-2"]'
     ></velt-cursor>
 ```
+
+This component renders the cursors of users on the same document and location in your web app.
+
+Note that we automatically assign different colors to users & adapt the cursors to different screen sizes and to what's actually present on the screen. So you don't have to worry about building this logic.
+
+
+
 
 ### 4) Test Integration
 

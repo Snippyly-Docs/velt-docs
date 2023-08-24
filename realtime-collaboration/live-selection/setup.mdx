@@ -9,13 +9,30 @@ Import the useVeltClient React hook.
 
 You can use this hook within your component to fetch the Velt client.
 
+```js
+import { useVeltClient } from '@veltdev/react';
+```
+
 ### 2) Create a useEffect hook
 
 Create the hook with the client as dependency.
 
+```js
+useEffect(() => {
+    if (client) {
+      // ...
+    }
+  }, [client]);
+```
+
 ### 3) Enable live selection
 
 By default Users will be able to see the live selection from other users on Text nodes, Input tags & Contenteditable DIVs. To enable live selection on other HTML elements, add data-live-selection-enabled="true" attribute to it.
+
+```js
+const selectionElement = client.getSelectionElement();
+selectionElement.enableLiveSelection();
+```
 
   </Tab>
   <Tab title="Next.js">
@@ -24,14 +41,30 @@ Import the useVeltClient React hook.
 
 You can use this hook within your component to fetch the Velt client.
 
+```js
+import { useVeltClient } from '@veltdev/react';
+```
+
 ### 2) Create a useEffect hook
 
 Create the hook with the client as dependency.
+
+```js
+useEffect(() => {
+    if (client) {
+      // ...
+    }
+  }, [client]);
+```
 
 ### 3) Enable live selection
 
 By default Users will be able to see the live selection from other users on Text nodes, Input tags & Contenteditable DIVs. To enable live selection on other HTML elements, add data-live-selection-enabled="true" attribute to it.
 
+```js
+const selectionElement = client.getSelectionElement();
+selectionElement.enableLiveSelection();
+```
   </Tab>
   <Tab title="HTML">
 ### 1) Import the Velt Script tag
@@ -75,7 +108,7 @@ export default function App() {
   useEffect(() => {
     if (client) {
       const selectionElement = client.getSelectionElement();
-      selectionElement.enableLiveSelection();
+      selectionElement.enableLiveSelection(); //enable live selection
     }
   }, [client]);
 
@@ -96,7 +129,7 @@ export default function App() {
   useEffect(() => {
     if (client) {
       const selectionElement = client.getSelectionElement();
-      selectionElement.enableLiveSelection();
+      selectionElement.enableLiveSelection(); //enable live selection
     }
   }, [client]);
 
@@ -110,7 +143,7 @@ export default function App() {
 <script>
 if(Velt){
   const selectionElement = Velt.getSelectionElement();
-  selectionElement.enableLiveSelection();
+  selectionElement.enableLiveSelection(); //enable live selection
 }
 </script>
 ```

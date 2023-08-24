@@ -10,9 +10,17 @@ title: "Steps"
 ### 1) Import Huddle Component
 Import the Huddle component from the React library.
 
+```js
+import { VeltHuddle, VeltHuddleTool} from '@veltdev/react';
+```
+
 ### 2) Add Huddle Component
 
 Add the VeltHuddle component to the root of your app.
+
+```js
+<VeltHuddle />
+```
 
 This component is required to render huddle UI components & huddle users in your app.
 
@@ -21,6 +29,12 @@ This component is required to render huddle UI components & huddle users in your
 Add the VeltHuddleTool component wherever you want to show the huddle tool button.
 
 Clicking on it initiates a huddle.
+
+```js
+<div className="toolbar">
+      <VeltHuddleTool type='all' />
+</div>
+```
 
   </Tab>
   <Tab title="Next.js">
@@ -28,9 +42,17 @@ Clicking on it initiates a huddle.
 ### 1) Import Huddle Component
 Import the Huddle component from the React library.
 
+```js
+import { VeltHuddle, VeltHuddleTool} from '@veltdev/react';
+```
+
 ### 2) Add Huddle Component
 
 Add the VeltHuddle component to the root of your app.
+
+```js
+<VeltHuddle />
+```
 
 This component is required to render huddle UI components & huddle users in your app.
 
@@ -39,6 +61,14 @@ This component is required to render huddle UI components & huddle users in your
 Add the VeltHuddleTool component wherever you want to show the huddle tool button.
 
 Clicking on it initiates a huddle.
+
+```js
+<div className="toolbar">
+      <VeltHuddleTool type='all' />
+</div>
+```
+
+
   </Tab>
   <Tab title="HTML">
 ### 1) Import the Velt Script tag
@@ -60,41 +90,53 @@ Add the VeltHuddle component to the root of your app.
 
 This component is required to render huddle UI components & huddle users in your app.
 
+```html
+<div>
+  <velt-huddle></velt-huddle>
+</div>
+```
+
 ### 4) Place the `<velt-huddle-tool>` component
 Add the VeltHuddleTool component wherever you want to show the huddle tool button.
 
 Clicking on it initiates a huddle.
+
+```html
+<div>
+  <velt-huddle-tool></velt-huddle-tool>
+</div>
+```
 
   </Tab>
 </Tabs>
 
 <RequestExample>
 
-```java React
+```js React
 import { VeltHuddle, VeltHuddleTool} from '@veltdev/react';
 
 export default function App() {
 
   return (
-    <VeltHuddle />
+    <VeltHuddle /> {/* Add VeltHuddle at the root of your app */}
 
     <div className="toolbar">
-      <VeltHuddleTool type='all' />
+      <VeltHuddleTool type='all' /> {/* Add VeltHuddleTool where you want the huddle button to appear */}
     </div>
   );
 }
 ```
 
-```java Next.js
+```js Next.js
 import { VeltHuddle, VeltHuddleTool} from '@veltdev/react';
 
 export default function App() {
 
   return (
-    <VeltHuddle />
+    <VeltHuddle /> {/* Add VeltHuddle at the root of your app */}
 
     <div className="toolbar">
-      <VeltHuddleTool type='all' />
+      <VeltHuddleTool type='all' /> {/* Add VeltHuddleTool where you want the huddle button to appear */}
     </div>
   );
 }
@@ -102,8 +144,8 @@ export default function App() {
 
 ```html HTML
 <div>
-  <velt-huddle></velt-huddle>
-  <velt-huddle-tool></velt-huddle-tool>
+  <velt-huddle></velt-huddle> <!-- Add velt-huddle component at the root of your app -->
+  <velt-huddle-tool></velt-huddle-tool> <!-- Add velt-huddle-tool where you want the huddle button to appear-->
 </div>
 
 ```

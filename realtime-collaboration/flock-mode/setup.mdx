@@ -11,6 +11,10 @@ title: "Setup"
 ### 1) Enable Flock mode on Presence
 Enable Flock mode feature.
 
+```js
+ <VeltPresence flockMode={true} />
+```
+
 You need to add Presence feature to trigger Flock mode. This will enable Flock mode as an option for your users globally, wherever Presence is shown.
 
 To start the shared flock session, click on a user's avatar to start following them.
@@ -26,6 +30,10 @@ You should see the avatars of the users rendered where you added the presence co
 ### 1) Enable Flock mode on Presence
 Enable Flock mode feature.
 
+```js
+ <VeltPresence flockMode={true} />
+```
+
 You need to add Presence feature to trigger Flock mode. This will enable Flock mode as an option for your users globally, wherever Presence is shown.
 
 To start the shared flock session, click on a user's avatar to start following them.
@@ -40,6 +48,10 @@ You should see the avatars of the users rendered where you added the presence co
   <Tab title="HTML">
 ### 1) Enable Flock mode on Presence
 Enable Flock mode feature.
+
+```html
+<velt-presence flock-mode="true"></velt-presence>
+```
 
 You need to add Presence feature to trigger Flock mode. This will enable Flock mode as an option for your users globally, wherever Presence is shown.
 
@@ -64,7 +76,7 @@ export default function App() {
   return (
     <div className="toolbar">
       <VeltPresence
-        flockMode={true}
+        flockMode={true} {/* 1) Enable Flock Mode */}
       />
     </div>
   );
@@ -79,7 +91,7 @@ export default function App() {
   return (
     <div className="toolbar">
       <VeltPresence
-        flockMode={true}
+        flockMode={true} {/* 1) Enable Flock Mode */}
       />
     </div>
   );
@@ -87,8 +99,7 @@ export default function App() {
 ```
 
 ```html HTML
-<velt-presence flock-mode="true">
-</velt-presence>
+<velt-presence flock-mode="true"></velt-presence> <!-- Enable Flock Mode -->
 ```
 
 </RequestExample>

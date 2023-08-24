@@ -12,13 +12,11 @@ Use a callback for custom navigation or side-effects.
 
 When the leader of a flock navigates, we can use the React Router to update the follower's position. In the callback you will receive a PageInfo object.
 
-### 2) Disable default flock navigation
+```js
+<VeltPresence onNavigate={(pageInfo) => navigate(pageInfo.path)} />
+```
 
-Disable default flock navigation.
-
-Our default navigation uses window.location.href to detect navigation. If you are handling navigation using the callback method above, you should disable our default navigation.
-
-### PageInfo
+#### PageInfo
 
 
 <ResponseField name="baseUrl" type="string">
@@ -33,6 +31,17 @@ The path after the base URL
 The full URL
 </ResponseField>
 
+### 2) Disable default flock navigation
+
+Disable default flock navigation.
+
+Our default navigation uses window.location.href to detect navigation. If you are handling navigation using the callback method above, you should disable our default navigation.
+
+```js
+<VeltPresence defaultFlockNavigation={true} />
+```
+
+
 ### 3) Start or Stop Following a User
 
 You can start or Stop Following a User by calling the `startFollowingUser()` and `stopFollowingUser()` methods within a useEffect() hook.
@@ -43,6 +52,12 @@ Start following a user by passing in their user ID to the `startFollowingUser()`
 
 You can programatically start a flock session by passing in the user ID of the user you want to lead the session.
 
+```js
+// Stop following the user
+presenceElement.startFollowingUser(userId);
+```
+
+
 #### Stop Following 
 
 Stop flock session for the current user by by calling the `stopFollowingUser()` method.
@@ -50,20 +65,10 @@ Stop flock session for the current user by by calling the `stopFollowingUser()` 
 If the current user is in a flock session, they will be removed from that session. If there are no more followers in the session, the session will be destroyed.
 
 ```js
-useEffect(() => {
-    if (client) {
-
-      const presenceElement = client.getPresenceElement();
-
-      // Pass in the user ID of the user you want to follow
-      presenceElement.startFollowingUser(userId);
-
-      // Stop following the user
-      presenceElement.stopFollowingUser();
-
-    }
-  }, [client]);
+// Stop following the user
+presenceElement.stopFollowingUser();
 ```
+
 
 
   </Tab>
@@ -73,13 +78,12 @@ Use a callback for custom navigation or side-effects.
 
 When the leader of a flock navigates, we can use the React Router to update the follower's position. In the callback you will receive a PageInfo object.
 
-### 2) Disable default flock navigation
+```js
+<VeltPresence onNavigate={(pageInfo) => navigate(pageInfo.path)} />
+```
 
-Disable default flock navigation.
+#### PageInfo
 
-Our default navigation uses window.location.href to detect navigation. If you are handling navigation using the callback method above, you should disable our default navigation.
-
-### PageInfo
 
 <ResponseField name="baseUrl" type="string">
 The base URL of the site
@@ -93,16 +97,32 @@ The path after the base URL
 The full URL
 </ResponseField>
 
+### 2) Disable default flock navigation
+
+Disable default flock navigation.
+
+Our default navigation uses window.location.href to detect navigation. If you are handling navigation using the callback method above, you should disable our default navigation.
+
+```js
+<VeltPresence defaultFlockNavigation={true} />
+```
+
+
 ### 3) Start or Stop Following a User
 
 You can start or Stop Following a User by calling the `startFollowingUser()` and `stopFollowingUser()` methods within a useEffect() hook.
-
 
 #### Start Following
 
 Start following a user by passing in their user ID to the `startFollowingUser()` method.
 
 You can programatically start a flock session by passing in the user ID of the user you want to lead the session.
+
+```js
+// Stop following the user
+presenceElement.startFollowingUser(userId);
+```
+
 
 #### Stop Following 
 
@@ -111,19 +131,8 @@ Stop flock session for the current user by by calling the `stopFollowingUser()` 
 If the current user is in a flock session, they will be removed from that session. If there are no more followers in the session, the session will be destroyed.
 
 ```js
-useEffect(() => {
-    if (client) {
-
-      const presenceElement = client.getPresenceElement();
-
-      // Pass in the user ID of the user you want to follow
-      presenceElement.startFollowingUser(userId);
-
-      // Stop following the user
-      presenceElement.stopFollowingUser();
-
-    }
-  }, [client]);
+// Stop following the user
+presenceElement.stopFollowingUser();
 ```
 
   </Tab>
@@ -134,13 +143,13 @@ Use a callback for custom navigation or side-effects.
 
 When the leader of a flock navigates, this callback will be called.
 
-### 2) Disable default flock navigation
+```js
+if (presenceDOMElement) {
+  presenceDOMElement.addEventListener("navigate", onNavigateHandler);
+}
+```
 
-Disable default flock navigation.
-
-If you are handling navigation using a callback, you can opt to disable our default navigation using window.location.href.
-
-### PageInfo
+#### PageInfo
 
 <ResponseField name="baseUrl" type="string">
 The base URL of the site
@@ -153,6 +162,17 @@ The path after the base URL
 <ResponseField name="url" type="string">
 The full URL
 </ResponseField>
+
+### 2) Disable default flock navigation
+
+Disable default flock navigation.
+
+If you are handling navigation using a callback, you can opt to disable our default navigation using window.location.href.
+
+```js
+<velt-presence disable-flock-navigation="true"></velt-presence>
+```
+
 
 ### 3) Start or Stop Following a User
 
@@ -165,6 +185,11 @@ Start following a user by passing in their user ID to the `startFollowingUser()`
 
 You can programatically start a flock session by passing in the user ID of the user you want to lead the session.
 
+```js
+// Stop following the user
+presenceElement.startFollowingUser(userId);
+```
+
 #### Stop Following 
 
 Stop flock session for the current user by by calling the `stopFollowingUser()` method.
@@ -172,18 +197,10 @@ Stop flock session for the current user by by calling the `stopFollowingUser()` 
 If the current user is in a flock session, they will be removed from that session. If there are no more followers in the session, the session will be destroyed.
 
 ```js
-<script>
-      if (window.Velt) {
-        const presenceElement = window.Velt.getPresenceElement();
-
-        // Pass in the user ID of the user you want to follow
-        presenceElement.startFollowingUser(userId);
-
-        // Stop following the user
-        presenceElement.stopFollowingUser();
-      }
-</script>
+// Stop following the user
+presenceElement.stopFollowingUser();
 ```
+
 
   </Tab>
 </Tabs>
@@ -216,9 +233,9 @@ export default function App() {
   return (
     <div className="toolbar">
       <VeltPresence
-        flockMode={true}
-        onNavigate={(pageInfo) => navigate(pageInfo.path)}
-        defaultFlockNavigation={true}
+        flockMode={true} 
+        onNavigate={(pageInfo) => navigate(pageInfo.path)} {/* 1) Enable Custom Navigation */}
+        defaultFlockNavigation={true} {/* 2) Disable Default Flock Navigation */}
       />
     </div>
   );
@@ -251,9 +268,9 @@ export default function App() {
   return (
     <div className="toolbar">
       <VeltPresence
-        flockMode={true}
-        onNavigate={(pageInfo) => navigate(pageInfo.path)}
-        defaultFlockNavigation={true}
+        flockMode={true} 
+        onNavigate={(pageInfo) => navigate(pageInfo.path)} {/* 1) Enable Custom Navigation */}
+        defaultFlockNavigation={true} {/* 2) Disable Default Flock Navigation */}
       />
     </div>
   );
@@ -274,6 +291,7 @@ export default function App() {
 
       const presenceDOMElement = document.querySelector("velt-presence");
 
+      //Enable Custom Navigation
       if (presenceDOMElement) {
         presenceDOMElement.addEventListener("navigate", onNavigateHandler);
       }

@@ -1,0 +1,81 @@
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+<Tabs>
+    <Tab title="React">
+## 1) Enable Dark Mode
+To enable dark mode, set the darkMode attribute to `true` on the VeltHuddleTool component.
+
+```js
+<VeltHuddleTool darkMode={true}/>
+```
+
+    </Tab>
+    <Tab title="Next.js">
+## 1) Enable Dark Mode
+To enable dark mode, set the darkMode attribute to `true` on the VeltHuddleTool component.
+
+```js
+<VeltHuddleTool darkMode={true}/>
+```
+    </Tab>
+    <Tab title="HTML">
+## 1) Enable Dark Mode
+To enable dark mode, set the dark-mode attribute to `true` on the velt-huddle-tool component.
+
+```js
+<velt-huddle-tool dark-mode='true'/>
+```
+</Tab>
+
+</Tabs>
+
+
+
+
+<RequestExample>
+
+```js React
+import { VeltHuddle, VeltHuddleTool} from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <VeltHuddle /> 
+
+    <div className="toolbar">
+      <VeltHuddleTool 
+        darkMode={true} {/* Enable Dark Mode*/}
+        type='all' /> 
+    </div>
+  );
+}
+```
+
+```js Next.js
+import { VeltHuddle, VeltHuddleTool} from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <VeltHuddle /> 
+
+    <div className="toolbar">
+      <VeltHuddleTool 
+        darkMode={true} {/* Enable Dark Mode*/}
+        type='all' /> 
+    </div>
+  );
+}
+```
+
+```html HTML
+<div>
+  <velt-huddle></velt-huddle> 
+  <velt-huddle-tool dark-mode='true'></velt-huddle-tool> <!-- Enable Dark Mode-->
+</div>
+
+```
+
+</RequestExample>

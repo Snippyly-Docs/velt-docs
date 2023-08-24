@@ -192,10 +192,10 @@ Whenever the presence for any user changes, we emit this event with the updated 
 
 ## 6) Enable Dark Mode
 
-To enable Dark Mode, set the darkMode attribute to `true`.
+To enable Dark Mode, set the dark-mode attribute to `true`.
 
 ```html
-<velt-presence darkMode="true"></velt-presence>
+<velt-presence dark-mode="true"></velt-presence>
 ```
 
   </Tab>
@@ -211,12 +211,12 @@ export default function App() {
   return (
     <div className="toolbar">
       <VeltPresence
-        inactivityTime={30000} // 1) Set inactivity time
-        location={{page: 1}} // 2) Add Presence to a Location
-        maxUsers={3} // 3) Set max users
-        flockMode={true} / /4) Enable Flock Mode
-        onPresenceUserChange={(presenceUsers) => yourMethod(presenceUsers)} //5) Subscribe to changes in User Presence
-        darkMode={true} // 6) Enable Dark Mode
+        inactivityTime={30000} {/* 1) Set inactivity time */}
+        location={{page: 1}} {/* 2) Add Presence to a Location */}
+        maxUsers={3} {/* 3) Set max users */}
+        flockMode={true} {/* 4) Enable Flock Mode */}
+        onPresenceUserChange={(presenceUsers) => yourMethod(presenceUsers)} {/* 5) Subscribe to changes in User Presence */}
+        darkMode={true} {/* 6) Enable Dark Mode */}
 
       />
     </div>
@@ -232,12 +232,12 @@ export default function App() {
   return (
     <div className="toolbar">
       <VeltPresence
-        inactivityTime={30000} // 1) Set inactivity time
-        location={{page: 1}} // 2) Add Presence to a Location
-        maxUsers={3} // 3) Set max users
-        flockMode={true} // 4) Enable Flock Mode
-        onPresenceUserChange={(presenceUsers) => yourMethod(presenceUsers)} //5) Subscribe to changes in User Presence
-        darkMode={true} // 6) Enable Dark Mode
+        inactivityTime={30000} {/* 1) Set inactivity time */}
+        location={{page: 1}} {/* 2) Add Presence to a Location */}
+        maxUsers={3} {/* 3) Set max users */}
+        flockMode={true} {/* 4) Enable Flock Mode */}
+        onPresenceUserChange={(presenceUsers) => yourMethod(presenceUsers)} {/* 5) Subscribe to changes in User Presence */}
+        darkMode={true} {/* 6) Enable Dark Mode */}
       />
     </div>
   );
@@ -253,13 +253,13 @@ export default function App() {
   <body>
     <div class="toolbar">
       <velt-presence
-        inactivity-time="30000" // 1) Set inactivity time
-        location='{"page": 1}' // 2) Add Presence to a Location
-        max-users="3" // 3) Set max users
-        flockMode='true' // 4) Enable Flock Mode
-        onPresenceUserChange="yourMethod()" //5) Subscribe to changes in User Presence
-        dark-mode='true' // 6) Enable Dark Mode
-      ></velt-presence>
+        inactivity-time="30000" <!-- 1) Set inactivity time -->
+        location='{"page": 1}' <!-- 2) Add Presence to a Location -->
+        max-users="3" <!-- 3) Set max users -->
+        flockMode='true' <!-- 4) Enable Flock Mode -->
+        onPresenceUserChange="yourMethod()" <!-- 5) Subscribe to changes in User Presence -->
+        dark-mode='true' <!-- 6) Enable Dark Mode -->
+      ></velt-presence> 
     </div>
   </body>
 </html>
