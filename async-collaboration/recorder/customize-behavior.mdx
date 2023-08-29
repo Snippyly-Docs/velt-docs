@@ -1,3 +1,11 @@
+---
+title: "Customize Behavior"
+---
+
+
+<Tabs>
+  <Tab title="React">
+
 ## Recording Types
 
 {/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
@@ -15,8 +23,9 @@ To set the configuration mode, set the `type` attribute to one of the following:
 
 ```js
 <VeltRecorderTool type='all' />
-<VeltRecorderControlPanel mode="floating" />
-<VeltRecorderPlayer recorderId={RECORDER_ID} />
+<VeltRecorderTool type='audio' />
+<VeltRecorderTool type='video' />
+<VeltRecorderTool type='screen' />
 ```
 
 
@@ -97,3 +106,214 @@ const SomeComponent = () => {
 export default SomeComponent;
 
 ```
+
+## Enable Dark Mode
+
+You can enable dark mode on any of the components by setting the `darkMode` attribute to `true`.
+
+```js
+<VeltRecorderTool type='all' darkMode={true}/> 
+<VeltRecorderControlPanel mode="floating" darkMode={true}/>
+<VeltRecorderPlayer recorderId={RECORDER_ID} darkMode={true}/> 
+```
+  </Tab>
+
+  <Tab title="Next.js">
+
+## Recording Types
+
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+
+The VeltRecorderTool can be configured to record a user's audio, video or screen.
+
+To set the configuration mode, set the `type` attribute to one of the following:
+ - all
+ - audio 
+ - video
+ - screen
+
+```js
+<VeltRecorderTool type='all' />
+<VeltRecorderTool type='audio' />
+<VeltRecorderTool type='video' />
+<VeltRecorderTool type='screen' />
+```
+
+
+## Floating Mode vs Thread Mode
+
+The VeltRecorderControlPanel can be configured in either Floating mode or Thread mode. 
+
+<Frame>
+![](https://files.readme.io/38580c5-Frame_8253.png)
+</Frame>
+
+Floating mode will show a preview in the bottom left of the page, no matter where you put the component.
+
+Thread mode will show the component wherever it is placed.
+
+To configure the mode, set the `mode` attribute to `floating` or `thread`:
+
+```js
+<VeltRecorderControlPanel mode="floating" />
+<VeltRecorderControlPanel mode="thread" />
+```
+
+## onDelete callback
+
+The creator of the recordings sees the option to delete the recording. Once the user deletes the recording, the VeltRecorderPlayer component will publish a callback method called onDelete with the recorder ID. You can listen to the callback and use the response object to perform any clean up on your end. This is the response object that you get back:
+
+| Field    | Type                          | Example       |
+| -------- | ------------------------------| --------------|
+| id       | string                        | "recorder_id" |
+
+```js
+import { VeltRecorderPlayer } from '@veltdev/react'
+
+const SomeComponent = () => {
+  
+  const onDelete = (data) => {
+    console.log('on delete: ', data);
+  }
+   
+  return (
+  	//... rest of the component code...
+		<VeltRecorderPlayer recorderId={RECORDER_ID} onDelete={(data) => onDelete(data)} />
+
+    //... rest of the component code...
+  )
+}
+
+export default SomeComponent;
+```
+
+## onRecordedData callback
+
+Whenever a recording is created, the VeltControlPanel component emits a callback event called onRecordedData with the recorder player component data. 
+
+This is the response object that you get back:
+
+| Field    | Type                          | Example                                                                            |
+| -------- | ------------------------------| -----------------------------------------------------------------------------------|
+| id       | string                        | "recorder_id"                                                                      |
+| tag       | string                        | `<snippyly-recorder-player recorder-id=\"RECORDER_ID\"></snippyly-recorder-player>` |
+
+```js
+import { VeltRecorderControlPanel } from '@veltdev/react'
+
+const SomeComponent = () => {
+
+    const onRecordedData = (id,tag) => {
+        console.log(id,tag)
+    }
+    return (
+    	//... rest of the component code...
+      <VeltRecorderControlPanel mode="thread" onRecordedData={onRecordedData} />
+
+      //... rest of the component code...
+    )
+}
+
+export default SomeComponent;
+
+```
+
+## Enable Dark Mode
+
+You can enable dark mode on any of the components by setting the `darkMode` attribute to `true`.
+
+```js
+<VeltRecorderTool type='all' darkMode={true}/> 
+<VeltRecorderControlPanel mode="floating" darkMode={true}/>
+<VeltRecorderPlayer recorderId={RECORDER_ID} darkMode={true}/> 
+```
+  </Tab>
+
+  <Tab title="HTML">
+
+## Recording Types
+
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+
+The VeltRecorderTool can be configured to record a user's audio, video or screen.
+
+To set the configuration mode, set the `type` attribute to one of the following:
+ - all
+ - audio 
+ - video
+ - screen
+
+```js
+<velt-recorder-tool type='all'></velt-recorder-tool>
+<velt-recorder-tool type='audio'></velt-recorder-tool>
+<velt-recorder-tool type='video'></velt-recorder-tool>
+<velt-recorder-tool type='screen'></velt-recorder-tool>
+```
+
+
+## Floating Mode vs Thread Mode
+
+The VeltRecorderControlPanel can be configured in either Floating mode or Thread mode. 
+
+<Frame>
+![](https://files.readme.io/38580c5-Frame_8253.png)
+</Frame>
+
+Floating mode will show a preview in the bottom left of the page, no matter where you put the component.
+
+Thread mode will show the component wherever it is placed.
+
+To configure the mode, set the `mode` attribute to `floating` or `thread`:
+
+```js
+<velt-recorder-control-panel mode="floating"></velt-recorder-control-panel>
+<velt-recorder-control-panel mode="thread"></velt-recorder-control-panel>
+```
+
+## onDelete callback
+
+The creator of the recordings sees the option to delete the recording. Once the user deletes the recording, the VeltRecorderPlayer component will publish a callback method called onDelete with the recorder ID. You can listen to the callback and use the response object to perform any clean up on your end. This is the response object that you get back:
+
+| Field    | Type                          | Example       |
+| -------- | ------------------------------| --------------|
+| id       | string                        | "recorder_id" |
+
+```js
+<velt-recorder-player recorderId="RECORDER_ID" onDelete="onDeleteFunction()"></velt-recorder-player>
+```
+
+## onRecordedData callback
+
+Whenever a recording is created, the VeltControlPanel component emits a callback event called onRecordedData with the recorder player component data. 
+
+This is the response object that you get back:
+
+| Field    | Type                          | Example                                                                            |
+| -------- | ------------------------------| -----------------------------------------------------------------------------------|
+| id       | string                        | "recorder_id"                                                                      |
+| tag       | string                        | `<snippyly-recorder-player recorder-id=\"RECORDER_ID\"></snippyly-recorder-player>` |
+
+```js
+<velt-recorder-control-panel mode="thread" onRecordedData="onRecordedDataFunction()"></velt-recorder-control-panel>
+<velt-recorder-control-panel mode="thread" onRecordedData="onRecordedDataFunction()"></velt-recorder-control-panel>
+```
+
+## Enable Dark Mode
+
+You can enable dark mode on any of the components by setting the `darkMode` attribute to `true`.
+
+```js
+<velt-recorder-tool type='all' dark-mode="true" ></velt-recorder-tool>
+<velt-recorder-player mode="floating" dark-mode="true"></velt-recorder-player> 
+<velt-recorder-control-panel recorderId="RECORDER_ID" dark-mode="true"></velt-recorder-control-panel>
+```
+  </Tab>
+
+</Tabs>
+

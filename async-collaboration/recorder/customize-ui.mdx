@@ -5,6 +5,11 @@ title: "Customize UI"
 <script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
 <script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
 
+
+
+<Tabs>
+  <Tab title="React">
+
 ## Custom CSS
 You can override the CSS of the entire component yourself.
 
@@ -12,19 +17,44 @@ You can override the CSS of the entire component yourself.
 You can create your own button instead of using the button we provided. To do so, pass in your button as a child component to `VeltRecorderTool`
 
 ```js
-import { VeltRecorderTool } from '@veltdev/react'
-
-const SomeComponent = () => {
-  return (
-    //... rest of the component code...
-
-		<VeltRecorderTool type="all">
-            <button>Start Recording</button> //you can add any html code here.
-        </VeltRecorderTool>
-    
-    //... rest of the component code...
-  )
-}
-
-export default SomeComponent;
+  <VeltRecorderTool type="all">
+    <button>Start Recording</button> //you can add any html code here.
+  </VeltRecorderTool>
 ```
+
+  </Tab>
+
+  <Tab title="Next.js">
+
+## Custom CSS
+You can override the CSS of the entire component yourself.
+
+## Custom Button
+You can create your own button instead of using the button we provided. To do so, pass in your button as a child component to `VeltRecorderTool`
+
+```js
+  <VeltRecorderTool type="all">
+    <button>Start Recording</button> //you can add any html code here.
+  </VeltRecorderTool>
+```
+
+  </Tab>
+
+  <Tab title="HTML">
+
+## Custom CSS
+You can override the CSS of the entire component yourself.
+
+## Custom Button
+You can create your own button instead of using the button we provided. To do so, pass in your button as a child component to `VeltRecorderTool`
+
+```html
+<velt-recorder-tool type="all">
+  <button>Start Recording</button> //you can add any html code here.
+</velt-recorder-tool>
+```
+
+  </Tab>
+
+</Tabs>
+

@@ -156,11 +156,13 @@ import { VeltRecorderTool, VeltRecorderControlPanel, VeltRecorderPlayer } from '
 
 function TaskInputBox() {
     return (
-    	//... rest of the component code...
-      <VeltRecorderTool type='all' />
-      <VeltRecorderControlPanel mode="floating" />
-      <VeltRecorderPlayer recorderId={RECORDER_ID} />
-      //... rest of the component code...
+      <record-toolbar> {/* some component that holds your recording components */}
+        <VeltRecorderTool type='all' /> {/* Put this where you want the Recorder button to appear */}
+        <VeltRecorderControlPanel mode="floating" /> {/* Put this where you want the Recorder control panel to appear */}
+      </record-toolbar>
+      <video-player> {/* some component that holds your video player */}
+        <VeltRecorderPlayer recorderId={RECORDER_ID} /> {/* Put this where you want to show the recorded data */}
+      </video-player>
     )
 }
 ```
@@ -169,21 +171,26 @@ import { VeltRecorderTool, VeltRecorderControlPanel, VeltRecorderPlayer } from '
 
 function TaskInputBox() {
     return (
-    	//... rest of the component code...
-      <VeltRecorderTool type='all' />
-      <VeltRecorderControlPanel mode="floating" />
-      <VeltRecorderPlayer recorderId={RECORDER_ID} />
-      //... rest of the component code...
+      <record-toolbar> {/* some component that holds your recording components */}
+        <VeltRecorderTool type='all' /> {/* Put this where you want the Recorder button to appear */}
+        <VeltRecorderControlPanel mode="floating" /> {/* Put this where you want the Recorder control panel to appear */}
+      </record-toolbar>
+      <video-player> {/* some component that holds your video player */}
+        <VeltRecorderPlayer recorderId={RECORDER_ID} /> {/* Put this where you want to show the recorded data */}
+      </video-player>
     )
 }
 ```
 ```html HTML
 <div>
-      <velt-recorder-tool type='all'></velt-recorder-tool>
-      <velt-recorder-control-panel mode="floating"></velt-recorder-control-panel>
-      <velt-recorder-player recorderId="RECORDER_ID"></velt-recorder-player>
+      <record-toolbar> <!--  some component that holds your recording components -->
+        <velt-recorder-tool type='all'></velt-recorder-tool> <!-- Put this where you want the Recorder button to appear -->
+        <velt-recorder-control-panel mode="floating"></velt-recorder-control-panel> <!-- Put this where you want the Recorder control panel to appear -->
+      </record-toolbar>
+      <video-player> <!-- some component that holds your video player -->
+        <velt-recorder-player recorderId="RECORDER_ID"></velt-recorder-player> <!-- Put this where you want to show the recorded data -->
+      </video-player>
 </div>
-    
 ```
 </RequestExample>
 
