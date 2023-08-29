@@ -1,5 +1,5 @@
 ---
-title: "Customize Behavior"
+title : "Customize Behavior"
 ---
 
 {/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
@@ -7,138 +7,56 @@ title: "Customize Behavior"
 <script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
 
 <Tabs>
-  <Tab title="React">
-### 1) Set inactivity time
-Set the time it takes for a user to go inactive in milliseconds.
+    <Tab title="React">
+## 1) Enable Dark Mode
+To enable dark mode, set the darkMode attribute to `true` on the VeltUserInviteTool component.
 
-By default we mark a user as inactive if they do not take any action on the document within a 5 mins timeframe.
+```js
+<VeltUserInviteTool darkMode={true}/>
+```
 
-If they unfocus the tab, we mark them inactive immediately.
+    </Tab>
+    <Tab title="Next.js">
+## 1) Enable Dark Mode
+To enable dark mode, set the darkMode attribute to `true` on the VeltUserInviteTool component.
 
-### 2) Add Presence to a Location
+```js
+<VeltUserInviteTool darkMode={true}/>
+```
+    </Tab>
+    <Tab title="HTML">
+## 1) Enable Dark Mode
+To enable dark mode, set the dark-mode attribute to `true` on the velt-user-invite-tool component.
 
-Show users' presence on a Location.
+```html
+<velt-user-invite-tool dark-mode='true'></velt-user-invite-tool>
+```
+</Tab>
 
-Set the location attribute on the Presence element. When there are users at that location, their avatars will show in this Presence element.
-
-Eg: For a Presentation tool, you can add Presence component at the main document level and add another Presence component on the slide thumbnails. This will render avatars at both presentation level & slide thumbnail level. For slide thumbnails, it will only show users active on that slide.
-
-### 3) Set max users
-
-Set how many Presence avatars to display at a time.
-
-You can set this via the maxUsers attribute. Any extra avatars will be hidden and shown in an avatar which indicates the number of extra users.
-
-### 4) Enable Flock Mode
-
-Enable Flock Mode Feature.
-
-This will enable Flock mode as an option for your users globally, wherever Presence is shown.
-
-To start the shared flock session, click on a user's avatar to start following them.
-
-Learn more about it in the Flock Mode feature section.
-
-### 5) Subscribe to changes in User Presence
-
-Whenever the presence for any user changes, we emit this event with the updated list of users currently online on this document.
-
-  </Tab>
-  <Tab title="Next.js">
-### 1) Set inactivity time
-Set the time it takes for a user to go inactive in milliseconds.
-
-By default we mark a user as inactive if they do not take any action on the document within a 5 mins timeframe.
-
-If they unfocus the tab, we mark them inactive immediately.
-
-### 2) Add Presence to a Location
-
-Show users' presence on a Location.
-
-Set the location attribute on the Presence element. When there are users at that location, their avatars will show in this Presence element.
-
-Eg: For a Presentation tool, you can add Presence component at the main document level and add another Presence component on the slide thumbnails. This will render avatars at both presentation level & slide thumbnail level. For slide thumbnails, it will only show users active on that slide.
-
-### 3) Set max users
-
-Set how many Presence avatars to display at a time.
-
-You can set this via the maxUsers attribute. Any extra avatars will be hidden and shown in an avatar which indicates the number of extra users.
-
-### 4) Enable Flock Mode
-
-Enable Flock Mode Feature.
-
-This will enable Flock mode as an option for your users globally, wherever Presence is shown.
-
-To start the shared flock session, click on a user's avatar to start following them.
-
-Learn more about it in the Flock Mode feature section.
-
-### 5) Subscribe to changes in User Presence
-
-Whenever the presence for any user changes, we emit this event with the updated list of users currently online on this document.
-
-  </Tab>
-  <Tab title="HTML">
-### 1) Set inactivity time
-Set the time it takes for a user to go inactive.
-
-By default a user will go inactive after 5 minutes. If they unfocus the tab, then they will immediately go inactive.
-
-### 2) Add Presence to child documents
-
-Show users' presence on child documents.
-
-Set the location attribute on the Presence element. When there are users at that location, their avatars will show in this Presence element.
-
-### 3) Set max users
-
-Max users determines how many Presence avatars to display at a time.
-
-You can set this via the max-users attribute. Any extra avatars will be hidden and shown in an avatar which indicates the number of extra users.
-
-  </Tab>
 </Tabs>
+
+
+
 
 <RequestExample>
 
-```java React
-import { VeltPresence } from '@veltdev/react';
+```js React
+import { VeltUserInviteTool } from '@veltdev/react';
 
-export default function App() {
-
+function YourComponent() {
   return (
-    <div className="toolbar">
-      <VeltPresence
-        inactivityTime={30000}
-        location={{page: 1}}
-        maxUsers={3}
-        flockMode={true}
-        onPresenceUserChange={(presenceUsers) => yourMethod(presenceUsers)}
-      />
-    </div>
-  );
+    <VeltUserInviteTool darkMode={true}/>
+  )
 }
 ```
 
-```java Next.js
-import { VeltPresence } from '@veltdev/react';
+```js Next.js
+import { VeltUserInviteTool } from '@veltdev/react';
 
-export default function App() {
-
+function YourComponent() {
   return (
-    <div className="toolbar">
-      <VeltPresence
-        inactivityTime={30000}
-        location={{page: 1}}
-        maxUsers={3}
-        flockMode={true}
-        onPresenceUserChange={(presenceUsers) => yourMethod(presenceUsers)}
-      />
-    </div>
-  );
+    <VeltUserInviteTool darkMode={true}/>
+  )
 }
 ```
 
@@ -146,16 +64,16 @@ export default function App() {
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Presence documentation</title>
+    <title>Collaboration App</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@veltdev/sdk@1.0.11/velt.js" onload="loadVelt()"></script>
+    <script>
+      async function loadVelt() {
+        await Velt.init("YOUR_VELT_API_KEY");
+      }
+    </script>
   </head>
   <body>
-    <div class="toolbar">
-      <snippyly-presence
-        inactivity-time="30000"
-        location='{"page": 1}'
-        max-users="3"
-      ></snippyly-presence>
-    </div>
+    <velt-user-invite-tool dark-mode='true'></velt-user-invite-tool>
   </body>
 </html>
 ```

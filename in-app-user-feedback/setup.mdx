@@ -62,36 +62,51 @@ import { VeltUserRequestTool } from '@veltdev/react';
 
 <RequestExample>
 
-```java React
+```js React
 import { VeltUserRequestTool } from '@veltdev/react';
 
 function YourComponent() {
 
   return (
-		...
+	//...
     <VeltUserRequestTool />
-    ...
+    //...
   )
   
 }
 ```
 
-```java Next.js
+```js Next.js
 import { VeltUserRequestTool } from '@veltdev/react';
 
 function YourComponent() {
 
   return (
-		...
+	//...
     <VeltUserRequestTool />
-    ...
+    //...
   )
   
 }
 ```
 
 ```html HTML
-<velt-user-request-tool></velt-user-request-tool>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Collaboration App</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@veltdev/sdk@1.0.11/velt.js" onload="loadVelt()"></script>
+    <script>
+      async function loadVelt() {
+        await Velt.init("YOUR_VELT_API_KEY");
+      }
+    </script>
+  </head>
+  <body>
+  <!-- Place the <velt-user-request-tool> component -->
+    <velt-user-request-tool></velt-user-request-tool>
+  </body>
+</html>
 ```
 
 </RequestExample>

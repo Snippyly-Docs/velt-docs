@@ -71,6 +71,12 @@ To enable Report Bugs mode, set the type attribute to 'contactUs`. This will mak
 </iframe>
 </Frame>
 
+###  Enable Dark Mode
+To enable dark mode, set the darkMode attribute to `true` on the VeltUserRequestTool component.
+
+```js
+<VeltUserRequestTool darkMode={true}/>
+```
   </Tab>
   <Tab title="Next.js">
   
@@ -136,6 +142,13 @@ To enable Report Bugs mode, set the type attribute to 'contactUs`. This will mak
     >
 </iframe>
 </Frame>
+
+###  Enable Dark Mode
+To enable dark mode, set the darkMode attribute to `true` on the VeltUserRequestTool component.
+
+```js
+<VeltUserRequestTool darkMode={true}/>
+```
   </Tab>
   <Tab title="HTML">
 
@@ -202,6 +215,12 @@ To enable Report Bugs mode, set the type attribute to 'contactUs`. This will mak
 </iframe>
 </Frame>
 
+### Enable Dark Mode
+To enable dark mode, set the dark-mode attribute to `true` on the velt-user-request-tool component.
+
+```html
+<velt-user-request-tool dark-mode='true'></velt-user-request-tool>
+```
   </Tab>
 </Tabs>
 
@@ -218,9 +237,10 @@ function YourComponent() {
 
   return (
 		...
-    <VeltUserRequestTool /> // Feedback Mode
-    <VeltUserRequestTool type="reportBug"/> // Report Bug Mode
-    <VeltUserRequestTool type="contactUs"/> // Contact Us Mode
+    <VeltUserRequestTool /> {/* Feedback Mode */} 
+    <VeltUserRequestTool type="reportBug"/>  {/* Report Bug Mode */} 
+    <VeltUserRequestTool type="contactUs"/>  {/* Contact Us Mode */} 
+    <VeltUserRequestTool darkMode={true}/>   {/* Dark Mode */}
     ...
   )
 }
@@ -233,17 +253,21 @@ function YourComponent() {
 
   return (
 		...
-    <VeltUserRequestTool /> // Feedback Mode
-    <VeltUserRequestTool type="reportBug"/> // Report Bug Mode
-    <VeltUserRequestTool type="contactUs"/> // Contact Us Mode
+    <VeltUserRequestTool /> {/* Feedback Mode */} 
+    <VeltUserRequestTool type="reportBug"/>  {/* Report Bug Mode */} 
+    <VeltUserRequestTool type="contactUs"/>  {/* Contact Us Mode */} 
+    <VeltUserRequestTool darkMode={true}/>   {/* Dark Mode */}
+
     ...
   )
 }
 ```
 
 ```html HTML
-<velt-user-request-tool></velt-user-request-tool>
-<velt-user-request-tool type="reportBug"></velt-user-request-tool>
-<velt-user-request-tool type="contactUs"></velt-user-request-tool>
+<velt-user-request-tool></velt-user-request-tool> <!-- Feedback Mode -->
+<velt-user-request-tool type="reportBug"></velt-user-request-tool> <!-- Report Bug Mode-->
+<velt-user-request-tool type="contactUs"></velt-user-request-tool> <!-- Contact Us Mode-->
+<velt-user-request-tool dark-mode="true"></velt-user-request-tool> <!-- Dark Mode-->
+
 ```
 </RequestExample>

@@ -224,7 +224,8 @@
           "group": "Share & Invite",
           "pages": [
             "permission-management/share-and-invite/overview",
-            "permission-management/share-and-invite/setup"
+            "permission-management/share-and-invite/setup",
+            "permission-management/share-and-invite/customize-behavior"
           ]
         }
       ]

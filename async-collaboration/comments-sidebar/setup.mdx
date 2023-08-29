@@ -21,8 +21,8 @@ import {
 
 We offer specific components for our users that use React.
 
-## 2) Add Comments Sidebar component
-**Add the comment component to the root of your app.**
+## 2) Add Comments and Sidebar components
+**Add the VeltComments and VeltCommentsSidebar components to the root of your app.**
 
 ```js
 <VeltComments />
@@ -62,13 +62,12 @@ import {
 
 We offer specific components for our users that use React.
 
-## 2) Add Comments Sidebar component
-**Add the comment component to the root of your app.**
+## 2) Add Comments and Sidebar components
+**Add the VeltComments and VeltCommentsSidebar components to the root of your app.**
 
 ```js
-      <VeltComments />
-      <VeltCommentsSidebar />
-
+<VeltComments />
+<VeltCommentsSidebar />
 ```
 
 This component is required to render comments in your app.
@@ -135,18 +134,19 @@ export default function App() {
 
   return (
     <VeltProvider apiKey="API_KEY">
-      <VeltComments />
-      <VeltCommentsSidebar />
+      <VeltComments /> {/* Add VeltComments to the root of your app provider */}
+      <VeltCommentsSidebar /> {/* Add VeltCommentsSidebar to the root of your app provider */}
 
       <div className="toolbar">
-        <VeltCommentTool />
-        <VeltSidebarButton />
+        <VeltCommentTool /> {/* Add VeltCommentTool wherever you want it to appear */}
+        <VeltSidebarButton /> {/* Add VeltCommentSideBarButton wherever you want it to appear */}
       </div>
 
     </VeltProvider>
   );
 }
 ```
+
 ```js Next.js
 import { 
   VeltProvider, 
@@ -159,12 +159,12 @@ export default function App() {
 
   return (
     <VeltProvider apiKey="API_KEY">
-      <VeltComments />
-      <VeltCommentsSidebar />
+      <VeltComments /> {/* Add VeltComments to the root of your app provider */}
+      <VeltCommentsSidebar /> {/* Add VeltCommentsSidebar to the root of your app provider */}
 
       <div className="toolbar">
-        <VeltCommentTool />
-        <VeltSidebarButton />
+        <VeltCommentTool /> {/* Add VeltCommentTool wherever you want it to appear */}
+        <VeltSidebarButton /> {/* Add VeltCommentSideBarButton wherever you want it to appear */}
       </div>
 
     </VeltProvider>
