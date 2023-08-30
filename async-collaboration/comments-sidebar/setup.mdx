@@ -176,4 +176,30 @@ export default function App() {
 <velt-comments-sidebar></velt-comments-sidebar>
 <velt-sidebar-button></velt-sidebar-button>
 ```
+
+```html HTML
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Collaboration App</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@veltdev/sdk@1.0.11/velt.js" onload="loadVelt()"></script>
+    <script>
+      async function loadVelt() {
+        await Velt.init("YOUR_VELT_API_KEY");
+      }
+    </script>
+  </head>
+  <body>
+    <velt-comments></velt-comments> <!-- add to the root of your app-->
+    <velt-comments-sidebar></velt-comments-sidebar> <!-- add to the root of your app -->
+    <tool-bar> <!-- a component representing a toolbar-->
+      <velt-comment-tool></velt-comment-tool> <!-- add wherever you want it to appear-->
+      <velt-sidebar-button></velt-sidebar-button> <!-- add wherever you want it to appea -->
+    </tool-bar
+    
+
+  </body>
+</html>
+```
+
 </RequestExample>
