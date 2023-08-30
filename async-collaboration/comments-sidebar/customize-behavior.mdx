@@ -69,6 +69,16 @@ const onCommentClick = (data) => {
 ```
 
 
+## 3) Enable Dark Mode
+To enable Dark Mode, set the `darkMode` attribute to `true`.
+
+```js
+<VeltComments darkMode={true}/>
+<VeltCommentSideBarButton darkMode={true}/>
+<VeltCommentTool darkMode={true}/>
+<VeltCommentSideBar darkMode={true}/>
+```
+
 
 </Tab>
 <Tab title="Next.js">
@@ -135,6 +145,13 @@ const onCommentClick = (data) => {
 };
 ```
 
+```js
+<VeltComments darkMode={true}/>
+<VeltCommentSideBarButton darkMode={true}/>
+<VeltCommentTool darkMode={true}/>
+<VeltCommentSideBar darkMode={true}/>
+```
+
 </Tab>
 
 <Tab title="HTML">
@@ -196,6 +213,13 @@ const commentElement = document.querySelector('velt-comments');
 commentElement.addEventListener('commentAdded', onCommentAdded);
 ```
 
+
+```js
+<velt-comments dark-mode="true"></velt-comments>
+<velt-comment-side-bar-button dark-mode="true"></velt-comment-side-bar-button>
+<velt-comment-tool dark-mode="true"></velt-comment-tool>
+<velt-comment-side-bar dark-mode="true"></velt-comment-side-bar>
+```
 </Tab>
 
 
