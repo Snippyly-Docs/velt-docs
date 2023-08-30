@@ -7,18 +7,33 @@ title: "Customize Behavior"
 
 <Tabs>
 <Tab title="React">
+
 ## 1) Customize navigation for non-URL based navigation
 **By default, we attempt to navigate the user to the comment location when a user clicks on one in the sidebar.**
 
 You can pass a function which returns additional context associated with that comment, for example: what current tab or page of a table the comment lives on.
 
-## 2) Provide additional context for comment location
+### Provide additional context for comment location
 
 **The function should return any context you want saved.**
 
 When we return the location data of the comment, you can access the context field that was saved when the comment was created.
 
-## 3) Provide an event handler for when a comment is clicked
+```js
+<VeltComments contextProvider={provideContext}/>
+```
+
+```js
+const provideContext = () => {
+  // Return any additional context you want saved with the comment
+  return {
+    selectedTabIndex: tabIndex
+  };
+};
+```
+
+
+## 2) Provide an event handler for when a comment is clicked
 **When a comment is clicked, the handler will be called with the location data of the comment.**
 
 Using this handler, you can fetch the context and make the necessary state changes to locate the comment correctly.
@@ -38,22 +53,53 @@ The DOM ID of the target element on which the comment was added
 <ResponseField name="context" type="Object | undefined">
 Any context data passed when the comment was added
 </ResponseField>
+
+
+```js
+ <VeltCommentsSidebar onSidebarCommentClick={onCommentClick} /> 
+```
+
+```js
+// event handler for when a comment is clicked on 
+const onCommentClick = (data) => {
+  if (!data || !data.context) return;
+  const { selectedTabIndex } = data.context;
+  setTabIndex(selectedTabIndex);
+};
+```
+
+
 
 </Tab>
 <Tab title="Next.js">
 
+
 ## 1) Customize navigation for non-URL based navigation
 **By default, we attempt to navigate the user to the comment location when a user clicks on one in the sidebar.**
 
 You can pass a function which returns additional context associated with that comment, for example: what current tab or page of a table the comment lives on.
 
-## 2) Provide additional context for comment location
+### Provide additional context for comment location
 
 **The function should return any context you want saved.**
 
 When we return the location data of the comment, you can access the context field that was saved when the comment was created.
 
-## 3) Provide an event handler for when a comment is clicked
+```js
+<VeltComments contextProvider={provideContext}/>
+```
+
+```js
+const provideContext = () => {
+  // Return any additional context you want saved with the comment
+  return {
+    selectedTabIndex: tabIndex
+  };
+};
+```
+
+
+## 2) Provide an event handler for when a comment is clicked
 **When a comment is clicked, the handler will be called with the location data of the comment.**
 
 Using this handler, you can fetch the context and make the necessary state changes to locate the comment correctly.
@@ -73,24 +119,50 @@ The DOM ID of the target element on which the comment was added
 <ResponseField name="context" type="Object | undefined">
 Any context data passed when the comment was added
 </ResponseField>
+
+
+```js
+ <VeltCommentsSidebar onSidebarCommentClick={onCommentClick} /> 
+```
+
+```js
+
+// event handler for when a comment is clicked on 
+const onCommentClick = (data) => {
+  if (!data || !data.context) return;
+  const { selectedTabIndex } = data.context;
+  setTabIndex(selectedTabIndex);
+};
+```
 
 </Tab>
 
 <Tab title="HTML">
-## 1) Customize navigation for non-URL based navigation
 
+## 1) Customize navigation for non-URL based navigation
 **By default, we attempt to navigate the user to the comment location when a user clicks on one in the sidebar.**
 
-We provide an event where you can set additional context associated with that comment, for example: what current tab or page of a table the comment lives on.
+You can pass a function which returns additional context associated with that comment, for example: what current tab or page of a table the comment lives on.
 
-## 2) Provide additional context for comment location
+### Provide additional context for comment location
 
-**The event handler should call the callback with any context you want saved.**
+**The function should return any context you want saved.**
 
 When we return the location data of the comment, you can access the context field that was saved when the comment was created.
 
-## 3) Provide an event handler for when a comment is clicked
+```js
+// event handler for when a comment is clicked on 
+function onCommentClick(data) {
+  const { selectedTabIndex } = data.context;
+  tabIndex = selectedTabIndex;
+}
 
+const sidebarElement = document.querySelector('velt-comments-sidebar');
+sidebarElement.addEventListener('sidebarCommentClicked', onCommentClick);
+```
+
+
+## 2) Provide an event handler for when a comment is clicked
 **When a comment is clicked, the handler will be called with the location data of the comment.**
 
 Using this handler, you can fetch the context and make the necessary state changes to locate the comment correctly.
@@ -110,6 +182,19 @@ The DOM ID of the target element on which the comment was added
 <ResponseField name="context" type="Object | undefined">
 Any context data passed when the comment was added
 </ResponseField>
+
+
+```js
+let tabIndex = 0;
+
+function onCommentAdded(event) {
+  // Add additional context to the comment using a callback
+  event.detail.addContext({ selectedTabIndex: tabIndex });
+}
+
+const commentElement = document.querySelector('velt-comments');
+commentElement.addEventListener('commentAdded', onCommentAdded);
+```
 
 </Tab>
 
@@ -137,6 +222,7 @@ export default function App() {
     };
   };
 
+  // event handler for when a comment is clicked on 
   const onCommentClick = (data) => {
     if (!data || !data.context) return;
     const { selectedTabIndex } = data.context;
@@ -176,6 +262,7 @@ export default function App() {
     };
   };
 
+  // event handler for when a comment is clicked on 
   const onCommentClick = (data) => {
     if (!data || !data.context) return;
     const { selectedTabIndex } = data.context;
@@ -212,6 +299,7 @@ export default function App() {
 
     let tabIndex = 0;
 
+    
     function onCommentAdded(event) {
       // Add additional context to the comment using a callback
       event.detail.addContext({ selectedTabIndex: tabIndex });
@@ -219,7 +307,8 @@ export default function App() {
 
     const commentElement = document.querySelector('velt-comments');
     commentElement.addEventListener('commentAdded', onCommentAdded);
-
+    
+    // event handler for when a comment is clicked on 
     function onCommentClick(data) {
       const { selectedTabIndex } = data.context;
       tabIndex = selectedTabIndex;
