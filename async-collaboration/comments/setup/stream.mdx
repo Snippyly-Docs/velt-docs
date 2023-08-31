@@ -10,6 +10,14 @@ title: "Stream Setup"
 ### 1) Import Comment components
 Import the VeltComments component and the VeltCommentTool component.
 
+```js
+import {
+  VeltProvider,
+  VeltComments,
+  VeltCommentTool
+} from '@veltdev/react';
+```
+
 ### 2) Add Comment component with Stream mode
 
 Add the VeltComments component to the root of your app and mark the streamMode property as true.
@@ -18,10 +26,31 @@ This component is required to render comments in your app.
 
 Stream mode renders all comment dialog boxes in a column on the right side similar to Google Docs.
 
+```js
+  <VeltComments
+    streamMode={true}
+  />
+```
+
 ### 3) Add the Stream View container ID
 
 Pass the DOM ID of the main scrolling element. This helps us position & scroll the comment stream as the user scrolls.
 Alternatively, you can move VeltComments component inside the scrolling container and ensure that its the sibling of the target content.
+
+```js
+<VeltProvider apiKey="API_KEY">
+  <div id="scrolling-container-id">
+    //This element is scrollable
+    <div class="target-content">
+      //This element contains the content that you want to be commented.
+    </div>
+    <VeltComments
+      streamMode={true}
+      streamViewContainerId="scrolling-container-id"
+    />
+  </div>
+</VeltProvider>
+```
 
 ### 4) Add Comment Tool component
 
@@ -30,6 +59,12 @@ Alternatively, you can move VeltComments component inside the scrolling containe
 This is optional as most developers use Stream mode to enable commenting on text vs any element on the DOM. However, if you do need to enable commenting on any element, you can use this tool.
 
 Clicking on it initiates comment mode & changes your mouse cursor to a comment pin. Now you can click anywhere on the document to attach comments to any elements.
+
+```js
+<div class="toolbar">
+  <VeltCommentTool />
+</div>
+```
 
 ### 5) Test Integration
 
@@ -42,6 +77,14 @@ Select text to attach a comment to it. If you have added VeltCommentTool, click 
 ### 1) Import Comment components
 Import the VeltComments component and the VeltCommentTool component.
 
+```js
+import {
+  VeltProvider,
+  VeltComments,
+  VeltCommentTool
+} from '@veltdev/react';
+```
+
 ### 2) Add Comment component with Stream mode
 
 Add the VeltComments component to the root of your app and mark the streamMode property as true.
@@ -50,10 +93,31 @@ This component is required to render comments in your app.
 
 Stream mode renders all comment dialog boxes in a column on the right side similar to Google Docs.
 
+```js
+  <VeltComments
+    streamMode={true}
+  />
+```
+
 ### 3) Add the Stream View container ID
 
 Pass the DOM ID of the main scrolling element. This helps us position & scroll the comment stream as the user scrolls.
 Alternatively, you can move VeltComments component inside the scrolling container and ensure that its the sibling of the target content.
+
+```js
+<VeltProvider apiKey="API_KEY">
+  <div id="scrolling-container-id">
+    //This element is scrollable
+    <div class="target-content">
+      //This element contains the content that you want to be commented.
+    </div>
+    <VeltComments
+      streamMode={true}
+      streamViewContainerId="scrolling-container-id"
+    />
+  </div>
+</VeltProvider>
+```
 
 ### 4) Add Comment Tool component
 
@@ -63,6 +127,12 @@ This is optional as most developers use Stream mode to enable commenting on text
 
 Clicking on it initiates comment mode & changes your mouse cursor to a comment pin. Now you can click anywhere on the document to attach comments to any elements.
 
+```js
+<div class="toolbar">
+  <VeltCommentTool />
+</div>
+```
+
 ### 5) Test Integration
 
 Test it out by opening the page with Velt components in your browser.
@@ -70,11 +140,21 @@ Test it out by opening the page with Velt components in your browser.
 Select text to attach a comment to it. If you have added VeltCommentTool, click on it and click anywhere on the page to add a comment.
 
   </Tab>
+
+
     <Tab title="HTML">
 ### 1) Add Comment component with Stream mode
 Add the comment component to your template.
 
 This component is required to render comments in your app. Stream mode renders a stream view of comments in a column.
+
+```html
+<body>
+  <velt-comments
+    stream-mode="true"
+  ></velt-comments>
+</body>
+```
 
 ### 2) Add the Stream View container ID (optional)
 
@@ -82,11 +162,32 @@ Pass the container ID of the scrolling element to help us position the stream of
 
 Alternatively, you can move the Comment component tag to inside whatever scrolling element to help position the comment stream correctly.
 
+```html
+<body>
+  <velt-comments
+    stream-mode="true"
+    stream-view-container-id="scrolling-comment-stream"
+  ></velt-comments>
+
+  <div id="scrolling-comment-stream">
+    <!-- This element is scrollable -->
+  </div>
+
+</body>
+```
+
+
 ### 3) Add the Comment Tool component
 
 The comment tool allows you to add comments.
 
 When you click on the comment tool, it initiates comment mode.
+
+```html
+<div class="toolbar">
+  <velt-comment-tool></velt-comment-tool>
+</div>
+```
 
 ### 4) Test Integration
 
@@ -99,7 +200,7 @@ You should be able to leave a comment and see the comment appear in the comment 
 
 <RequestExample>
 
-```java React
+```js React
 import { VeltProvider, VeltComments, VeltCommentTool } from '@veltdev/react';
 
 export default function App() {
@@ -130,7 +231,7 @@ export default function App() {
 }
 ```
 
-```java Next.js
+```js Next.js
 import { VeltProvider, VeltComments, VeltCommentTool } from '@veltdev/react';
 
 export default function App() {
@@ -168,17 +269,17 @@ export default function App() {
     <title>Comment documentation</title>
   </head>
   <body>
-    <snippyly-comments
+    <velt-comments
       stream-mode="true"
       stream-view-container-id="scrolling-comment-stream"
-    ></snippyly-comments>
+    ></velt-comments>
 
     <div id="scrolling-comment-stream">
       <!-- This element is scrollable -->
     </div>
 
     <div class="toolbar">
-      <snippyly-comment-tool></snippyly-comment-tool>
+      <velt-comment-tool></velt-comment-tool>
     </div>
   </body>
 </html>

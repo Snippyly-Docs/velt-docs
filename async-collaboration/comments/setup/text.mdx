@@ -10,6 +10,10 @@ title: "Text Setup"
 ### 1) Import Comment components
 Import the VeltComments component.
 
+```js
+import { VeltProvider, VeltComments } from '@veltdev/react';
+```
+
 ### 2) Add Comment component with Text mode
 
 Add the VeltComments component to the root of your app and mark the textMode property as true.
@@ -17,6 +21,12 @@ Add the VeltComments component to the root of your app and mark the textMode pro
 This component is required to render comments in your app.
 
 Text mode allows users to select any text and attach comments to it similar to Google Docs.
+
+```js
+<VeltProvider apiKey="API_KEY">
+  <VeltComments textMode={true} />
+</VeltProvider>
+```
 
 ### 3) Test Integration
 
@@ -29,6 +39,10 @@ Select any text, a comment tool will appear near the highlighted text. Click on 
 ### 1) Import Comment components
 Import the VeltComments component.
 
+```js
+import { VeltProvider, VeltComments } from '@veltdev/react';
+```
+
 ### 2) Add Comment component with Text mode
 
 Add the VeltComments component to the root of your app and mark the textMode property as true.
@@ -36,6 +50,12 @@ Add the VeltComments component to the root of your app and mark the textMode pro
 This component is required to render comments in your app.
 
 Text mode allows users to select any text and attach comments to it similar to Google Docs.
+
+```js
+<VeltProvider apiKey="API_KEY">
+  <VeltComments textMode={true} />
+</VeltProvider>
+```
 
 ### 3) Test Integration
 
@@ -50,6 +70,12 @@ Add the comment component to your template.
 
 This component is required to render comments in your app. Text mode allows users to attach comments to highlighted text.
 
+```html
+<body>
+  <velt-comments text-mode="true"></velt-comments>
+</body>
+```
+
 ### 2) Test Integration
 
 Test it out by adding a comment.
@@ -61,7 +87,7 @@ You should be able to leave a comment by selecting some text.
 
 <RequestExample>
 
-```java React
+```js React
 import { VeltProvider, VeltComments } from '@veltdev/react';
 
 export default function App() {
@@ -76,7 +102,7 @@ export default function App() {
 }
 ```
 
-```java Next.js
+```js Next.js
 import { VeltProvider, VeltComments } from '@veltdev/react';
 
 export default function App() {
@@ -99,7 +125,7 @@ export default function App() {
     <title>Comment documentation</title>
   </head>
   <body>
-    <snippyly-comments text-mode="true"></snippyly-comments>
+    <velt-comments text-mode="true"></velt-comments>
   </body>
 </html>
 ```

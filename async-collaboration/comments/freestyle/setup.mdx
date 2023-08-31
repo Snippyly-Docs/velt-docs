@@ -8,17 +8,38 @@ title: "Setup"
 
 **Import the `VeltComments` component and the `VeltCommentTool` component.**
 
+```js
+import {
+  VeltProvider,
+  VeltComments,
+  VeltCommentTool
+} from '@veltdev/react';
+```
+
 ### 2) Add Comments component
 
 **Add the `VeltComments` component to the root of your app.**
 
 This component is required to render comments in your app.
 
+```js
+<VeltProvider apiKey="API_KEY">
+  <VeltComments />
+</VeltProvider>
+```
+
 ### 3) Add Comment Tool component
 
 **Add the `VeltCommentTool` component wherever you want to show the comment tool button.**
 
 Clicking on it initiates comment mode & changes your mouse cursor to a comment pin. Now you can click anywhere on the document to attach comments to any elements.
+
+```js
+<div className="toolbar">
+  <VeltCommentTool />
+</div>
+```
+
 
 ### 4) Test Integration
 
@@ -29,7 +50,16 @@ Click on the comment tool and click anywhere on the page to add a comment.
   </Tab>
   <Tab title="Next.js">
 ### 1) Import Comment components
+
 **Import the `VeltComments` component and the `VeltCommentTool` component.**
+
+```js
+import {
+  VeltProvider,
+  VeltComments,
+  VeltCommentTool
+} from '@veltdev/react';
+```
 
 ### 2) Add Comments component
 
@@ -37,17 +67,31 @@ Click on the comment tool and click anywhere on the page to add a comment.
 
 This component is required to render comments in your app.
 
+```js
+<VeltProvider apiKey="API_KEY">
+  <VeltComments />
+</VeltProvider>
+```
+
 ### 3) Add Comment Tool component
 
 **Add the `VeltCommentTool` component wherever you want to show the comment tool button.**
 
 Clicking on it initiates comment mode & changes your mouse cursor to a comment pin. Now you can click anywhere on the document to attach comments to any elements.
 
+```js
+<div className="toolbar">
+  <VeltCommentTool />
+</div>
+```
+
+
 ### 4) Test Integration
 
 **Test it out by opening the page with Velt components in your browser.**
 
 Click on the comment tool and click anywhere on the page to add a comment.
+
 
   </Tab>
   <Tab title="HTML">
