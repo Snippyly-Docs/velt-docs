@@ -255,6 +255,23 @@
       ]
     },
     {
+      "group": "Webhooks",
+      "pages": [
+        "webhooks/overview"
+      ]
+    },
+    {
+      "group": "Notifications",
+      "pages": [
+        {
+          "group": "Email",
+          "pages": [
+            "notifications/email/overview"
+          ]
+        }
+      ]
+    },
+    {
       "group": "API Reference",
       "pages": [
         {

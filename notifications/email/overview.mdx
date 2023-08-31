@@ -1,0 +1,26 @@
+## Email Notifications
+
+You can enable email notifications to send out emails whenever you @mention a user in the Comments feature or when another user replies to your comment.
+
+To enable Email Notifications go to the Configurations -> Email Service in the Velt Console, or [click here](https://console.velt.dev/dashboard/config/email)
+
+## Default Emails vs SendGrid 
+
+By default, emails will be sent from a Velt email address. If you wish to use your own Sendgrid account, you can do so.
+
+To enable Sendgrid, please enter your:
+ - SendGrid API Key 
+ - SendGrid Email Template ID for Comments feature
+ - SendGrid Email Template ID for Tags feature
+ - 'From' Email Address
+
+
+## Email Template Data
+
+The following fields will be injected by Velt to your Email Template:
+- name 
+- subject
+- message
+- messageFromName
+
+

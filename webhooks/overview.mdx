@@ -1,0 +1,63 @@
+## Webhooks
+
+You can provide us a webhook endpoint and we will send real time notifications data to you in processed format or raw format. We trigger a notification whenever a comment is:
+    1. Added
+    2. Updated
+    3. Deleted
+    4. Resolved
+    5. Approved
+
+## Setting up a Webhook
+
+To enable Webhooks go to the Configurations -> Webhook Service in the Velt Console, or [click here](https://console.velt.dev/dashboard/config/webhook)
+
+Then provide the following:
+
+ - Webhook Auth Token - usually a string used to verify calls to your endpoint to prevent spam
+
+ - Processed Notification URL - endpoint for processed notifications, usually hosted on your server and is used to process the incoming body data in Processed Format
+
+ - Raw Notification URL - endpoint for processed notifications, usually hosted on your server and is used to process the incoming body data in Raw Format
+
+## Processed vs Raw Formats
+
+Raw Data contains the basic data from all comments such as the target CommentAnnotation object, target comment object, and the action type.
+
+Processed Data contains data that is easier to consume. For example, it includes who sent the data, what text they sent, and a list of contacts who the text was sent to.
+
+### Processed format
+
+| Field                 | Type                                  | Required | Description|
+| --------------------- | ------------------------------------- | -------- | -----------|
+| from                  | User                                  | Yes      | The user who added, updated or deleted the target Comment.|
+| commentText           | string                                | Optional | text for the added, updated or deleted Comment. This is empty when entire CommentAnnotation is deleted.|
+| toContactsTagged      | UserContact[]                         | Optional | List of user contacts that are tagged to the target Comment. |
+| toContactsUpdated     | UserContact[]                         | Optional | List of user contacts that are on the target CommentAnnotation. This excludes all the user contacts that are on the target Comment. |
+| pageTitle             | string                                | Yes      | Title of the page on which the target CommentAnnotation is present.|
+| pageUrl               | string                                | Yes      | Full URL of the page on which the target CommentAnnotation is present. |
+| actionType            | string                                | Yes      | This can have 5 values: added, updated, deleted, resolved, approved |
+
+
+### Raw format
+
+| Field                 | Type                                  | Required | Description|
+| --------------------- | ------------------------------------- | -------- | -----------|
+| commentAnnotation     | CommentAnnotation                     | Yes      | The target CommentAnnotation object on which the event happened. |
+| targetComment         | Comment                               | Optional | The target Comment object on which the event happened. This field will not be present if the event was at CommentAnnotation level. Eg: deleted the entire comment annotation, resolved comment, approved comment.|
+| actionType            | string                                | Yes      | This can have 5 values: added, updated, deleted, resolved, approved |
+
+
+### Action Type Definitions:
+
+- added: when a new Comment is added.
+
+- updated: when an existing Comment is updated.
+
+- deleted: when an existing Comment or the entire CommentAnnotation is deleted. If CommentAnnotation is deleted then commentText field will be empty.
+
+- resolved: when theCommentAnnotation is resolved. commentText field will be empty in this case.
+
+- approved: when theCommentAnnotation is approved by the moderator. This is only applicable if you have turned on Moderator Mode. commentText field will be empty in this case.
+
+
+
