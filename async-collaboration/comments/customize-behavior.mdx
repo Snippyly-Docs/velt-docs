@@ -135,7 +135,7 @@ Whether to show ghost comment labels in the comment sidebar.
 Ghost comments are always shown in the comments sidebar so that users can see the history of all comments. If this is on, we show a label on the comment in the sidebar indicating that the original content on which this comment was added is no longer available. This sets better expectations with the users.
 
 ```js
-<VeltComments ghostCommentsIndicatore={true} />
+<VeltComments ghostCommentsIndicator={true} />
 ````
 
 ### 13) Moderator mode
@@ -348,24 +348,6 @@ You can enable and configure webhook in your Velt Console as shown below. After 
 
 ![](https://files.readme.io/0ac5e4a-image.png)
 
-### 27) Remove Status Dropdown
-
-To remove the status dropdown, set the `status` attribute to `false`.
-
-
-```js
-<VeltComments status={false} />
-````
-
-
-### 28) Remove Resolve Button
-
-To remove the resolve button, set the `resolve-button` attribute to `false`.
-
-
-```js
-<VeltComments resolveButton={false} />
-````
 
 
   </Tab>
@@ -497,7 +479,7 @@ Whether to show ghost comment labels in the comment sidebar.
 Ghost comments are always shown in the comments sidebar so that users can see the history of all comments. If this is on, we show a label on the comment in the sidebar indicating that the original content on which this comment was added is no longer available. This sets better expectations with the users.
 
 ```js
-<VeltComments ghostCommentsIndicatore={true} />
+<VeltComments ghostCommentsIndicator={true} />
 ````
 
 ### 13) Moderator mode
@@ -710,24 +692,6 @@ You can enable and configure webhook in your Velt Console as shown below. After 
 
 ![](https://files.readme.io/0ac5e4a-image.png)
 
-### 27) Remove Status Dropdown
-
-To remove the status dropdown, set the `status` attribute to `false`.
-
-
-```js
-<VeltComments status={false} />
-````
-
-
-### 28) Remove Resolve Button
-
-To remove the resolve button, set the `resolve-button` attribute to `false`.
-
-
-```js
-<VeltComments resolveButton={false} />
-````
 
   </Tab>
   <Tab title="HTML">
@@ -739,9 +703,9 @@ Whether area selection is enabled.
 
 With this mode, users can select an arbitrary area on the DOM and attach a comment to it.
 
-```js
-<VeltComments areaMode={true} />
-````
+```html
+<velt-comments area-mode="true"></velt-comments>
+```
 
 ### 2) Allow comments only on certain elements
 
@@ -749,9 +713,10 @@ Provide a list of element DOM IDs where commenting should be allowed.
 
 Comments will be disabled for all other elements. Note, this does not impact Popover mode.
 
-```js
-<VeltComments allowedElementIds={['some-element']} />
-````
+
+```html
+<velt-comments allowed-elements-ids="['some-element']"></velt-comments>
+```
 
 ### 3) Disable comments on certain elements
 
@@ -771,17 +736,19 @@ When this is on, users can attach images files to their comments. Users can down
 
 Currently we support .png, .jpg, .gif (static & animated), .svg file types upto 2MB per file.
 
-```js
-<VeltComments attachments={true} />
-````
+
+```html
+<velt-comments attachments="true"></velt-comments>
+```
 
 ### 5) AI auto categorization of comments
 
 Whether AI auto-categorization is enabled.
 
-```js
-<VeltComments autoCategorize={true} />
-````
+
+```html
+<velt-comments auto-categorize="true"></velt-comments>
+```
 
 ### 6) Comment index
 
@@ -791,9 +758,10 @@ Whether comment index is enabled.
 
 This appears in the comment sidebar and on the comment pins. When this is on, we show a small icon indicating the comment index in the order of creation date. This enables users to find and navigate to the desired comment quickly.
 
-```js
-<VeltComments commentIndex={true} />
-````
+
+```html
+<velt-comments commentIndex="true"></velt-comments>
+```
 
 ### 7) Device type indicator
 
@@ -803,10 +771,9 @@ Whether device type indicator is enabled.
 
 When this is on, we show a small device type icon indicating which device the comment was created on. This is useful especially for design tools, where additional context is needed for debugging issues.
 
-
-```js
-<VeltComments deviceInfo={true} />
-````
+```html
+<velt-comments device-info="true"></velt-comments>
+```
 
 ### 8) Comment dialog on hover
 
@@ -814,9 +781,10 @@ Whether the comment dialog shows on hover over the comment pin or the target ele
 
 `Default: true`
 
-```js
-<VeltComments dialogOnHover={true} />
-````
+
+```html
+<velt-comments dialog-on-hover="true"></velt-comments>
+```
 
 ### 9) Comment dialog on target element click
 
@@ -824,9 +792,11 @@ Whether the comment dialog opens when target element is clicked. This is relevan
 
 `Default: true`
 
-```js
-<VeltComments dialogOnTargetElementClick={true} />
-````
+
+```html
+<velt-comments dialog-on-target-element-click="true"></velt-comments>
+```
+
 
 ### 10) Floating comment dialog
 
@@ -834,9 +804,10 @@ Whether floating comment dialog is shown next to comment pin on hover or click.
 
 `Default: true`
 
-```js
-<VeltComments floatingMode={true} />
-````
+
+```html
+<velt-comments floating-mode="true"></velt-comments>
+```
 
 ### 11) Ghost comments
 
@@ -846,9 +817,9 @@ Whether to show ghost comments on the DOM.
 
 Ghost comments are comments that were once linked to certain content on the DOM but that content is no longer available. If this is on, we display ghost comments in gray, close to where they were originally positioned on the DOM.
 
-```js
-<VeltComments ghostComments={true} />
-````
+```html
+<velt-comments ghost-comments="true"></velt-comments>
+```
 
 ### 12) Ghost comments indicator
 
@@ -859,8 +830,12 @@ Whether to show ghost comment labels in the comment sidebar.
 Ghost comments are always shown in the comments sidebar so that users can see the history of all comments. If this is on, we show a label on the comment in the sidebar indicating that the original content on which this comment was added is no longer available. This sets better expectations with the users.
 
 ```js
-<VeltComments ghostCommentsIndicatore={true} />
+<VeltComments ghostCommentsIndicator={true} />
 ````
+
+```html
+<velt-comments ghost-comments-indicator="true"></velt-comments>
+```
 
 ### 13) Moderator mode
 
@@ -872,9 +847,10 @@ By default, when a user adds a comment it is visible to all authenticated users 
 
 You can set some users as admin by setting the isAdmin property in the User object, during the identify() call.
 
-```js
-<VeltComments moderatorMode={true} />
-````
+
+```html
+<velt-comments moderator-mode="true"></velt-comments>
+```
 
 ### 14) Priority
 
@@ -885,9 +861,9 @@ Whether to enable setting priority on comments.
 When this is on, users can assign a priority to each comment & filter comment by priority in the sidebar. You can customize the list of priority options as shown below on this page.
 
 
-```js
-<VeltComments priority={true} />
-````
+```html
+<velt-comments priority="true"></velt-comments>
+```
 
 ### 15) Resolve button
 
@@ -898,9 +874,10 @@ Whether to show resolve button on comments.
 This adds a tick mark button on the top right corner of the comment dialog. Clicking on this button will mark the comment as resolved.
 
 
-```js
-<VeltComments resolveButton={true} />
-````
+
+```html
+<velt-comments resolve-button="true"></velt-comments>
+```
 
 ### 16) Status
 
@@ -910,9 +887,9 @@ Whether to enable the default status dropdown & filters.
 
 When this is on, users can assign a status to each comment & filter comment by status in the sidebar. You can customize the list of status options as shown below on this page.
 
-```js
-<VeltComments status={true} />
-````
+```html
+<velt-comments status="true"></velt-comments>
+```
 
 ### 17) Sign In button
 
@@ -922,18 +899,17 @@ Whether to enable Sign In button on comment dialog when user is anonymous or sig
 
 This allows anonymous or signed out users to still read the comments but encourages them to sign in if they want to respond to the comments. When the user clicks on the sign in button, we will emit an onSignIn() event that you can hook with your own sign in method.
 
-
-```js
-<VeltComments signInButton={true} />
-````
+```html
+<velt-comments sign=in-button="true"></velt-comments>
+```
 
 ### 18) onSignIn
 
 This allows anonymous or signed out users to still read the comments but encourages them to sign in if they want to respond to the comments. When the user clicks on the sign in button, we will emit an onSignIn() event that you can hook with your own sign in method.
 
-```js
-<VeltComments onSignIn={() => yourSignInMethod()} />
-````
+```html
+<velt-comments onSignIn="yourMethod()"></velt-comments>
+```
 
 ### 19) Attach additional context to each comment
 
@@ -943,9 +919,11 @@ This event is emitted when a new comment is created
 
 This allows anonymous or signed out users to still read the comments but encourages them to sign in if they want to respond to the comments. When the user clicks on the sign in button, we will emit an onSignIn() event that you can hook with your own sign in method.
 
-```js
-<VeltComments onCommentAdd={() => yourMethod()} />
-````
+
+
+```html
+<velt-comments on-comment-add="yourMethod()"></velt-comments>
+```
 
 ### 20) Take action when comment is updated
 
@@ -954,10 +932,9 @@ Whether to enable Sign In button on comment dialog when user is anonymous or sig
 `Default: false`
 
 This allows anonymous or signed out users to still read the comments but encourages them to sign in if they want to respond to the comments. When the user clicks on the sign in button, we will emit an onSignIn() event that you can hook with your own sign in method.
-
-```js
-<VeltComments onCommentUpdate={() => yourMethod()} />
-````
+```html
+<velt-comments on-comment-updated="yourMethod()"></velt-comments>
+```
 
 ### 21) Set Custom Categories
 
@@ -971,16 +948,13 @@ Currently, categories are used in the AI autocategorize feature where we autmati
 
 color: Set the category pill background color.
 
-
-```js
-<VeltComments customCategory={[
-          {
-            "id": "bug",
+```html
+<velt-comments custom-category="["id": "bug",
             "name": "Bug",
-            "color": "red"
-          }
-]}/>
-````
+            "color": "red"]"
+></velt-comments>
+```
+
 
 ### 22) Set Custom Priorites
 
@@ -997,17 +971,18 @@ color: Sets the icon color.
 lightColor: Sets the background color of the filter.
 
 
-```js
-
-<VeltComments customPriority={[
+```html
+<velt-comments custom-priority="[
           {
             "id": "low",
             "name": "Low",
             "color": "red",
             "lightColor": "pink",
-          },
-]}/>
+          }]"
+></velt-comments>
 ```
+
+
 
 ### 23) Set Custom Statuses
 
@@ -1025,19 +1000,22 @@ With custom statuses, you can replace the default statuses with your own values.
 2. Set Status Icon:
    You can pass in a serialized SVG. We automatically parse and colorize SVGs. If insptead you pass in an icon URL, you will have to colorize each icon yourself to match the status color.
 
-```js
 
 
-<VeltComments customStatus={[
-          {
-            "id": "open",
-            "name": "Open",
-            "color": "white",
-            "type": "default",
-            "iconUrl": "", // Pass in an icon URL
-            "svg": "<svg></svg>" // Pass in a serialized SVG
-          },
-]}/>
+
+
+
+```html
+<velt-comments custom-priority="[
+  {
+    "id": "open",
+    "name": "Open",
+    "color": "white",
+    "type": "default",
+    "iconUrl": "", // Pass in an icon URL
+    "svg": "<svg></svg>" // Pass in a serialized SVG
+  }]"
+></velt-comments>
 ```
 
 ### 24) Ability to accept or reject comments
@@ -1072,28 +1050,6 @@ You can enable and configure webhook in your Velt Console as shown below. After 
 
 ![](https://files.readme.io/0ac5e4a-image.png)
 
-### 27) Remove Status Dropdown
-
-To remove the status dropdown, set the `status` attribute to `false`.
-
-```html
-<velt-comments
-  status="false">
-</velt-comments>
-```
-
-
-### 28) Remove Resolve Button
-
-To remove the resolve button, set the `resolve-button` attribute to `false`.
-
-
-```html
-<velt-comments
-  resolve-button="false">
-</velt-comments>
-```
-
 
 
 
@@ -1116,7 +1072,7 @@ export default function App() {
   return (
     <>
 
-      <div data-velt-comment-disabled>
+      <div data-velt-comment-disabled> {/* 3) */}
         // This element cannot be commented on
       </div>
 
@@ -1125,32 +1081,35 @@ export default function App() {
       </div>
 
       <VeltComments
-        areaMode={true}
-        allowedElementIds={['some-element']}
-        attachments={true}
-        autoCategorize={true}
-        commentIndex={true}
-        deviceInfo={true}
-        dialogOnHover={true}
-        dialogOnTargetElementClick={true}
-        floatingMode={false}
-        ghostComments={false}
-        ghostCommentsIndicator={false}
-        moderatorMode={true}
-        priority={true}
-        resolveButton={true}
-        status={false}
-        signInButton={true}
-        onSignIn={() => yourSignInMethod()}
-        onCommentAdd={() => yourMethod()}
-        onCommentUpdate={() => yourMethod()}
-        customCategory={[
+        areaMode={true} {/* 1) */}
+        allowedElementIds={['some-element']} {/* 2) */}
+        attachments={true} {/* 4)*/}
+        autoCategorize={true} {/* 5) */}
+        commentIndex={true} {/* 6)*/}
+        deviceInfo={true} {/* 7) */}
+        dialogOnHover={true} {/* 8) */}
+        dialogOnTargetElementClick={true} {/* 9) */}
+        floatingMode={false} {/* 10) */}
+        ghostComments={false} {/* 11) */}
+        ghostCommentsIndicator={false} {/* 12) */}
+        moderatorMode={true} {/* 13) */}
+        priority={true} {/* 14) */}
+        resolveButton={true} {/* 15) */}
+        status={false} {/* 16) */}
+        signInButton={true} {/* 17) */}
+        onSignIn={() => yourSignInMethod()} {/* 18) */}
+        onCommentAdd={() => yourMethod()} {/* 19) */}
+        onCommentUpdate={() => yourMethod()} {/* 20) */}
+        suggestionMode={true} {/* 24) */}
+        {/* 21) */}
+        customCategory={[ 
           {
             "id": "bug",
             "name": "Bug",
             "color": "red"
           },
         ]}
+        {/* 22) */}
         customPriority={[
           {
             "id": "low",
@@ -1159,6 +1118,7 @@ export default function App() {
             "lightColor": "pink",
           },
         ]}
+        {/* 23) */}
         customStatus={[
           {
             "id": "open",
@@ -1170,10 +1130,12 @@ export default function App() {
           },
         ]}
 
+
       />
 ```
 
 ```js Next.js
+
 
 import { VeltComments } from '@veltdev/react';
 
@@ -1186,7 +1148,7 @@ export default function App() {
   return (
     <>
 
-      <div data-velt-comment-disabled>
+      <div data-velt-comment-disabled> {/* 3) */}
         // This element cannot be commented on
       </div>
 
@@ -1195,32 +1157,35 @@ export default function App() {
       </div>
 
       <VeltComments
-        areaMode={true}
-        allowedElementIds={['some-element']}
-        attachments={true}
-        autoCategorize={true}
-        commentIndex={true}
-        deviceInfo={true}
-        dialogOnHover={true}
-        dialogOnTargetElementClick={true}
-        floatingMode={false}
-        ghostComments={false}
-        ghostCommentsIndicator={false}
-        moderatorMode={true}
-        priority={true}
-        resolveButton={true}
-        status={false}
-        signInButton={true}
-        onSignIn={() => yourSignInMethod()}
-        onCommentAdd={() => yourMethod()}
-        onCommentUpdate={() => yourMethod()}
-        customCategory={[
+        areaMode={true} {/* 1) */}
+        allowedElementIds={['some-element']} {/* 2) */}
+        attachments={true} {/* 4)*/}
+        autoCategorize={true} {/* 5) */}
+        commentIndex={true} {/* 6)*/}
+        deviceInfo={true} {/* 7) */}
+        dialogOnHover={true} {/* 8) */}
+        dialogOnTargetElementClick={true} {/* 9) */}
+        floatingMode={false} {/* 10) */}
+        ghostComments={false} {/* 11) */}
+        ghostCommentsIndicator={false} {/* 12) */}
+        moderatorMode={true} {/* 13) */}
+        priority={true} {/* 14) */}
+        resolveButton={true} {/* 15) */}
+        status={false} {/* 16) */}
+        signInButton={true} {/* 17) */}
+        onSignIn={() => yourSignInMethod()} {/* 18) */}
+        onCommentAdd={() => yourMethod()} {/* 19) */}
+        onCommentUpdate={() => yourMethod()} {/* 20) */}
+        suggestionMode={true} {/* 24) */}
+        {/* 21) */}
+        customCategory={[ 
           {
             "id": "bug",
             "name": "Bug",
             "color": "red"
           },
         ]}
+        {/* 22) */}
         customPriority={[
           {
             "id": "low",
@@ -1229,6 +1194,7 @@ export default function App() {
             "lightColor": "pink",
           },
         ]}
+        {/* 23) */}
         customStatus={[
           {
             "id": "open",
@@ -1240,8 +1206,10 @@ export default function App() {
           },
         ]}
 
+
       />
 ```
+
 ```js HTML
     <div>
       <div data-velt-comment-disabled>
@@ -1253,25 +1221,26 @@ export default function App() {
       </div>
 
       <velt-comments
-        areaMode={true}
-        allowedElementIds={['some-element']}
-        attachments={true}
-        autoCategorize={true}
-        commentIndex={true}
-        deviceInfo={true}
-        dialogOnHover={true}
-        dialogOnTargetElementClick={true}
-        floatingMode={false}
-        ghostComments={false}
-        ghostCommentsIndicator={false}
-        moderatorMode={true}
-        priority={true}
-        resolveButton={true}
-        status={false}
-        signInButton={true}
-        onSignIn={() => yourSignInMethod()}
-        onCommentAdd={() => yourMethod()}
-        onCommentUpdate={() => yourMethod()}
+        areaMode={true} <!-- -->
+        allowedElementIds={['some-element']} <!-- -->
+        attachments={true} <!-- -->
+        autoCategorize={true} <!-- -->
+        commentIndex={true} <!-- -->
+        deviceInfo={true} <!-- -->
+        dialogOnHover={true} <!-- -->
+        dialogOnTargetElementClick={true} <!-- -->
+        floatingMode={false} <!-- -->
+        ghostComments={false} <!-- -->
+        ghostCommentsIndicator={false} <!-- -->
+        moderatorMode={true} <!-- -->
+        priority={true} <!-- -->
+        resolveButton={true} <!-- -->
+        status={false} <!-- -->
+        signInButton={true} <!-- -->
+        onSignIn={() => yourSignInMethod()} <!-- -->
+        onCommentAdd={() => yourMethod()} <!-- -->
+        onCommentUpdate={() => yourMethod()} <!-- -->
+        <!-- -->
         customCategory={[
           {
             "id": "bug",
@@ -1279,6 +1248,7 @@ export default function App() {
             "color": "red"
           },
         ]}
+        <!-- -->
         customPriority={[
           {
             "id": "low",
@@ -1287,6 +1257,7 @@ export default function App() {
             "lightColor": "pink",
           },
         ]}
+        <!-- -->
         customStatus={[
           {
             "id": "open",
@@ -1296,7 +1267,7 @@ export default function App() {
             "iconUrl": "", // Pass in an icon URL
             "svg": "<svg></svg>" // Pass in a serialized SVG
           },
-        ]
+        ]}
       ></velt-comments>
       </div>
 ```
