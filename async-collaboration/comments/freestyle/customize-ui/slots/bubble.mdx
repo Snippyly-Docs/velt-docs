@@ -8,35 +8,97 @@ title: "Bubble"
 
   Provide a template for the Comment Pin.
 
-  Target the `comment-pin` slot in order to replace comment pins on the screen.
+  Target the `bubble` slot in order to replace comment pins on the screen.
+
+```js
+<VeltCommentBubble>
+  <div 
+    slot="bubble" {/*Target the `bubble` slot in order to replace comment pins on the screen. */}
+  >
+  </div>
+</VeltCommentBubble>
+```
 
   ## 2) Bind data to the element style
   Use data attributes to bind information like the comment status or priority color.
 
   Set the style property target as the value of the data attribute. If you don't provide one, we'll make our best guess.
 
+```js
+<VeltCommentBubble>
+  <div 
+    slot="bubble" 
+    data-velt-priority-color="border-color" {/* Use data attributes to bind styling */}
+  >
+  </div>
+</VeltCommentBubble>
+```
+
   ## 3) Bind data to an element attribute
   Use data attributes to bind information like the user's avatar `src`, the comment thread length, etc.
   
   Set the attribute target as the value of the data attribute. If you don't provide one, we'll make our best guess.
+
+```js
+<VeltCommentBubble>
+  <div 
+    slot="bubble" 
+    data-velt-priority-color="border-color"
+  >
+    <img data-velt-avatar-img="src" /> {/* Use data attributes to bind information */}
+  </div>
+</VeltCommentBubble>
+```
   </Tab>
 
+
   <Tab title="Next.js">
-  ## 1) Replace the Comment Pin
+    ## 1) Replace the Comment Pin
 
   Provide a template for the Comment Pin.
 
-  Target the `comment-pin` slot in order to replace comment pins on the screen.
+  Target the `bubble` slot in order to replace comment pins on the screen.
+
+```js
+<VeltCommentBubble>
+  <div 
+    slot="bubble" {/*Target the `bubble` slot in order to replace comment pins on the screen. */}
+  >
+  </div>
+</VeltCommentBubble>
+```
 
   ## 2) Bind data to the element style
   Use data attributes to bind information like the comment status or priority color.
 
   Set the style property target as the value of the data attribute. If you don't provide one, we'll make our best guess.
 
+```js
+<VeltCommentBubble>
+  <div 
+    slot="bubble" 
+    data-velt-priority-color="border-color" {/* Use data attributes to bind styling */}
+  >
+  </div>
+</VeltCommentBubble>
+```
+
   ## 3) Bind data to an element attribute
   Use data attributes to bind information like the user's avatar `src`, the comment thread length, etc.
   
   Set the attribute target as the value of the data attribute. If you don't provide one, we'll make our best guess.
+
+```js
+<VeltCommentBubble>
+  <div 
+    slot="bubble" 
+    data-velt-priority-color="border-color"
+  >
+    <img data-velt-avatar-img="src" /> {/* Use data attributes to bind information */}
+  </div>
+</VeltCommentBubble>
+```
+
   </Tab>
 
   <Tab title="HTML">
@@ -44,25 +106,57 @@ title: "Bubble"
 
   Provide a template for the Comment Pin.
 
-  Target the `comment-pin` slot in order to replace comment pins on the screen.
+  Target the `bubble` slot in order to replace comment pins on the screen.
+
+```html
+<velt-comment-bubble> 
+  <div 
+    slot="bubble"  <!--   Target the `bubble` slot in order to replace comment pins on the screen. -->
+  >
+  </div>
+</velt-comment-bubble>
+```
 
   ## 2) Bind data to the element style
   Use data attributes to bind information like the comment status or priority color.
 
   Set the style property target as the value of the data attribute. If you don't provide one, we'll make our best guess.
 
+```html
+<velt-comment-bubble>
+  <div 
+    slot="bubble" 
+    data-velt-priority-color="border-color" <!-- Use data attributes to bind styling -->
+  >
+  </div>
+</velt-comment-bubble>
+```
+
+
   ## 3) Bind data to an element attribute
   Use data attributes to bind information like the user's avatar `src`, the comment thread length, etc.
   
   Set the attribute target as the value of the data attribute. If you don't provide one, we'll make our best guess.
+
+```html
+<velt-comment-bubble>
+  <div 
+    slot="bubble" 
+    data-velt-priority-color="border-color"
+  >
+    <img data-velt-avatar-img="src" /> <!-- Use data attributes to bind information -->
+  </div>
+</velt-comment-bubble>
+```
+ 
   </Tab>
 </Tabs>
 
 <RequestExample>
 
-```java React
+```js React
 import {
-  SnippylyCommentBubble
+  VeltCommentBubble
 } from '@veltdev/react';
 
 export default function App() {
@@ -70,14 +164,14 @@ export default function App() {
   return (
     <>
 
-      <SnippylyCommentBubble>
+      <VeltCommentBubble>
         <div 
           slot="bubble" 
-          data-snippyly-priority-color="border-color"
+          data-velt-priority-color="border-color"
         >
-          <img data-snippyly-avatar-img="src" />
+          <img data-velt-avatar-img="src" />
         </div>
-      </SnippylyCommentBubble>
+      </VeltCommentBubble>
 
     </>
   );
@@ -85,9 +179,9 @@ export default function App() {
 ```
     
 
-```java Next.js
+```js Next.js
 import {
-  SnippylyCommentBubble
+  VeltCommentBubble
 } from '@veltdev/react';
 
 export default function App() {
@@ -95,14 +189,14 @@ export default function App() {
   return (
     <>
 
-      <SnippylyCommentBubble>
+      <VeltCommentBubble>
         <div 
           slot="bubble" 
-          data-snippyly-priority-color="border-color"
+          data-velt-priority-color="border-color"
         >
-          <img data-snippyly-avatar-img="src" />
+          <img data-velt-avatar-img="src" />
         </div>
-      </SnippylyCommentBubble>
+      </VeltCommentBubble>
 
     </>
   );
@@ -116,14 +210,14 @@ export default function App() {
   </head>
   <body>
 
-    <snippyly-comment-bubble>
+    <velt-comment-bubble>
       <div 
         slot="bubble" 
-        data-snippyly-priority-color="border-color"
+        data-velt-priority-color="border-color"
       >
-        <img data-snippyly-avatar-img="src" />
+        <img data-velt-avatar-img="src" />
       </div>
-    </snippyly-comment-bubble>
+    </velt-comment-bubble>
 
   </body>
 </html>

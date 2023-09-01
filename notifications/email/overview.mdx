@@ -22,11 +22,10 @@ The following fields will be injected by Velt to your Email Template:
 | Field             | Type          | Description       |
 | ----------------- | ------------- | ------------------|
 | message           | string        | the message of the email |
-| messageFromName   | string        | user of updated comment of last comment        
-| name              | string        | name of message sender |
-| fromName          | string        |
-| fromEmail         | string        | email the message sent from
-| photoUrl          | string        | avatar URL of user
+| messageFromName   | string        | the name of whoever wrote the message that the email is referencing |      
+| name              | string        | the name of the person who took an action that triggered the email |
+| fromEmail         | string        | email the message was sent from |
+| photoUrl          | string        | avatar URL of user |
 | pageUrl           | string        | url of the page the comment is on  |
 | pageTitle         | string        | title of the web page |
 | deviceInfo        | Object        | contains browser, OS and device info |     

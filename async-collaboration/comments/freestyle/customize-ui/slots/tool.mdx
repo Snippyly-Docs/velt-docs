@@ -9,6 +9,15 @@ title: "Tool"
 Provide a template for the Comment Tool.
 
 Target the `button` slot with your own custom template.
+
+```js
+<VeltCommentTool>
+  <div slot="button">
+    <img src="..." />
+  </div>
+</VeltCommentTool>
+```
+
 </Tab>
 
 <Tab title="Next.js">
@@ -18,6 +27,14 @@ Target the `button` slot with your own custom template.
 Provide a template for the Comment Tool.
 
 Target the `button` slot with your own custom template.
+```js
+<VeltCommentTool>
+  <div slot="button">
+    <img src="..." />
+  </div>
+</VeltCommentTool>
+```
+
 </Tab>
 
 <Tab title="HTML">
@@ -26,14 +43,23 @@ Target the `button` slot with your own custom template.
 Provide a template for the Comment Tool.
 
 Target the `button` slot with your own custom template.
+
+```html
+<velt-comment-tool>
+  <div slot="button">
+    <img src="..." />
+  </div>
+</velt-comment-tool>
+```
+
 </Tab>
 </Tabs>
 
 <RequestExample>
 
-```java React
+```js React
 import {
-  SnippylyCommentTool
+  VeltCommentTool
 } from '@veltdev/react';
 
 export default function App() {
@@ -41,19 +67,19 @@ export default function App() {
   return (
     <>
 
-      <SnippylyCommentTool>
+      <VeltCommentTool>
         <div slot="button">
           <img src="..." />
         </div>
-      </SnippylyCommentTool>
+      </VeltCommentTool>
 
     </>
   );
 }
 ```
-```java Next.js
+```js Next.js
 import {
-  SnippylyCommentTool
+  VeltCommentTool
 } from '@veltdev/react';
 
 export default function App() {
@@ -61,11 +87,11 @@ export default function App() {
   return (
     <>
 
-      <SnippylyCommentTool>
+      <VeltCommentTool>
         <div slot="button">
           <img src="..." />
         </div>
-      </SnippylyCommentTool>
+      </VeltCommentTool>
 
     </>
   );
@@ -80,11 +106,11 @@ export default function App() {
   </head>
   <body>
 
-    <snippyly-comment-tool>
+    <velt-comment-tool>
         <div slot="button">
           <img src="..." />
         </div>
-    </snippyly-comment-tool>
+    </velt-comment-tool>
 
   </body>
 </html>

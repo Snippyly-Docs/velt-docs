@@ -8,35 +8,96 @@ title: "Pin"
    Provide a template for the Comment Pin.
    Target the `comment-pin` slot in order to replace comment pins on the screen.
 
+```js
+<VeltComments>
+  <div 
+    slot="comment-pin"  {/* target the `comment-pin` slot in order to replace comment pins on the screen */}
+  >
+  </div>
+</VeltComments>
+```
+
+
    ## 2) Bind data to the element style
 
   Use data attributes to bind information like the comment status or priority color.
 
   Set the style property target as the value of the data attribute. If you don't provide one, we'll make our best guess.
 
+```js
+<VeltComments>
+  <div 
+    slot="comment-pin" 
+    data-velt-priority-color="border-color" {/* use data attributes to bind styling */}
+  >
+  </div>
+</VeltComments>
+
+```
   ## 3) Bind data to an element attribute
   Use data attributes to bind information like the user's avatar `src`, the comment thread length, etc.
 
   Set the attribute target as the value of the data attribute. If you don't provide one, we'll make our best guess.
 
+```js
+<VeltComments>
+  <div 
+    slot="comment-pin" 
+    data-velt-priority-color="border-color"
+  >
+    <img data-velt-avatar-img="src" /> {/* use data atributes to bind information */}
+  </div>
+</VeltComments>
+```
   </Tab>
   <Tab title="Next.js">
 
   ## 1) Replace the Comment Pin
 
-  Provide a template for the Comment Pin.
+   Provide a template for the Comment Pin.
+   Target the `comment-pin` slot in order to replace comment pins on the screen.
 
-  Target the `comment-pin` slot in order to replace comment pins on the screen.
+```js
+<VeltComments>
+  <div 
+    slot="comment-pin"  {/* target the `comment-pin` slot in order to replace comment pins on the screen */}
+  >
+  </div>
+</VeltComments>
+```
 
-  ## 2) Bind data to the element style
+
+   ## 2) Bind data to the element style
+
   Use data attributes to bind information like the comment status or priority color.
 
   Set the style property target as the value of the data attribute. If you don't provide one, we'll make our best guess.
 
+```js
+<VeltComments>
+  <div 
+    slot="comment-pin" 
+    data-velt-priority-color="border-color" {/* use data attributes to bind styling */}
+  >
+  </div>
+</VeltComments>
+
+```
   ## 3) Bind data to an element attribute
   Use data attributes to bind information like the user's avatar `src`, the comment thread length, etc.
-  
+
   Set the attribute target as the value of the data attribute. If you don't provide one, we'll make our best guess.
+
+```js
+<VeltComments>
+  <div 
+    slot="comment-pin" 
+    data-velt-priority-color="border-color"
+  >
+    <img data-velt-avatar-img="src" /> {/* use data atributes to bind information */}
+  </div>
+</VeltComments>
+```
   </Tab>
   <Tab title="HTML">
   ## 1) Replace the Comment Pin
@@ -44,15 +105,42 @@ title: "Pin"
   
   Target the `comment-pin` slot in order to replace comment pins on the screen.
 
+```html
+<velt-comments>
+  <div 
+    slot="comment-pin" <!-- target the `comment-pin` slot in order to replace the comment pins on the screen -->
+  >
+  </div>
+</velt-comments>
+```
+
   ## 2) Bind data to the element style
   Use data attributes to bind information like the comment status or priority color.
 
   Set the style property target as the value of the data attribute. If you don't provide one, we'll make our best guess.
-
+```html
+<velt-comments>
+  <div 
+    slot="comment-pin" 
+    data-velt-priority-color="border-color" <!-- use data attribute to bind styling -->
+  >
+  </div>
+</velt-comments>
+```
   ## 3) Bind data to an element attribute
   Use data attributes to bind information like the user's avatar src, the comment thread length, etc.
 
   Set the attribute target as the value of the data attribute. If you don't provide one, we'll make our best guess.
+```html
+<velt-comments>
+  <div 
+    slot="comment-pin" 
+    data-velt-priority-color="border-color"
+  >
+    <img data-velt-avatar-img="src" /> <!-- use data attribute to bind information -->
+  </div>
+</velt-comments>
+```
   </Tab>
 </Tabs>
 
@@ -60,50 +148,50 @@ title: "Pin"
 
 ```java React
 import { 
-  SnippylyProvider, 
-  SnippylyComments
+  VeltProvider, 
+  VeltComments
 } from '@veltdev/react';
 
 export default function App() {
 
   return (
-    <SnippylyProvider apiKey="API_KEY">
+    <VeltProvider apiKey="API_KEY">
 
-      <SnippylyComments>
+      <VeltComments>
         <div 
           slot="comment-pin" 
-          data-snippyly-priority-color="border-color"
+          data-velt-priority-color="border-color"
         >
-          <img data-snippyly-avatar-img="src" />
+          <img data-velt-avatar-img="src" />
         </div>
-      </SnippylyComments>
+      </VeltComments>
 
-    </SnippylyProvider>
+    </VeltProvider>
   );
 }
 ```
 
 ```java Next.js
 import { 
-  SnippylyProvider, 
-  SnippylyComments
+  VeltProvider, 
+  VeltComments
 } from '@veltdev/react';
 
 export default function App() {
 
   return (
-    <SnippylyProvider apiKey="API_KEY">
+    <VeltProvider apiKey="API_KEY">
 
-      <SnippylyComments>
+      <VeltComments>
         <div 
           slot="comment-pin" 
-          data-snippyly-priority-color="border-color"
+          data-velt-priority-color="border-color"
         >
-          <img data-snippyly-avatar-img="src" />
+          <img data-velt-avatar-img="src" />
         </div>
-      </SnippylyComments>
+      </VeltComments>
 
-    </SnippylyProvider>
+    </VeltProvider>
   );
 }
 ```
@@ -115,14 +203,14 @@ export default function App() {
   </head>
   <body>
 
-    <snippyly-comments>
+    <velt-comments>
       <div 
         slot="comment-pin" 
-        data-snippyly-priority-color="border-color"
+        data-velt-priority-color="border-color"
       >
-        <img data-snippyly-avatar-img="src" />
+        <img data-velt-avatar-img="src" />
       </div>
-    </snippyly-comments>
+    </velt-comments>
 
   </body>
 </html>
