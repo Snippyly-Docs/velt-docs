@@ -146,7 +146,7 @@ title: "Pin"
 
 <RequestExample>
 
-```java React
+```js React
 import { 
   VeltProvider, 
   VeltComments
@@ -159,10 +159,10 @@ export default function App() {
 
       <VeltComments>
         <div 
-          slot="comment-pin" 
-          data-velt-priority-color="border-color"
+          slot="comment-pin" {/* target the `comment-pin` slot in order to replace comment pins on the screen */}
+          data-velt-priority-color="border-color" {/* use data atributes to bind styling */}
         >
-          <img data-velt-avatar-img="src" />
+          <img data-velt-avatar-img="src" /> {/* use data atributes to bind information */}
         </div>
       </VeltComments>
 
@@ -171,7 +171,7 @@ export default function App() {
 }
 ```
 
-```java Next.js
+```js Next.js
 import { 
   VeltProvider, 
   VeltComments
@@ -184,10 +184,10 @@ export default function App() {
 
       <VeltComments>
         <div 
-          slot="comment-pin" 
-          data-velt-priority-color="border-color"
+          slot="comment-pin" {/* target the `comment-pin` slot in order to replace comment pins on the screen */}
+          data-velt-priority-color="border-color" {/* use data atributes to bind styling */}
         >
-          <img data-velt-avatar-img="src" />
+          <img data-velt-avatar-img="src" /> {/* use data atributes to bind information */}
         </div>
       </VeltComments>
 
@@ -205,10 +205,10 @@ export default function App() {
 
     <velt-comments>
       <div 
-        slot="comment-pin" 
-        data-velt-priority-color="border-color"
+        slot="comment-pin" <!-- target the `comment-pin` slot in order to replace comment pins on the screen -->
+        data-velt-priority-color="border-color" <!-- use data attribute to bind styling -->
       >
-        <img data-velt-avatar-img="src" />
+        <img data-velt-avatar-img="src" /> <!-- use data attribute to bind information -->
       </div>
     </velt-comments>
 

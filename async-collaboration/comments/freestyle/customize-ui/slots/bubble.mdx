@@ -166,10 +166,10 @@ export default function App() {
 
       <VeltCommentBubble>
         <div 
-          slot="bubble" 
-          data-velt-priority-color="border-color"
+          slot="bubble"  {/* target the `bubble` slot in order to replace comment pins on the screen */}
+          data-velt-priority-color="border-color" {/* use data atributes to bind styling */}
         >
-          <img data-velt-avatar-img="src" />
+          <img data-velt-avatar-img="src" /> {/* use data atributes to bind information */}
         </div>
       </VeltCommentBubble>
 
@@ -191,10 +191,10 @@ export default function App() {
 
       <VeltCommentBubble>
         <div 
-          slot="bubble" 
-          data-velt-priority-color="border-color"
+          slot="bubble"  {/* target the `bubble` slot in order to replace comment pins on the screen */}
+          data-velt-priority-color="border-color" {/* use data atributes to bind styling */}
         >
-          <img data-velt-avatar-img="src" />
+          <img data-velt-avatar-img="src" /> {/* use data atributes to bind information */}
         </div>
       </VeltCommentBubble>
 
@@ -212,10 +212,10 @@ export default function App() {
 
     <velt-comment-bubble>
       <div 
-        slot="bubble" 
-        data-velt-priority-color="border-color"
+        slot="bubble" <!-- target the `bubble` slot in order to replace comment pins on the screen -->
+        data-velt-priority-color="border-color" <!-- use data attribute to bind styling -->
       >
-        <img data-velt-avatar-img="src" />
+        <img data-velt-avatar-img="src" /> <!-- use data attribute to bind information -->
       </div>
     </velt-comment-bubble>
 
