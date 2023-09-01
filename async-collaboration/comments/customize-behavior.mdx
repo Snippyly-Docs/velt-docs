@@ -8,7 +8,7 @@ title: "Customize Behavior"
 
 <Tabs>
   <Tab title="React">
-### 1) Area selection in Freestyle mode
+## 1) Area selection in Freestyle mode
 Whether area selection is enabled.
 
 `Default: true`
@@ -19,7 +19,7 @@ With this mode, users can select an arbitrary area on the DOM and attach a comme
 <VeltComments areaMode={true} />
 ````
 
-### 2) Allow comments only on certain elements
+## 2) Allow comments only on certain elements
 
 Provide a list of element DOM IDs where commenting should be allowed.
 
@@ -29,7 +29,7 @@ Comments will be disabled for all other elements. Note, this does not impact Pop
 <VeltComments allowedElementIds={['some-element']} />
 ````
 
-### 3) Disable comments on certain elements
+## 3) Disable comments on certain elements
 
 Add data-velt-comment-disabled attribute to elements where you want to disable commenting.
 
@@ -37,7 +37,7 @@ Add data-velt-comment-disabled attribute to elements where you want to disable c
 <div data-velt-comment-disabled></div>
 ```
 
-### 4) File attachments
+## 4) File attachments
 
 Whether file attachments are enabled.
 
@@ -51,7 +51,7 @@ Currently we support .png, .jpg, .gif (static & animated), .svg file types upto 
 <VeltComments attachments={true} />
 ````
 
-### 5) AI auto categorization of comments
+## 5) AI auto categorization of comments
 
 Whether AI auto-categorization is enabled.
 
@@ -59,7 +59,7 @@ Whether AI auto-categorization is enabled.
 <VeltComments autoCategorize={true} />
 ````
 
-### 6) Comment index
+## 6) Comment index
 
 Whether comment index is enabled.
 
@@ -71,7 +71,7 @@ This appears in the comment sidebar and on the comment pins. When this is on, we
 <VeltComments commentIndex={true} />
 ````
 
-### 7) Device type indicator
+## 7) Device type indicator
 
 Whether device type indicator is enabled.
 
@@ -84,7 +84,7 @@ When this is on, we show a small device type icon indicating which device the co
 <VeltComments deviceInfo={true} />
 ````
 
-### 8) Comment dialog on hover
+## 8) Comment dialog on hover
 
 Whether the comment dialog shows on hover over the comment pin or the target element.
 
@@ -94,7 +94,7 @@ Whether the comment dialog shows on hover over the comment pin or the target ele
 <VeltComments dialogOnHover={true} />
 ````
 
-### 9) Comment dialog on target element click
+## 9) Comment dialog on target element click
 
 Whether the comment dialog opens when target element is clicked. This is relevant only for Popover mode.
 
@@ -104,7 +104,7 @@ Whether the comment dialog opens when target element is clicked. This is relevan
 <VeltComments dialogOnTargetElementClick={true} />
 ````
 
-### 10) Floating comment dialog
+## 10) Floating comment dialog
 
 Whether floating comment dialog is shown next to comment pin on hover or click.
 
@@ -114,7 +114,7 @@ Whether floating comment dialog is shown next to comment pin on hover or click.
 <VeltComments floatingMode={true} />
 ````
 
-### 11) Ghost comments
+## 11) Ghost comments
 
 Whether to show ghost comments on the DOM.
 
@@ -126,7 +126,7 @@ Ghost comments are comments that were once linked to certain content on the DOM 
 <VeltComments ghostComments={true} />
 ````
 
-### 12) Ghost comments indicator
+## 12) Ghost comments indicator
 
 Whether to show ghost comment labels in the comment sidebar.
 
@@ -138,7 +138,7 @@ Ghost comments are always shown in the comments sidebar so that users can see th
 <VeltComments ghostCommentsIndicator={true} />
 ````
 
-### 13) Moderator mode
+## 13) Moderator mode
 
 Whether comments require moderator approval.
 
@@ -152,7 +152,7 @@ You can set some users as admin by setting the isAdmin property in the User obje
 <VeltComments moderatorMode={true} />
 ````
 
-### 14) Priority
+## 14) Priority
 
 Whether to enable setting priority on comments.
 
@@ -165,7 +165,7 @@ When this is on, users can assign a priority to each comment & filter comment by
 <VeltComments priority={true} />
 ````
 
-### 15) Resolve button
+## 15) Resolve button
 
 Whether to show resolve button on comments.
 
@@ -178,7 +178,7 @@ This adds a tick mark button on the top right corner of the comment dialog. Clic
 <VeltComments resolveButton={true} />
 ````
 
-### 16) Status
+## 16) Status
 
 Whether to enable the default status dropdown & filters.
 
@@ -190,7 +190,7 @@ When this is on, users can assign a status to each comment & filter comment by s
 <VeltComments status={true} />
 ````
 
-### 17) Sign In button
+## 17) Sign In button
 
 Whether to enable Sign In button on comment dialog when user is anonymous or signed out.
 
@@ -203,7 +203,7 @@ This allows anonymous or signed out users to still read the comments but encoura
 <VeltComments signInButton={true} />
 ````
 
-### 18) onSignIn
+## 18) onSignIn
 
 This allows anonymous or signed out users to still read the comments but encourages them to sign in if they want to respond to the comments. When the user clicks on the sign in button, we will emit an onSignIn() event that you can hook with your own sign in method.
 
@@ -211,7 +211,7 @@ This allows anonymous or signed out users to still read the comments but encoura
 <VeltComments onSignIn={() => yourSignInMethod()} />
 ````
 
-### 19) Attach additional context to each comment
+## 19) Attach additional context to each comment
 
 This event is emitted when a new comment is created
 
@@ -223,7 +223,7 @@ This allows anonymous or signed out users to still read the comments but encoura
 <VeltComments onCommentAdd={() => yourMethod()} />
 ````
 
-### 20) Take action when comment is updated
+## 20) Take action when comment is updated
 
 Whether to enable Sign In button on comment dialog when user is anonymous or signed out.
 
@@ -235,7 +235,7 @@ This allows anonymous or signed out users to still read the comments but encoura
 <VeltComments onCommentUpdate={() => yourMethod()} />
 ````
 
-### 21) Set Custom Categories
+## 21) Set Custom Categories
 
 Pass custom categories in the customCategory prop.
 
@@ -258,7 +258,7 @@ color: Set the category pill background color.
 ]}/>
 ````
 
-### 22) Set Custom Priorites
+## 22) Set Custom Priorites
 
 Pass custom priorities in the customPriority prop.
 
@@ -285,7 +285,7 @@ lightColor: Sets the background color of the filter.
 ]}/>
 ```
 
-### 23) Set Custom Statuses
+## 23) Set Custom Statuses
 
 Set custom statuses in the customStatus prop.
 
@@ -316,7 +316,7 @@ With custom statuses, you can replace the default statuses with your own values.
 ]}/>
 ```
 
-### 24) Ability to accept or reject comments
+## 24) Ability to accept or reject comments
 
 To accept comments, set suggestion-mode to `true`.
 
@@ -327,7 +327,7 @@ To accept comments, set suggestion-mode to `true`.
 
 
 
-### 25) To retrieve comments in the frontend
+## 25) To retrieve comments in the frontend
 
 To retrieve comments in the frontend, call getCommentElement() on the Velt client and then subscribe() to getAllCommentAnnotations() and pass in a callback function.
 
@@ -340,7 +340,7 @@ if (Velt) {
 }
 ```
 
-### 26) To retrieve comments in the backend
+## 26) To retrieve comments in the backend
 
 For this you should use our Webhook service. Let's say you want to be notified whenever a comment is added or updated, you can provide us an endpoint and we will send the comment data to that end point as and when there is an update. You can then process it further. Note that you cannot retrieve historical comments using this.
 
@@ -348,7 +348,7 @@ You can enable and configure webhook in your Velt Console as shown below. After 
 
 ![](https://files.readme.io/0ac5e4a-image.png)
 
-### 27) Enable Dark Mode
+## 27) Enable Dark Mode
 
 To enable dark mode, set the `darkMode` attribute to `true`:
 
@@ -360,7 +360,7 @@ To enable dark mode, set the `darkMode` attribute to `true`:
 
   </Tab>
   <Tab title="Next.js">
-### 1) Area selection in Freestyle mode
+## 1) Area selection in Freestyle mode
 Whether area selection is enabled.
 
 `Default: true`
@@ -371,7 +371,7 @@ With this mode, users can select an arbitrary area on the DOM and attach a comme
 <VeltComments areaMode={true} />
 ````
 
-### 2) Allow comments only on certain elements
+## 2) Allow comments only on certain elements
 
 Provide a list of element DOM IDs where commenting should be allowed.
 
@@ -381,7 +381,7 @@ Comments will be disabled for all other elements. Note, this does not impact Pop
 <VeltComments allowedElementIds={['some-element']} />
 ````
 
-### 3) Disable comments on certain elements
+## 3) Disable comments on certain elements
 
 Add data-velt-comment-disabled attribute to elements where you want to disable commenting.
 
@@ -389,7 +389,7 @@ Add data-velt-comment-disabled attribute to elements where you want to disable c
 <div data-velt-comment-disabled></div>
 ```
 
-### 4) File attachments
+## 4) File attachments
 
 Whether file attachments are enabled.
 
@@ -403,7 +403,7 @@ Currently we support .png, .jpg, .gif (static & animated), .svg file types upto 
 <VeltComments attachments={true} />
 ````
 
-### 5) AI auto categorization of comments
+## 5) AI auto categorization of comments
 
 Whether AI auto-categorization is enabled.
 
@@ -411,7 +411,7 @@ Whether AI auto-categorization is enabled.
 <VeltComments autoCategorize={true} />
 ````
 
-### 6) Comment index
+## 6) Comment index
 
 Whether comment index is enabled.
 
@@ -423,7 +423,7 @@ This appears in the comment sidebar and on the comment pins. When this is on, we
 <VeltComments commentIndex={true} />
 ````
 
-### 7) Device type indicator
+## 7) Device type indicator
 
 Whether device type indicator is enabled.
 
@@ -436,7 +436,7 @@ When this is on, we show a small device type icon indicating which device the co
 <VeltComments deviceInfo={true} />
 ````
 
-### 8) Comment dialog on hover
+## 8) Comment dialog on hover
 
 Whether the comment dialog shows on hover over the comment pin or the target element.
 
@@ -446,7 +446,7 @@ Whether the comment dialog shows on hover over the comment pin or the target ele
 <VeltComments dialogOnHover={true} />
 ````
 
-### 9) Comment dialog on target element click
+## 9) Comment dialog on target element click
 
 Whether the comment dialog opens when target element is clicked. This is relevant only for Popover mode.
 
@@ -456,7 +456,7 @@ Whether the comment dialog opens when target element is clicked. This is relevan
 <VeltComments dialogOnTargetElementClick={true} />
 ````
 
-### 10) Floating comment dialog
+## 10) Floating comment dialog
 
 Whether floating comment dialog is shown next to comment pin on hover or click.
 
@@ -466,7 +466,7 @@ Whether floating comment dialog is shown next to comment pin on hover or click.
 <VeltComments floatingMode={true} />
 ````
 
-### 11) Ghost comments
+## 11) Ghost comments
 
 Whether to show ghost comments on the DOM.
 
@@ -478,7 +478,7 @@ Ghost comments are comments that were once linked to certain content on the DOM 
 <VeltComments ghostComments={true} />
 ````
 
-### 12) Ghost comments indicator
+## 12) Ghost comments indicator
 
 Whether to show ghost comment labels in the comment sidebar.
 
@@ -490,7 +490,7 @@ Ghost comments are always shown in the comments sidebar so that users can see th
 <VeltComments ghostCommentsIndicator={true} />
 ````
 
-### 13) Moderator mode
+## 13) Moderator mode
 
 Whether comments require moderator approval.
 
@@ -504,7 +504,7 @@ You can set some users as admin by setting the isAdmin property in the User obje
 <VeltComments moderatorMode={true} />
 ````
 
-### 14) Priority
+## 14) Priority
 
 Whether to enable setting priority on comments.
 
@@ -517,7 +517,7 @@ When this is on, users can assign a priority to each comment & filter comment by
 <VeltComments priority={true} />
 ````
 
-### 15) Resolve button
+## 15) Resolve button
 
 Whether to show resolve button on comments.
 
@@ -530,7 +530,7 @@ This adds a tick mark button on the top right corner of the comment dialog. Clic
 <VeltComments resolveButton={true} />
 ````
 
-### 16) Status
+## 16) Status
 
 Whether to enable the default status dropdown & filters.
 
@@ -542,7 +542,7 @@ When this is on, users can assign a status to each comment & filter comment by s
 <VeltComments status={true} />
 ````
 
-### 17) Sign In button
+## 17) Sign In button
 
 Whether to enable Sign In button on comment dialog when user is anonymous or signed out.
 
@@ -555,7 +555,7 @@ This allows anonymous or signed out users to still read the comments but encoura
 <VeltComments signInButton={true} />
 ````
 
-### 18) onSignIn
+## 18) onSignIn
 
 This allows anonymous or signed out users to still read the comments but encourages them to sign in if they want to respond to the comments. When the user clicks on the sign in button, we will emit an onSignIn() event that you can hook with your own sign in method.
 
@@ -563,7 +563,7 @@ This allows anonymous or signed out users to still read the comments but encoura
 <VeltComments onSignIn={() => yourSignInMethod()} />
 ````
 
-### 19) Attach additional context to each comment
+## 19) Attach additional context to each comment
 
 This event is emitted when a new comment is created
 
@@ -575,7 +575,7 @@ This allows anonymous or signed out users to still read the comments but encoura
 <VeltComments onCommentAdd={() => yourMethod()} />
 ````
 
-### 20) Take action when comment is updated
+## 20) Take action when comment is updated
 
 Whether to enable Sign In button on comment dialog when user is anonymous or signed out.
 
@@ -587,7 +587,7 @@ This allows anonymous or signed out users to still read the comments but encoura
 <VeltComments onCommentUpdate={() => yourMethod()} />
 ````
 
-### 21) Set Custom Categories
+## 21) Set Custom Categories
 
 Pass custom categories in the customCategory prop.
 
@@ -610,7 +610,7 @@ color: Set the category pill background color.
 ]}/>
 ````
 
-### 22) Set Custom Priorites
+## 22) Set Custom Priorites
 
 Pass custom priorities in the customPriority prop.
 
@@ -637,7 +637,7 @@ lightColor: Sets the background color of the filter.
 ]}/>
 ```
 
-### 23) Set Custom Statuses
+## 23) Set Custom Statuses
 
 Set custom statuses in the customStatus prop.
 
@@ -668,7 +668,7 @@ With custom statuses, you can replace the default statuses with your own values.
 ]}/>
 ```
 
-### 24) Ability to accept or reject comments
+## 24) Ability to accept or reject comments
 
 To accept comments, set suggestion-mode to `true`.
 
@@ -679,7 +679,7 @@ To accept comments, set suggestion-mode to `true`.
 
 
 
-### 25) To retrieve comments in the frontend
+## 25) To retrieve comments in the frontend
 
 To retrieve comments in the frontend, call getCommentElement() on the Velt client and then subscribe() to getAllCommentAnnotations() and pass in a callback function.
 
@@ -692,7 +692,7 @@ if (Velt) {
 }
 ```
 
-### 26) To retrieve comments in the backend
+## 26) To retrieve comments in the backend
 
 For this you should use our Webhook service. Let's say you want to be notified whenever a comment is added or updated, you can provide us an endpoint and we will send the comment data to that end point as and when there is an update. You can then process it further. Note that you cannot retrieve historical comments using this.
 
@@ -700,7 +700,7 @@ You can enable and configure webhook in your Velt Console as shown below. After 
 
 ![](https://files.readme.io/0ac5e4a-image.png)
 
-### 27) Enable Dark Mode
+## 27) Enable Dark Mode
 
 To enable dark mode, set the `darkMode` attribute to `true`:
 
@@ -712,7 +712,7 @@ To enable dark mode, set the `darkMode` attribute to `true`:
   </Tab>
   <Tab title="HTML">
 
-### 1) Area selection in Freestyle mode
+## 1) Area selection in Freestyle mode
 Whether area selection is enabled.
 
 `Default: true`
@@ -723,7 +723,7 @@ With this mode, users can select an arbitrary area on the DOM and attach a comme
 <velt-comments area-mode="true"></velt-comments>
 ```
 
-### 2) Allow comments only on certain elements
+## 2) Allow comments only on certain elements
 
 Provide a list of element DOM IDs where commenting should be allowed.
 
@@ -734,7 +734,7 @@ Comments will be disabled for all other elements. Note, this does not impact Pop
 <velt-comments allowed-elements-ids="['some-element']"></velt-comments>
 ```
 
-### 3) Disable comments on certain elements
+## 3) Disable comments on certain elements
 
 Add data-velt-comment-disabled attribute to elements where you want to disable commenting.
 
@@ -742,7 +742,7 @@ Add data-velt-comment-disabled attribute to elements where you want to disable c
 <div data-velt-comment-disabled></div>
 ```
 
-### 4) File attachments
+## 4) File attachments
 
 Whether file attachments are enabled.
 
@@ -757,7 +757,7 @@ Currently we support .png, .jpg, .gif (static & animated), .svg file types upto 
 <velt-comments attachments="true"></velt-comments>
 ```
 
-### 5) AI auto categorization of comments
+## 5) AI auto categorization of comments
 
 Whether AI auto-categorization is enabled.
 
@@ -766,7 +766,7 @@ Whether AI auto-categorization is enabled.
 <velt-comments auto-categorize="true"></velt-comments>
 ```
 
-### 6) Comment index
+## 6) Comment index
 
 Whether comment index is enabled.
 
@@ -779,7 +779,7 @@ This appears in the comment sidebar and on the comment pins. When this is on, we
 <velt-comments commentIndex="true"></velt-comments>
 ```
 
-### 7) Device type indicator
+## 7) Device type indicator
 
 Whether device type indicator is enabled.
 
@@ -791,7 +791,7 @@ When this is on, we show a small device type icon indicating which device the co
 <velt-comments device-info="true"></velt-comments>
 ```
 
-### 8) Comment dialog on hover
+## 8) Comment dialog on hover
 
 Whether the comment dialog shows on hover over the comment pin or the target element.
 
@@ -802,7 +802,7 @@ Whether the comment dialog shows on hover over the comment pin or the target ele
 <velt-comments dialog-on-hover="true"></velt-comments>
 ```
 
-### 9) Comment dialog on target element click
+## 9) Comment dialog on target element click
 
 Whether the comment dialog opens when target element is clicked. This is relevant only for Popover mode.
 
@@ -814,7 +814,7 @@ Whether the comment dialog opens when target element is clicked. This is relevan
 ```
 
 
-### 10) Floating comment dialog
+## 10) Floating comment dialog
 
 Whether floating comment dialog is shown next to comment pin on hover or click.
 
@@ -825,7 +825,7 @@ Whether floating comment dialog is shown next to comment pin on hover or click.
 <velt-comments floating-mode="true"></velt-comments>
 ```
 
-### 11) Ghost comments
+## 11) Ghost comments
 
 Whether to show ghost comments on the DOM.
 
@@ -837,7 +837,7 @@ Ghost comments are comments that were once linked to certain content on the DOM 
 <velt-comments ghost-comments="true"></velt-comments>
 ```
 
-### 12) Ghost comments indicator
+## 12) Ghost comments indicator
 
 Whether to show ghost comment labels in the comment sidebar.
 
@@ -853,7 +853,7 @@ Ghost comments are always shown in the comments sidebar so that users can see th
 <velt-comments ghost-comments-indicator="true"></velt-comments>
 ```
 
-### 13) Moderator mode
+## 13) Moderator mode
 
 Whether comments require moderator approval.
 
@@ -868,7 +868,7 @@ You can set some users as admin by setting the isAdmin property in the User obje
 <velt-comments moderator-mode="true"></velt-comments>
 ```
 
-### 14) Priority
+## 14) Priority
 
 Whether to enable setting priority on comments.
 
@@ -881,7 +881,7 @@ When this is on, users can assign a priority to each comment & filter comment by
 <velt-comments priority="true"></velt-comments>
 ```
 
-### 15) Resolve button
+## 15) Resolve button
 
 Whether to show resolve button on comments.
 
@@ -895,7 +895,7 @@ This adds a tick mark button on the top right corner of the comment dialog. Clic
 <velt-comments resolve-button="true"></velt-comments>
 ```
 
-### 16) Status
+## 16) Status
 
 Whether to enable the default status dropdown & filters.
 
@@ -907,7 +907,7 @@ When this is on, users can assign a status to each comment & filter comment by s
 <velt-comments status="true"></velt-comments>
 ```
 
-### 17) Sign In button
+## 17) Sign In button
 
 Whether to enable Sign In button on comment dialog when user is anonymous or signed out.
 
@@ -919,7 +919,7 @@ This allows anonymous or signed out users to still read the comments but encoura
 <velt-comments sign=in-button="true"></velt-comments>
 ```
 
-### 18) onSignIn
+## 18) onSignIn
 
 This allows anonymous or signed out users to still read the comments but encourages them to sign in if they want to respond to the comments. When the user clicks on the sign in button, we will emit an onSignIn() event that you can hook with your own sign in method.
 
@@ -927,7 +927,7 @@ This allows anonymous or signed out users to still read the comments but encoura
 <velt-comments on-sign-in="yourMethod()"></velt-comments>
 ```
 
-### 19) Attach additional context to each comment
+## 19) Attach additional context to each comment
 
 This event is emitted when a new comment is created
 
@@ -941,7 +941,7 @@ This allows anonymous or signed out users to still read the comments but encoura
 <velt-comments on-comment-add="yourMethod()"></velt-comments>
 ```
 
-### 20) Take action when comment is updated
+## 20) Take action when comment is updated
 
 Whether to enable Sign In button on comment dialog when user is anonymous or signed out.
 
@@ -952,7 +952,7 @@ This allows anonymous or signed out users to still read the comments but encoura
 <velt-comments on-comment-updated="yourMethod()"></velt-comments>
 ```
 
-### 21) Set Custom Categories
+## 21) Set Custom Categories
 
 Pass custom categories in the customCategory prop.
 
@@ -972,7 +972,7 @@ color: Set the category pill background color.
 ```
 
 
-### 22) Set Custom Priorites
+## 22) Set Custom Priorites
 
 Pass custom priorities in the customPriority prop.
 
@@ -1000,7 +1000,7 @@ lightColor: Sets the background color of the filter.
 
 
 
-### 23) Set Custom Statuses
+## 23) Set Custom Statuses
 
 Set custom statuses in the customStatus prop.
 
@@ -1031,7 +1031,7 @@ With custom statuses, you can replace the default statuses with your own values.
 ></velt-comments>
 ```
 
-### 24) Ability to accept or reject comments
+## 24) Ability to accept or reject comments
 
 To accept comments, set suggestion-mode to `true`.
 
@@ -1042,7 +1042,7 @@ To accept comments, set suggestion-mode to `true`.
 ```
 
 
-### 25) To retrieve comments in the frontend
+## 25) To retrieve comments in the frontend
 
 To retrieve comments in the frontend, call getCommentElement() on the Velt client and then subscribe() to getAllCommentAnnotations() and pass in a callback function.
 
@@ -1055,7 +1055,7 @@ if (Velt) {
 }
 ```
 
-### 26) To retrieve comments in the backend
+## 26) To retrieve comments in the backend
 
 For this you should use our Webhook service. Let's say you want to be notified whenever a comment is added or updated, you can provide us an endpoint and we will send the comment data to that end point as and when there is an update. You can then process it further. Note that you cannot retrieve historical comments using this.
 
@@ -1064,7 +1064,7 @@ You can enable and configure webhook in your Velt Console as shown below. After 
 ![](https://files.readme.io/0ac5e4a-image.png)
 
 
-### 27) Enable Dark Mode
+## 27) Enable Dark Mode
 
 To enable dark mode, set the `dark-mode` attribute to `true`:
 
