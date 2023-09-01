@@ -348,6 +348,14 @@ You can enable and configure webhook in your Velt Console as shown below. After 
 
 ![](https://files.readme.io/0ac5e4a-image.png)
 
+### 27) Enable Dark Mode
+
+To enable dark mode, set the `darkMode` attribute to `true`:
+
+```js
+<VeltComments darkMode={true} />
+<VeltCommentTool darkMode={true} />
+````
 
 
   </Tab>
@@ -692,6 +700,14 @@ You can enable and configure webhook in your Velt Console as shown below. After 
 
 ![](https://files.readme.io/0ac5e4a-image.png)
 
+### 27) Enable Dark Mode
+
+To enable dark mode, set the `darkMode` attribute to `true`:
+
+```js
+<VeltComments darkMode={true} />
+<VeltCommentTool darkMode={true} />
+````
 
   </Tab>
   <Tab title="HTML">
@@ -908,7 +924,7 @@ This allows anonymous or signed out users to still read the comments but encoura
 This allows anonymous or signed out users to still read the comments but encourages them to sign in if they want to respond to the comments. When the user clicks on the sign in button, we will emit an onSignIn() event that you can hook with your own sign in method.
 
 ```html
-<velt-comments onSignIn="yourMethod()"></velt-comments>
+<velt-comments on-sign-in="yourMethod()"></velt-comments>
 ```
 
 ### 19) Attach additional context to each comment
@@ -1002,9 +1018,6 @@ With custom statuses, you can replace the default statuses with your own values.
 
 
 
-
-
-
 ```html
 <velt-comments custom-priority="[
   {
@@ -1051,7 +1064,19 @@ You can enable and configure webhook in your Velt Console as shown below. After 
 ![](https://files.readme.io/0ac5e4a-image.png)
 
 
+### 27) Enable Dark Mode
 
+To enable dark mode, set the `dark-mode` attribute to `true`:
+
+```html
+<velt-comments
+	dark-mode="true">
+</velt-comments>
+
+<velt-comment-tool
+	dark-mode="true">
+</velt-comment-tool>
+```
 
 
   </Tab>
@@ -1101,6 +1126,7 @@ export default function App() {
         onCommentAdd={() => yourMethod()} {/* 19) */}
         onCommentUpdate={() => yourMethod()} {/* 20) */}
         suggestionMode={true} {/* 24) */}
+        darkMode={true}  {/* 27) */}
         {/* 21) */}
         customCategory={[ 
           {
@@ -1129,6 +1155,8 @@ export default function App() {
             "svg": "<svg></svg>" // Pass in a serialized SVG
           },
         ]}
+
+        <VeltCommentTool darkMode={true} /> {/* 27) */}
 
 
       />
@@ -1177,6 +1205,7 @@ export default function App() {
         onCommentAdd={() => yourMethod()} {/* 19) */}
         onCommentUpdate={() => yourMethod()} {/* 20) */}
         suggestionMode={true} {/* 24) */}
+        darkMode={true}  {/* 27) */}
         {/* 21) */}
         customCategory={[ 
           {
@@ -1206,6 +1235,7 @@ export default function App() {
           },
         ]}
 
+      <VeltCommentTool darkMode={true} /> {/* 27) */}
 
       />
 ```
@@ -1221,44 +1251,46 @@ export default function App() {
       </div>
 
       <velt-comments
-        areaMode={true} <!-- -->
-        allowedElementIds={['some-element']} <!-- -->
-        attachments={true} <!-- -->
-        autoCategorize={true} <!-- -->
-        commentIndex={true} <!-- -->
-        deviceInfo={true} <!-- -->
-        dialogOnHover={true} <!-- -->
-        dialogOnTargetElementClick={true} <!-- -->
-        floatingMode={false} <!-- -->
-        ghostComments={false} <!-- -->
-        ghostCommentsIndicator={false} <!-- -->
-        moderatorMode={true} <!-- -->
-        priority={true} <!-- -->
-        resolveButton={true} <!-- -->
-        status={false} <!-- -->
-        signInButton={true} <!-- -->
-        onSignIn={() => yourSignInMethod()} <!-- -->
-        onCommentAdd={() => yourMethod()} <!-- -->
-        onCommentUpdate={() => yourMethod()} <!-- -->
-        <!-- -->
-        customCategory={[
+        area-mode='true' <!-- 1) -->
+        allowed-element-ids="['some-element']" <!-- 2) -->
+        attachments='true' <!-- 4) -->
+        auto-categorize='true' <!-- 5) -->
+        comment-index='true' <!-- 6) -->
+        device-info='true' <!-- 7) -->
+        dialog-on-hover='true' <!-- 8) -->
+        dialog-on-target-element-click='true' <!-- 9) -->
+        floating-mode='false' <!-- 10) -->
+        ghost-comments='false' <!-- 11) -->
+        ghost-comments-indicator='false' <!-- 12) -->
+        moderator-mode='true' <!-- 13) -->
+        priority='true' <!-- 14) -->
+        resolve-button='true' <!-- 15) -->
+        status='false' <!-- 16) -->
+        sign-in-button='true' <!-- 17) -->
+        on-sign-in='() => yourSignInMethod()' <!-- 18) -->
+        on-comment-add='() => yourMethod()' <!-- 19) -->
+        on-comment-update='() => yourMethod()' <!-- 20) -->
+        suggestion-mode="true" <!-- 24) -->
+        dark-mode='true'  <!-- 27) -->
+        <!-- 21) -->
+        custom-category='[
           {
             "id": "bug",
             "name": "Bug",
             "color": "red"
-          },
-        ]}
-        <!-- -->
-        customPriority={[
+          }
+        ]'
+        <!-- 22) -->
+        custom-priority='[
           {
             "id": "low",
             "name": "Low",
             "color": "red",
             "lightColor": "pink",
-          },
-        ]}
-        <!-- -->
-        customStatus={[
+          }
+        ]'
+        <!-- 23) -->
+        custom-status='[
           {
             "id": "open",
             "name": "Open",
@@ -1266,9 +1298,15 @@ export default function App() {
             "type": "default",
             "iconUrl": "", // Pass in an icon URL
             "svg": "<svg></svg>" // Pass in a serialized SVG
-          },
-        ]}
+          }
+        ]'
       ></velt-comments>
+
+      <!-- 27) -->
+      <velt-comment-tool
+        dark-mode="true">
+      </velt-comment-tool>
+      
       </div>
 ```
 </RequestExample>
