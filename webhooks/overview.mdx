@@ -3,21 +3,21 @@
 
 ## Webhooks
 
-You can provide us a webhook endpoint and we will send real time notifications data to you in processed format or raw format. We trigger a notification whenever an action occurs on a comment.
+You can provide us a webhook endpoint and we will send real time notifications data to you in processed format or raw format. We trigger a notification whenever an `action type` occurs on a comment.
 
- ### Action Type Definitions:
+ ### List of Action Types
 
 
 | Action Type      | Description|
 | ---------------- | ---------- |
-| Added            | When a new comment is added |
-| Updated          | When an existing comment gets updated |
-| Deleted         | When an existing comments gets deleted |
-| Approved         | When the comment is approved by the moderator. This is only applicable if you have turned on Moderator Mode. |
-| Assigned         | When a comment gets assigned to a user |
-| Reopened         | When a closed comment gets reopened |
-| Status Changed   | When a comment has its status changed (e.g. in progress, resolved, opened) |
-| Priority Changed | When a comment has its priority changed (e.g. P0, P1, P2 or custom set priorities) |
+| added            | When a new comment is added |
+| updated          | When an existing comment gets updated |
+| deleted          | When an existing comments gets deleted |
+| approved         | When the comment is approved by the moderator. This is only applicable if you have turned on Moderator Mode. |
+| assigned         | When a comment gets assigned to a user |
+| reopened         | When a closed comment gets reopened |
+| statusChanged   | When a comment has its status changed (e.g. in progress, resolved, opened) |
+| priorityChanged | When a comment has its priority changed (e.g. P0, P1, P2 or custom set priorities) |
 
 
 ## Setting up a Webhook
