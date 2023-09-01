@@ -319,7 +319,7 @@
         {
           "group": "Notifications",
           "pages": [
-            "api-reference/notifications/comment-notification-data",
+            "api-reference/notifications/comment-notification-processed-data",
             "api-reference/notifications/comment-notification-raw-data"
           ]
         },
