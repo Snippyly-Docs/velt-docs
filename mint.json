@@ -28,6 +28,10 @@
       "url": "api-reference"
     },
     {
+      "name": "Examples",
+      "url": "examples"
+    },
+    {
       "name": "Community",
       "url": "https://discord.gg/GupvcYH27h"
     }
@@ -269,6 +273,18 @@
             "notifications/email/overview"
           ]
         }
+      ]
+    },
+    {
+      "group": "Examples",
+      "pages": [
+        "examples/overview",
+        "examples/video-editor",
+        "examples/docs",
+        "examples/sheets",
+        "examples/slides",
+        "examples/dashboard",
+        "examples/creative-tool"
       ]
     },
     {
