@@ -1,5 +1,5 @@
 ---
-title: "2. Authenticate"
+title: "2. Authenticate and Initialize"
 description: "Autheticate your logged in user with the SDK."
 ---
 {/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
@@ -54,6 +54,15 @@ Call the `identify()` method and pass in the Velt User.
 
 ```js
   client.identify(user);
+```
+
+## 5) Initialize document
+
+Pass a unique ID representing your document. Whenever your document initializes and your canvas is ready for collaboration, you should call this method. The SDK will not work without this call.
+Users logged into the same document ID can see each other's presence, cursors, comments etc.
+
+```js
+  client.setDocumentId('unique-document-id');
 ```
 
   </Tab>
@@ -133,6 +142,13 @@ import { useEffect } from 'react';
 
 export default function YourComponent() {
 
+  let yourAuthenticatedUser = {
+    uid:"123",
+    displayName:"Bob",
+    email:"bob@gmail.com",
+    photoURL:"'https://i.pravatar.cc/300'
+  }
+
   const { client } = useVeltClient();
 
   // 2) Create a useEffect hook
@@ -152,11 +168,16 @@ export default function YourComponent() {
 
       //4) Pass the user object to the SDK
       client.identify(user);
+
+      //5) Initialize your document with a unique ID
+      client.setDocumentId('unique-document-id');
     }
   }, [client, yourAuthenticatedUser]);
 
   return (
+    <div>
     // Your app template
+    </div>
   );
 }
 
