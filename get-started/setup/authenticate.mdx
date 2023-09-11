@@ -1,6 +1,6 @@
 ---
 title: "2. Authenticate and Initialize"
-description: "Autheticate your logged in user with the SDK."
+description: "Autheticate your logged in users with the SDK. Then initialize a collaboritive space within your app to use Velt"
 ---
 {/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
 <script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
@@ -8,18 +8,45 @@ description: "Autheticate your logged in user with the SDK."
 
 <Tabs>
   <Tab title="React">
-## 1) Get the Velt client
+
+ ## 1) Create a component that will represent your multi-collaboritive space.
+
+Create a component that will represent your multi-collaboritive space.
+
+This component will go as a child component within the VeltProvider component we created in the previous step.
+
+<Warning>It is critical that you do the following steps within a child component and not within the same root component where you placed the VeltProvider.</Warning>
+
+```js
+
+export default function YourComponent() {
+  return (
+    <div>
+      //your collaborative space
+    </div>
+  )
+}
+```
+
+
+## 2) Get the Velt client
 
 Import the `useVeltClient` React hook. You can use this hook within your
 component to fetch the Velt client. 
 
+<Warning>
 Be sure to use the client in a child component of `<VeltProvider>` and not within the same component as `<VeltProvider>`.
+</Warning>
 
 ```js
 import { useVeltClient } from '@veltdev/react';
 ```
 
-## 2) Create a useEffect hook
+```js
+const { client } = useVeltClient();
+```
+
+## 3) Create a useEffect hook
 
 Create the hook with the `client` and `your authenticated user` as dependencies.
 
@@ -31,11 +58,15 @@ Create the hook with the `client` and `your authenticated user` as dependencies.
   }, [client, yourAuthenticatedUser]);
 ```
 
-## 3) Fetch relevant user info
+## 4) Fetch relevant user info
 
 Create a Velt User object by taking the relevant fields from your authenticated User object.
 
 ```js
+
+  // Fetch the relevant user info from your authenticated user object.
+  const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
+
   // Create the Velt user object
   const user = {
     userId: uid,
@@ -45,10 +76,11 @@ Create a Velt User object by taking the relevant fields from your authenticated 
   };
 ```
 
+
 To enable @mention in the comments, you need to pass the user's contacts. Learn more about how it works [here](https://docs.velt.dev/users/add-user-contacts/setup).
 
 
-## 4) Pass the user object to the SDK
+## 5) Pass the user object to the SDK
 
 Call the `identify()` method and pass in the Velt User.
 
@@ -56,10 +88,11 @@ Call the `identify()` method and pass in the Velt User.
   client.identify(user);
 ```
 
-## 5) Initialize document
+## 6) Initialize document
 
 Pass a unique ID representing your document. Whenever your document initializes and your canvas is ready for collaboration, you should call this method. The SDK will not work without this call.
-Users logged into the same document ID can see each other's presence, cursors, comments etc.
+
+Users logged into the same document ID can see each other's presence, cursors, comments etc. You can create multiple documents within your application to create separate collaboritive spaces.
 
 ```js
   client.setDocumentId('unique-document-id');
@@ -67,19 +100,44 @@ Users logged into the same document ID can see each other's presence, cursors, c
 
   </Tab>
   <Tab title="Next.js">
-## 1) Get the Velt client
+## 1) Create a component that will represent your multi-collaboritive space.
+
+Create a component that will represent your multi-collaboritive space.
+
+This component will go as a child component within the VeltProvider component we created in the previous step.
+
+<Warning>It is critical that you do the following steps within a child component and not within the same root component where you placed the VeltProvider.</Warning>
+
+```js
+
+export default function YourComponent() {
+  return (
+    <div>
+      //your collaborative space
+    </div>
+  )
+}
+```
+
+
+## 2) Get the Velt client
 
 Import the `useVeltClient` React hook. You can use this hook within your
-component to fetch the Velt client.
+component to fetch the Velt client. 
 
+<Warning>
 Be sure to use the client in a child component of `<VeltProvider>` and not within the same component as `<VeltProvider>`.
-
+</Warning>
 
 ```js
 import { useVeltClient } from '@veltdev/react';
 ```
 
-## 2) Create a useEffect hook
+```js
+const { client } = useVeltClient();
+```
+
+## 3) Create a useEffect hook
 
 Create the hook with the `client` and `your authenticated user` as dependencies.
 
@@ -91,11 +149,15 @@ Create the hook with the `client` and `your authenticated user` as dependencies.
   }, [client, yourAuthenticatedUser]);
 ```
 
-## 3) Fetch relevant user info
+## 4) Fetch relevant user info
 
 Create a Velt User object by taking the relevant fields from your authenticated User object.
 
 ```js
+
+  // Fetch the relevant user info from your authenticated user object.
+  const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
+
   // Create the Velt user object
   const user = {
     userId: uid,
@@ -105,15 +167,26 @@ Create a Velt User object by taking the relevant fields from your authenticated 
   };
 ```
 
+
 To enable @mention in the comments, you need to pass the user's contacts. Learn more about how it works [here](https://docs.velt.dev/users/add-user-contacts/setup).
 
 
-## 4) Pass the user object to the SDK
+## 5) Pass the user object to the SDK
 
 Call the `identify()` method and pass in the Velt User.
 
 ```js
   client.identify(user);
+```
+
+## 6) Initialize document
+
+Pass a unique ID representing your document. Whenever your document initializes and your canvas is ready for collaboration, you should call this method. The SDK will not work without this call.
+
+Users logged into the same document ID can see each other's presence, cursors, comments etc. You can create multiple documents within your application to create separate collaboritive spaces.
+
+```js
+  client.setDocumentId('unique-document-id');
 ```
 
   </Tab>
@@ -136,7 +209,12 @@ To enable @mention in the comments, you need to pass the user's contacts. Learn 
 <RequestExample>
 
 ```js React
-// 1) Get the Velt Client
+//1) Create a component that will represent your multi-collaboritive space.
+
+//Warning: Make sure this is a child component to VeltProvider 
+//and not within the same file where VeltProvider is placed.
+
+// 2) Get the Velt Client
 import { useVeltClient } from '@veltdev/react';
 import { useEffect } from 'react';
 
@@ -151,11 +229,11 @@ export default function YourComponent() {
 
   const { client } = useVeltClient();
 
-  // 2) Create a useEffect hook
+  // 3) Create a useEffect hook
   useEffect(() => {
     if (client && yourAuthenticatedUser) {
 
-      // Fetch the relevant user info from your authenticated user object.
+      // 4) Fetch the relevant user info from your authenticated user object.
       const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
 
       // Create the Velt user object
@@ -166,10 +244,10 @@ export default function YourComponent() {
         photoUrl: photoURL
       };
 
-      //4) Pass the user object to the SDK
+      //5) Pass the user object to the SDK
       client.identify(user);
 
-      //5) Initialize your document with a unique ID
+      //6) Initialize your document with a unique ID
       client.setDocumentId('unique-document-id');
     }
   }, [client, yourAuthenticatedUser]);
@@ -213,7 +291,9 @@ export default function YourComponent() {
   }, [client, yourAuthenticatedUser]);
 
   return (
-    // Your app template
+    <div>
+      //your collaborive space
+    </div>
   );
 }
 
