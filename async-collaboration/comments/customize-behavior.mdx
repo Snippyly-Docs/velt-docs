@@ -357,6 +357,44 @@ To enable dark mode, set the `darkMode` attribute to `true`:
 <VeltCommentTool darkMode={true} />
 ````
 
+## 28) Show/Hide comments on DOM
+
+By default, all the comments will be visible on DOM whenever we are able to detect to elements for that. But users can hide it from DOM if required.
+
+There are 2 ways to show/hide comments on DOM:
+
+Configuring attributes on the React Component:
+```js
+<!-- `true` to show comments, `false` to hide comments -->
+<VeltComments commentsOnDom={false} />
+```
+
+Using API methods:
+```js
+const commentElement = Velt.getCommentElement();
+// to show comments on DOM
+commentElement.showCommentsOnDom();
+// to hide comments on DOM
+commentElement.hideCommentsOnDom();
+```
+
+## 29) Enable/Disable adding comments
+
+By default, this feature is enabled, so users can add pin comments, area comments or text comments. But if they want to disable this feature to add comments, then they can disable/enable it through the ways mentioned below:
+
+```js
+<!-- `true` to enable adding comments, `false` to disable adding comments -->
+<VeltComments commentTool={false} />
+```
+
+Using API methods:
+```js
+const commentElement = Velt.getCommentElement();
+// to enable adding comments
+commentElement.enableCommentTool();
+// to disable adding comments
+commentElement.disableCommentTool();
+```
 
   </Tab>
   <Tab title="Next.js">
@@ -708,6 +746,45 @@ To enable dark mode, set the `darkMode` attribute to `true`:
 <VeltComments darkMode={true} />
 <VeltCommentTool darkMode={true} />
 ````
+
+## 28) Show/Hide comments on DOM
+
+By default, all the comments will be visible on DOM whenever we are able to detect to elements for that. But users can hide it from DOM if required.
+
+There are 2 ways to show/hide comments on DOM:
+
+Configuring attributes on the React Component:
+```js
+<!-- `true` to show comments, `false` to hide comments -->
+<VeltComments commentsOnDom={false} />
+```
+
+Using API methods:
+```js
+const commentElement = Velt.getCommentElement();
+// to show comments on DOM
+commentElement.showCommentsOnDom();
+// to hide comments on DOM
+commentElement.hideCommentsOnDom();
+```
+
+## 29) Enable/Disable adding comments
+
+By default, this feature is enabled, so users can add pin comments, area comments or text comments. But if they want to disable this feature to add comments, then they can disable/enable it through the ways mentioned below:
+
+```js
+<!-- `true` to enable adding comments, `false` to disable adding comments -->
+<VeltComments commentTool={false} />
+```
+
+Using API methods:
+```js
+const commentElement = Velt.getCommentElement();
+// to enable adding comments
+commentElement.enableCommentTool();
+// to disable adding comments
+commentElement.disableCommentTool();
+```
 
   </Tab>
   <Tab title="HTML">
@@ -1078,6 +1155,46 @@ To enable dark mode, set the `dark-mode` attribute to `true`:
 </velt-comment-tool>
 ```
 
+## 28) Show/Hide comments on DOM
+
+By default, all the comments will be visible on DOM whenever we are able to detect to elements for that. But users can hide it from DOM if required.
+
+There are 2 ways to show/hide comments on DOM:
+
+Configuring attributes on the React Component:
+```js
+<!-- `true` to show comments, `false` to hide comments -->
+<velt-comments comments-on-dom="false"></velt-comments>
+```
+
+Using API methods:
+```js
+const commentElement = Velt.getCommentElement();
+// to show comments on DOM
+commentElement.showCommentsOnDom();
+// to hide comments on DOM
+commentElement.hideCommentsOnDom();
+```
+
+## 29) Enable/Disable adding comments
+
+By default, this feature is enabled, so users can add pin comments, area comments or text comments. But if they want to disable this feature to add comments, then they can disable/enable it through the ways mentioned below:
+
+```js
+<!-- `true` to enable adding comments, `false` to disable adding comments -->
+<velt-comments comment-tool="false"></velt-comments>
+```
+
+Using API methods:
+```js
+const commentElement = Velt.getCommentElement();
+// to enable adding comments
+commentElement.enableCommentTool();
+// to disable adding comments
+commentElement.disableCommentTool();
+```
+
+
 
   </Tab>
 </Tabs>
@@ -1127,6 +1244,8 @@ export default function App() {
         onCommentUpdate={() => yourMethod()} {/* 20) */}
         suggestionMode={true} {/* 24) */}
         darkMode={true}  {/* 27) */}
+        commentsOnDom={false} {/* 28) */}
+        commentTool={false} {/* 29) */}
         {/* 21) */}
         customCategory={[ 
           {
@@ -1206,6 +1325,8 @@ export default function App() {
         onCommentUpdate={() => yourMethod()} {/* 20) */}
         suggestionMode={true} {/* 24) */}
         darkMode={true}  {/* 27) */}
+        commentsOnDom={false} {/* 28) */}
+        commentTool={false} {/* 29) */}
         {/* 21) */}
         customCategory={[ 
           {
@@ -1272,6 +1393,8 @@ export default function App() {
         on-comment-update='() => yourMethod()' <!-- 20) -->
         suggestion-mode="true" <!-- 24) -->
         dark-mode='true'  <!-- 27) -->
+        comments-on-dom="false" <!-- 28) -->
+        comment-tool="false" <!-- 29) -->
         <!-- 21) -->
         custom-category='[
           {
