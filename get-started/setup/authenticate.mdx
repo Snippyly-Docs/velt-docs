@@ -224,7 +224,7 @@ export default function YourComponent() {
     uid:"123",
     displayName:"Bob",
     email:"bob@gmail.com",
-    photoURL:"'https://i.pravatar.cc/300'
+    photoURL:'https://i.pravatar.cc/300'
   }
 
   const { client } = useVeltClient();
@@ -262,19 +262,31 @@ export default function YourComponent() {
 ```
 
 ```js Next.js
-// 1) Get the Velt Client
+//1) Create a component that will represent your multi-collaboritive space.
+
+//Warning: Make sure this is a child component to VeltProvider 
+//and not within the same file where VeltProvider is placed.
+
+// 2) Get the Velt Client
 import { useVeltClient } from '@veltdev/react';
 import { useEffect } from 'react';
 
 export default function YourComponent() {
 
+  let yourAuthenticatedUser = {
+    uid:"123",
+    displayName:"Bob",
+    email:"bob@gmail.com",
+    photoURL:'https://i.pravatar.cc/300'
+  }
+
   const { client } = useVeltClient();
 
-  // 2) Create a useEffect hook
+  // 3) Create a useEffect hook
   useEffect(() => {
     if (client && yourAuthenticatedUser) {
 
-      // Fetch the relevant user info from your authenticated user object.
+      // 4) Fetch the relevant user info from your authenticated user object.
       const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
 
       // Create the Velt user object
@@ -285,14 +297,17 @@ export default function YourComponent() {
         photoUrl: photoURL
       };
 
-      //4) Pass the user object to the SDK
+      //5) Pass the user object to the SDK
       client.identify(user);
+
+      //6) Initialize your document with a unique ID
+      client.setDocumentId('unique-document-id');
     }
   }, [client, yourAuthenticatedUser]);
 
   return (
     <div>
-      //your collaborive space
+    // Your app template
     </div>
   );
 }
