@@ -7,7 +7,7 @@ title: "Customize Behavior"
 
 <Tabs>
   <Tab title="React">
-### 1) Enable avatar mode
+## 1) Enable avatar mode
 Show the user's avatar floating next to their cursor instead of their name.
 
 Enabling this mode will allow you to show the user's avatar in context with the cursor.
@@ -16,7 +16,7 @@ Enabling this mode will allow you to show the user's avatar in context with the 
 <VeltCursor avatarMode={true} />
 ```
 
-### 2) Set inactivity time
+## 2) Set inactivity time
 
 Set the time it takes for a user to go inactive in milliseconds.
 
@@ -28,7 +28,7 @@ If they unfocus the tab, we mark them inactive immediately.
 <VeltCursor inactivityTime={300000} />
 ```
 
-### 3) Set allowed element IDs
+## 3) Set allowed element IDs
 
 Provide a list of element IDs where the cursors should show.
 
@@ -41,7 +41,7 @@ For eg: For an app with canvas and tool picker: You can whitelist the canvas ID 
 ```
 
 
-### 4) Subscribe to changes in User Cursors
+## 4) Subscribe to changes in User Cursors
 
 Whenever the cursor for any user changes, we emit this event with the updated list of users currently online on this document with their cursor positions.
 
@@ -49,7 +49,7 @@ Whenever the cursor for any user changes, we emit this event with the updated li
 <VeltCursor onCursorUserChange={(cursorUsers) => yourMethod(cursorUsers)} />
 ```
 
-### 5) Enable Dark Mode
+## 5) Enable Dark Mode
 
 To enable dark mode, set the darkMode attribute to `true`.
 
@@ -59,7 +59,7 @@ To enable dark mode, set the darkMode attribute to `true`.
 
   </Tab>
   <Tab title="Next.js">
-### 1) Enable avatar mode
+## 1) Enable avatar mode
 Show the user's avatar floating next to their cursor instead of their name.
 
 Enabling this mode will allow you to show the user's avatar in context with the cursor.
@@ -68,7 +68,7 @@ Enabling this mode will allow you to show the user's avatar in context with the 
 <VeltCursor avatarMode={true} />
 ```
 
-### 2) Set inactivity time
+## 2) Set inactivity time
 
 Set the time it takes for a user to go inactive in milliseconds.
 
@@ -80,7 +80,7 @@ If they unfocus the tab, we mark them inactive immediately.
 <VeltCursor inactivityTime={300000} />
 ```
 
-### 3) Set allowed element IDs
+## 3) Set allowed element IDs
 
 Provide a list of element IDs where the cursors should show.
 
@@ -93,7 +93,7 @@ For eg: For an app with canvas and tool picker: You can whitelist the canvas ID 
 ```
 
 
-### 4) Subscribe to changes in User Cursors
+## 4) Subscribe to changes in User Cursors
 
 Whenever the cursor for any user changes, we emit this event with the updated list of users currently online on this document with their cursor positions.
 
@@ -101,7 +101,7 @@ Whenever the cursor for any user changes, we emit this event with the updated li
 <VeltCursor onCursorUserChange={(cursorUsers) => yourMethod(cursorUsers)} />
 ```
 
-### 5) Enable Dark Mode
+## 5) Enable Dark Mode
 
 To enable dark mode, set the darkMode attribute to `true`.
 

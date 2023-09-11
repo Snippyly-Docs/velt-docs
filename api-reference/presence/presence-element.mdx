@@ -4,7 +4,7 @@ title: "Presence Element"
 
 The PresenceElement class contains the following fields:
 
-### 1. getOnlineUsersOnCurrentDocument()
+## 1. getOnlineUsersOnCurrentDocument()
 
 Subscribe to a list of all online users who are either active or inactive on the current document. You can also use this find how many users are online on the current document and show them custom messages.
 
@@ -22,7 +22,7 @@ export declare function getOnlineUsersOnCurrentDocument(): Observable<PresenceUs
 
 `Observable<PresenceUser[]>`
 
-### 2. setInactivityTime()
+## 2. setInactivityTime()
 
 By default if the user is inactive for >5 minutes, we mark them offline. By inactive we mean they haven't moved their mouse or haven't made any keyboard event. You can configure this default threshold using this method.
 
@@ -40,7 +40,7 @@ export declare function setInactivityTime(milliseconds: number): void;
 
 `void`
 
-### 3. enableFlockMode()
+## 3. enableFlockMode()
 
 This method is used to enable the flock mode, providing an option to configure additional settings if needed.
 
@@ -58,7 +58,7 @@ public enableFlockMode(options?: FlockOptions): any;
 
 `any`
 
-### 4. disableFlockMode()
+## 4. disableFlockMode()
 
 This method is used to disable the flock mode.
 
@@ -76,7 +76,7 @@ public disableFlockMode(): any;
 
 `any`
 
-### 5. startFollowingUser()
+## 5. startFollowingUser()
 
 This method is used to start following a specific user.
 
@@ -96,7 +96,7 @@ public startFollowingUser(userId: string, name: string): void;
 
 `void`
 
-### 6. stopFollowingUser()
+## 6. stopFollowingUser()
 
 This method is used to stop following the currently followed user.
 

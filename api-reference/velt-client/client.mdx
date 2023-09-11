@@ -4,7 +4,7 @@ title: "Client"
 
 The `VeltClient` class contains the following fields:
 
-### 1. init()
+## 1. init()
 
 Initialize the Velt client. Call only once.
 
@@ -24,7 +24,7 @@ export declare async function init(apiKey: string, config: Config): Promise<Velt
 
 `Promise<Velt>`
 
-### identify()
+## identify()
 
 Tell us who the currently logged in user is. Call whenever the user signs in or signs up.
 
@@ -42,7 +42,7 @@ export declare function identify(user: User): User;
 
 `User`
 
-### updateUser()
+## updateUser()
 
 Update the attributes for the currently logged in user. Use this whenever the user is updated (eg: upgrades, or has updated contact list etc.) but ensure that the userId is the same.
 If you pass a different `userId` here than the one you provided in the init() method, we will reinitialize the SDK with the new user.
@@ -61,7 +61,7 @@ export declare function updateUser(user: User): void;
 
 `void`
 
-### setDocumentId()
+## setDocumentId()
 
 Tell us the unique ID of the current document on which you want to enable collaboration.
 
@@ -79,7 +79,7 @@ export declare function setDocumentId(documentId: string): void;
 
 `void`
 
-### setLocation()
+## setLocation()
 
 Use this to tell us the more specific location the user is in your app. This represents a location inside the main document that you set initially using setDocumentId() . This could represent your app's pages, sections, versions, frames (in video editor), data points on maps/charts etc.
 
@@ -113,7 +113,7 @@ export declare function setLocation(location: Location): void;
 
 `void`
 
-### addLocation()
+## addLocation()
 
 Provide the custom params of the current document/resource to identify sub document inside a document.
 
@@ -131,7 +131,7 @@ export declare function addLocation(params: Location): void;
 
 `void`
 
-### removeLocation()
+## removeLocation()
 
 Removes the specific location. Now all Velt features will attributed at documentId level.
 
@@ -149,7 +149,7 @@ export declare function removeLocation(): void;
 
 `void`
 
-### setScrollableElementsIds()
+## setScrollableElementsIds()
 
 Tell us the about the scrollable document ids to keep track on its scroll changes
 
@@ -167,7 +167,7 @@ export declare function setScrollableElementsIds(scrollableElementsIds: string[]
 
 `void`
 
-### removeScrollableElementsIds()
+## removeScrollableElementsIds()
 
 To remove scrollable elements ids
 
@@ -185,7 +185,7 @@ export declare function removeScrollableElementsIds(): void;
 
 `void`
 
-### getPresenceElement()
+## getPresenceElement()
 
 Get the PresenceElement object to access the raw live presence data.
 
@@ -203,7 +203,7 @@ export declare function getPresenceElement(): PresenceElement;
 
 `PresenceElement`
 
-### getCursorElement()
+## getCursorElement()
 
 Get the CursorElement Object to access the raw live cursor data. You can use this to subscribe to a realtime list of all live users with their cursor positions associated with the given document.
 
@@ -221,7 +221,7 @@ export declare function getCursorElement(): CursorElement;
 
 `CursorElement`
 
-### getCommentElement()
+## getCommentElement()
 
 Get the `CommentElement` Object to access the raw comments data, including all historical comments associated with the given document.
 
@@ -239,7 +239,7 @@ export declare function getCommentElement(): CommentElement;
 
 `CommentElement`
 
-### getTagElement()
+## getTagElement()
 
 Get the Tag Pin Annotation Object to access the raw tag data.
 
@@ -257,7 +257,7 @@ export declare function getTagElement(): TagElement;
 
 `TagElement`
 
-### getSelectionElement()
+## getSelectionElement()
 
 Get the Selection Object to enable/disable the feature.
 
@@ -275,7 +275,7 @@ export declare function getSelectionElement(): SelectionElement;
 
 `SelectionElement`
 
-### getRecorderElement()
+## getRecorderElement()
 
 Get the Recorder element.
 
@@ -289,7 +289,7 @@ Get the Recorder element.
 
 `RecorderElement`
 
-### getContactElement()
+## getContactElement()
 
 Get the Contact element.
 
@@ -307,7 +307,7 @@ export declare function getContactElement(): ContactElement;
 
 `ContactElement`
 
-### getRewriterElement()
+## getRewriterElement()
 
 Get the Rewriter element.
 
@@ -325,7 +325,7 @@ export declare function getRewriterElement(): RewriterElement;
 
 `RewriterElement`
 
-### getHuddleElement()
+## getHuddleElement()
 
 Get the Huddle element.
 
@@ -343,7 +343,7 @@ export declare function getHuddleElement(): HuddleElement;
 
 `HuddleElement`
 
-### disableFeatures()
+## disableFeatures()
 
 Provide a list of features to disable. Provide an empty array to enable all the features.
 
@@ -361,7 +361,7 @@ export declare function disableFeatures(features: string[]): void;
 
 `void`
 
-### setUserRoles()
+## setUserRoles()
 
 To set the user roles which will be shown in invite users modal.
 
@@ -379,7 +379,7 @@ export declare function setUserRoles(userRoles: UserRole[]): void;
 
 `void`
 
-### setDarkMode()
+## setDarkMode()
 
 To set the dark mode of Velt components.
 
@@ -397,7 +397,7 @@ export declare function setDarkMode(isDarkMode: boolean): void;
 
 `void\*\*
 
-### inviteUsers()
+## inviteUsers()
 
 ```java
 export declare function inviteUsers(users: DocumentUser[]): void;
@@ -415,7 +415,7 @@ To invite users to the document.
 
 `void`
 
-### removeVeltContent()
+## removeVeltContent()
 
 To remove the velt content from the html content.
 

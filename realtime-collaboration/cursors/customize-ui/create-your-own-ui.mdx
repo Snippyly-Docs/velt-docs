@@ -10,7 +10,7 @@ title: "Create Your Own UI"
 
     <Tab title="React">
 
-    ### 1) Get the Velt client
+    ## 1) Get the Velt client
 
 Import the useVeltClient React hook.
 
@@ -20,7 +20,7 @@ You can use this hook within your component to fetch the Velt client.
 import { useVeltClient } from '@veltdev/react';
 ```
 
-### 2) Create a useEffect hook
+## 2) Create a useEffect hook
 
 Create an effect with the client as a dependency.
 
@@ -34,7 +34,7 @@ useEffect(() => {
   }, [client]);
 ```
 
-### 3) Subscribe to live cursors
+## 3) Subscribe to live cursors
 
 Subscribe to the realtime Cursor users data on the current document and location.
 
@@ -51,7 +51,7 @@ cursorElement.getOnlineUsersOnCurrentDocument().subscribe((_cursorUsers) => {
 
     <Tab title="Next.js">
 
-    ### 1) Get the Velt client
+    ## 1) Get the Velt client
 
 Import the useVeltClient React hook.
 
@@ -61,7 +61,7 @@ You can use this hook within your component to fetch the Velt client.
 import { useVeltClient } from '@veltdev/react';
 ```
 
-### 2) Create a useEffect hook
+## 2) Create a useEffect hook
 
 Create an effect with the client as a dependency.
 
@@ -75,7 +75,7 @@ useEffect(() => {
   }, [client]);
 ```
 
-### 3) Subscribe to live cursors
+## 3) Subscribe to live cursors
 
 Subscribe to the realtime Cursor users data on the current document and location.
 
@@ -91,7 +91,7 @@ cursorElement.getOnlineUsersOnCurrentDocument().subscribe((_cursorUsers) => {
     </Tab>
 
     <Tab title="HTML">
-### 1) Get an instance of the cursor element
+## 1) Get an instance of the cursor element
 
 Fetch the cursor element from the Velt client.
 
@@ -101,7 +101,7 @@ const cursorElement = window.Velt.getCursorElement();
 
 At this point, the Velt instance should be loaded and available to you on the window object.
 
-### 2) Subscribe to live cursors
+## 2) Subscribe to live cursors
 
 Subscribe to constant cursor changes.
 

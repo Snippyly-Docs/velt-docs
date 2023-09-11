@@ -4,7 +4,7 @@ title: "Cursor Element"
 
 The CursorElement class contains the following fields:
 
-### 1. getLiveCursorsOnCurrentDocument()
+## 1. getLiveCursorsOnCurrentDocument()
 
 This method is used to subscribe to a list of all active cursors on the current document. This method is deprecated, use getOnlineUsersOnCurrentDocument instead.
 
@@ -22,7 +22,7 @@ public getLiveCursorsOnCurrentDocument(): Observable<CursorUser[] | null>;
 
 `Observable<CursorUser[] | null>`
 
-### 2. getOnlineUsersOnCurrentDocument()
+## 2. getOnlineUsersOnCurrentDocument()
 
 This method is used to subscribe to a list of all online users on the current document.
 
@@ -40,7 +40,7 @@ public getOnlineUsersOnCurrentDocument(): Observable<CursorUser[] | null>;
 
 `Observable<CursorUser[] | null>`
 
-### 3. setInactivityTime()
+## 3. setInactivityTime()
 
 This method is used to set the inactivity time. By default, the value is 2 minutes.
 
@@ -58,7 +58,7 @@ public setInactivityTime(time: number): void;
 
 `void`
 
-### 4. allowedElementIds()
+## 4. allowedElementIds()
 
 This method is used to allow cursors in specific elements only.
 

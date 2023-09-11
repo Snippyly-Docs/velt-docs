@@ -4,7 +4,7 @@ title: "Comment Element"
 
 The CommentElement class contains the following fields:
 
-### 1. getAllCommentAnnotations()
+## 1. getAllCommentAnnotations()
 
 This method is used to subscribe to a list of all comment annotations on the current document or a specified document.
 
@@ -24,7 +24,7 @@ public getAllCommentAnnotations(documentId?: string, location?: Location): Obser
 
 `Observable<CommentAnnotation[] | null>`
 
-### 2. deleteComment()
+## 2. deleteComment()
 
 This method is used to delete a comment. This will remove the comment from the list of comments and will notify all subscribers about the change.
 
@@ -42,7 +42,7 @@ public deleteComment(): any;
 
 `any`
 
-### 3. enableTextComments()
+## 3. enableTextComments()
 
 This method is used to enable text comments. This allows users to create, read, update, and delete text comments.
 
@@ -60,7 +60,7 @@ public enableTextComments(): any;
 
 `any`
 
-### 4. disableTextComments()
+## 4. disableTextComments()
 
 This method is used to disable text comments. This prevents users from creating, reading, updating, or deleting text comments.
 
@@ -78,7 +78,7 @@ public disableTextComments(): any;
 
 `any`
 
-### 5. allowedElementIds()
+## 5. allowedElementIds()
 
 This method allows you to specify which elements can show the cursor on them.
 
@@ -96,7 +96,7 @@ elementIds: string[] - The IDs of the elements to be allowed to show cursor on t
 
 `any`
 
-### 6. enableFloatingComments()
+## 6. enableFloatingComments()
 
 This method enables the floating comments feature. Note: This method is deprecated, use enableFloatingCommentDialog instead.
 
@@ -114,7 +114,7 @@ public enableFloatingComments(): any;
 
 `any`
 
-### 7. disableFloatingComments()
+## 7. disableFloatingComments()
 
 This method disables the floating comments feature. Note: This method is deprecated, use disableFloatingCommentDialog instead.
 
@@ -132,7 +132,7 @@ public disableFloatingComments(): any;
 
 `any`
 
-### 8. enableFloatingCommentDialog()
+## 8. enableFloatingCommentDialog()
 
 This method enables the floating comment dialog feature.
 
@@ -150,7 +150,7 @@ public enableFloatingCommentDialog(): any;
 
 `any`
 
-### 9. disableFloatingCommentDialog()
+## 9. disableFloatingCommentDialog()
 
 This method disables the floating comment dialog feature.
 
@@ -168,7 +168,7 @@ public disableFloatingCommentDialog(): any;
 
 `any`
 
-### 10. attachComment()
+## 10. attachComment()
 
 This method attaches a comment to a specific element.
 
@@ -186,7 +186,7 @@ public attachComment(elementId: string): any;
 
 any
 
-### 11. openCommentSidebar()
+## 11. openCommentSidebar()
 
 This method is used to open the comment sidebar.
 
@@ -204,7 +204,7 @@ public openCommentSidebar(): any;
 
 any
 
-### 12. closeCommentSidebar()
+## 12. closeCommentSidebar()
 
 This method is used to close the comment sidebar.
 
@@ -222,7 +222,7 @@ public closeCommentSidebar(): any;
 
 any
 
-### 13. toggleCommentSidebar()
+## 13. toggleCommentSidebar()
 
 This method is used to toggle the visibility of the comment sidebar.
 
@@ -240,7 +240,7 @@ public toggleCommentSidebar(): any;
 
 any
 
-### 14. enableModeratorMode()
+## 14. enableModeratorMode()
 
 This method is used to enable moderator mode.
 
@@ -258,7 +258,7 @@ public enableModeratorMode(): any;
 
 `any`
 
-### 15. disableModeratorMode()
+## 15. disableModeratorMode()
 
 This method is used to disable moderator mode.
 
@@ -276,7 +276,7 @@ public disableModeratorMode(): any;
 
 `any`
 
-### 16. enableStreamMode()
+## 16. enableStreamMode()
 
 This method enables the stream mode.
 
@@ -294,7 +294,7 @@ public enableStreamMode(): any;
 
 `any`
 
-### 17. disableStreamMode()
+## 17. disableStreamMode()
 
 This method disables the stream mode.
 
@@ -312,7 +312,7 @@ public disableStreamMode(): any;
 
 `any`
 
-### 18. enableSignInButton()
+## 18. enableSignInButton()
 
 This method enables the sign-in button.
 
@@ -330,7 +330,7 @@ public enableSignInButton(): any;
 
 `any`
 
-### 19. disableSignInButton()
+## 19. disableSignInButton()
 
 This method disables the sign-in button.
 
@@ -348,7 +348,7 @@ public disableSignInButton(): any;
 
 `any`
 
-### 20. enableUpgradeButton()
+## 20. enableUpgradeButton()
 
 This method enables the upgrade button.
 
@@ -366,7 +366,7 @@ public enableUpgradeButton(): any;
 
 `any`
 
-### 21. disableUpgradeButton()
+## 21. disableUpgradeButton()
 
 This method disables the upgrade button.
 
@@ -384,7 +384,7 @@ public disableUpgradeButton(): any;
 
 `any`
 
-### 22. addCommentModeChange()
+## 22. addCommentModeChange()
 
 This method is deprecated. Use onCommentModeChange instead.
 
@@ -402,7 +402,7 @@ public addCommentModeChange(): Observable<boolean>;
 
 `Observable<boolean>`
 
-### 23. onCommentModeChange()
+## 23. onCommentModeChange()
 
 **This method returns an observable for comment mode changes.**
 
@@ -420,7 +420,7 @@ public onCommentModeChange(): Observable<boolean>;
 
 `Observable<boolean>`
 
-### 24. enableAttachment()
+## 24. enableAttachment()
 
 This method is deprecated. Use enableAttachments instead.
 
@@ -438,7 +438,7 @@ public enableAttachment(): any;
 
 `any`
 
-### 25. disableAttachment()
+## 25. disableAttachment()
 
 This method is deprecated. Use disableAttachments instead.
 
@@ -456,7 +456,7 @@ public disableAttachment(): any;
 
 `any`
 
-### 26. enableAttachments()
+## 26. enableAttachments()
 
 This method enables the attachments.
 
@@ -474,7 +474,7 @@ public enableAttachments(): any;
 
 `any`
 
-### 27. disableAttachments()
+## 27. disableAttachments()
 
 This method disables the attachments.
 
@@ -492,7 +492,7 @@ public disableAttachments(): any;
 
 `any`
 
-### 28. isUserGlobalContact()
+## 28. isUserGlobalContact()
 
 This method checks if the user is a global contact.
 
@@ -510,7 +510,7 @@ public isUserGlobalContact(): Observable<boolean>;
 
 `Observable<boolean>`
 
-### 29. showDeviceInfo()
+## 29. showDeviceInfo()
 
 This method is deprecated. Use enableDeviceInfo and disableDeviceInfo instead.
 
@@ -528,7 +528,7 @@ public showDeviceInfo(showInfo: boolean): any;
 
 `any`
 
-### 30. enableDeviceInfo()
+## 30. enableDeviceInfo()
 
 This method enables the device info.
 
@@ -546,7 +546,7 @@ public enableDeviceInfo(): any;
 
 `any`
 
-### 31. disableDeviceInfo()
+## 31. disableDeviceInfo()
 
 This method disables the device info.
 
@@ -564,7 +564,7 @@ public disableDeviceInfo(): any;
 
 `any`
 
-### 32. enableCommentMode()
+## 32. enableCommentMode()
 
 This method enables the comment mode.
 
@@ -582,7 +582,7 @@ public enableCommentMode(): any;
 
 `any`
 
-### 33. disableCommentMode()
+## 33. disableCommentMode()
 
 This method disables the comment mode.
 
@@ -600,7 +600,7 @@ public disableCommentMode(): any;
 
 `any`
 
-### 34. showCommentIndex()
+## 34. showCommentIndex()
 
 This method is deprecated. Use enableCommentIndex and disableCommentIndex instead.
 
@@ -618,7 +618,7 @@ public showCommentIndex(show: boolean): any;
 
 `any`
 
-### 35. enableCommentIndex()
+## 35. enableCommentIndex()
 
 This method enables the comment index.
 
@@ -636,7 +636,7 @@ public enableCommentIndex(): any;
 
 `any`
 
-### 36. disableCommentIndex()
+## 36. disableCommentIndex()
 
 This method disables the comment index.
 
@@ -654,7 +654,7 @@ public disableCommentIndex(): any;
 
 `any`
 
-### 37. enablePopoverMode()
+## 37. enablePopoverMode()
 
 This method enables the popover mode.
 
@@ -672,7 +672,7 @@ public enablePopoverMode(): any;
 
 `any`
 
-### 38. disablePopoverMode()
+## 38. disablePopoverMode()
 
 This method disables the popover mode.
 
@@ -690,7 +690,7 @@ public disablePopoverMode(): any;
 
 `any`
 
-### 39. enablePopoverTriangleComponent()
+## 39. enablePopoverTriangleComponent()
 
 This method enables the popover triangle component.
 
@@ -708,7 +708,7 @@ public enablePopoverTriangleComponent(): any;
 
 `any`
 
-### 40. disablePopoverTriangleComponent()
+## 40. disablePopoverTriangleComponent()
 
 This method disables the popover triangle component.
 
@@ -726,7 +726,7 @@ public disablePopoverTriangleComponent(): any;
 
 `any`
 
-### 41. enableDialogOnHover()
+## 41. enableDialogOnHover()
 
 This method enables the dialog on hover.
 
@@ -744,7 +744,7 @@ public enableDialogOnHover(): any;
 
 `any`
 
-### 42. disableDialogOnHover()
+## 42. disableDialogOnHover()
 
 This method disables the dialog on hover.
 
@@ -762,7 +762,7 @@ public disableDialogOnHover(): any;
 
 `any`
 
-### 43. enableDialogOnTargetElementClick()
+## 43. enableDialogOnTargetElementClick()
 
 This method enables the dialog on target element click.
 
@@ -780,7 +780,7 @@ public enableDialogOnTargetElementClick(): any;
 
 `any`
 
-### 44. disableDialogOnTargetElementClick()
+## 44. disableDialogOnTargetElementClick()
 
 This method disables the dialog on target element click.
 
@@ -798,7 +798,7 @@ public disableDialogOnTargetElementClick(): any;
 
 `any`
 
-### 45. enablePriority()
+## 45. enablePriority()
 
 This method enables priority.
 
@@ -816,7 +816,7 @@ public enablePriority(): any;
 
 `any`
 
-### 46. disablePriority()
+## 46. disablePriority()
 
 This method disables priority.
 
@@ -834,7 +834,7 @@ public disablePriority(): any;
 
 `any`
 
-### 47. enableStatus()
+## 47. enableStatus()
 
 This method enables status.
 
@@ -852,7 +852,7 @@ public enableStatus(): any;
 
 `any`
 
-### 48. disableStatus()
+## 48. disableStatus()
 
 This method disables status.
 
@@ -870,7 +870,7 @@ public disableStatus(): any;
 
 `any`
 
-### 49. enableResolveButton()
+## 49. enableResolveButton()
 
 This method enables the resolve button.
 
@@ -888,7 +888,7 @@ public enableResolveButton(): any;
 
 `any`
 
-### 50. disableResolveButton()
+## 50. disableResolveButton()
 
 This method disables the resolve button.
 
@@ -906,7 +906,7 @@ public disableResolveButton(): any;
 
 `any`
 
-### 51. enableGhostComments()
+## 51. enableGhostComments()
 
 This method enables ghost comments.
 
@@ -924,7 +924,7 @@ public enableGhostComments(): any;
 
 `any`
 
-### 52. disableGhostComments()
+## 52. disableGhostComments()
 
 This method disables ghost comments.
 
@@ -942,7 +942,7 @@ public disableGhostComments(): any;
 
 `any`
 
-### 53. enableGhostCommentsIndicator()
+## 53. enableGhostCommentsIndicator()
 
 This method enables the ghost comments indicator.
 
@@ -960,7 +960,7 @@ public enableGhostCommentsIndicator(): any;
 
 `any`
 
-### 54. disableGhostCommentsIndicator()
+## 54. disableGhostCommentsIndicator()
 
 This method disables the ghost comments indicator.
 
@@ -978,7 +978,7 @@ public disableGhostCommentsIndicator(): any;
 
 `any`
 
-### 55. setCustomStatus()
+## 55. setCustomStatus()
 
 This method sets custom statuses.
 
@@ -996,7 +996,7 @@ public setCustomStatus(statuses: CustomStatus[]): void;
 
 `void`
 
-### 56. setCustomPriority()
+## 56. setCustomPriority()
 
 This method sets custom priorities.
 
@@ -1014,7 +1014,7 @@ public setCustomPriority(priorities: CustomPriority[]): void;
 
 `void`
 
-### 57. setCustomCategory()
+## 57. setCustomCategory()
 
 This method sets custom categories.
 
@@ -1032,7 +1032,7 @@ public setCustomCategory(categories: CustomCategory[]): void;
 
 `void`
 
-### 58. enableInboxMode()
+## 58. enableInboxMode()
 
 This method enables inbox mode.
 
@@ -1050,7 +1050,7 @@ public enableInboxMode(): any;
 
 `any`
 
-### 59. disableInboxMode()
+## 59. disableInboxMode()
 
 This method disables inbox mode.
 
@@ -1068,7 +1068,7 @@ public disableInboxMode(): any;
 
 `any`
 
-### 60. enableAutoCategorize()
+## 60. enableAutoCategorize()
 
 This method enables automatic categorization.
 
@@ -1086,7 +1086,7 @@ public enableAutoCategorize(): any;
 
 `any`
 
-### 61. disableAutoCategorize()
+## 61. disableAutoCategorize()
 
 This method disables automatic categorization.
 
@@ -1104,7 +1104,7 @@ public disableAutoCategorize(): any;
 
 `any`
 
-### 62. enableDarkMode()
+## 62. enableDarkMode()
 
 This method enables the dark mode.
 
@@ -1122,7 +1122,7 @@ public enableDarkMode(): any;
 
 `any`
 
-### 63. disableDarkMode()
+## 63. disableDarkMode()
 
 This method disables the dark mode.
 
@@ -1140,7 +1140,7 @@ public disableDarkMode(): any;
 
 `any`
 
-### 64. setContextProvider()
+## 64. setContextProvider()
 
 This method sets the context provider.
 
@@ -1158,7 +1158,7 @@ public setContextProvider(provider: (documentId: string, location?: Location) =>
 
 `void`
 
-### 65. enableSuggestionMode()
+## 65. enableSuggestionMode()
 
 This method enables the suggestion mode.
 
@@ -1176,7 +1176,7 @@ public enableSuggestionMode(): any;
 
 `any`
 
-### 66. disableSuggestionMode()
+## 66. disableSuggestionMode()
 
 This method disables the suggestion mode.
 

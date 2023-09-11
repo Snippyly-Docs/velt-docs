@@ -5,7 +5,7 @@
 
 You can provide us a webhook endpoint and we will send real time notifications data to you in processed format or raw format. We trigger a notification whenever an `action type` occurs on a comment.
 
- ### List of Action Types
+ ## List of Action Types
 
 
 | Action Type      | Description|
@@ -40,7 +40,7 @@ The Raw Format contains lot more metadata that might not be very useful for your
 In the Processed Format, we will automatically populate who should get what type of notification so that you dont have to write that logic. Eg: If someone was previously tagged on a comment, then they should receive an update notification vs if someone if tagged in this thread, then they should receive a notification that they were tagged in a comment.
 We recommend using this so that you dont have to maintain the logic on your end.
 
-### Processed format
+## Processed format
 
 | Field                 | Type                                  | Required | Description|
 | --------------------- | ------------------------------------- | -------- | -----------|
@@ -53,7 +53,7 @@ We recommend using this so that you dont have to maintain the logic on your end.
 | actionType            | string                                | Yes      | This can have 5 values: added, updated, deleted, resolved, approved |
 
 
-### Raw format
+## Raw format
 
 | Field                 | Type                                  | Required | Description|
 | --------------------- | ------------------------------------- | -------- | -----------|

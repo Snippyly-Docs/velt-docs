@@ -7,7 +7,7 @@ title: "Customize Behavior"
 
 <Tabs>
   <Tab title="React">
-### 1) Enable custom navigation
+## 1) Enable custom navigation
 Use a callback for custom navigation or side-effects.
 
 When the leader of a flock navigates, we can use the React Router to update the follower's position. In the callback you will receive a PageInfo object.
@@ -16,7 +16,7 @@ When the leader of a flock navigates, we can use the React Router to update the 
 <VeltPresence onNavigate={(pageInfo) => navigate(pageInfo.path)} />
 ```
 
-#### PageInfo
+### PageInfo
 
 
 <ResponseField name="baseUrl" type="string">
@@ -31,7 +31,7 @@ The path after the base URL
 The full URL
 </ResponseField>
 
-### 2) Disable default flock navigation
+## 2) Disable default flock navigation
 
 Disable default flock navigation.
 
@@ -42,11 +42,11 @@ Our default navigation uses window.location.href to detect navigation. If you ar
 ```
 
 
-### 3) Start or Stop Following a User
+## 3) Start or Stop Following a User
 
 You can start or Stop Following a User by calling the `startFollowingUser()` and `stopFollowingUser()` methods within a useEffect() hook.
 
-#### Start Following
+### Start Following
 
 Start following a user by passing in their user ID to the `startFollowingUser()` method.
 
@@ -58,7 +58,7 @@ presenceElement.startFollowingUser(userId);
 ```
 
 
-#### Stop Following 
+### Stop Following 
 
 Stop flock session for the current user by by calling the `stopFollowingUser()` method.
 
@@ -73,7 +73,7 @@ presenceElement.stopFollowingUser();
 
   </Tab>
   <Tab title="Next.js">
-### 1) Enable custom navigation
+## 1) Enable custom navigation
 Use a callback for custom navigation or side-effects.
 
 When the leader of a flock navigates, we can use the React Router to update the follower's position. In the callback you will receive a PageInfo object.
@@ -82,7 +82,7 @@ When the leader of a flock navigates, we can use the React Router to update the 
 <VeltPresence onNavigate={(pageInfo) => navigate(pageInfo.path)} />
 ```
 
-#### PageInfo
+### PageInfo
 
 
 <ResponseField name="baseUrl" type="string">
@@ -97,7 +97,7 @@ The path after the base URL
 The full URL
 </ResponseField>
 
-### 2) Disable default flock navigation
+## 2) Disable default flock navigation
 
 Disable default flock navigation.
 
@@ -108,11 +108,11 @@ Our default navigation uses window.location.href to detect navigation. If you ar
 ```
 
 
-### 3) Start or Stop Following a User
+## 3) Start or Stop Following a User
 
 You can start or Stop Following a User by calling the `startFollowingUser()` and `stopFollowingUser()` methods within a useEffect() hook.
 
-#### Start Following
+### Start Following
 
 Start following a user by passing in their user ID to the `startFollowingUser()` method.
 
@@ -124,7 +124,7 @@ presenceElement.startFollowingUser(userId);
 ```
 
 
-#### Stop Following 
+### Stop Following 
 
 Stop flock session for the current user by by calling the `stopFollowingUser()` method.
 
@@ -138,7 +138,7 @@ presenceElement.stopFollowingUser();
   </Tab>
     <Tab title="HTML">
     
-### 1) Pass in a callback for navigation
+## 1) Pass in a callback for navigation
 Use a callback for custom navigation or side-effects.
 
 When the leader of a flock navigates, this callback will be called.
@@ -149,7 +149,7 @@ if (presenceDOMElement) {
 }
 ```
 
-#### PageInfo
+### PageInfo
 
 <ResponseField name="baseUrl" type="string">
 The base URL of the site
@@ -163,7 +163,7 @@ The path after the base URL
 The full URL
 </ResponseField>
 
-### 2) Disable default flock navigation
+## 2) Disable default flock navigation
 
 Disable default flock navigation.
 
@@ -174,12 +174,12 @@ If you are handling navigation using a callback, you can opt to disable our defa
 ```
 
 
-### 3) Start or Stop Following a User
+## 3) Start or Stop Following a User
 
 You can start or Stop Following a User by calling the `startFollowingUser()` and `stopFollowingUser()` methods within a script tag.
 
 
-#### Start Following
+### Start Following
 
 Start following a user by passing in their user ID to the `startFollowingUser()` method.
 
@@ -190,7 +190,7 @@ You can programatically start a flock session by passing in the user ID of the u
 presenceElement.startFollowingUser(userId);
 ```
 
-#### Stop Following 
+### Stop Following 
 
 Stop flock session for the current user by by calling the `stopFollowingUser()` method.
 
