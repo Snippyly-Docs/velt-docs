@@ -171,7 +171,7 @@ You can set this via the max-users attribute. Any extra avatars will be hidden a
 To enable Flock Mode, set the flockMode attribute to `true`.
 
 ```html
-<velt-presence flockMode="true"></velt-presence>
+<velt-presence flock-mode="true"></velt-presence>
 ```
 
 This will enable Flock mode as an option for your users globally, wherever Presence is shown.
@@ -217,7 +217,6 @@ export default function App() {
         flockMode={true} {/* 4) Enable Flock Mode */}
         onPresenceUserChange={(presenceUsers) => yourMethod(presenceUsers)} {/* 5) Subscribe to changes in User Presence */}
         darkMode={true} {/* 6) Enable Dark Mode */}
-
       />
     </div>
   );
@@ -256,7 +255,7 @@ export default function App() {
         inactivity-time="30000" <!-- 1) Set inactivity time -->
         location='{"page": 1}' <!-- 2) Add Presence to a Location -->
         max-users="3" <!-- 3) Set max users -->
-        flockMode='true' <!-- 4) Enable Flock Mode -->
+        flock-mode='true' <!-- 4) Enable Flock Mode -->
         onPresenceUserChange="yourMethod()" <!-- 5) Subscribe to changes in User Presence -->
         dark-mode='true' <!-- 6) Enable Dark Mode -->
       ></velt-presence> 
