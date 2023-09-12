@@ -15,7 +15,11 @@ You can use this hook within your component to fetch the Velt client.
 
 
 ```js
-import { VeltPresence } from '@veltdev/react';
+import { useVeltClient } from '@veltdev/react';
+```
+
+```js
+const { client } = useVeltClient();
 ```
 
 ## 2) Create a useEffect hook
@@ -46,7 +50,7 @@ useEffect(() => {
       const presenceElement = client.getPresenceElement();
 
       presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
-        // Do something with users list
+        // Take user list data and render your own component
       });
 
     }
@@ -63,7 +67,11 @@ You can use this hook within your component to fetch the Velt client.
 
 
 ```js
-import { VeltPresence } from '@veltdev/react';
+import { useVeltClient } from '@veltdev/react';
+```
+
+```js
+const { client } = useVeltClient();
 ```
 
 ## 2) Create a useEffect hook
@@ -94,7 +102,7 @@ useEffect(() => {
       const presenceElement = client.getPresenceElement();
 
       presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
-        // Do something with users list
+        // Take user list data and render your own component
       });
 
     }
@@ -117,19 +125,8 @@ useEffect(() => {
     }
     ```
 
-    ## 3) Place the `<velt-presence>` component
-    Place the component wherever you want the avatars to appear.
 
-    ```html
-<velt-presence
-        inactivity-time="30000"
-        location='{"page": 1}'
-        max-users="3"
-></velt-presence>
-```
-
-
-    ## 4)
+    ## 4) Subscribe to presence users
 
     Subscribe to the realtime Presence users data on the current document and location.
 
@@ -144,71 +141,27 @@ useEffect(() => {
     const presenceElement = Velt.getPresenceElement();
 
     presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
-        // Do something with users list to update UI
+        // Take user list data and render your own component
     });
     }
 </script>
 ```
-
     </Tab>
 
 
 </Tabs>
 
-## 1) Get the Velt client
 
-Import the useVeltClient React hook.
-
-You can use this hook within your component to fetch the Velt client.
-
-
-```js
-import { VeltPresence } from '@veltdev/react';
-```
-
-## 2) Create a useEffect hook
-
-Create an effect with the client as a dependency.
-
-Make sure to check if the client is null or undefined before you use it.
-
-```js React
-useEffect(() => {
-    if (client) {
-
-      //...
-    }
-  }, [client]);
-```
-
-## 3) Subscribe to presence users
-
-Subscribe to the realtime Presence users data on the current document and location.
-
-We will send you a new list of users everytime there is a change in the status of any user, so you can build out your own Presence UI.
-
-```js React
-useEffect(() => {
-    if (client) {
-
-      const presenceElement = client.getPresenceElement();
-
-      presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
-        // Do something with users list
-      });
-
-    }
-  }, [client]);
-```
 
 
 <RequestExample>
 
 ```js React
-import { VeltPresence } from '@veltdev/react';
+import { useVeltClient } from '@veltdev/react';
 import {useEffect} from 'react';
 
 export default function App() {
+  const { client } = useVeltClient();
 
   useEffect(() => {
     if (client) {
@@ -216,7 +169,7 @@ export default function App() {
       const presenceElement = client.getPresenceElement();
 
       presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
-        // Do something with users list
+        // Take users list data and render your own component
       });
 
     }
@@ -224,16 +177,19 @@ export default function App() {
 
   return (
     <div className="toolbar">
-      <VeltPresence />
+      // example of rendering your own component
+      // presenceUsers.map((presenceUser) => { return ( <div key={presenceUser.userId}> {/* Add custom UI code here */} </div> ) })
     </div>
   );
 }
 ```
 ```js Next.js
-import { VeltPresence } from '@veltdev/react';
+import { useVeltClient } from '@veltdev/react';
 import {useEffect} from 'react';
 
 export default function App() {
+
+  const { client } = useVeltClient();
 
   useEffect(() => {
     if (client) {
@@ -241,7 +197,7 @@ export default function App() {
       const presenceElement = client.getPresenceElement();
 
       presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
-        // Do something with users list
+        // Take user list data and render your own component
       });
 
     }
@@ -249,7 +205,8 @@ export default function App() {
 
   return (
     <div className="toolbar">
-      <VeltPresence />
+      // example of rendering your own component
+      // presenceUsers.map((presenceUser) => { return ( <div key={presenceUser.userId}> {/* Add custom UI code here */} </div> ) })
     </div>
   );
 }
@@ -266,25 +223,22 @@ export default function App() {
 
         async function loadVelt() {
             await Velt.init("YOUR_VELT_API_KEY");
+
+            if (Velt){
+              const presenceElement = Velt.getPresenceElement();
+
+              presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
+                  // Take users list data and render your own component
+              });
+            }
         }
 
-        if (Velt){
-
-            const presenceElement = Velt.getPresenceElement();
-
-            presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
-                // Do something with users list to update UI
-            });
-        }
+        
 </script>
   </head>
   <body>
     <div class="toolbar">
-      <velt-presence
-        inactivity-time="30000"
-        location='{"page": 1}'
-        max-users="3"
-      ></velt-presence>
+      <velt-presence></velt-presence>
     </div>
   </body>
 </html>
