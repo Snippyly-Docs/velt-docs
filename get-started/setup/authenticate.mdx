@@ -1,6 +1,6 @@
 ---
 title: "2. Authenticate and Initialize"
-description: "Autheticate your logged in users with the SDK. Then initialize a collaboritive space within your app to use Velt"
+description: "Autheticate your logged in users with the SDK. Then initialize a collaborative space within your app to use Velt"
 ---
 {/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
 <script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
@@ -9,9 +9,9 @@ description: "Autheticate your logged in users with the SDK. Then initialize a c
 <Tabs>
   <Tab title="React">
 
- ## 1) Create a component that will represent your multi-collaboritive space.
+ ## 1) Create a component that will represent your multi-collaborative space.
 
-Create a component that will represent your multi-collaboritive space.
+Create a component that will represent your multi-collaborative space.
 
 This component will go as a child component within the VeltProvider component we created in the previous step.
 
@@ -92,7 +92,7 @@ Call the `identify()` method and pass in the Velt User.
 
 Pass a unique ID representing your document. Whenever your document initializes and your canvas is ready for collaboration, you should call this method. The SDK will not work without this call.
 
-Users logged into the same document ID can see each other's presence, cursors, comments etc. You can create multiple documents within your application to create separate collaboritive spaces.
+Users logged into the same document ID can see each other's presence, cursors, comments etc. You can create multiple documents within your application to create separate collaborative spaces.
 
 ```js
   client.setDocumentId('unique-document-id');
@@ -100,9 +100,9 @@ Users logged into the same document ID can see each other's presence, cursors, c
 
   </Tab>
   <Tab title="Next.js">
-## 1) Create a component that will represent your multi-collaboritive space.
+## 1) Create a component that will represent your multi-collaborative space.
 
-Create a component that will represent your multi-collaboritive space.
+Create a component that will represent your multi-collaborative space.
 
 This component will go as a child component within the VeltProvider component we created in the previous step.
 
@@ -183,7 +183,7 @@ Call the `identify()` method and pass in the Velt User.
 
 Pass a unique ID representing your document. Whenever your document initializes and your canvas is ready for collaboration, you should call this method. The SDK will not work without this call.
 
-Users logged into the same document ID can see each other's presence, cursors, comments etc. You can create multiple documents within your application to create separate collaboritive spaces.
+Users logged into the same document ID can see each other's presence, cursors, comments etc. You can create multiple documents within your application to create separate collaborative spaces.
 
 ```js
   client.setDocumentId('unique-document-id');
@@ -209,7 +209,7 @@ To enable @mention in the comments, you need to pass the user's contacts. Learn 
 <RequestExample>
 
 ```js React
-//1) Create a component that will represent your multi-collaboritive space.
+//1) Create a component that will represent your multi-collaborative space.
 
 //Warning: Make sure this is a child component to VeltProvider 
 //and not within the same file where VeltProvider is placed.
@@ -262,7 +262,7 @@ export default function YourComponent() {
 ```
 
 ```js Next.js
-//1) Create a component that will represent your multi-collaboritive space.
+//1) Create a component that will represent your multi-collaborative space.
 
 //Warning: Make sure this is a child component to VeltProvider 
 //and not within the same file where VeltProvider is placed.
