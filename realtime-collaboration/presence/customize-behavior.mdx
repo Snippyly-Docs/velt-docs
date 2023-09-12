@@ -182,12 +182,20 @@ Learn more about it in the [Flock Mode feature section](/realtime-collaboration/
 
 ## 5) Subscribe to changes in User Presence
 
-Whenever the presence for any user changes, we emit this event with the updated list of users currently online on this document.
+Whenever the presence for any user changes, we emit te onPresenceUserChange event with the updated list of users currently online on this document.
 
-```html
-<velt-presence onPresenceUserChange="yourMethod()"></velt-presence>
+
+```js
+<script>
+if(Velt){
+  const presenceElement = document.querySelector("velt-presence");
+  presenceElement.addEventListener('onPresenceUserChange', (event) => {
+    console.log("onPresenceUserChange", event?.detail);
+  });
+}
+</script>
+
 ```
-
 
 
 ## 6) Enable Dark Mode
@@ -248,6 +256,15 @@ export default function App() {
 <html lang="en">
   <head>
     <title>Presence documentation</title>
+    <script>
+    // 5) Subscribe to changes in User Presence
+    if(Velt){
+      const presenceElement = document.querySelector("velt-presence");
+      presenceElement.addEventListener('onPresenceUserChange', (event) => {
+        console.log("onPresenceUserChange", event?.detail);
+      });
+    }
+    </script>
   </head>
   <body>
     <div class="toolbar">
@@ -256,7 +273,6 @@ export default function App() {
         location='{"page": 1}' <!-- 2) Add Presence to a Location -->
         max-users="3" <!-- 3) Set max users -->
         flock-mode='true' <!-- 4) Enable Flock Mode -->
-        onPresenceUserChange="yourMethod()" <!-- 5) Subscribe to changes in User Presence -->
         dark-mode='true' <!-- 6) Enable Dark Mode -->
       ></velt-presence> 
     </div>
