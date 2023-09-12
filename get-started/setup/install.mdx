@@ -31,7 +31,10 @@ $ npm install --save-dev @velt/types
 ## 3) Add VeltProvider
 
 Add the VeltProvider component to the root of your app.
+
 Add your Velt API key.
+
+Later in the next steps we will be creating `<YourAuthComponent>` and `<YourDocument>` to be added as children to the VeltProvider component.
 
 
 ```js
@@ -40,7 +43,8 @@ import { VeltProvider } from '@veltdev/react';
 
 ```js
 <VeltProvider apiKey="YOUR_API_KEY">
-      // Your app goes here
+  <YourAuthComponent>
+  <YourDocument>
 </VeltProvider>
 ```
 
@@ -71,7 +75,11 @@ $ npm install --save-dev @velt/types
 ## 3) Add VeltProvider
 
 Add the VeltProvider component to the root of your app.
+
 Add your Velt API key.
+
+Later in the next steps we will be creating `<YourAuthComponent>` and `<YourDocument>` to be added as children to the VeltProvider component.
+
 
 
 ```js
@@ -80,7 +88,8 @@ import { VeltProvider } from '@veltdev/react';
 
 ```js
 <VeltProvider apiKey="YOUR_API_KEY">
-      // Your app goes here
+  <YourAuthComponent>
+  <YourDocument>
 </VeltProvider>
 ```
 
@@ -113,7 +122,8 @@ export default function App() {
 
   return (
     <VeltProvider apiKey="YOUR_API_KEY">
-      // Your app goes here
+      <YourAuthComponent>
+      <YourDocument>
     </VeltProvider>
   );
 }
@@ -126,7 +136,8 @@ export default function App() {
 
   return (
     <VeltProvider apiKey="YOUR_API_KEY">
-      // Your app goes here
+      <YourAuthComponent>
+      <YourDocument>
     </VeltProvider>
   );
 }

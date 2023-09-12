@@ -44,7 +44,8 @@
           "group": "Setup",
           "pages": [
             "get-started/setup/install",
-            "get-started/setup/authenticate"
+            "get-started/setup/authenticate",
+            "get-started/setup/initialize-document"
           ]
         }
       ]
