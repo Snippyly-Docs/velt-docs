@@ -1,0 +1,88 @@
+There are methods available in `LiveStateSyncElement` for live state sync feature.
+
+## setLiveStateData()
+
+To set custom live state data from client to share data between the screens.
+
+Input params:
+
+- liveStateDataId: string;
+
+- liveStateData: any;
+
+```jsx
+const liveStateDataId = "uniqueId";
+const liveStateData = { "key": "value" }; // any type of data
+const liveStateSyncElement = Velt.getLiveStateSyncElement();
+liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
+```
+
+## getLiveStateData()
+
+To get live state data.
+
+Input params:
+
+- liveStateDataId: string; (optional)
+
+```jsx
+const liveStateDataId = "uniqueId";
+const liveStateSyncElement = Velt.getLiveStateSyncElement();
+cosnt data = liveStateSyncElement.getLiveStateData(liveStateDataId);
+```
+
+## getLiveStateData$()
+
+To subscribe to live state data.
+
+Input params:
+
+- liveStateDataId: string; (optional)
+
+```jsx
+const liveStateDataId = "uniqueId";
+const liveStateSyncElement = Velt.getLiveStateSyncElement();
+liveStateSyncElement.getLiveStateData$(liveStateDataId).subscribe((data) => {
+		// your logic here...
+});
+```
+
+## enableSingleEditorMode()
+
+To enable single editor mode.
+
+```jsx
+const liveStateSyncElement = Velt.getLiveStateSyncElement();
+liveStateSyncElement.enableSingleEditorMode();
+```
+
+## disableSingleEditorMode()
+
+```jsx
+const liveStateSyncElement = Velt.getLiveStateSyncElement();
+liveStateSyncElement.disableSingleEditorMode();
+```
+
+## isUserEditor$()
+
+To check if user is editor in single editor mode.
+
+```jsx
+const liveStateSyncElement = Velt.getLiveStateSyncElement();
+liveStateSyncElement.isUserEditor$().subscribe((isUserEditor) => {
+		// your logic here...
+});
+```
+
+## setUserAsEditor()
+
+To set current user as editor in single editor mode.
+
+```jsx
+const liveStateSyncElement = Velt.getLiveStateSyncElement();
+liveStateSyncElement.setUserAsEditor();
+```
+
+## resetUserAccess()
+
+To reset editor access in single editor mode.

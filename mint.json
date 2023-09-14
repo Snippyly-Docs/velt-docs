@@ -121,6 +121,13 @@
             "realtime-collaboration/live-selection/overview",
             "realtime-collaboration/live-selection/setup"
           ]
+        },
+        {
+          "group": "Live State Sync",
+          "pages": [
+            "realtime-collaboration/live-state-sync/overview",
+            "realtime-collaboration/live-state-sync/setup"
+          ]
         }
       ]
     },
