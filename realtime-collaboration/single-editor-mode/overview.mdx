@@ -272,3 +272,95 @@ To disable clicks on elements, set the `data-velt-sync-access` attribute to `fal
 
 </Tabs>
 
+
+
+
+<RequestExample>
+
+```jsx React
+
+//Get Velt Client
+const { client } = useVeltClient();
+
+//Get LiveStateSyncElement from Velt Client
+const liveStateSyncElement = client.getLiveStateSyncElement();
+
+
+//Enable Single Editor Mode
+liveStateSyncElement.enableSingleEditorMode();
+
+//Disable Single Editor Mode
+liveStateSyncElement.disableSingleEditorMode();
+
+
+//Check if Current User is Editor
+liveStateSyncElement.isUserEditor$().subscribe((isUserEditor) => {
+		// your logic here...
+});
+
+//Set Current User as Editor
+liveStateSyncElement.setUserAsEditor();
+
+//Reset Editor Access
+liveStateSyncElement.resetUserAccess();
+
+```
+
+```jsx Next.js
+
+//Get Velt Client
+const { client } = useVeltClient();
+
+//Get LiveStateSyncElement from Velt Client
+const liveStateSyncElement = client.getLiveStateSyncElement();
+
+
+//Enable Single Editor Mode
+liveStateSyncElement.enableSingleEditorMode();
+
+//Disable Single Editor Mode
+liveStateSyncElement.disableSingleEditorMode();
+
+
+//Check if Current User is Editor
+liveStateSyncElement.isUserEditor$().subscribe((isUserEditor) => {
+		// your logic here...
+});
+
+//Set Current User as Editor
+liveStateSyncElement.setUserAsEditor();
+
+//Reset Editor Access
+liveStateSyncElement.resetUserAccess();
+
+```
+
+```jsx HTML
+
+if(Velt){
+
+//Get LiveStateSyncElement from Velt Client
+const liveStateSyncElement = Velt.getLiveStateSyncElement();
+
+
+//Enable Single Editor Mode
+liveStateSyncElement.enableSingleEditorMode();
+
+//Disable Single Editor Mode
+liveStateSyncElement.disableSingleEditorMode();
+
+
+//Check if Current User is Editor
+liveStateSyncElement.isUserEditor$().subscribe((isUserEditor) => {
+		// your logic here...
+});
+
+//Set Current User as Editor
+liveStateSyncElement.setUserAsEditor();
+
+//Reset Editor Access
+liveStateSyncElement.resetUserAccess();
+}
+```
+
+</RequestExample>
