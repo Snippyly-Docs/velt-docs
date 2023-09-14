@@ -11,6 +11,10 @@ The LiveStateSyncElement contains most of the methods listed below that can be u
 To get an instance of the LiveStateSyncElement, use the `getLiveStateSyncElement()` method from the Velt client.
 
 ```jsx
+import { useVeltClient } from '@veltdev/react';
+
+const { client } = useVeltClient();
+
 const liveStateSyncElement = client.getLiveStateSyncElement();
 ```
 
