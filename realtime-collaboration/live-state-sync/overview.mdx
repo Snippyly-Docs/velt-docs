@@ -1,3 +1,59 @@
-With Live State Sync, you can access the live state data from your document.
+## Live State Sync
 
-With this, you can enable features such as only having a single editor being able to edit the document at any point in time.
+With Live State Sync, you can create a data object that persists and syncs across different clients.
+
+## LiveStateSyncElement
+
+The LiveStateSyncElement contains most of the methods listed below that can be used to configure Live State Sync.
+
+To get an instance of the LiveStateSyncElement, use the `getLiveStateSyncElement()` method from the Velt client.
+
+```jsx
+const liveStateSyncElement = Velt.getLiveStateSyncElement();
+```
+
+## setLiveStateData()
+
+To set custom live state data from client to share data between the screens, use the `setLiveStateData()` method and pass in a unique ID and the initial data to sync.
+Input params:
+
+- liveStateDataId: string;
+
+- liveStateData: any;
+
+```jsx
+const liveStateDataId = "uniqueId";
+const liveStateData = { "key": "value" }; // any type of data
+const liveStateSyncElement = Velt.getLiveStateSyncElement();
+liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
+```
+
+## getLiveStateData()
+
+To get live state data, use the `getLiveStateData()` method and pass in the unique Id of the Live Data you are trying to access.
+
+Input params:
+
+- liveStateDataId: string; (optional)
+
+```jsx
+const liveStateDataId = "uniqueId";
+const liveStateSyncElement = Velt.getLiveStateSyncElement();
+cosnt data = liveStateSyncElement.getLiveStateData(liveStateDataId);
+```
+
+## getLiveStateData$()
+
+To subscribe to live state data, subscribe to the the  `getLiveStateData$()` event and pass in a callback function with your logic.
+
+Input params:
+
+- liveStateDataId: string; (optional)
+
+```jsx
+const liveStateDataId = "uniqueId";
+const liveStateSyncElement = Velt.getLiveStateSyncElement();
+liveStateSyncElement.getLiveStateData$(liveStateDataId).subscribe((data) => {
+		// your logic here...
+});
+```

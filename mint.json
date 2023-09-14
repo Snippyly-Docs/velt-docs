@@ -125,8 +125,19 @@
         {
           "group": "Live State Sync",
           "pages": [
-            "realtime-collaboration/live-state-sync/overview",
-            "realtime-collaboration/live-state-sync/setup"
+            "realtime-collaboration/live-state-sync/overview"
+          ]
+        },
+        {
+          "group": "Text Element Sync",
+          "pages": [
+            "realtime-collaboration/text-element-sync/overview"
+          ]
+        },
+        {
+          "group": "Single Editor Mode",
+          "pages": [
+            "realtime-collaboration/single-editor-mode/overview"
           ]
         }
       ]
