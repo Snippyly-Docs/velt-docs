@@ -1,3 +1,6 @@
+<Tabs>
+    <Tab title="React">
+
 # Live State Sync
 
 With Live State Sync, you can create a data object that persists and syncs across different clients.
@@ -14,6 +17,142 @@ import { useVeltClient } from '@veltdev/react';
 const { client } = useVeltClient();
 
 const liveStateSyncElement = client.getLiveStateSyncElement();
+```
+
+## setLiveStateData()
+
+To set custom live state data from client to share data between the screens, use the `setLiveStateData()` method and pass in a unique ID and the initial data to sync.
+Input params:
+
+- liveStateDataId: string;
+
+- liveStateData: any;
+
+```jsx
+const liveStateDataId = "uniqueId";
+const liveStateData = { "key": "value" }; // any type of data
+const liveStateSyncElement = client.getLiveStateSyncElement();
+liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
+```
+
+## getLiveStateData()
+
+To get live state data, use the `getLiveStateData()` method and pass in the unique Id of the Live Data you are trying to access.
+
+Input params:
+
+- liveStateDataId: string; (optional)
+
+```jsx
+const liveStateDataId = "uniqueId";
+const liveStateSyncElement = client.getLiveStateSyncElement();
+cosnt data = liveStateSyncElement.getLiveStateData(liveStateDataId);
+```
+
+## getLiveStateData$()
+
+To subscribe to live state data, subscribe to the the  `getLiveStateData$()` event and pass in a callback function with your logic.
+
+Input params:
+
+- liveStateDataId: string; (optional)
+
+```jsx
+const liveStateDataId = "uniqueId";
+const liveStateSyncElement = client.getLiveStateSyncElement();
+liveStateSyncElement.getLiveStateData$(liveStateDataId).subscribe((data) => {
+		// your logic here...
+});
+```
+
+
+    </Tab>
+
+    <Tab title="Next.js">
+
+# Live State Sync
+
+With Live State Sync, you can create a data object that persists and syncs across different clients.
+
+## LiveStateSyncElement
+
+The LiveStateSyncElement contains most of the methods listed below that can be used to configure Live State Sync.
+
+To get an instance of the LiveStateSyncElement, use the `getLiveStateSyncElement()` method from the Velt client.
+
+```jsx
+import { useVeltClient } from '@veltdev/react';
+
+const { client } = useVeltClient();
+
+const liveStateSyncElement = client.getLiveStateSyncElement();
+```
+
+## setLiveStateData()
+
+To set custom live state data from client to share data between the screens, use the `setLiveStateData()` method and pass in a unique ID and the initial data to sync.
+Input params:
+
+- liveStateDataId: string;
+
+- liveStateData: any;
+
+```jsx
+const liveStateDataId = "uniqueId";
+const liveStateData = { "key": "value" }; // any type of data
+const liveStateSyncElement = client.getLiveStateSyncElement();
+liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
+```
+
+## getLiveStateData()
+
+To get live state data, use the `getLiveStateData()` method and pass in the unique Id of the Live Data you are trying to access.
+
+Input params:
+
+- liveStateDataId: string; (optional)
+
+```jsx
+const liveStateDataId = "uniqueId";
+const liveStateSyncElement = client.getLiveStateSyncElement();
+cosnt data = liveStateSyncElement.getLiveStateData(liveStateDataId);
+```
+
+## getLiveStateData$()
+
+To subscribe to live state data, subscribe to the the  `getLiveStateData$()` event and pass in a callback function with your logic.
+
+Input params:
+
+- liveStateDataId: string; (optional)
+
+```jsx
+const liveStateDataId = "uniqueId";
+const liveStateSyncElement = client.getLiveStateSyncElement();
+liveStateSyncElement.getLiveStateData$(liveStateDataId).subscribe((data) => {
+		// your logic here...
+});
+```
+
+
+    </Tab>
+
+    <Tab title="HTML">
+
+# Live State Sync
+
+With Live State Sync, you can create a data object that persists and syncs across different clients.
+
+## LiveStateSyncElement
+
+The LiveStateSyncElement contains most of the methods listed below that can be used to configure Live State Sync.
+
+To get an instance of the LiveStateSyncElement, use the `getLiveStateSyncElement()` method from the Velt client.
+
+```jsx
+if(Velt){
+    const liveStateSyncElement = Velt.getLiveStateSyncElement();
+}
 ```
 
 ## setLiveStateData()
@@ -62,3 +201,70 @@ liveStateSyncElement.getLiveStateData$(liveStateDataId).subscribe((data) => {
 });
 ```
 
+
+    </Tab>
+
+</Tabs>
+
+
+<RequestExample>
+
+```jsx React
+const { client } = useVeltClient();
+
+const liveStateDataId = "uniqueId";
+const liveStateData = { "key": "value" }; // any type of data
+const liveStateSyncElement = client.getLiveStateSyncElement();
+
+//Set Live State Data
+liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
+
+//Get Live State Data
+cosnt data = liveStateSyncElement.getLiveStateData(liveStateDataId);
+
+//Subscribe to Live State Data
+liveStateSyncElement.getLiveStateData$(liveStateDataId).subscribe((data) => {
+		// your logic here...
+});
+```
+
+```jsx Next.js
+const { client } = useVeltClient();
+
+const liveStateDataId = "uniqueId";
+const liveStateData = { "key": "value" }; // any type of data
+const liveStateSyncElement = client.getLiveStateSyncElement();
+
+//Set Live State Data
+liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
+
+//Get Live State Data
+cosnt data = liveStateSyncElement.getLiveStateData(liveStateDataId);
+
+//Subscribe to Live State Data
+liveStateSyncElement.getLiveStateData$(liveStateDataId).subscribe((data) => {
+		// your logic here...
+});
+```
+
+```jsx HTML
+
+if(Velt){å
+    const liveStateDataId = "uniqueId";
+    const liveStateData = { "key": "value" }; // any type of data
+    const liveStateSyncElement = Velt.getLiveStateSyncElement();
+
+    //Set Live State Data
+    liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
+
+    //Get Live State Data
+    cosnt data = liveStateSyncElement.getLiveStateData(liveStateDataId);
+
+    //Subscribe to Live State Data
+    liveStateSyncElement.getLiveStateData$(liveStateDataId).subscribe((data) => {
+            // your logic here...
+    });
+}
+```
+
+</RequestExample>
