@@ -129,12 +129,6 @@
           ]
         },
         {
-          "group": "Text Element Sync",
-          "pages": [
-            "realtime-collaboration/text-element-sync/overview"
-          ]
-        },
-        {
           "group": "Single Editor Mode",
           "pages": [
             "realtime-collaboration/single-editor-mode/overview"
