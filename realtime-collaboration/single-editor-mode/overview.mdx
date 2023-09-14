@@ -266,7 +266,7 @@ To allow Input, Textarea or Contentedible elements to sync across clients, set t
 To disable clicks on elements, set the `data-velt-sync-access` attribute to `false` on the element you are trying to disable:
 
 ```jsx
-<div data-velt-sync-access="false"></div>
+<textarea data-velt-sync-access="false"></textarea>
 ```
     </Tab>
 
@@ -280,63 +280,94 @@ To disable clicks on elements, set the `data-velt-sync-access` attribute to `fal
 ```jsx React
 
 //Get Velt Client
-const { client } = useVeltClient();
-
-//Get LiveStateSyncElement from Velt Client
-const liveStateSyncElement = client.getLiveStateSyncElement();
+import { useVeltClient } from '@veltdev/react';
+import { useEffect } from 'react';
 
 
-//Enable Single Editor Mode
-liveStateSyncElement.enableSingleEditorMode();
+function MyComponent(){
+    const { client } = useVeltClient();
 
-//Disable Single Editor Mode
-liveStateSyncElement.disableSingleEditorMode();
+    useEffect( () => {
+        //Get LiveStateSyncElement from Velt Client
+        const liveStateSyncElement = client.getLiveStateSyncElement();
 
 
-//Check if Current User is Editor
-liveStateSyncElement.isUserEditor$().subscribe((isUserEditor) => {
-		// your logic here...
-});
+        //Enable Single Editor Mode
+        liveStateSyncElement.enableSingleEditorMode();
 
-//Set Current User as Editor
-liveStateSyncElement.setUserAsEditor();
+        //Disable Single Editor Mode
+        liveStateSyncElement.disableSingleEditorMode();
 
-//Reset Editor Access
-liveStateSyncElement.resetUserAccess();
+
+        //Check if Current User is Editor
+        liveStateSyncElement.isUserEditor$().subscribe((isUserEditor) => {
+                // your logic here...
+        });
+
+        //Set Current User as Editor
+        liveStateSyncElement.setUserAsEditor();
+
+        //Reset Editor Access
+        liveStateSyncElement.resetUserAccess();
+    },[])
+    return (
+        <div>
+            {/* Enable Element Sync across Clients*/}
+            <TextArea dataVeltSyncState={true}/>
+            {/* Disable Clicks on Element*/}
+            <TextArea dataVeltSyncAccess={false}/>
+        </div>
+    )
+}
 
 ```
 
 ```jsx Next.js
 
 //Get Velt Client
-const { client } = useVeltClient();
-
-//Get LiveStateSyncElement from Velt Client
-const liveStateSyncElement = client.getLiveStateSyncElement();
+import { useVeltClient } from '@veltdev/react';
+import { useEffect } from 'react';
 
 
-//Enable Single Editor Mode
-liveStateSyncElement.enableSingleEditorMode();
+function MyComponent(){
+    const { client } = useVeltClient();
 
-//Disable Single Editor Mode
-liveStateSyncElement.disableSingleEditorMode();
+    useEffect( () => {
+        //Get LiveStateSyncElement from Velt Client
+        const liveStateSyncElement = client.getLiveStateSyncElement();
 
 
-//Check if Current User is Editor
-liveStateSyncElement.isUserEditor$().subscribe((isUserEditor) => {
-		// your logic here...
-});
+        //Enable Single Editor Mode
+        liveStateSyncElement.enableSingleEditorMode();
 
-//Set Current User as Editor
-liveStateSyncElement.setUserAsEditor();
+        //Disable Single Editor Mode
+        liveStateSyncElement.disableSingleEditorMode();
 
-//Reset Editor Access
-liveStateSyncElement.resetUserAccess();
 
+        //Check if Current User is Editor
+        liveStateSyncElement.isUserEditor$().subscribe((isUserEditor) => {
+                // your logic here...
+        });
+
+        //Set Current User as Editor
+        liveStateSyncElement.setUserAsEditor();
+
+        //Reset Editor Access
+        liveStateSyncElement.resetUserAccess();
+    },[])
+    return (
+        <div>
+            {/* Enable Element Sync across Clients*/}
+            <TextArea dataVeltSyncState={true}/>
+            {/* Disable Clicks on Element*/}
+            <TextArea dataVeltSyncAccess={false}/>
+        </div>
+    )
+}
 ```
 
 ```jsx HTML
-
+<script>
 if(Velt){
 
 //Get LiveStateSyncElement from Velt Client
@@ -361,6 +392,26 @@ liveStateSyncElement.setUserAsEditor();
 //Reset Editor Access
 liveStateSyncElement.resetUserAccess();
 }
+</script>
+<body>
+    <!-- sync element with other clients -->
+    <textarea data-velt-sync-state="true"></textarea>
+
+    <!-- disable clicks on element -->
+    <textarea data-velt-sync-access="false"></textarea>
+</body>
 ```
 
+</RequestExample>
+
+<RequestExample>
+```html HTML
+<body>
+    <!-- sync element with other clients -->
+    <textarea data-velt-sync-state="true"></textarea>
+
+    <!-- disable clicks on element -->
+    <textarea data-velt-sync-access="false"></textarea>
+</body>
+```
 </RequestExample>
