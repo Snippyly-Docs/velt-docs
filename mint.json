@@ -34,6 +34,10 @@
     {
       "name": "Community",
       "url": "https://discord.gg/GupvcYH27h"
+    },
+    {
+      "name": "Release Notes",
+      "url": "release-notes"
     }
   ],
   "navigation": [
@@ -296,7 +300,14 @@
         "examples/sheets",
         "examples/slides",
         "examples/dashboard",
-        "examples/creative-tool"
+        "examples/creative-tool",
+        "examples/workflow-builder"
+      ]
+    },
+    {
+      "group": "Release Notes",
+      "pages": [
+        "release-notes/sept-15-2023"
       ]
     },
     {
