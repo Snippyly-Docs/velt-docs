@@ -819,6 +819,23 @@ JavaScript
 <VeltComments onCommentReject={(event)=>yourMethod(event)}/>
 ```
 
+Response:
+
+```js
+{
+    "annotationId": "ANNOTATION_ID",
+    "actionUser": {
+        // user object
+    },
+    "actionType": "accept", // accept or reject
+    "annotation": {
+        // raw annotation object
+    },
+  	"replaceContentHtml": "HTML_FORMATTED_TEXT_TO_REPLACE", // optional
+  	"replaceContentText": "PLAIN_TEXT_TO_REPLACE", // optional
+}
+```
+
   </Tab>
   <Tab title="HTML">
 
