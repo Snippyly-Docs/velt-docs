@@ -275,16 +275,17 @@ To allow Input, Textarea or Contentedible elements to sync across clients, set t
 <textarea id="uniqueId" data-velt-sync-state="true"></textarea>
 ```
 
-<Info>You can an `id` attribute to make the syncing more stable</Info>
+<Info>You can set an `id` to the HTML element to make the syncing more robust</Info>
 
 
 
-## Disabling Clicks on elements
+## Making HTML elements readonly
 
-To disable clicks on elements, set the `data-velt-sync-access` attribute to `false` on the element you are trying to disable:
+When Single Editor Mode is ON, we control enabling and disabling of the following html elements on the page automatically: `input`, `textarea`, `select`, `button`.
+To make us control any additional elements not part of the above list, you can set the `data-velt-sync-access` attribute to `true` on that element:
 
 ```jsx
-<textarea data-velt-sync-access="false"></textarea>
+<div data-velt-sync-access="true"></div>
 ```
     </Tab>
 
@@ -330,10 +331,10 @@ function MyComponent(){
     },[])
     return (
         <div>
-            {/* Enable Element Sync across Clients*/}
-            <TextArea dataVeltSyncState={true}/>
-            {/* Disable Clicks on Element*/}
-            <TextArea dataVeltSyncAccess={false}/>
+            {/* Enable Auto State Sync across on Elements */}
+            <textarea id="uniqueId" data-velt-sync-state="true"></textarea>
+            {/* Enable Auto Access Sync on Custom Element*/}
+            <div data-velt-sync-access="true"></div>
         </div>
     )
 }
@@ -375,10 +376,10 @@ function MyComponent(){
     },[])
     return (
         <div>
-            {/* Enable Element Sync across Clients*/}
-            <TextArea dataVeltSyncState={true}/>
-            {/* Disable Clicks on Element*/}
-            <TextArea dataVeltSyncAccess={false}/>
+            {/* Enable Auto State Sync across on Elements */}
+            <textarea id="uniqueId" data-velt-sync-state="true"></textarea>
+            {/* Enable Auto Access Sync on Custom Element*/}
+            <div data-velt-sync-access="true"></div>
         </div>
     )
 }
@@ -416,7 +417,7 @@ liveStateSyncElement.resetUserAccess();
     <textarea data-velt-sync-state="true"></textarea>
 
     <!-- disable clicks on element -->
-    <textarea data-velt-sync-access="false"></textarea>
+    <div data-velt-sync-access="true"></div>
 </body>
 ```
 
