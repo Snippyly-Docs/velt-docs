@@ -1,3 +1,6 @@
+<Warning>These Features are Currently in Beta and may not function as intended.</Warning>
+
+
 <Tabs>
     <Tab title="React">
 ## Single Editor Mode
@@ -68,7 +71,7 @@ liveStateSyncElement.resetUserAccess();
 ```
 
 
-# Text Element Sync
+# Text Element Sync 
 
 With Text Element Sync, you can sync Input-type elements so when one user types, it gets filled for other users viewing the element.
 
@@ -78,11 +81,12 @@ To allow Input, Textarea or Contentedible elements to sync across clients, set t
 
 
 ```jsx
-<textarea data-velt-sync-state="true"></textarea>
+<textarea id="uniqueId" data-velt-sync-state="true"></textarea>
 ```
 
-<Warning>You must add the `data-velt-sync-state` attribute to an HTML base element (e.g. input, textarea). It will not work on React elements.</Warning>
+<Warning>You must add the `data-velt-sync-state` attribute to an HTML base element (e.g. input, textarea). It will not work directly on React elements.</Warning>
 
+<Info>You can an `id` attribute to make the syncing more stable</Info>
 
 
 ## Disabling Clicks on elements
@@ -93,7 +97,7 @@ To disable clicks on elements, set the `data-velt-sync-access` attribute to `fal
 <textarea data-velt-sync-access="false"></textarea>
 ```
 
-<Warning>You must add the `data-velt-sync-access` attribute to an HTML base element (e.g. input, textarea). It will not work on React elements.</Warning>
+<Warning>You must add the `data-velt-sync-access` attribute to an HTML base element (e.g. input, textarea). It will not work directly on React elements.</Warning>
 
 
 
@@ -173,11 +177,12 @@ To allow Input, Textarea or Contentedible elements to sync across clients, set t
 
 
 ```jsx
-<textarea data-velt-sync-state="true"></textarea>
+<textarea id="uniqueId" data-velt-sync-state="true"></textarea>
 ```
 
 <Warning>You must add the `data-velt-sync-state` attribute to an HTML base element (e.g. input, textarea). It will not work on React elements.</Warning>
 
+<Info>You can an `id` attribute to make the syncing more stable</Info>
 
 
 ## Disabling Clicks on elements
@@ -267,8 +272,10 @@ To allow Input, Textarea or Contentedible elements to sync across clients, set t
 
 
 ```jsx
-<textarea data-velt-sync-state="true"></textarea>
+<textarea id="uniqueId" data-velt-sync-state="true"></textarea>
 ```
+
+<Info>You can an `id` attribute to make the syncing more stable</Info>
 
 
 
