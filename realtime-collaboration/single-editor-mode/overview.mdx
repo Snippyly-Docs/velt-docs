@@ -78,8 +78,10 @@ To allow Input, Textarea or Contentedible elements to sync across clients, set t
 
 
 ```jsx
-<TextArea dataVeltSyncState={true}/>
+<textarea data-velt-sync-state="true"></textarea>
 ```
+
+<Warning>You must add the `data-velt-sync-state` attribute to an HTML base element (e.g. input, textarea). It will not work on React elements.</Warning>
 
 
 
@@ -88,8 +90,11 @@ To allow Input, Textarea or Contentedible elements to sync across clients, set t
 To disable clicks on elements, set the `data-velt-sync-access` attribute to `false` on the element you are trying to disable:
 
 ```jsx
-<TextArea dataVeltSyncAccess={false}/>
+<textarea data-velt-sync-access="false"></textarea>
 ```
+
+<Warning>You must add the `data-velt-sync-access` attribute to an HTML base element (e.g. input, textarea). It will not work on React elements.</Warning>
+
 
 
     </Tab>
@@ -168,8 +173,10 @@ To allow Input, Textarea or Contentedible elements to sync across clients, set t
 
 
 ```jsx
-<TextArea dataVeltSyncState={true}/>
+<textarea data-velt-sync-state="true"></textarea>
 ```
+
+<Warning>You must add the `data-velt-sync-state` attribute to an HTML base element (e.g. input, textarea). It will not work on React elements.</Warning>
 
 
 
@@ -178,8 +185,12 @@ To allow Input, Textarea or Contentedible elements to sync across clients, set t
 To disable clicks on elements, set the `data-velt-sync-access` attribute to `false` on the element you are trying to disable:
 
 ```jsx
-<TextArea dataVeltSyncAccess={false}/>
+<textarea data-velt-sync-access="false"></textarea>
 ```
+
+<Warning>You must add the `data-velt-sync-access` attribute to an HTML base element (e.g. input, textarea). It will not work on React elements.</Warning>
+
+
     </Tab>
     <Tab title="HTML">
 ## Single Editor Mode
