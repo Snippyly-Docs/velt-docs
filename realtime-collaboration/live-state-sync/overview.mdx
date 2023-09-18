@@ -1,4 +1,4 @@
-<Warning>These Features are Currently in Beta and may not function as intended.</Warning>
+<Warning>These Features are Currently in Beta and may be subject to change.</Warning>
 
 <Tabs>
     <Tab title="React">
@@ -184,8 +184,6 @@ const liveStateSyncElement = client.getLiveStateSyncElement();
 //Set Live State Data
 liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
 
-//Get Live State Data
-const data = liveStateSyncElement.getLiveStateData(liveStateDataId);
 
 //Subscribe to Live State Data
 liveStateSyncElement.getLiveStateData$(liveStateDataId).subscribe((data) => {
@@ -203,8 +201,6 @@ const liveStateSyncElement = client.getLiveStateSyncElement();
 //Set Live State Data
 liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
 
-//Get Live State Data
-const data = liveStateSyncElement.getLiveStateData(liveStateDataId);
 
 //Subscribe to Live State Data
 liveStateSyncElement.getLiveStateData$(liveStateDataId).subscribe((data) => {
@@ -222,9 +218,7 @@ if(Velt){
     //Set Live State Data
     liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
 
-    //Get Live State Data
-    const data = liveStateSyncElement.getLiveStateData(liveStateDataId);
-
+   
     //Subscribe to Live State Data
     liveStateSyncElement.getLiveStateData$(liveStateDataId).subscribe((data) => {
             // your logic here...
