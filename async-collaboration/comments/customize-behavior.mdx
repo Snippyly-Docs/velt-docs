@@ -396,6 +396,31 @@ commentElement.enableCommentTool();
 commentElement.disableCommentTool();
 ```
 
+## 30) Listen to onCommentAccept and onCommentReject events
+JavaScript
+
+```js
+<VeltComments onCommentAccept={(event)=>yourMethod(event)}/>
+<VeltComments onCommentReject={(event)=>yourMethod(event)}/>
+```
+
+Response:
+
+```js
+{
+    "annotationId": "ANNOTATION_ID",
+    "actionUser": {
+        // user object
+    },
+    "actionType": "accept", // accept or reject
+    "annotation": {
+        // raw annotation object
+    },
+  	"replaceContentHtml": "HTML_FORMATTED_TEXT_TO_REPLACE", // optional
+  	"replaceContentText": "PLAIN_TEXT_TO_REPLACE", // optional
+}
+```
+
   </Tab>
   <Tab title="Next.js">
 ## 1) Area selection in Freestyle mode
@@ -784,6 +809,14 @@ const commentElement = Velt.getCommentElement();
 commentElement.enableCommentTool();
 // to disable adding comments
 commentElement.disableCommentTool();
+```
+
+## 30) Listen to onCommentAccept and onCommentReject events
+JavaScript
+
+```js
+<VeltComments onCommentAccept={(event)=>yourMethod(event)}/>
+<VeltComments onCommentReject={(event)=>yourMethod(event)}/>
 ```
 
   </Tab>
@@ -1194,6 +1227,39 @@ commentElement.enableCommentTool();
 commentElement.disableCommentTool();
 ```
 
+## 30) Listen to onCommentAccept and onCommentReject events
+JavaScript
+
+```js
+const veltCommentsTag = document.querySelector('velt-comments');
+
+veltCommentsTag?.addEventListener('onCommentAccept', (event) => {
+  console.log('*** onCommentAccept ***');
+  console.log(event.detail);
+});
+
+veltCommentsTag?.addEventListener('onCommentReject', (event) => {
+  console.log('*** onCommentReject ***');
+  console.log(event.detail);
+});
+```
+
+Response:
+
+```js
+{
+    "annotationId": "ANNOTATION_ID",
+    "actionUser": {
+        // user object
+    },
+    "actionType": "accept", // accept or reject
+    "annotation": {
+        // raw annotation object
+    },
+  	"replaceContentHtml": "HTML_FORMATTED_TEXT_TO_REPLACE", // optional
+  	"replaceContentText": "PLAIN_TEXT_TO_REPLACE", // optional
+}
+```
 
 
   </Tab>
@@ -1276,7 +1342,8 @@ export default function App() {
         ]}
 
         <VeltCommentTool darkMode={true} /> {/* 27) */}
-
+        <VeltComments onCommentAccept={(event)=>yourMethod(event)}/> {/* 30) */}
+        <VeltComments onCommentReject={(event)=>yourMethod(event)}/> {/* 30) */}
 
       />
 ```
@@ -1356,7 +1423,11 @@ export default function App() {
           },
         ]}
 
+
       <VeltCommentTool darkMode={true} /> {/* 27) */}
+
+      <VeltComments onCommentAccept={(event)=>yourMethod(event)}/> {/* 30) */}
+      <VeltComments onCommentReject={(event)=>yourMethod(event)}/> {/* 30) */}
 
       />
 ```
@@ -1429,7 +1500,23 @@ export default function App() {
       <velt-comment-tool
         dark-mode="true">
       </velt-comment-tool>
+
+      
       
       </div>
+      <script>
+        // 30)
+        const veltCommentsTag = document.querySelector('velt-comments');
+
+        veltCommentsTag?.addEventListener('onCommentAccept', (event) => {
+          console.log('*** onCommentAccept ***');
+          console.log(event.detail);
+        });
+
+        veltCommentsTag?.addEventListener('onCommentReject', (event) => {
+          console.log('*** onCommentReject ***');
+          console.log(event.detail);
+        });
+    </script>
 ```
 </RequestExample>
