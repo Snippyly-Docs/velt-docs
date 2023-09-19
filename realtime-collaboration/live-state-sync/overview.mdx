@@ -37,7 +37,7 @@ Input params:
 ```jsx
 const liveStateDataId = 'uniqueId';
 const liveStateSyncElement = client.getLiveStateSyncElement();
-liveStateSyncElement.getLiveStateData$(liveStateDataId).subscribe((data) => {
+liveStateSyncElement.getLiveStateData(liveStateDataId).subscribe((data) => {
 		// your logic here...
 });
 ```
@@ -79,7 +79,7 @@ Input params:
 ```jsx
 const liveStateDataId = 'uniqueId';
 const liveStateSyncElement = client.getLiveStateSyncElement();
-liveStateSyncElement.getLiveStateData$(liveStateDataId).subscribe((data) => {
+liveStateSyncElement.getLiveStateData(liveStateDataId).subscribe((data) => {
 		// your logic here...
 });
 ```
@@ -122,7 +122,7 @@ Input params:
 ```jsx
 const liveStateDataId = "uniqueId";
 const liveStateSyncElement = Velt.getLiveStateSyncElement();
-liveStateSyncElement.getLiveStateData$(liveStateDataId).subscribe((data) => {
+liveStateSyncElement.getLiveStateData(liveStateDataId).subscribe((data) => {
 		// your logic here...
 });
 ```
@@ -147,7 +147,7 @@ liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
 
 
 //Subscribe to Live State Data
-liveStateSyncElement.getLiveStateData$(liveStateDataId).subscribe((data) => {
+liveStateSyncElement.getLiveStateData(liveStateDataId).subscribe((data) => {
 		// your logic here...
 });
 ```
@@ -164,7 +164,7 @@ liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
 
 
 //Subscribe to Live State Data
-liveStateSyncElement.getLiveStateData$(liveStateDataId).subscribe((data) => {
+liveStateSyncElement.getLiveStateData(liveStateDataId).subscribe((data) => {
 		// your logic here...
 });
 ```
@@ -181,7 +181,7 @@ if(Velt){
 
    
     //Subscribe to Live State Data
-    liveStateSyncElement.getLiveStateData$(liveStateDataId).subscribe((data) => {
+    liveStateSyncElement.getLiveStateData(liveStateDataId).subscribe((data) => {
             // your logic here...
     });
 }
