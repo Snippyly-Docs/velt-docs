@@ -1,110 +1,83 @@
-<Warning>These Features are Currently in Beta and may be subject to change.</Warning>
+<Warning>These Features are currently in beta and may be subject to change.</Warning>
 
 <Tabs>
     <Tab title="React">
 
 # Live State Sync
 
-With Live State Sync, you can create a data object that persists and syncs across different clients.
+With Live State Sync, you can create a shared data object that persists and syncs across all clients live on a given document.
 
-## LiveStateSyncElement
 
-The LiveStateSyncElement contains most of the methods listed below that can be used to configure Live State Sync.
+## 1. Set or Update a shared live data object
 
-To get an instance of the LiveStateSyncElement, use the `getLiveStateSyncElement()` method from the Velt client.
+Sets or updates a custom shared data object that will be synced across all clients live on the current document.
+Pass in a unique ID and the data object you want to sync. If the object already exists with that ID, then it will be updated.
 
-```jsx
-import { useVeltClient } from '@veltdev/react';
-
-const { client } = useVeltClient();
-
-const liveStateSyncElement = client.getLiveStateSyncElement();
-```
-
-## setLiveStateData()
-
-To set custom live state data from client to share data between the screens, use the `setLiveStateData()` method and pass in a unique ID and the initial data to sync.
 Input params:
+- `liveStateDataId`: `string`;
 
-- liveStateDataId: string;
-
-- liveStateData: any;
+- `liveStateData`: `any`;
 
 ```jsx
-const liveStateDataId = "uniqueId";
-const liveStateData = { "key": "value" }; // any type of data
+const liveStateDataId = 'uniqueId;
+const liveStateData = { 'key': 'value' }; // any type of data
 const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
 ```
 
 
-## getLiveStateData$()
+## 2. Get a shared live data object
 
-To subscribe to live state data, subscribe to the the  `getLiveStateData$()` event and pass in a callback function with your logic.
+Subscribes to an existing shared live data object. Pass in the unique ID that you had used to set the data.
 
 Input params:
 
-- liveStateDataId: string; (optional)
+- `liveStateDataId`: `string`; (optional)
 
 ```jsx
-const liveStateDataId = "uniqueId";
+const liveStateDataId = 'uniqueId';
 const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.getLiveStateData$(liveStateDataId).subscribe((data) => {
 		// your logic here...
 });
 ```
-
-
     </Tab>
 
     <Tab title="Next.js">
 
 # Live State Sync
 
-With Live State Sync, you can create a data object that persists and syncs across different clients.
+With Live State Sync, you can create a shared data object that persists and syncs across all clients live on a given document.
 
-## LiveStateSyncElement
 
-The LiveStateSyncElement contains most of the methods listed below that can be used to configure Live State Sync.
+## 1. Set or Update a shared live data object
 
-To get an instance of the LiveStateSyncElement, use the `getLiveStateSyncElement()` method from the Velt client.
+Sets or updates a custom shared data object that will be synced across all clients live on the current document.
+Pass in a unique ID and the data object you want to sync. If the object already exists with that ID, then it will be updated.
 
-```jsx
-import { useVeltClient } from '@veltdev/react';
-
-const { client } = useVeltClient();
-
-const liveStateSyncElement = client.getLiveStateSyncElement();
-```
-
-## setLiveStateData()
-
-To set custom live state data from client to share data between the screens, use the `setLiveStateData()` method and pass in a unique ID and the initial data to sync.
 Input params:
+- `liveStateDataId`: `string`;
 
-- liveStateDataId: string;
-
-- liveStateData: any;
+- `liveStateData`: `any`;
 
 ```jsx
-const liveStateDataId = "uniqueId";
-const liveStateData = { "key": "value" }; // any type of data
+const liveStateDataId = 'uniqueId;
+const liveStateData = { 'key': 'value' }; // any type of data
 const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
 ```
 
 
+## 2. Get a shared live data object
 
-## getLiveStateData$()
-
-To subscribe to live state data, subscribe to the the  `getLiveStateData$()` event and pass in a callback function with your logic.
+Subscribes to an existing shared live data object. Pass in the unique ID that you had used to set the data.
 
 Input params:
 
-- liveStateDataId: string; (optional)
+- `liveStateDataId`: `string`; (optional)
 
 ```jsx
-const liveStateDataId = "uniqueId";
+const liveStateDataId = 'uniqueId';
 const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.getLiveStateData$(liveStateDataId).subscribe((data) => {
 		// your logic here...
@@ -118,28 +91,18 @@ liveStateSyncElement.getLiveStateData$(liveStateDataId).subscribe((data) => {
 
 # Live State Sync
 
-With Live State Sync, you can create a data object that persists and syncs across different clients.
+With Live State Sync, you can create a shared data object that persists and syncs across all clients live on a given document.
 
-## LiveStateSyncElement
 
-The LiveStateSyncElement contains most of the methods listed below that can be used to configure Live State Sync.
+## 1. Set or Update a shared live data object
 
-To get an instance of the LiveStateSyncElement, use the `getLiveStateSyncElement()` method from the Velt client.
+Sets or updates a custom shared data object that will be synced across all clients live on the current document.
+Pass in a unique ID and the data object you want to sync. If the object already exists with that ID, then it will be updated.
 
-```jsx
-if(Velt){
-    const liveStateSyncElement = Velt.getLiveStateSyncElement();
-}
-```
-
-## setLiveStateData()
-
-To set custom live state data from client to share data between the screens, use the `setLiveStateData()` method and pass in a unique ID and the initial data to sync.
 Input params:
+- `liveStateDataId`: `string`;
 
-- liveStateDataId: string;
-
-- liveStateData: any;
+- `liveStateData`: `any`;
 
 ```jsx
 const liveStateDataId = "uniqueId";
@@ -148,15 +111,13 @@ const liveStateSyncElement = Velt.getLiveStateSyncElement();
 liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
 ```
 
+## 2. Get a shared live data object
 
-
-## getLiveStateData$()
-
-To subscribe to live state data, subscribe to the the  `getLiveStateData$()` event and pass in a callback function with your logic.
+Subscribes to an existing shared live data object. Pass in the unique ID that you had used to set the data.
 
 Input params:
 
-- liveStateDataId: string; (optional)
+- `liveStateDataId`: `string`; (optional)
 
 ```jsx
 const liveStateDataId = "uniqueId";
