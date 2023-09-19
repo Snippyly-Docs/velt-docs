@@ -5,35 +5,21 @@
     <Tab title="React">
 ## Single Editor Mode
 
-With Single Editor Mode, you can make it so that only one user can be editing elements on the document at the same time.
-
-## LiveStateSyncElement
-
-The LiveStateSyncElement contains most of the methods listed below that can be used to configure Single Editor Mode.
-
-To get an instance of the LiveStateSyncElement, use the `getLiveStateSyncElement()` method from the Velt client.
-
-```jsx
-import { useVeltClient } from '@veltdev/react';
-
-const { client } = useVeltClient();
-
-const liveStateSyncElement = client.getLiveStateSyncElement();
-```
+With Single Editor Mode, only one user will be able to edit the document at any given time. All other users live on the document will be automatically be read-only. 
 
 
-## enableSingleEditorMode()
+## 1. Enable Single Editor Mode
 
-To enable single editor mode, use the `enableSingleEditorMode()` method.
+Enables single editor mode.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.enableSingleEditorMode();
 ```
 
-## disableSingleEditorMode()
+## 2. Disable Single Editor Mode
 
-To enable single editor mode, use the `disableSingleEditorMode()` method.
+Disables single editor mode.
 
 
 ```jsx
@@ -41,9 +27,12 @@ const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.disableSingleEditorMode();
 ```
 
-## isUserEditor$()
+## 3. Check if current user is the Editor
 
-To check if user is editor in single editor mode, subscribe to the `isUserEditor$()` event and pass in a callback function with your logic.
+It's a subscription that returns:
+- `true`: when the current user is set as `editor`
+- `false`: when the current user is set as `reader`
+-  `null`: when when the current user's access is not set.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
@@ -52,18 +41,18 @@ liveStateSyncElement.isUserEditor$().subscribe((isUserEditor) => {
 });
 ```
 
-## setUserAsEditor()
+## 4. Set current user as the Editor
 
-To set the current user as editor in single editor mode, use the `setUserAsEditor()` method.
+Sets the current user as Editor. Note this will mark all the other users on the document as readonly users.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.setUserAsEditor();
 ```
 
-## resetUserAccess()
+## 5. Reset access for all users
 
-To reset editor access in single editor mode, use the `resetUserAccess()` method.
+Resets access for all users.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
@@ -71,33 +60,42 @@ liveStateSyncElement.resetUserAccess();
 ```
 
 
-# Text Element Sync 
+# 6. Auto Sync Text Elements
 
-With Text Element Sync, you can sync Input-type elements so when one user types, it gets filled for other users viewing the element.
+Auto Syncs the content of the following Text HTML elements, such that when `editor` types, the element's content is synced across all active users currently live on the document.
+- input
+- textarea
+- ContentEditable Divs
 
-## Syncing Text elements
+To enable syncing, set the `data-velt-sync-state` attribute to `true` on the HTML element you want to sync:
 
-To allow Input, Textarea or Contentedible elements to sync across clients, set the `data-velt-sync-state` attribute to `true` on the element you are trying to sync:
-
+<Info>You can an `id` attribute to make the syncing more stable</Info>
 
 ```jsx
 <textarea id="uniqueId" data-velt-sync-state="true"></textarea>
 ```
 
-<Warning>You must add the `data-velt-sync-state` attribute to an HTML base element (e.g. input, textarea). It will not work directly on React elements.</Warning>
-
-<Info>You can an `id` attribute to make the syncing more stable</Info>
+<Warning>You must add the `data-velt-sync-state` attribute to a native HTML element (e.g. input, textarea). It will not work directly on React components.</Warning>
 
 
-## Disabling Clicks on elements
 
-To disable clicks on elements, set the `data-velt-sync-access` attribute to `false` on the element you are trying to disable:
+## 7. Auto Sync Access on HTML Elements
+
+By default, we control enabling and disabling of these html elements on the page:
+- input
+- textarea
+- select
+- button
+- contentEditable divs
+
+If there are any other elements, that you want us to control, then you can add data-velt-sync-access="true" to that element.
+Right now we are setting their attribute as "disabled" and are also preventing `click`, `mouseup` and `mousedown` events.
 
 ```jsx
-<textarea data-velt-sync-access="false"></textarea>
+<div data-velt-sync-access="true"></div>
 ```
 
-<Warning>You must add the `data-velt-sync-access` attribute to an HTML base element (e.g. input, textarea). It will not work directly on React elements.</Warning>
+<Warning>You must add the `data-velt-sync-access` attribute to native HTML elements (e.g. div, span). It will not work directly on React elements.</Warning>
 
 
 
@@ -105,31 +103,21 @@ To disable clicks on elements, set the `data-velt-sync-access` attribute to `fal
     <Tab title="Next.js">
 ## Single Editor Mode
 
-With Single Editor Mode, you can make it so that only one user can be editing elements on the document at the same time.
-
-## LiveStateSyncElement
-
-The LiveStateSyncElement contains most of the methods listed below that can be used to configure Single Editor Mode.
-
-To get an instance of the LiveStateSyncElement, use the `getLiveStateSyncElement()` method from the Velt client.
-
-```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
-```
+With Single Editor Mode, only one user will be able to edit the document at any given time. All other users live on the document will be automatically be read-only. 
 
 
-## enableSingleEditorMode()
+## 1. Enable Single Editor Mode
 
-To enable single editor mode, use the `enableSingleEditorMode()` method.
+Enables single editor mode.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.enableSingleEditorMode();
 ```
 
-## disableSingleEditorMode()
+## 2. Disable Single Editor Mode
 
-To enable single editor mode, use the `disableSingleEditorMode()` method.
+Disables single editor mode.
 
 
 ```jsx
@@ -137,9 +125,12 @@ const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.disableSingleEditorMode();
 ```
 
-## isUserEditor$()
+## 3. Check if current user is the Editor
 
-To check if user is editor in single editor mode, subscribe to the `isUserEditor$()` event and pass in a callback function with your logic.
+It's a subscription that returns:
+- `true`: when the current user is set as `editor`
+- `false`: when the current user is set as `reader`
+-  `null`: when when the current user's access is not set.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
@@ -148,18 +139,18 @@ liveStateSyncElement.isUserEditor$().subscribe((isUserEditor) => {
 });
 ```
 
-## setUserAsEditor()
+## 4. Set current user as the Editor
 
-To set the current user as editor in single editor mode, use the `setUserAsEditor()` method.
+Sets the current user as Editor. Note this will mark all the other users on the document as readonly users.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.setUserAsEditor();
 ```
 
-## resetUserAccess()
+## 5. Reset access for all users
 
-To reset editor access in single editor mode, use the `resetUserAccess()` method.
+Resets access for all users.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
@@ -167,34 +158,42 @@ liveStateSyncElement.resetUserAccess();
 ```
 
 
-# Text Element Sync
+# 6. Auto Sync Text Elements
 
-With Text Element Sync, you can sync Input-type elements so when one user types, it gets filled for other users viewing the element.
+Auto Syncs the content of the following Text HTML elements, such that when `editor` types, the element's content is synced across all active users currently live on the document.
+- input
+- textarea
+- ContentEditable Divs
 
-## Syncing Text elements
+To enable syncing, set the `data-velt-sync-state` attribute to `true` on the HTML element you want to sync:
 
-To allow Input, Textarea or Contentedible elements to sync across clients, set the `data-velt-sync-state` attribute to `true` on the element you are trying to sync:
-
+<Info>You can an `id` attribute to make the syncing more stable</Info>
 
 ```jsx
 <textarea id="uniqueId" data-velt-sync-state="true"></textarea>
 ```
 
-<Warning>You must add the `data-velt-sync-state` attribute to an HTML base element (e.g. input, textarea). It will not work on React elements.</Warning>
-
-<Info>You can an `id` attribute to make the syncing more stable</Info>
+<Warning>You must add the `data-velt-sync-state` attribute to a native HTML element (e.g. input, textarea). It will not work directly on React components.</Warning>
 
 
-## Disabling Clicks on elements
 
-To disable clicks on elements, set the `data-velt-sync-access` attribute to `false` on the element you are trying to disable:
+## 7. Auto Sync Access on HTML Elements
+
+By default, we control enabling and disabling of these html elements on the page:
+- input
+- textarea
+- select
+- button
+- contentEditable divs
+
+If there are any other elements, that you want us to control, then you can add data-velt-sync-access="true" to that element.
+Right now we are setting their attribute as "disabled" and are also preventing `click`, `mouseup` and `mousedown` events.
 
 ```jsx
-<textarea data-velt-sync-access="false"></textarea>
+<div data-velt-sync-access="true"></div>
 ```
 
-<Warning>You must add the `data-velt-sync-access` attribute to an HTML base element (e.g. input, textarea). It will not work on React elements.</Warning>
-
+<Warning>You must add the `data-velt-sync-access` attribute to native HTML elements (e.g. div, span). It will not work directly on React elements.</Warning>
 
     </Tab>
     <Tab title="HTML">
