@@ -78,7 +78,7 @@ To enable syncing, set the `data-velt-sync-state` attribute to `true` on the Tex
 <Warning>You must add the `data-velt-sync-state` attribute to a native HTML element (e.g. input, textarea). It will not work directly on React components.</Warning>
 
 
-## 7. Auto Syncing Access on HTML Elements
+## 7. Auto Sync Access on HTML Elements
 
 By default in Single Editor Mode, we control enabling and disabling of these html elements on the entire DOM:
 - input
@@ -98,7 +98,7 @@ If there are any other elements that you want us to control beyond the default e
 <Warning>You must add the `data-velt-sync-access` attribute to native HTML elements (e.g. div, span). It will not work directly on React components.</Warning>
 
 
-## 8. Excluding default HTML elements from Auto Syncing Access
+## 8. Exclude default HTML elements from Auto Syncing Access
 
 In Single Editor Mode, we control enabling and disabling of certain html elements on the entire DOM.
 If you want to exclude any of those html elements from this behavior, you can add `data-velt-sync-access-disabled="true"` to that element.
@@ -110,11 +110,9 @@ If you want to exclude any of those html elements from this behavior, you can ad
 <Warning>You must add the `data-velt-sync-access-disabled` attribute to native HTML elements (e.g. button, input). It will not work directly on React components.</Warning>
 
 
-## 9. Restrict Auto Sync Access to Specific Parent Containers
+## 9. Restrict Single Editor Mode to Specific Parent Containers
 
-By default in Single Editor Mode, we control enabling and disabling of certain html elements on <strong>the entire DOM</strong> based on whether the current user is Editor or Read-only user.
-
-You can restrict this behavior to only certain HTML containers & their children. You can use the `singleEditorModeContainerIds()` method which takes in an array of element ID strings. These IDs represent the parent elements you want us to control access for.
+By default Single Editor Mode is enabled at <strong>the entire DOM</strong> level. You can restrict this feature to only certain HTML containers & their children by using the `singleEditorModeContainerIds()` method. It takes in an array of element ID strings. These IDs represent the parent elements within which Single Editor Mode will be enabled.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
@@ -219,7 +217,7 @@ If there are any other elements that you want us to control beyond the default e
 <Warning>You must add the `data-velt-sync-access` attribute to native HTML elements (e.g. div, span). It will not work directly on React components.</Warning>
 
 
-## 8. Excluding default HTML elements from Auto Syncing Access
+## 8. Exclude default HTML elements from Auto Syncing Access
 
 In Single Editor Mode, we control enabling and disabling of certain html elements on the entire DOM.
 If you want to exclude any of those html elements from this behavior, you can add `data-velt-sync-access-disabled="true"` to that element.
@@ -231,11 +229,9 @@ If you want to exclude any of those html elements from this behavior, you can ad
 <Warning>You must add the `data-velt-sync-access-disabled` attribute to native HTML elements (e.g. button, input). It will not work directly on React components.</Warning>
 
 
-## 9. Restrict Auto Sync Access to Specific Parent Containers
+## 9. Restrict Single Editor Mode to Specific Parent Containers
 
-By default in Single Editor Mode, we control enabling and disabling of certain html elements on <strong>the entire DOM</strong> based on whether the current user is Editor or Read-only user.
-
-You can restrict this behavior to only certain HTML containers & their children. You can use the `singleEditorModeContainerIds()` method which takes in an array of element ID strings. These IDs represent the parent elements you want us to control access for.
+By default Single Editor Mode is enabled at <strong>the entire DOM</strong> level. You can restrict this feature to only certain HTML containers & their children by using the `singleEditorModeContainerIds()` method. It takes in an array of element ID strings. These IDs represent the parent elements within which Single Editor Mode will be enabled.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
@@ -336,7 +332,7 @@ If there are any other elements that you want us to control beyond the default e
 <div data-velt-sync-access="true"></div>
 ```
 
-## 8. Excluding default HTML elements from Auto Syncing Access
+## 8. Exclude default HTML elements from Auto Syncing Access
 
 In Single Editor Mode, we control enabling and disabling of certain html elements on the entire DOM.
 If you want to exclude any of those html elements from this behavior, you can add `data-velt-sync-access-disabled="true"` to that element.
@@ -345,11 +341,10 @@ If you want to exclude any of those html elements from this behavior, you can ad
 <button data-velt-sync-access-disabled="true"></button>
 ```
 
-## 9. Restrict Auto Sync Access to Specific Parent Containers
 
-By default in Single Editor Mode, we control enabling and disabling of certain html elements on <strong>the entire DOM</strong> based on whether the current user is Editor or Read-only user.
+## 9. Restrict Single Editor Mode to Specific Parent Containers
 
-You can restrict this behavior to only certain HTML containers & their children. You can use the `singleEditorModeContainerIds()` method which takes in an array of element ID strings. These IDs represent the parent elements you want us to control access for.
+By default Single Editor Mode is enabled at <strong>the entire DOM</strong> level. You can restrict this feature to only certain HTML containers & their children by using the `singleEditorModeContainerIds()` method. It takes in an array of element ID strings. These IDs represent the parent elements within which Single Editor Mode will be enabled.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
