@@ -114,11 +114,11 @@ If you want to exclude any of those html elements from this behavior, you can ad
 
 By default in Single Editor Mode, we control enabling and disabling of certain html elements on <strong>the entire DOM</strong> based on whether the current user is Editor or Read-only user.
 
-You can restrict this behavior to only certain HTML containers & their children. You can use the `allowedElementIds()` method which takes in an array of element ID strings. These IDs represent the parent elements you want us to control access for.
+You can restrict this behavior to only certain HTML containers & their children. You can use the `singleEditorModeContainerIds()` method which takes in an array of element ID strings. These IDs represent the parent elements you want us to control access for.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
-liveStateElement.allowedElementIds(["rightPanel"]);
+liveStateElement.singleEditorModeContainerIds(["rightPanel"]);
 ```
 
 
@@ -235,11 +235,11 @@ If you want to exclude any of those html elements from this behavior, you can ad
 
 By default in Single Editor Mode, we control enabling and disabling of certain html elements on <strong>the entire DOM</strong> based on whether the current user is Editor or Read-only user.
 
-You can restrict this behavior to only certain HTML containers & their children. You can use the `allowedElementIds()` method which takes in an array of element ID strings. These IDs represent the parent elements you want us to control access for.
+You can restrict this behavior to only certain HTML containers & their children. You can use the `singleEditorModeContainerIds()` method which takes in an array of element ID strings. These IDs represent the parent elements you want us to control access for.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
-liveStateElement.allowedElementIds(["rightPanel"]);
+liveStateElement.singleEditorModeContainerIds(["rightPanel"]);
 ```
     </Tab>
     <Tab title="HTML">
@@ -349,11 +349,11 @@ If you want to exclude any of those html elements from this behavior, you can ad
 
 By default in Single Editor Mode, we control enabling and disabling of certain html elements on <strong>the entire DOM</strong> based on whether the current user is Editor or Read-only user.
 
-You can restrict this behavior to only certain HTML containers & their children. You can use the `allowedElementIds()` method which takes in an array of element ID strings. These IDs represent the parent elements you want us to control access for.
+You can restrict this behavior to only certain HTML containers & their children. You can use the `singleEditorModeContainerIds()` method which takes in an array of element ID strings. These IDs represent the parent elements you want us to control access for.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
-liveStateElement.allowedElementIds(["rightPanel"]);
+liveStateElement.singleEditorModeContainerIds(["rightPanel"]);
 ```
     </Tab>
 
@@ -397,7 +397,7 @@ function MyComponent(){
         liveStateSyncElement.resetUserAccess();
 
         //Restrict Auto Sync Access to Specified Parent Elements
-        liveStateSyncElement.allowedElementIds(['element-1','element-2'])
+        liveStateSyncElement.singleEditorModeContainerIds(['element-1','element-2'])
     },[])
     return (
         <div>
@@ -447,7 +447,7 @@ function MyComponent(){
         liveStateSyncElement.resetUserAccess();
 
         //Restrict Auto Sync Access to Specified Parent Elements
-        liveStateSyncElement.allowedElementIds(['element-1','element-2'])
+        liveStateSyncElement.singleEditorModeContainerIds(['element-1','element-2'])
     },[])
     return (
         <div>
@@ -489,7 +489,7 @@ if(Velt){
     liveStateSyncElement.resetUserAccess();
 
     //Restrict Auto Sync Access to Specified Parent Elements
-    liveStateSyncElement.allowedElementIds(['element-1','element-2'])
+    liveStateSyncElement.singleEditorModeContainerIds(['element-1','element-2'])
 
 }
 </script>
