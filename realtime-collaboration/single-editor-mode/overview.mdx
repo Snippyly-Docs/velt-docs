@@ -36,7 +36,7 @@ It's a subscription that returns:
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
-liveStateSyncElement.isUserEditor$().subscribe((isUserEditor) => {
+liveStateSyncElement.isUserEditor().subscribe((isUserEditor) => {
 		// your logic here...
 });
 ```
@@ -158,7 +158,7 @@ It's a subscription that returns:
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
-liveStateSyncElement.isUserEditor$().subscribe((isUserEditor) => {
+liveStateSyncElement.isUserEditor().subscribe((isUserEditor) => {
 		// your logic here...
 });
 ```
@@ -182,7 +182,7 @@ liveStateSyncElement.resetUserAccess();
 ```
 
 
-# 6. Auto Sync Text Elements
+## 6. Auto Sync State Text Elements
 
 Auto Syncs the content of the following Text HTML elements, such that when `editor` types, the element's content is synced across all active users currently live on the document.
 - input
@@ -201,17 +201,31 @@ To enable syncing, set the `data-velt-sync-state` attribute to `true` on the HTM
 
 
 
-## 7. Auto Sync Access on HTML Elements
+## 7. Default Auto Sync Access on HTML Elements
 
-By default, we control enabling and disabling of these html elements on the page when Single Editor Mode is ON:
+By default in Single Editor Mode, we control enabling and disabling of these html elements on the entire DOM:
 - input
 - textarea
 - select
 - button
 - contentEditable divs
 
-If there are any other elements, that you want us to control, then you can add data-velt-sync-access="true" to that element.
-Right now we are setting their attribute as "disabled" and are also preventing `click`, `mouseup` and `mousedown` events.
+For users in Read-Only mode, the default elements listed above will be disabled, meaning `click`, `mouseup` and `mousedown` events will be prevented,
+
+## 8. Excluding default HTML elements from Auto Sync Access
+
+If you want to exclude any of the default html element types from having Sync Access applied, you can add `data-velt-sync-access-disabled="true"` to that element.
+
+```jsx
+<div data-velt-sync-access-disabled="true"></div>
+```
+
+<Warning>You must add the `data-velt-sync-access-disabled` attribute to native HTML elements (e.g. div, span). It will not work directly on React elements.</Warning>
+
+
+## 9. Including additional HTML element types with Auto Sync Access
+
+If there are any other elements beyond the default elements we listed above, such as div or span elements, then you can add `data-velt-sync-access="true"` to that element.
 
 ```jsx
 <div data-velt-sync-access="true"></div>
@@ -219,6 +233,16 @@ Right now we are setting their attribute as "disabled" and are also preventing `
 
 <Warning>You must add the `data-velt-sync-access` attribute to native HTML elements (e.g. div, span). It will not work directly on React elements.</Warning>
 
+## 10. Restrict Auto Sync Access to Specific Parent Containers
+
+By default, the entire DOM has Auto Sync Access applied to it. This means the default html element types listed in the previous steps above will be disabled when Single Editor Mode is enabled and the user is in Read-Only mode.
+
+If you want to designate specific parent elements to have Auto Sync Access applied to their child elements, you can use the `allowedElementIds()` method which takes in an array of element ids representing the parent elements you want Sync Access applied to.
+
+```jsx
+const liveStateSyncElement = client.getLiveStateSyncElement();
+liveStateElement.allowedElementIds(["leftPanel","rightPanel"])
+```
     </Tab>
     <Tab title="HTML">
 ## Single Editor Mode
@@ -254,7 +278,7 @@ It's a subscription that returns:
 
 ```jsx
 const liveStateSyncElement = Velt.getLiveStateSyncElement();
-liveStateSyncElement.isUserEditor$().subscribe((isUserEditor) => {
+liveStateSyncElement.isUserEditor().subscribe((isUserEditor) => {
 		// your logic here...
 });
 ```
@@ -277,7 +301,8 @@ const liveStateSyncElement = Velt.getLiveStateSyncElement();
 liveStateSyncElement.resetUserAccess();
 ```
 
-# 6. Auto Sync Text Elements
+
+## 6. Auto Sync State Text Elements
 
 Auto Syncs the content of the following Text HTML elements, such that when `editor` types, the element's content is synced across all active users currently live on the document.
 - input
@@ -288,25 +313,53 @@ To enable syncing, set the `data-velt-sync-state` attribute to `true` on the HTM
 
 <Info>You can set an `id` to the HTML element to make the syncing more robust</Info>
 
-
 ```jsx
 <textarea id="uniqueId" data-velt-sync-state="true"></textarea>
 ```
 
-## 7. Auto Sync Access on HTML Elements
+<Warning>You must add the `data-velt-sync-state` attribute to a native HTML element (e.g. input, textarea). It will not work directly on React components.</Warning>
 
-By default, we control enabling and disabling of these html elements on the page:
+
+
+## 7. Default Auto Sync Access on HTML Elements
+
+By default in Single Editor Mode, we control enabling and disabling of these html elements on the entire DOM:
 - input
 - textarea
 - select
 - button
 - contentEditable divs
 
-If there are any other elements, that you want us to control, then you can add data-velt-sync-access="true" to that element.
-Right now we are setting their attribute as "disabled" and are also preventing `click`, `mouseup` and `mousedown` events.
+For users in Read-Only mode, the default elements listed above will be disabled, meaning `click`, `mouseup` and `mousedown` events will be prevented,
+
+## 8. Excluding default HTML elements from Auto Sync Access
+
+If you want to exclude any of the default html element types from having Sync Access applied, you can add `data-velt-sync-access-disabled="true"` to that element.
+
+```jsx
+<div data-velt-sync-access-disabled="true"></div>
+```
+
+
+
+## 9. Including additional HTML element types with Auto Sync Access
+
+If there are any other elements beyond the default elements we listed above, such as div or span elements, then you can add `data-velt-sync-access="true"` to that element.
 
 ```jsx
 <div data-velt-sync-access="true"></div>
+```
+
+
+## 10. Restrict Auto Sync Access to Specific Parent Containers
+
+By default, the entire DOM has Auto Sync Access applied to it. This means the default html element types listed in the previous steps above will be disabled when Single Editor Mode is enabled and the user is in Read-Only mode.
+
+If you want to designate specific parent elements to have Auto Sync Access applied to their child elements, you can use the `allowedElementIds()` method which takes in an array of element ids representing the parent elements you want Sync Access applied to.
+
+```jsx
+const liveStateSyncElement = client.getLiveStateSyncElement();
+liveStateElement.allowedElementIds(["leftPanel","rightPanel"])
 ```
     </Tab>
 
@@ -340,7 +393,7 @@ function MyComponent(){
 
 
         //Check if Current User is Editor
-        liveStateSyncElement.isUserEditor$().subscribe((isUserEditor) => {
+        liveStateSyncElement.isUserEditor().subscribe((isUserEditor) => {
                 // your logic here...
         });
 
@@ -349,13 +402,18 @@ function MyComponent(){
 
         //Reset Editor Access
         liveStateSyncElement.resetUserAccess();
+
+        //Restrict Auto Sync Access to Specified Parent Elements
+        liveStateSyncElement.allowedElementIds(['element-1','element-2'])
     },[])
     return (
         <div>
-            {/* Enable Auto State Sync across on Elements */}
+            {/* Enable Auto State Sync across on Text Elements */}
             <textarea id="uniqueId" data-velt-sync-state="true"></textarea>
             {/* Enable Auto Access Sync on Custom Element*/}
             <div data-velt-sync-access="true"></div>
+            {/* Disable Auto Access Sync on Default Elements*/}
+            <div data-velt-sync-access-disabled="true"></div>
         </div>
     )
 }
@@ -385,7 +443,7 @@ function MyComponent(){
 
 
         //Check if Current User is Editor
-        liveStateSyncElement.isUserEditor$().subscribe((isUserEditor) => {
+        liveStateSyncElement.isUserEditor().subscribe((isUserEditor) => {
                 // your logic here...
         });
 
@@ -394,13 +452,18 @@ function MyComponent(){
 
         //Reset Editor Access
         liveStateSyncElement.resetUserAccess();
+
+        //Restrict Auto Sync Access to Specified Parent Elements
+        liveStateSyncElement.allowedElementIds(['element-1','element-2'])
     },[])
     return (
         <div>
-            {/* Enable Auto State Sync across on Elements */}
+            {/* Enable Auto State Sync across on Text Elements */}
             <textarea id="uniqueId" data-velt-sync-state="true"></textarea>
             {/* Enable Auto Access Sync on Custom Element*/}
             <div data-velt-sync-access="true"></div>
+            {/* Disable Auto Access Sync on Default Elements*/}
+            <div data-velt-sync-access-disabled="true"></div>
         </div>
     )
 }
@@ -410,35 +473,42 @@ function MyComponent(){
 <script>
 if(Velt){
 
-//Get LiveStateSyncElement from Velt Client
-const liveStateSyncElement = Velt.getLiveStateSyncElement();
+    //Get LiveStateSyncElement from Velt Client
+    const liveStateSyncElement = Velt.getLiveStateSyncElement();
 
 
-//Enable Single Editor Mode
-liveStateSyncElement.enableSingleEditorMode();
+    //Enable Single Editor Mode
+    liveStateSyncElement.enableSingleEditorMode();
 
-//Disable Single Editor Mode
-liveStateSyncElement.disableSingleEditorMode();
+    //Disable Single Editor Mode
+    liveStateSyncElement.disableSingleEditorMode();
 
 
-//Check if Current User is Editor
-liveStateSyncElement.isUserEditor$().subscribe((isUserEditor) => {
-		// your logic here...
-});
+    //Check if Current User is Editor
+    liveStateSyncElement.isUserEditor().subscribe((isUserEditor) => {
+            // your logic here...
+    });
 
-//Set Current User as Editor
-liveStateSyncElement.setUserAsEditor();
+    //Set Current User as Editor
+    liveStateSyncElement.setUserAsEditor();
 
-//Reset Editor Access
-liveStateSyncElement.resetUserAccess();
+    //Reset Editor Access
+    liveStateSyncElement.resetUserAccess();
+
+    //Restrict Auto Sync Access to Specified Parent Elements
+    liveStateSyncElement.allowedElementIds(['element-1','element-2'])
+
 }
 </script>
 <body>
-    <!-- sync element with other clients -->
+    <!-- Enable Auto State Sync across on Text Elements -->
     <textarea data-velt-sync-state="true"></textarea>
 
-    <!-- disable clicks on element -->
+    <!-- Enable Auto Access Sync on Custom Element -->
     <div data-velt-sync-access="true"></div>
+
+    <!-- Disable Auto Access Sync on Default Elements -->
+    <div data-velt-sync-access-disabled="true"></div>
 </body>
 ```
 
