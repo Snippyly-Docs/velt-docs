@@ -228,7 +228,9 @@ export default function YourAuthComponent() {
       };
 
       //5) Pass the user object to the SDK
-      client.identify(user);
+      client.identify(user).then(() => {
+        //handle promise
+      })
 
     }
   }, [client, yourAuthenticatedUser]);
@@ -279,7 +281,9 @@ export default function YourAuthComponent() {
       };
 
       //5) Pass the user object to the SDK
-      client.identify(user);
+      client.identify(user).then(() => {
+        //handle promise
+      })
 
     }
   }, [client, yourAuthenticatedUser]);
@@ -310,7 +314,10 @@ function identifyVelt() {
       
     }
     // 1) Identify the Logged In User
-    Velt.identify(yourLoggedInUser)
+    Velt.identify(yourLoggedInUser).then(() => {
+        //handle promise
+    })
+
   }
 }
 </script>
