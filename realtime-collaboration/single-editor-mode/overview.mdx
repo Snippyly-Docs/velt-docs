@@ -67,7 +67,15 @@ Auto Syncs the content of the following Text HTML elements, such that when `edit
 - textarea
 - ContentEditable Divs
 
-To enable syncing, set the `data-velt-sync-state` attribute to `true` on the Text HTML element you want to sync:
+To enable syncing, follow these two steps:
+1. Enable Auto State Sync feature:
+
+```jsx
+const liveStateSyncElement = client.getLiveStateSyncElement();
+liveStateSyncElement.enableAutoSyncState();
+```
+
+2. Set the `data-velt-sync-state` attribute to `true` on the Text HTML element you want to sync:
 
 <Info>You can set an `id` to the HTML element to make the syncing more robust.</Info>
 
@@ -186,7 +194,15 @@ Auto Syncs the content of the following Text HTML elements, such that when `edit
 - textarea
 - ContentEditable Divs
 
-To enable syncing, set the `data-velt-sync-state` attribute to `true` on the Text HTML element you want to sync:
+To enable syncing, follow these two steps:
+1. Enable Auto State Sync feature:
+
+```jsx
+const liveStateSyncElement = client.getLiveStateSyncElement();
+liveStateSyncElement.enableAutoSyncState();
+```
+
+2. Set the `data-velt-sync-state` attribute to `true` on the Text HTML element you want to sync:
 
 <Info>You can set an `id` to the HTML element to make the syncing more robust.</Info>
 
@@ -303,15 +319,21 @@ Auto Syncs the content of the following Text HTML elements, such that when `edit
 - textarea
 - ContentEditable Divs
 
-To enable syncing, set the `data-velt-sync-state` attribute to `true` on the HTML element you want to sync:
+To enable syncing, follow these two steps:
+1. Enable Auto State Sync feature:
 
-<Info>You can set an `id` to the HTML element to make the syncing more robust</Info>
+```jsx
+const liveStateSyncElement = client.getLiveStateSyncElement();
+liveStateSyncElement.enableAutoSyncState();
+```
+
+2. Set the `data-velt-sync-state` attribute to `true` on the Text HTML element you want to sync:
+
+<Info>You can set an `id` to the HTML element to make the syncing more robust.</Info>
 
 ```jsx
 <textarea id="uniqueId" data-velt-sync-state="true"></textarea>
 ```
-
-<Warning>You must add the `data-velt-sync-state` attribute to a native HTML element (e.g. input, textarea). It will not work directly on React components.</Warning>
 
 
 
