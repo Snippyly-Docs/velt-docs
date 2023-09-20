@@ -59,7 +59,10 @@
       "pages": [
         {
           "group": "Add User Contacts",
-          "pages": ["users/add-user-contacts/setup"]
+          "pages": [
+            "users/add-user-contacts/setup",
+            "users/add-user-contacts/customize-behavior"
+          ]
         }
       ]
     },
