@@ -81,14 +81,14 @@ To enable syncing, set the `data-velt-sync-state` attribute to `true` on the HTM
 
 ## 7. Default Auto Sync Access on HTML Elements
 
-By default in Single Editor Mode, we control enabling and disabling of these html elements on the entire DOM.
+By default in Single Editor Mode, we control enabling and disabling of these html elements on the entire DOM:
 - input
 - textarea
 - select
 - button
 - contentEditable divs
 
-For users in Read-Only mode, the elements listed above will be disabled, meaning `click`, `mouseup` and `mousedown` events will be prevented,
+For users in Read-Only mode, the default elements listed above will be disabled, meaning `click`, `mouseup` and `mousedown` events will be prevented,
 
 ## 8. Excluding default HTML elements from Auto Sync Access
 
@@ -103,7 +103,7 @@ If you want to exclude any of the default html element types from having Sync Ac
 
 ## 9. Including additional HTML element types with Auto Sync Access
 
-If there are any other elements beyond the elements we listed above, such as div or span elements, then you can add `data-velt-sync-access="true"` to that element.
+If there are any other elements beyond the default elements we listed above, such as div or span elements, then you can add `data-velt-sync-access="true"` to that element.
 
 ```jsx
 <div data-velt-sync-access="true"></div>
