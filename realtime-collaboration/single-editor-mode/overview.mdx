@@ -1,4 +1,4 @@
-<Warning>These Features are Currently in Beta and may be subject to change.</Warning>
+<Warning>These Features are currently in Beta and may be subject to change.</Warning>
 
 
 <Tabs>
@@ -60,16 +60,16 @@ liveStateSyncElement.resetUserAccess();
 ```
 
 
-## 6. Auto Sync State Text Elements
+## 6. Auto Sync State on Text Elements
 
 Auto Syncs the content of the following Text HTML elements, such that when `editor` types, the element's content is synced across all active users currently live on the document.
 - input
 - textarea
 - ContentEditable Divs
 
-To enable syncing, set the `data-velt-sync-state` attribute to `true` on the HTML element you want to sync:
+To enable syncing, set the `data-velt-sync-state` attribute to `true` on the Text HTML element you want to sync:
 
-<Info>You can set an `id` to the HTML element to make the syncing more robust</Info>
+<Info>You can set an `id` to the HTML element to make the syncing more robust.</Info>
 
 ```jsx
 <textarea id="uniqueId" data-velt-sync-state="true"></textarea>
@@ -78,8 +78,7 @@ To enable syncing, set the `data-velt-sync-state` attribute to `true` on the HTM
 <Warning>You must add the `data-velt-sync-state` attribute to a native HTML element (e.g. input, textarea). It will not work directly on React components.</Warning>
 
 
-
-## 7. Default Auto Sync Access on HTML Elements
+## 7. Auto Syncing Access on HTML Elements
 
 By default in Single Editor Mode, we control enabling and disabling of these html elements on the entire DOM:
 - input
@@ -88,38 +87,38 @@ By default in Single Editor Mode, we control enabling and disabling of these htm
 - button
 - contentEditable divs
 
-For users in Read-Only mode, the default elements listed above will be disabled, meaning `click`, `mouseup` and `mousedown` events will be prevented,
+For users in Read-Only mode, the default elements listed above will be disabled, meaning `click`, `mouseup` and `mousedown` events will be prevented.
 
-## 8. Excluding default HTML elements from Auto Sync Access
-
-If you want to exclude any of the default html element types from having Sync Access applied, you can add `data-velt-sync-access-disabled="true"` to that element.
-
-```jsx
-<div data-velt-sync-access-disabled="true"></div>
-```
-
-<Warning>You must add the `data-velt-sync-access-disabled` attribute to native HTML elements (e.g. div, span). It will not work directly on React elements.</Warning>
-
-
-## 9. Including additional HTML element types with Auto Sync Access
-
-If there are any other elements beyond the default elements we listed above, such as div or span elements, then you can add `data-velt-sync-access="true"` to that element.
+If there are any other elements beyond the default elements we listed above, such as `div`, `span` elements etc, then you can add `data-velt-sync-access="true"` to that element.
 
 ```jsx
 <div data-velt-sync-access="true"></div>
 ```
 
-<Warning>You must add the `data-velt-sync-access` attribute to native HTML elements (e.g. div, span). It will not work directly on React elements.</Warning>
+<Warning>You must add the `data-velt-sync-access` attribute to native HTML elements (e.g. div, span). It will not work directly on React components.</Warning>
 
-## 10. Restrict Auto Sync Access to Specific Parent Containers
 
-By default, the entire DOM has Auto Sync Access applied to it. This means the default html element types listed in the previous steps above will be disabled when Single Editor Mode is enabled and the user is in Read-Only mode.
+## 8. Excluding default HTML elements from Auto Syncing Access
 
-If you want to designate specific parent elements to have Auto Sync Access applied to their child elements, you can use the `allowedElementIds()` method which takes in an array of element ids representing the parent elements you want Sync Access applied to.
+In Single Editor Mode, we control enabling and disabling of certain html elements on the entire DOM.
+If you want to exclude any of those html elements from this behavior, you can add `data-velt-sync-access-disabled="true"` to that element.
+
+```jsx
+<button data-velt-sync-access-disabled="true"></button>
+```
+
+<Warning>You must add the `data-velt-sync-access-disabled` attribute to native HTML elements (e.g. button, input). It will not work directly on React components.</Warning>
+
+
+## 9. Restrict Auto Sync Access to Specific Parent Containers
+
+By default in Single Editor Mode, we control enabling and disabling of certain html elements on <strong>the entire DOM</strong> based on whether the current user is Editor or Read-only user.
+
+You can restrict this behavior to only certain HTML containers & their child elements. You can use the `allowedElementIds()` method which takes in an array of element ID strings. These IDs represent the parent elements you want us to control access for.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
-liveStateElement.allowedElementIds(["leftPanel","rightPanel"])
+liveStateElement.allowedElementIds(["rightPanel"]);
 ```
 
 
@@ -182,16 +181,16 @@ liveStateSyncElement.resetUserAccess();
 ```
 
 
-## 6. Auto Sync State Text Elements
+## 6. Auto Sync State on Text Elements
 
 Auto Syncs the content of the following Text HTML elements, such that when `editor` types, the element's content is synced across all active users currently live on the document.
 - input
 - textarea
 - ContentEditable Divs
 
-To enable syncing, set the `data-velt-sync-state` attribute to `true` on the HTML element you want to sync:
+To enable syncing, set the `data-velt-sync-state` attribute to `true` on the Text HTML element you want to sync:
 
-<Info>You can set an `id` to the HTML element to make the syncing more robust</Info>
+<Info>You can set an `id` to the HTML element to make the syncing more robust.</Info>
 
 ```jsx
 <textarea id="uniqueId" data-velt-sync-state="true"></textarea>
@@ -200,8 +199,7 @@ To enable syncing, set the `data-velt-sync-state` attribute to `true` on the HTM
 <Warning>You must add the `data-velt-sync-state` attribute to a native HTML element (e.g. input, textarea). It will not work directly on React components.</Warning>
 
 
-
-## 7. Default Auto Sync Access on HTML Elements
+## 7. Auto Syncing Access on HTML Elements
 
 By default in Single Editor Mode, we control enabling and disabling of these html elements on the entire DOM:
 - input
@@ -210,38 +208,38 @@ By default in Single Editor Mode, we control enabling and disabling of these htm
 - button
 - contentEditable divs
 
-For users in Read-Only mode, the default elements listed above will be disabled, meaning `click`, `mouseup` and `mousedown` events will be prevented,
+For users in Read-Only mode, the default elements listed above will be disabled, meaning `click`, `mouseup` and `mousedown` events will be prevented.
 
-## 8. Excluding default HTML elements from Auto Sync Access
-
-If you want to exclude any of the default html element types from having Sync Access applied, you can add `data-velt-sync-access-disabled="true"` to that element.
-
-```jsx
-<div data-velt-sync-access-disabled="true"></div>
-```
-
-<Warning>You must add the `data-velt-sync-access-disabled` attribute to native HTML elements (e.g. div, span). It will not work directly on React elements.</Warning>
-
-
-## 9. Including additional HTML element types with Auto Sync Access
-
-If there are any other elements beyond the default elements we listed above, such as div or span elements, then you can add `data-velt-sync-access="true"` to that element.
+If there are any other elements beyond the default elements we listed above, such as `div`, `span` elements etc, then you can add `data-velt-sync-access="true"` to that element.
 
 ```jsx
 <div data-velt-sync-access="true"></div>
 ```
 
-<Warning>You must add the `data-velt-sync-access` attribute to native HTML elements (e.g. div, span). It will not work directly on React elements.</Warning>
+<Warning>You must add the `data-velt-sync-access` attribute to native HTML elements (e.g. div, span). It will not work directly on React components.</Warning>
 
-## 10. Restrict Auto Sync Access to Specific Parent Containers
 
-By default, the entire DOM has Auto Sync Access applied to it. This means the default html element types listed in the previous steps above will be disabled when Single Editor Mode is enabled and the user is in Read-Only mode.
+## 8. Excluding default HTML elements from Auto Syncing Access
 
-If you want to designate specific parent elements to have Auto Sync Access applied to their child elements, you can use the `allowedElementIds()` method which takes in an array of element ids representing the parent elements you want Sync Access applied to.
+In Single Editor Mode, we control enabling and disabling of certain html elements on the entire DOM.
+If you want to exclude any of those html elements from this behavior, you can add `data-velt-sync-access-disabled="true"` to that element.
+
+```jsx
+<button data-velt-sync-access-disabled="true"></button>
+```
+
+<Warning>You must add the `data-velt-sync-access-disabled` attribute to native HTML elements (e.g. button, input). It will not work directly on React components.</Warning>
+
+
+## 9. Restrict Auto Sync Access to Specific Parent Containers
+
+By default in Single Editor Mode, we control enabling and disabling of certain html elements on <strong>the entire DOM</strong> based on whether the current user is Editor or Read-only user.
+
+You can restrict this behavior to only certain HTML containers & their child elements. You can use the `allowedElementIds()` method which takes in an array of element ID strings. These IDs represent the parent elements you want us to control access for.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
-liveStateElement.allowedElementIds(["leftPanel","rightPanel"])
+liveStateElement.allowedElementIds(["rightPanel"]);
 ```
     </Tab>
     <Tab title="HTML">
@@ -302,7 +300,7 @@ liveStateSyncElement.resetUserAccess();
 ```
 
 
-## 6. Auto Sync State Text Elements
+## 6. Auto Sync State on Text Elements
 
 Auto Syncs the content of the following Text HTML elements, such that when `editor` types, the element's content is synced across all active users currently live on the document.
 - input
@@ -321,7 +319,7 @@ To enable syncing, set the `data-velt-sync-state` attribute to `true` on the HTM
 
 
 
-## 7. Default Auto Sync Access on HTML Elements
+## 7. Auto Syncing Access on HTML Elements
 
 By default in Single Editor Mode, we control enabling and disabling of these html elements on the entire DOM:
 - input
@@ -330,41 +328,36 @@ By default in Single Editor Mode, we control enabling and disabling of these htm
 - button
 - contentEditable divs
 
-For users in Read-Only mode, the default elements listed above will be disabled, meaning `click`, `mouseup` and `mousedown` events will be prevented,
+For users in Read-Only mode, the default elements listed above will be disabled, meaning `click`, `mouseup` and `mousedown` events will be prevented.
 
-## 8. Excluding default HTML elements from Auto Sync Access
-
-If you want to exclude any of the default html element types from having Sync Access applied, you can add `data-velt-sync-access-disabled="true"` to that element.
-
-```jsx
-<div data-velt-sync-access-disabled="true"></div>
-```
-
-
-
-## 9. Including additional HTML element types with Auto Sync Access
-
-If there are any other elements beyond the default elements we listed above, such as div or span elements, then you can add `data-velt-sync-access="true"` to that element.
+If there are any other elements beyond the default elements we listed above, such as `div`, `span` elements etc, then you can add `data-velt-sync-access="true"` to that element.
 
 ```jsx
 <div data-velt-sync-access="true"></div>
 ```
 
+## 8. Excluding default HTML elements from Auto Syncing Access
 
-## 10. Restrict Auto Sync Access to Specific Parent Containers
+In Single Editor Mode, we control enabling and disabling of certain html elements on the entire DOM.
+If you want to exclude any of those html elements from this behavior, you can add `data-velt-sync-access-disabled="true"` to that element.
 
-By default, the entire DOM has Auto Sync Access applied to it. This means the default html element types listed in the previous steps above will be disabled when Single Editor Mode is enabled and the user is in Read-Only mode.
+```jsx
+<button data-velt-sync-access-disabled="true"></button>
+```
 
-If you want to designate specific parent elements to have Auto Sync Access applied to their child elements, you can use the `allowedElementIds()` method which takes in an array of element ids representing the parent elements you want Sync Access applied to.
+## 9. Restrict Auto Sync Access to Specific Parent Containers
+
+By default in Single Editor Mode, we control enabling and disabling of certain html elements on <strong>the entire DOM</strong> based on whether the current user is Editor or Read-only user.
+
+You can restrict this behavior to only certain HTML containers & their child elements. You can use the `allowedElementIds()` method which takes in an array of element ID strings. These IDs represent the parent elements you want us to control access for.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
-liveStateElement.allowedElementIds(["leftPanel","rightPanel"])
+liveStateElement.allowedElementIds(["rightPanel"]);
 ```
     </Tab>
 
 </Tabs>
-
 
 
 
