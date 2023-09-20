@@ -81,22 +81,46 @@ To enable syncing, set the `data-velt-sync-state` attribute to `true` on the HTM
 
 ## 7. Auto Sync Access on HTML Elements
 
-By default, we control enabling and disabling of these html elements on the page:
+By default in Single Editor Mode, we control enabling and disabling of these html elements on the page:
 - input
 - textarea
 - select
 - button
 - contentEditable divs
 
-If there are any other elements, that you want us to control, then you can add data-velt-sync-access="true" to that element.
-Right now we are setting their attribute as "disabled" and are also preventing `click`, `mouseup` and `mousedown` events.
+For users in Read-Only mode, the elements listed above will be disabled, meaning `click`, `mouseup` and `mousedown` events will be prevented,
+
+If you want to exclude any of these html element types from having Sync Access applied, you can add `data-velt-sync-access-disabled="true"` to that element.
+
+```jsx
+<div data-velt-sync-access-disabled="true"></div>
+
+```
+
+If there are any other elements beyond the elements we listed above, that you want us to control such as div or span elements, then you can add `data-velt-sync-access="true"` to that element.
 
 ```jsx
 <div data-velt-sync-access="true"></div>
 ```
 
-<Warning>You must add the `data-velt-sync-access` attribute to native HTML elements (e.g. div, span). It will not work directly on React elements.</Warning>
+<Warning>You must add the `data-velt-sync-access` and `data-velt-sync-access-disabled` attributes to native HTML elements (e.g. div, span). It will not work directly on React elements.</Warning>
 
+## 8. Specify Sync Access Parent Containers
+
+By default, the entire DOM has Sync Access applied to it. This means the html element types listed in the previous step above will be disabled when Single Editor Mode is enabled and the user is in read-only mode.
+
+If you want to designate a parent element to have Sync Access applied to all its child elements, you can use the `allowedElementIds()` method which takes in an array of element ids representing the parent elements you want Sync Access applied to.
+
+```jsx
+    const liveStateSyncElement = client.getLiveStateSyncElement();
+    liveStateElement.allowedElementIds(["leftPanel","rightPanel"])
+```
+
+
+'data-velt-sync-access-disabled'
+
+
+## 9. Disable Sync Access
 
 
     </Tab>
