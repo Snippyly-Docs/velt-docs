@@ -89,7 +89,7 @@ By default in Single Editor Mode, we control enabling and disabling of these htm
 
 For users in Read-Only mode, the default elements listed above will be disabled, meaning `click`, `mouseup` and `mousedown` events will be prevented.
 
-If there are any other elements beyond the default elements we listed above, such as `div`, `span` elements etc, then you can add `data-velt-sync-access="true"` to that element.
+If there are any other elements that you want us to control beyond the default elements we listed above, such as `div`, `span` elements etc, then you can add `data-velt-sync-access="true"` to that element.
 
 ```jsx
 <div data-velt-sync-access="true"></div>
@@ -114,7 +114,7 @@ If you want to exclude any of those html elements from this behavior, you can ad
 
 By default in Single Editor Mode, we control enabling and disabling of certain html elements on <strong>the entire DOM</strong> based on whether the current user is Editor or Read-only user.
 
-You can restrict this behavior to only certain HTML containers & their child elements. You can use the `allowedElementIds()` method which takes in an array of element ID strings. These IDs represent the parent elements you want us to control access for.
+You can restrict this behavior to only certain HTML containers & their children. You can use the `allowedElementIds()` method which takes in an array of element ID strings. These IDs represent the parent elements you want us to control access for.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
@@ -210,7 +210,7 @@ By default in Single Editor Mode, we control enabling and disabling of these htm
 
 For users in Read-Only mode, the default elements listed above will be disabled, meaning `click`, `mouseup` and `mousedown` events will be prevented.
 
-If there are any other elements beyond the default elements we listed above, such as `div`, `span` elements etc, then you can add `data-velt-sync-access="true"` to that element.
+If there are any other elements that you want us to control beyond the default elements we listed above, such as `div`, `span` elements etc, then you can add `data-velt-sync-access="true"` to that element.
 
 ```jsx
 <div data-velt-sync-access="true"></div>
@@ -235,7 +235,7 @@ If you want to exclude any of those html elements from this behavior, you can ad
 
 By default in Single Editor Mode, we control enabling and disabling of certain html elements on <strong>the entire DOM</strong> based on whether the current user is Editor or Read-only user.
 
-You can restrict this behavior to only certain HTML containers & their child elements. You can use the `allowedElementIds()` method which takes in an array of element ID strings. These IDs represent the parent elements you want us to control access for.
+You can restrict this behavior to only certain HTML containers & their children. You can use the `allowedElementIds()` method which takes in an array of element ID strings. These IDs represent the parent elements you want us to control access for.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
@@ -330,7 +330,7 @@ By default in Single Editor Mode, we control enabling and disabling of these htm
 
 For users in Read-Only mode, the default elements listed above will be disabled, meaning `click`, `mouseup` and `mousedown` events will be prevented.
 
-If there are any other elements beyond the default elements we listed above, such as `div`, `span` elements etc, then you can add `data-velt-sync-access="true"` to that element.
+If there are any other elements that you want us to control beyond the default elements we listed above, such as `div`, `span` elements etc, then you can add `data-velt-sync-access="true"` to that element.
 
 ```jsx
 <div data-velt-sync-access="true"></div>
@@ -349,7 +349,7 @@ If you want to exclude any of those html elements from this behavior, you can ad
 
 By default in Single Editor Mode, we control enabling and disabling of certain html elements on <strong>the entire DOM</strong> based on whether the current user is Editor or Read-only user.
 
-You can restrict this behavior to only certain HTML containers & their child elements. You can use the `allowedElementIds()` method which takes in an array of element ID strings. These IDs represent the parent elements you want us to control access for.
+You can restrict this behavior to only certain HTML containers & their children. You can use the `allowedElementIds()` method which takes in an array of element ID strings. These IDs represent the parent elements you want us to control access for.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
