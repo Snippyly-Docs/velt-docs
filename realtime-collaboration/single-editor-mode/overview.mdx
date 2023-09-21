@@ -62,12 +62,20 @@ liveStateSyncElement.resetUserAccess();
 
 ## 6. Auto Sync State on Text Elements
 
-Auto Syncs the content of the following Text HTML elements, such that when `editor` types, the element's content is synced across all active users currently live on the document.
+Auto syncs the content of the following Text HTML elements, such that when `editor` types, the element's content is synced across all active users currently live on the document.
 - input
 - textarea
 - ContentEditable Divs
 
-To enable syncing, set the `data-velt-sync-state` attribute to `true` on the Text HTML element you want to sync:
+To enable syncing, follow these two steps:
+1. Enable Auto Sync State feature:
+
+```jsx
+const liveStateSyncElement = client.getLiveStateSyncElement();
+liveStateSyncElement.enableAutoSyncState();
+```
+
+2. Set the `data-velt-sync-state` attribute to `true` on the Text HTML element you want to sync:
 
 <Info>You can set an `id` to the HTML element to make the syncing more robust.</Info>
 
@@ -186,7 +194,15 @@ Auto Syncs the content of the following Text HTML elements, such that when `edit
 - textarea
 - ContentEditable Divs
 
-To enable syncing, set the `data-velt-sync-state` attribute to `true` on the Text HTML element you want to sync:
+To enable syncing, follow these two steps:
+1. Enable Auto State Sync feature:
+
+```jsx
+const liveStateSyncElement = client.getLiveStateSyncElement();
+liveStateSyncElement.enableAutoSyncState();
+```
+
+2. Set the `data-velt-sync-state` attribute to `true` on the Text HTML element you want to sync:
 
 <Info>You can set an `id` to the HTML element to make the syncing more robust.</Info>
 
@@ -303,15 +319,21 @@ Auto Syncs the content of the following Text HTML elements, such that when `edit
 - textarea
 - ContentEditable Divs
 
-To enable syncing, set the `data-velt-sync-state` attribute to `true` on the HTML element you want to sync:
+To enable syncing, follow these two steps:
+1. Enable Auto State Sync feature:
 
-<Info>You can set an `id` to the HTML element to make the syncing more robust</Info>
+```jsx
+const liveStateSyncElement = Velt.getLiveStateSyncElement();
+liveStateSyncElement.enableAutoSyncState();
+```
+
+2. Set the `data-velt-sync-state` attribute to `true` on the Text HTML element you want to sync:
+
+<Info>You can set an `id` to the HTML element to make the syncing more robust.</Info>
 
 ```jsx
 <textarea id="uniqueId" data-velt-sync-state="true"></textarea>
 ```
-
-<Warning>You must add the `data-velt-sync-state` attribute to a native HTML element (e.g. input, textarea). It will not work directly on React components.</Warning>
 
 
 
@@ -347,7 +369,7 @@ If you want to exclude any of those html elements from this behavior, you can ad
 By default Single Editor Mode is enabled at <strong>the entire DOM</strong> level. You can restrict this feature to only certain HTML containers & their children by using the `singleEditorModeContainerIds()` method. It takes in an array of element ID strings. These IDs represent the parent elements within which Single Editor Mode will be enabled.
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
+const liveStateSyncElement = Velt.getLiveStateSyncElement();
 liveStateElement.singleEditorModeContainerIds(["rightPanel"]);
 ```
     </Tab>
@@ -391,17 +413,20 @@ function MyComponent(){
         //Reset Editor Access
         liveStateSyncElement.resetUserAccess();
 
+	//Enable Auto Sync State
+        liveStateSyncElement.enableAutoSyncState();
+
         //Restrict Auto Sync Access to Specified Parent Elements
         liveStateSyncElement.singleEditorModeContainerIds(['element-1','element-2'])
     },[])
     return (
         <div>
-            {/* Enable Auto State Sync across on Text Elements */}
+            {/* Enable Auto Sync State across on Text Elements */}
             <textarea id="uniqueId" data-velt-sync-state="true"></textarea>
-            {/* Enable Auto Access Sync on Custom Element*/}
+            {/* Enable Auto Sync Access on Custom Elements */}
             <div data-velt-sync-access="true"></div>
-            {/* Disable Auto Access Sync on Default Elements*/}
-            <div data-velt-sync-access-disabled="true"></div>
+            {/* Disable Auto Sync Access on Default Elements */}
+            <button data-velt-sync-access-disabled="true"></button>
         </div>
     )
 }
@@ -441,17 +466,20 @@ function MyComponent(){
         //Reset Editor Access
         liveStateSyncElement.resetUserAccess();
 
+	//Enable Auto Sync State
+        liveStateSyncElement.enableAutoSyncState();
+
         //Restrict Auto Sync Access to Specified Parent Elements
         liveStateSyncElement.singleEditorModeContainerIds(['element-1','element-2'])
     },[])
     return (
         <div>
-            {/* Enable Auto State Sync across on Text Elements */}
+            {/* Enable Auto Sync State across on Text Elements */}
             <textarea id="uniqueId" data-velt-sync-state="true"></textarea>
-            {/* Enable Auto Access Sync on Custom Element*/}
+            {/* Enable Auto Sync Access on Custom Elements */}
             <div data-velt-sync-access="true"></div>
-            {/* Disable Auto Access Sync on Default Elements*/}
-            <div data-velt-sync-access-disabled="true"></div>
+            {/* Disable Auto Sync Access on Default Elements */}
+            <button data-velt-sync-access-disabled="true"></button>
         </div>
     )
 }
@@ -483,20 +511,23 @@ if(Velt){
     //Reset Editor Access
     liveStateSyncElement.resetUserAccess();
 
+    //Enable Auto Sync State
+    liveStateSyncElement.enableAutoSyncState();
+
     //Restrict Auto Sync Access to Specified Parent Elements
-    liveStateSyncElement.singleEditorModeContainerIds(['element-1','element-2'])
+    liveStateSyncElement.singleEditorModeContainerIds(['element-1','element-2']);
 
 }
 </script>
 <body>
-    <!-- Enable Auto State Sync across on Text Elements -->
+    <!-- Enable Auto Sync State across on Text Elements -->
     <textarea data-velt-sync-state="true"></textarea>
 
-    <!-- Enable Auto Access Sync on Custom Element -->
+    <!-- Enable Auto Sync Access on Custom Element -->
     <div data-velt-sync-access="true"></div>
 
-    <!-- Disable Auto Access Sync on Default Elements -->
-    <div data-velt-sync-access-disabled="true"></div>
+    <!-- Disable Auto Sync Access on Default Elements -->
+    <button data-velt-sync-access-disabled="true"></button>
 </body>
 ```
 
