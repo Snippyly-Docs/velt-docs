@@ -31,7 +31,7 @@ Comments will be disabled for all other elements. Note, this does not impact Pop
 
 ## 3) Disable comments on certain elements
 
-Add data-velt-comment-disabled attribute to elements where you want to disable commenting.
+Add `data-velt-comment-disabled` attribute to elements where you want to disable commenting.
 
 ```html
 <div data-velt-comment-disabled></div>
@@ -43,7 +43,7 @@ Whether file attachments are enabled.
 
 `Default: true`
 
-When this is on, users can attach images files to their comments. Users can download or delete an attachment. Users can attach multiple files at once.
+When this is on, users can attach image files to their comments. Users can download or delete an attachment. Users can attach multiple files at once.
 
 Currently we support .png, .jpg, .gif (static & animated), .svg file types upto 2MB per file.
 
@@ -158,8 +158,7 @@ Whether to enable setting priority on comments.
 
 `Default: false`
 
-When this is on, users can assign a priority to each comment & filter comment by priority in the sidebar. You can customize the list of priority options as shown below on this page.
-
+When this is on, users can assign a priority to each comment & filter comment by priority in the sidebar. You can customize the list of priority options as shown later on this page in the Custom Priorities section.
 
 ```js
 <VeltComments priority={true} />
@@ -243,7 +242,7 @@ With custom categories, you can replace the default categories with your own val
 
 Currently, categories are used in the AI autocategorize feature where we autmatically categorize your comments if you enabled the autoCategorize feature. These categories are also used in the comments sidebar to filter comments by category.
 
-color: Set the category pill background color.
+The `color` property is used to set the category pill background color.
 
 
 ```js
@@ -266,57 +265,55 @@ With custom priorities, you can replace the default priorities with your own val
 
 This will work if you have enabled the priority feature.
 
-color: Sets the icon color.
+The `color` property is used to set the category pill background color.
 
-lightColor: Sets the background color of the filter.
+The `lightColor` property sets the background color of the filter.
 
 
 ```js
 
 <VeltComments customPriority={[
-          {
-            "id": "low",
-            "name": "Low",
-            "color": "red",
-            "lightColor": "pink",
-          },
+  {
+    "id": "low",
+    "name": "Low",
+    "color": "red",
+    "lightColor": "pink",
+  },
 ]}/>
 ```
 
 ## 23) Set Custom Statuses
 
-Set custom statuses in the customStatus prop.
+Set custom statuses in the `customStatus` prop.
 
 Default statuses: Open, In Progress, Resolved.
 
 With custom statuses, you can replace the default statuses with your own values. These statuses are also used in the comment sidebar to filter comments by status.
 
-1. Set Status type:
-   default: This will be the default status assigned to each comment.
-   ongoing: This is treated as an intermediary status, you can add as many statuses with type ongoing as you want.
-   terminal: This represents a status that is completed. Comments with this status type are no longer shown in the DOM.
+Setting the Status type using the `type` property:
+  - default: This will be the default status assigned to each comment.
+  - ongoing: This is treated as an intermediary status, you can add as many statuses with type ongoing as you want.
+  - terminal: This represents a status that is completed. Comments with this status type are no longer shown in the DOM.
 
-2. Set Status Icon:
-   You can pass in a serialized SVG. We automatically parse and colorize SVGs. If insptead you pass in an icon URL, you will have to colorize each icon yourself to match the status color.
+Setting the Status Icon using the `svg` property:
+  - You can pass in a serialized SVG. We automatically parse and colorize SVGs. If insptead you pass in an icon URL, you will have to colorize each icon yourself to match the status color.
 
 ```js
-
-
 <VeltComments customStatus={[
-          {
-            "id": "open",
-            "name": "Open",
-            "color": "white",
-            "type": "default",
-            "iconUrl": "", // Pass in an icon URL
-            "svg": "<svg></svg>" // Pass in a serialized SVG
-          },
+  {
+    "id": "open",
+    "name": "Open",
+    "color": "white",
+    "type": "default",
+    "iconUrl": "", // Pass in an icon URL
+    "svg": "<svg></svg>" // Pass in a serialized SVG
+  },
 ]}/>
 ```
 
 ## 24) Ability to accept or reject comments
 
-To accept comments, set suggestion-mode to `true`.
+To accept comments, set the `suggestionMode` attribute to `true`.
 
 
 ```js
@@ -327,11 +324,11 @@ To accept comments, set suggestion-mode to `true`.
 
 ## 25) To retrieve comments in the frontend
 
-To retrieve comments in the frontend, call getCommentElement() on the Velt client and then subscribe() to getAllCommentAnnotations() and pass in a callback function.
+To retrieve comments in the frontend, call getCommentElement() on the Velt client and then `subscribe()` to `getAllCommentAnnotations()` and pass in a callback function.
 
-```html
-if (Velt) {
-  const commentElement = Velt.getCommentElement();
+```js
+if (client) {
+  const commentElement = client.getCommentElement();
   commentElement.getAllCommentAnnotations().subscribe((comments) => {
     // Do something with the comments
   });
@@ -344,9 +341,11 @@ For this you should use our Webhook service. Let's say you want to be notified w
 
 You can enable and configure webhook in your Velt Console as shown below. After you enable this, you need to provide an endpoint url. We will make a post request to that endpoint to send the comment data.
 
+To read more about how to configure webhooks, check out the [webhooks documentation](/webhooks/overview).
+
 ![](https://files.readme.io/0ac5e4a-image.png)
 
-## 27) Enable Dark Mode
+## 27) Enable Dark Mode (coming soon)
 
 To enable dark mode, set the `darkMode` attribute to `true`:
 
@@ -363,13 +362,13 @@ There are 2 ways to show/hide comments on DOM:
 
 Configuring attributes on the React Component:
 ```js
-<!-- `true` to show comments, `false` to hide comments -->
+{/* `true` to show comments, `false` to hide comments */}
 <VeltComments commentsOnDom={false} />
 ```
 
 Using API methods:
 ```js
-const commentElement = Velt.getCommentElement();
+const commentElement = client.getCommentElement();
 // to show comments on DOM
 commentElement.showCommentsOnDom();
 // to hide comments on DOM
@@ -381,13 +380,13 @@ commentElement.hideCommentsOnDom();
 By default, this feature is enabled, so users can add pin comments, area comments or text comments. But if they want to disable this feature to add comments, then they can disable/enable it through the ways mentioned below:
 
 ```js
-<!-- `true` to enable adding comments, `false` to disable adding comments -->
+{/* `true` to enable adding comments, `false` to disable adding comments */}
 <VeltComments commentTool={false} />
 ```
 
 Using API methods:
 ```js
-const commentElement = Velt.getCommentElement();
+const commentElement = client.getCommentElement();
 // to enable adding comments
 commentElement.enableCommentTool();
 // to disable adding comments
@@ -444,7 +443,7 @@ Comments will be disabled for all other elements. Note, this does not impact Pop
 
 ## 3) Disable comments on certain elements
 
-Add data-velt-comment-disabled attribute to elements where you want to disable commenting.
+Add `data-velt-comment-disabled` attribute to elements where you want to disable commenting.
 
 ```html
 <div data-velt-comment-disabled></div>
@@ -456,7 +455,7 @@ Whether file attachments are enabled.
 
 `Default: true`
 
-When this is on, users can attach images files to their comments. Users can download or delete an attachment. Users can attach multiple files at once.
+When this is on, users can attach image files to their comments. Users can download or delete an attachment. Users can attach multiple files at once.
 
 Currently we support .png, .jpg, .gif (static & animated), .svg file types upto 2MB per file.
 
@@ -571,8 +570,7 @@ Whether to enable setting priority on comments.
 
 `Default: false`
 
-When this is on, users can assign a priority to each comment & filter comment by priority in the sidebar. You can customize the list of priority options as shown below on this page.
-
+When this is on, users can assign a priority to each comment & filter comment by priority in the sidebar. You can customize the list of priority options as shown later on this page in the Custom Priorities section.
 
 ```js
 <VeltComments priority={true} />
@@ -641,6 +639,7 @@ Whether to enable Sign In button on comment dialog when user is anonymous or sig
 
 `Default: false`
 
+
 ```js
 <VeltComments onCommentUpdate={() => yourMethod()} />
 ````
@@ -655,7 +654,7 @@ With custom categories, you can replace the default categories with your own val
 
 Currently, categories are used in the AI autocategorize feature where we autmatically categorize your comments if you enabled the autoCategorize feature. These categories are also used in the comments sidebar to filter comments by category.
 
-color: Set the category pill background color.
+The `color` property is used to set the category pill background color.
 
 
 ```js
@@ -678,57 +677,55 @@ With custom priorities, you can replace the default priorities with your own val
 
 This will work if you have enabled the priority feature.
 
-color: Sets the icon color.
+The `color` property is used to set the category pill background color.
 
-lightColor: Sets the background color of the filter.
+The `lightColor` property sets the background color of the filter.
 
 
 ```js
 
 <VeltComments customPriority={[
-          {
-            "id": "low",
-            "name": "Low",
-            "color": "red",
-            "lightColor": "pink",
-          },
+  {
+    "id": "low",
+    "name": "Low",
+    "color": "red",
+    "lightColor": "pink",
+  },
 ]}/>
 ```
 
 ## 23) Set Custom Statuses
 
-Set custom statuses in the customStatus prop.
+Set custom statuses in the `customStatus` prop.
 
 Default statuses: Open, In Progress, Resolved.
 
 With custom statuses, you can replace the default statuses with your own values. These statuses are also used in the comment sidebar to filter comments by status.
 
-1. Set Status type:
-   default: This will be the default status assigned to each comment.
-   ongoing: This is treated as an intermediary status, you can add as many statuses with type ongoing as you want.
-   terminal: This represents a status that is completed. Comments with this status type are no longer shown in the DOM.
+Setting the Status type using the `type` property:
+  - default: This will be the default status assigned to each comment.
+  - ongoing: This is treated as an intermediary status, you can add as many statuses with type ongoing as you want.
+  - terminal: This represents a status that is completed. Comments with this status type are no longer shown in the DOM.
 
-2. Set Status Icon:
-   You can pass in a serialized SVG. We automatically parse and colorize SVGs. If insptead you pass in an icon URL, you will have to colorize each icon yourself to match the status color.
+Setting the Status Icon using the `svg` property:
+  - You can pass in a serialized SVG. We automatically parse and colorize SVGs. If insptead you pass in an icon URL, you will have to colorize each icon yourself to match the status color.
 
 ```js
-
-
 <VeltComments customStatus={[
-          {
-            "id": "open",
-            "name": "Open",
-            "color": "white",
-            "type": "default",
-            "iconUrl": "", // Pass in an icon URL
-            "svg": "<svg></svg>" // Pass in a serialized SVG
-          },
+  {
+    "id": "open",
+    "name": "Open",
+    "color": "white",
+    "type": "default",
+    "iconUrl": "", // Pass in an icon URL
+    "svg": "<svg></svg>" // Pass in a serialized SVG
+  },
 ]}/>
 ```
 
 ## 24) Ability to accept or reject comments
 
-To accept comments, set suggestion-mode to `true`.
+To accept comments, set the `suggestionMode` attribute to `true`.
 
 
 ```js
@@ -739,11 +736,11 @@ To accept comments, set suggestion-mode to `true`.
 
 ## 25) To retrieve comments in the frontend
 
-To retrieve comments in the frontend, call getCommentElement() on the Velt client and then subscribe() to getAllCommentAnnotations() and pass in a callback function.
+To retrieve comments in the frontend, call getCommentElement() on the Velt client and then `subscribe()` to `getAllCommentAnnotations()` and pass in a callback function.
 
-```html
-if (Velt) {
-  const commentElement = Velt.getCommentElement();
+```js
+if (client) {
+  const commentElement = client.getCommentElement();
   commentElement.getAllCommentAnnotations().subscribe((comments) => {
     // Do something with the comments
   });
@@ -756,9 +753,11 @@ For this you should use our Webhook service. Let's say you want to be notified w
 
 You can enable and configure webhook in your Velt Console as shown below. After you enable this, you need to provide an endpoint url. We will make a post request to that endpoint to send the comment data.
 
+To read more about how to configure webhooks, check out the [webhooks documentation](/webhooks/overview).
+
 ![](https://files.readme.io/0ac5e4a-image.png)
 
-## 27) Enable Dark Mode
+## 27) Enable Dark Mode (coming soon)
 
 To enable dark mode, set the `darkMode` attribute to `true`:
 
@@ -781,7 +780,7 @@ Configuring attributes on the React Component:
 
 Using API methods:
 ```js
-const commentElement = Velt.getCommentElement();
+const commentElement = client.getCommentElement();
 // to show comments on DOM
 commentElement.showCommentsOnDom();
 // to hide comments on DOM
@@ -799,7 +798,7 @@ By default, this feature is enabled, so users can add pin comments, area comment
 
 Using API methods:
 ```js
-const commentElement = Velt.getCommentElement();
+const commentElement = client.getCommentElement();
 // to enable adding comments
 commentElement.enableCommentTool();
 // to disable adding comments
@@ -1321,7 +1320,7 @@ export default function App() {
         onCommentAdd={() => yourMethod()} {/* 19) */}
         onCommentUpdate={() => yourMethod()} {/* 20) */}
         suggestionMode={true} {/* 24) */}
-        darkMode={true}  {/* 27) */}
+        darkMode={true}  {/* 27) (coming soon)*/}
         commentsOnDom={false} {/* 28) */}
         commentTool={false} {/* 29) */}
         {/* 21) */}
@@ -1403,7 +1402,7 @@ export default function App() {
         onCommentAdd={() => yourMethod()} {/* 19) */}
         onCommentUpdate={() => yourMethod()} {/* 20) */}
         suggestionMode={true} {/* 24) */}
-        darkMode={true}  {/* 27) */}
+        darkMode={true}  {/* 27) (coming soon) */}
         commentsOnDom={false} {/* 28) */}
         commentTool={false} {/* 29) */}
         {/* 21) */}
@@ -1475,7 +1474,7 @@ export default function App() {
         on-comment-add='() => yourMethod()' <!-- 19) -->
         on-comment-update='() => yourMethod()' <!-- 20) -->
         suggestion-mode="true" <!-- 24) -->
-        dark-mode='true'  <!-- 27) -->
+        dark-mode='true'  <!-- 27) (coming soon) -->
         comments-on-dom="false" <!-- 28) -->
         comment-tool="false" <!-- 29) -->
         <!-- 21) -->
