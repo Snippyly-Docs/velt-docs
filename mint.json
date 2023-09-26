@@ -413,8 +413,14 @@
     "linkedin": "https://www.linkedin.com/company/veltjs",
     "disord": "https://discord.gg/GupvcYH27h"
   },
+  "metadata": {
+    "og:image": "https://firebasestorage.googleapis.com/v0/b/snippyly.appspot.com/o/external%2Fvelt_docs.png?alt=media&token=9e4502da-66ef-4005-9124-dbc76f04b1fd",
+    "twitter:image": "https://firebasestorage.googleapis.com/v0/b/snippyly.appspot.com/o/external%2Fvelt_docs.png?alt=media&token=9e4502da-66ef-4005-9124-dbc76f04b1fd"
+  },
   "feedback": {
     "thumbsRating": true
   }
 }
+
+
 
