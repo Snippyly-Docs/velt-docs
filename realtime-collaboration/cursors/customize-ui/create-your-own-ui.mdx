@@ -108,7 +108,7 @@ Subscribe to constant cursor changes.
 We will send you a new list of cursors everytime there is a change so you can build out your own cursor UI and logic.
 
 ```js
-cursorElement.getLiveCursorsOnDocument().subscribe((cursors) => {
+cursorElement.getOnlineUsersOnCurrentDocument().subscribe((cursors) => {
     // Do something with cursors list
 });
 ```
@@ -190,7 +190,7 @@ export default function App() {
 
         const cursorElement = window.Velt.getCursorElement();
 
-        cursorElement.getLiveCursorsOnDocument().subscribe((cursors) => {
+        cursorElement.getOnlineUsersOnCurrentDocument().subscribe((cursors) => {
           // Do something with cursors list
         });
 

@@ -40,7 +40,7 @@ For eg: For an app with canvas and tool picker: You can whitelist the canvas ID 
 <VeltCursor allowedElementIds={JSON.stringify(['element-1', 'element-2'])} />
 ```
 
-<Warning>You must pass a string info allowedElementIds currently instead of an object</Warning>
+<Warning>You must pass a string into allowedElementIds instead of an object</Warning>
 
 
 ## 4) Subscribe to changes in User Cursors
@@ -49,14 +49,6 @@ Whenever the cursor for any user changes, we emit this event with the updated li
 
 ```js
 <VeltCursor onCursorUserChange={(cursorUsers) => yourMethod(cursorUsers)} />
-```
-
-## 5) Enable Dark Mode (coming soon)
-
-To enable dark mode, set the darkMode attribute to `true`.
-
-```js
-<VeltCursor darkMode={true} />
 ```
 
   </Tab>
@@ -96,7 +88,7 @@ For eg: For an app with canvas and tool picker: You can whitelist the canvas ID 
 <VeltCursor allowedElementIds={JSON.stringify(['element-1', 'element-2'])} />
 ```
 
-<Warning>You must pass a string info allowedElementIds currently instead of an object</Warning>
+<Warning>You must pass a string into allowedElementIds instead of an object</Warning>
 
 
 ## 4) Subscribe to changes in User Cursors
@@ -107,13 +99,7 @@ Whenever the cursor for any user changes, we emit this event with the updated li
 <VeltCursor onCursorUserChange={(cursorUsers) => yourMethod(cursorUsers)} />
 ```
 
-## 5) Enable Dark Mode (coming soon)
 
-To enable dark mode, set the darkMode attribute to `true`.
-
-```js
-<VeltCursor darkMode={true} />
-```
   </Tab>
     <Tab title="HTML">
 ## 1) Enable avatar mode
@@ -144,14 +130,23 @@ If you provide a list of element IDs, we will only show cursors that hover over 
 <velt-cursor allowed-element-ids='["element-1", "element-2"]'></velt-cursor>
 ```
 
-## 4)
+## 4) Subscribe to changes in User Cursors
+
 
 Whenever the cursor for any user changes, we emit this event with the updated list of users currently online on this document with their cursor positions.
 
-```html
-<velt-cursor on-cursor-user-change="yourMethod()"></velt-cursor>
-```
 
+```js
+<script>
+if(Velt){
+  const cursorElement = Velt.getCursorElement();
+
+  cursorlement.addEventListener('onCursorUserChange', (event) => {
+    console.log("onCursorUserChange", event.detail);
+  });
+}
+</script>
+```
 ## 5) Enable Dark Mode (coming soon)
 
 To enable Dark Mode, set the dark-mode attribute to `true`
@@ -177,7 +172,6 @@ export default function App() {
         inactivityTime={300000} {/* 2) Set inactivity time */}
         allowedElementIds={JSON.stringify(['element-1', 'element-2'])} {/* 3) Set allowed element IDs */}
         onCursorUserChange={(cursorUsers) => yourMethod(cursorUsers)} {/* 4) Subscribe to changes in User Cursors */}
-        darkMode={true} {/* 5) Enable Dark Mode (coming soon)*/}
       />
     </VeltProvider>
   );
@@ -196,7 +190,6 @@ export default function App() {
         inactivityTime={300000} {/* 2) Set inactivity time */}
         allowedElementIds={JSON.stringify(['element-1', 'element-2'])} {/* 3) Set allowed element IDs */}
         onCursorUserChange={(cursorUsers) => yourMethod(cursorUsers)} {/* 4) Subscribe to changes in User Cursors */}
-        darkMode={true} {/* 5) Enable Dark Mode (coming soon)*/}
       />
     </VeltProvider>
   );
@@ -208,14 +201,20 @@ export default function App() {
 <html lang="en">
   <head>
     <title>Cursors documentation</title>
+    <script>
+      if(Velt){
+        const cursorElement = Velt.getCursorElement();
+        cursorlement.addEventListener('onCursorUserChange', (event) => {
+          console.log("onCursorUserChange", event.detail);
+        });
+      }
+    </script>
   </head>
   <body>
     <velt-cursor
       avatar-mode="true" <!-- 1) Enable avatar mode -->
       inactivity-time="300000" <!-- 2) Set inactivity time -->
       allowed-element-ids='["element-1", "element-2"]' <!-- 3) Set allowed element IDs -->
-      on-cursor-user-change="yourMethod()" <!-- 4) Subscribe to changes in User Cursors -->
-      dark-mode='true' <!-- 5) Enable Dark Mode (coming soon)-->
     ></velt-cursor>
   </body>
 </html>

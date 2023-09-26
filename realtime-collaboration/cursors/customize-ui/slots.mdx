@@ -16,20 +16,9 @@ You can provide any HTML inside the cursor element.
 Just provide the correct slot attribute and the cursor icon that we use will be replaced.
 
 ```js
-import { VeltCursor } from '@veltdev/react';
-
-export default function App() {
-
-  return (
-    <>
-      <VeltCursor>
-        <img src="..." slot="cursor" />
-      </VeltCursor>
-
-      {/* ... */}
-    </>
-  );
-}
+<VeltCursor>
+  <img src="..." slot="cursor" />
+</VeltCursor>
 ```
   </Tab>
   <Tab title="Next.js">
@@ -40,20 +29,9 @@ You can provide any HTML inside the cursor element.
 Just provide the correct slot attribute and the cursor icon that we use will be replaced.
 
 ```js
-import { VeltCursor } from '@veltdev/react';
-
-export default function App() {
-
-  return (
-    <>
-      <VeltCursor>
-        <img src="..." slot="cursor" />
-      </VeltCursor>
-
-      {/* ... */}
-    </>
-  );
-}
+<VeltCursor>
+  <img src="..." slot="cursor" />
+</VeltCursor>
 ```
 
 
@@ -69,6 +47,51 @@ You can provide any HTML inside the cursor element.
 Just provide the correct slot attribute and the cursor icon that we use will be replaced.
 
 ```html
+<velt-cursor>
+  <img src="..." slot="cursor" />
+</velt-cursor>
+```
+
+  </Tab>
+</Tabs>
+
+
+<RequestExample>
+```js React
+import { VeltCursor } from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <>
+      <VeltCursor>
+        <img src="..." slot="cursor" />
+      </VeltCursor>
+
+      {/* ... */}
+    </>
+  );
+}
+```
+
+```js Next
+import { VeltCursor } from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <>
+      <VeltCursor>
+        <img src="..." slot="cursor" />
+      </VeltCursor>
+
+      {/* ... */}
+    </>
+  );
+}
+```
+
+```html HTML
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -83,6 +106,4 @@ Just provide the correct slot attribute and the cursor icon that we use will be 
   </body>
 </html>
 ```
-
-  </Tab>
-</Tabs>
+</RequestExample>
