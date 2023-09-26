@@ -414,8 +414,6 @@
     "disord": "https://discord.gg/GupvcYH27h"
   },
   "feedback": {
-    "suggestEdit": true,
-    "raiseIssue": true,
     "thumbsRating": true
   }
 }
