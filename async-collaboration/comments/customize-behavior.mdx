@@ -857,7 +857,7 @@ Comments will be disabled for all other elements. Note, this does not impact Pop
 
 ## 3) Disable comments on certain elements
 
-Add data-velt-comment-disabled attribute to elements where you want to disable commenting.
+Add `data-velt-comment-disabled` attribute to elements where you want to disable commenting.
 
 ```html
 <div data-velt-comment-disabled></div>
@@ -869,7 +869,7 @@ Whether file attachments are enabled.
 
 `Default: true`
 
-When this is on, users can attach images files to their comments. Users can download or delete an attachment. Users can attach multiple files at once.
+When this is on, users can attach image files to their comments. Users can download or delete an attachment. Users can attach multiple files at once.
 
 Currently we support .png, .jpg, .gif (static & animated), .svg file types upto 2MB per file.
 
@@ -995,7 +995,7 @@ Whether to enable setting priority on comments.
 
 `Default: false`
 
-When this is on, users can assign a priority to each comment & filter comment by priority in the sidebar. You can customize the list of priority options as shown below on this page.
+When this is on, users can assign a priority to each comment & filter comment by priority in the sidebar. You can customize the list of priority options as shown later on this page iin the Customize Priorities section.
 
 
 ```html
@@ -1109,13 +1109,13 @@ lightColor: Sets the background color of the filter.
 
 
 ```html
-<velt-comments custom-priority="[
-          {
-            "id": "low",
-            "name": "Low",
-            "color": "red",
-            "lightColor": "pink",
-          }]"
+<velt-comments custom-priority='[
+  {
+    "id": "low",
+    "name": "Low",
+    "color": "red",
+    "lightColor": "pink",
+  }]'
 ></velt-comments>
 ```
 
@@ -1123,21 +1123,19 @@ lightColor: Sets the background color of the filter.
 
 ## 23) Set Custom Statuses
 
-Set custom statuses in the customStatus prop.
+Set custom statuses in the `customStatus` prop.
 
 Default statuses: Open, In Progress, Resolved.
 
 With custom statuses, you can replace the default statuses with your own values. These statuses are also used in the comment sidebar to filter comments by status.
 
-1. Set Status type:
-   default: This will be the default status assigned to each comment.
-   ongoing: This is treated as an intermediary status, you can add as many statuses with type ongoing as you want.
-   terminal: This represents a status that is completed. Comments with this status type are no longer shown in the DOM.
+Setting the Status type using the `type` property:
+  - default: This will be the default status assigned to each comment.
+  - ongoing: This is treated as an intermediary status, you can add as many statuses with type ongoing as you want.
+  - terminal: This represents a status that is completed. Comments with this status type are no longer shown in the DOM.
 
-2. Set Status Icon:
-   You can pass in a serialized SVG. We automatically parse and colorize SVGs. If insptead you pass in an icon URL, you will have to colorize each icon yourself to match the status color.
-
-
+Setting the Status Icon using the `svg` property:
+  - You can pass in a serialized SVG. We automatically parse and colorize SVGs. If insptead you pass in an icon URL, you will have to colorize each icon yourself to match the status color.
 
 ```html
 <velt-comments custom-priority="[
@@ -1182,10 +1180,12 @@ For this you should use our Webhook service. Let's say you want to be notified w
 
 You can enable and configure webhook in your Velt Console as shown below. After you enable this, you need to provide an endpoint url. We will make a post request to that endpoint to send the comment data.
 
+To read more about how to configure webhooks, check out the [webhooks documentation](/webhooks/overview).
+
 ![](https://files.readme.io/0ac5e4a-image.png)
 
 
-## 27) Enable Dark Mode
+## 27) Enable Dark Mode (coming soon)
 
 To enable dark mode, set the `dark-mode` attribute to `true`:
 
@@ -1225,7 +1225,7 @@ commentElement.hideCommentsOnDom();
 By default, this feature is enabled, so users can add pin comments, area comments or text comments. But if they want to disable this feature to add comments, then they can disable/enable it through the ways mentioned below:
 
 ```js
-{/* `true` to enable adding comments, `false` to disable adding comments */}
+<!-- `true` to enable adding comments, `false` to disable adding comments -->
 <velt-comments comment-tool="false"></velt-comments>
 ```
 
