@@ -412,6 +412,11 @@
     "twitter": "https://twitter.com/veltjs",
     "linkedin": "https://www.linkedin.com/company/veltjs",
     "disord": "https://discord.gg/GupvcYH27h"
+  },
+  "feedback": {
+    "suggestEdit": true,
+    "raiseIssue": true,
+    "thumbsRating": true
   }
 }
 
