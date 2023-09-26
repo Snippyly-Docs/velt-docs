@@ -37,8 +37,10 @@ If you provide a list of element IDs, we will only show cursors that hover over 
 For eg: For an app with canvas and tool picker: You can whitelist the canvas ID so that the cursors are only visible on the canvas and not the tool picker.
 
 ```js
-<VeltCursor allowedElementIds={['element-1', 'element-2']} />
+<VeltCursor allowedElementIds={JSON.stringify(['element-1', 'element-2'])} />
 ```
+
+<Warning>You must pass a string info allowedElementIds currently instead of an object</Warning>
 
 
 ## 4) Subscribe to changes in User Cursors
@@ -49,7 +51,7 @@ Whenever the cursor for any user changes, we emit this event with the updated li
 <VeltCursor onCursorUserChange={(cursorUsers) => yourMethod(cursorUsers)} />
 ```
 
-## 5) Enable Dark Mode
+## 5) Enable Dark Mode (coming soon)
 
 To enable dark mode, set the darkMode attribute to `true`.
 
@@ -88,9 +90,13 @@ If you provide a list of element IDs, we will only show cursors that hover over 
 
 For eg: For an app with canvas and tool picker: You can whitelist the canvas ID so that the cursors are only visible on the canvas and not the tool picker.
 
+
+
 ```js
-<VeltCursor allowedElementIds={['element-1', 'element-2']} />
+<VeltCursor allowedElementIds={JSON.stringify(['element-1', 'element-2'])} />
 ```
+
+<Warning>You must pass a string info allowedElementIds currently instead of an object</Warning>
 
 
 ## 4) Subscribe to changes in User Cursors
@@ -101,7 +107,7 @@ Whenever the cursor for any user changes, we emit this event with the updated li
 <VeltCursor onCursorUserChange={(cursorUsers) => yourMethod(cursorUsers)} />
 ```
 
-## 5) Enable Dark Mode
+## 5) Enable Dark Mode (coming soon)
 
 To enable dark mode, set the darkMode attribute to `true`.
 
@@ -146,7 +152,7 @@ Whenever the cursor for any user changes, we emit this event with the updated li
 <velt-cursor on-cursor-user-change="yourMethod()"></velt-cursor>
 ```
 
-## 5) Enable Dark Mode
+## 5) Enable Dark Mode (coming soon)
 
 To enable Dark Mode, set the dark-mode attribute to `true`
 
@@ -169,9 +175,9 @@ export default function App() {
       <VeltCursor
         avatarMode={true} {/* 1) Enable avatar mode */}
         inactivityTime={300000} {/* 2) Set inactivity time */}
-        allowedElementIds={['element-1', 'element-2']} {/* 3) Set allowed element IDs */}
+        allowedElementIds={JSON.stringify(['element-1', 'element-2'])} {/* 3) Set allowed element IDs */}
         onCursorUserChange={(cursorUsers) => yourMethod(cursorUsers)} {/* 4) Subscribe to changes in User Cursors */}
-        darkMode={true} {/* 5) Enable Dark Mode */}
+        darkMode={true} {/* 5) Enable Dark Mode (coming soon)*/}
       />
     </VeltProvider>
   );
@@ -188,9 +194,9 @@ export default function App() {
       <VeltCursor
         avatarMode={true} {/* 1) Enable avatar mode */}
         inactivityTime={300000} {/* 2) Set inactivity time */}
-        allowedElementIds={['element-1', 'element-2']} {/* 3) Set allowed element IDs */}
+        allowedElementIds={JSON.stringify(['element-1', 'element-2'])} {/* 3) Set allowed element IDs */}
         onCursorUserChange={(cursorUsers) => yourMethod(cursorUsers)} {/* 4) Subscribe to changes in User Cursors */}
-        darkMode={true} {/* 5) Enable Dark Mode */}
+        darkMode={true} {/* 5) Enable Dark Mode (coming soon)*/}
       />
     </VeltProvider>
   );
@@ -209,7 +215,7 @@ export default function App() {
       inactivity-time="300000" <!-- 2) Set inactivity time -->
       allowed-element-ids='["element-1", "element-2"]' <!-- 3) Set allowed element IDs -->
       on-cursor-user-change="yourMethod()" <!-- 4) Subscribe to changes in User Cursors -->
-      dark-mode='true' <!-- 5) Enable Dark Mode -->
+      dark-mode='true' <!-- 5) Enable Dark Mode (coming soon)-->
     ></velt-cursor>
   </body>
 </html>
