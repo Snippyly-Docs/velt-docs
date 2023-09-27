@@ -6,53 +6,31 @@ title: "Advanced Setup Options"
 <script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
 
 <Tabs>
-  <Tab title="React">
+  <Tab title="React / Next.js">
 
 ## Advanced Set Up options
 
 This section includes a list of optional advanced set up options.
 
-## Location
+## 1) Location
 
-> If a **Document** is like a building, what are the rooms?
+Users logged into the same **Document** ID can see each other's presence, cursors, comments etc. 
 
-A **Location** is like a _Room_. Users in the same room can talk to each other, see each other, and interact in real-time! **Locations** are _completely optional_, you can opt to use them or not. If you opt to use **Locations**, users in the same **Document** must also be in the same **Location** now to interact. A **Location** can be described using any plain JSON object.
+However, if you want to add another layer of categorization to organize users together, you can use **Location**.
 
-> What if I don't set the **Document**?
+For an example, for a Collaborative Slide Presentation application, the **Document** would represent the entire slide presentation while the **Location** would represent an individual slide.
 
-Your user won't be able to interact with _anyone_!
+As another example, for a Collaborative Video Editor, the **Document** would represent the entire video player while the **Location** would represent the timestamp of the video.
 
-> What if I don't want to use **Locations**?
+<Tip> If a **Document** is like a house, a **Location** is like a room within the building. </Tip>
 
-If the complexity of your application does not require the use of **Locations**, you can use **Documents** by themselves to group your users together.
+**Locations** are _completely optional_, you can opt to use them or not. If the complexity of your application does not require the use of **Locations**, you can use **Documents** by themselves to group your users together.
 
+If you opt to use **Locations**, users in the same **Document** must also be in the same **Location** now to interact. 
 
+A **Location** can be described using any plain JSON object and can be set using the `setLocation()` method.
 
-In this example, we set the **Document ID** as `some_document_id`, and the **Location** to an object with an ID property and value of `1`. _If you specify a **Location**_, users in the same **Document** will no longer be able to interact if they are not also in the same **Location**.
-
-```js 
-import { useVeltClient } from '@veltdev/react';
-
-function SomeComponent() {
-
-  const { client } = useVeltClient();
-
-  useEffect(() => {
-    if (client) {
-      client.setDocumentID('some_document_id');
-      client.setLocation({id: 1});
-    }
-  }, [client]);
-
-  return ();
-}
-```
-
-The `setLocation()` method is used to set your app's location and takes in any kind of custom key-value paired object.
-
-This object could represent your app's pages, sections, versions, frames (in video editor), data points on maps/charts etc. 
-
-This means that this object can represent one or all of these dimensions at once: pages, sections, versions, frames (in video editor), data points on maps/charts etc. 
+This object could represent your app's pages, sections, versions, video frames, or data points on maps/charts etc. 
 
 ```jsx
 client.setLocation({
@@ -64,11 +42,9 @@ client.setLocation({
 })
 ```
 
-### Multiple Locations
+If you specify a **Location**, users in the same **Document** will no longer be able to interact if they are not also in the same **Location**.
 
-One neat feature of **Locations** is that the user can actually be in multiple locations at once!
-
-To do this, use the `addLocation()` method for as many locations as you want. The `addLocation()` method takes in key-value paired objects just like `setLocation()`.
+To use a **Location** together with a **Document**, simply call the **setDocumentID()** method before the **setLocation()** method.
 
 ```js 
 import { useVeltClient } from '@veltdev/react';
@@ -80,186 +56,47 @@ function SomeComponent() {
   useEffect(() => {
     if (client) {
       client.setDocumentID('some_document_id');
-      client.addLocation({id: 1});
-      client.addLocation({id: 2});
+      client.setLocation({
+        'page': 'mainPage',
+        'version': 'v1.2',
+        'videoFrame': '120'
+        // You can keep adding more field to make the location very specific.
+        // The field names can be anything.
+      })
     }
   }, [client]);
 
   return ();
 }
 ```
-
-In this example, the user will have access to both location 1 and location 2!
-
-### Location data attributes
-
-If you don't want to use JavaScript to set the client location, you can alternatively use data attributes. Add the `data-velt-location` attribute to the top level of an element where you want to set the custom location object.
-
-
-```html
-<div class="container">
-  // If you want to add comments to location {"key1": "value1"}, if it is added inside below div
-  // then add location attribute to below div as mentioned here
-  <div class="sub-container" data-velt-location='{"key1": "value1"}'>
-    <div class="card">
-      ... any content ...
-    </div>
-  </div>
-</div>
-```
-
-<Info>
-  **Note:** Make sure that you are converting object to string before setting it to location attribute.
-</Info>
-
-  </Tab>
-  <Tab title="Next.js">
-
-## Advanced Set Up options
-
-This section includes a list of optional advanced set up options.
-
-## Location
-
-> If a **Document** is like a building, what are the rooms?
-
-A **Location** is like a _Room_. Users in the same room can talk to each other, see each other, and interact in real-time! **Locations** are _completely optional_, you can opt to use them or not. If you opt to use **Locations**, users in the same **Document** must also be in the same **Location** now to interact. A **Location** can be described using any plain JSON object.
-
-> What if I don't set the **Document**?
-
-Your user won't be able to interact with _anyone_!
-
-> What if I don't want to use **Locations**?
-
-If the complexity of your application does not require the use of **Locations**, you can use **Documents** by themselves to group your users together.
-
-
-
-In this example, we set the **Document ID** as `some_document_id`, and the **Location** to an object with an ID property and value of `1`. _If you specify a **Location**_, users in the same **Document** will no longer be able to interact if they are not also in the same **Location**.
-
-```js 
-import { useVeltClient } from '@veltdev/react';
-
-function SomeComponent() {
-
-  const { client } = useVeltClient();
-
-  useEffect(() => {
-    if (client) {
-      client.setDocumentID('some_document_id');
-      client.setLocation({id: 1});
-    }
-  }, [client]);
-
-  return ();
-}
-```
-
-The `setLocation()` method is used to set your app's location and takes in any kind of custom key-value paired object.
-
-This object could represent your app's pages, sections, versions, frames (in video editor), data points on maps/charts etc. 
-
-This means that this object can represent one or all of these dimensions at once: pages, sections, versions, frames (in video editor), data points on maps/charts etc. 
-
-```jsx
-client.setLocation({
-  'page': 'mainPage',
-  'version': 'v1.2',
-  'videoFrame': '120'
-  // You can keep adding more field to make the location very specific.
-  // The field names can be anything.
-})
-```
-
-### Multiple Locations
-
-One neat feature of **Locations** is that the user can actually be in multiple locations at once!
-
-To do this, use the `addLocation()` method for as many locations as you want. The `addLocation()` method takes in key-value paired objects just like `setLocation()`.
-
-```js 
-import { useVeltClient } from '@veltdev/react';
-
-function SomeComponent() {
-
-  const { client } = useVeltClient();
-
-  useEffect(() => {
-    if (client) {
-      client.setDocumentID('some_document_id');
-      client.addLocation({id: 1});
-      client.addLocation({id: 2});
-    }
-  }, [client]);
-
-  return ();
-}
-```
-
-In this example, the user will have access to both location 1 and location 2!
-
-### Location data attributes
-
-If you don't want to use JavaScript to set the client location, you can alternatively use data attributes. Add the `data-velt-location` attribute to the top level of an element where you want to set the custom location object.
-
-
-```html
-<div class="container">
-  // If you want to add comments to location {"key1": "value1"}, if it is added inside below div
-  // then add location attribute to below div as mentioned here
-  <div class="sub-container" data-velt-location='{"key1": "value1"}'>
-    <div class="card">
-      ... any content ...
-    </div>
-  </div>
-</div>
-```
-
-<Info>
-  **Note:** Make sure that you are converting object to string before setting it to location attribute.
-</Info>
-
-
-
-  </Tab>
+</Tab>
   
-  <Tab title="HTML">
-
+  
+<Tab title="HTML">
 
 ## Advanced Set Up options
 
 This section includes a list of optional advanced set up options.
 
-## Location
+## 1) Location
 
-> If a **Document** is like a building, what are the rooms?
+Users logged into the same **Document** ID can see each other's presence, cursors, comments etc. 
 
-A **Location** is like a _Room_. Users in the same room can talk to each other, see each other, and interact in real-time! **Locations** are _completely optional_, you can opt to use them or not. If you opt to use **Locations**, users in the same **Document** must also be in the same **Location** now to interact. A **Location** can be described using any plain JSON object.
+However, if you want to add another layer of categorization to organize users together, you can use **Location**.
 
-> What if I don't set the **Document**?
+For an example, for a Collaborative Slide Presentation application, the **Document** would represent the entire slide presentation while the **Location** would represent an individual slide.
 
-Your user won't be able to interact with _anyone_!
+As another example, for a Collaborative Video Editor, the **Document** would represent the entire video player while the **Location** would represent the timestamp of the video.
 
-> What if I don't want to use **Locations**?
+<Tip> If a **Document** is like a house, a **Location** is like a room within the building. </Tip>
 
-If the complexity of your application does not require the use of **Locations**, you can use **Documents** by themselves to group your users together.
+**Locations** are _completely optional_, you can opt to use them or not. If the complexity of your application does not require the use of **Locations**, you can use **Documents** by themselves to group your users together.
 
+If you opt to use **Locations**, users in the same **Document** must also be in the same **Location** now to interact. 
 
+A **Location** can be described using any plain JSON object and can be set using the `setLocation()` method.
 
-In this example, we set the **Document ID** as `some_document_id`, and the **Location** to an object with an ID property and value of `1`. _If you specify a **Location**_, users in the same **Document** will no longer be able to interact if they are not also in the same **Location**.
-
-```js 
-if (Velt) {
-    Velt.setDocumentID('some_document_id');
-    Velt.setLocation({id: 1});
-}
-```
-
-The `setLocation()` method is used to set your app's location and takes in any kind of custom key-value paired object.
-
-This object could represent your app's pages, sections, versions, frames (in video editor), data points on maps/charts etc. 
-
-This means that this object can represent one or all of these dimensions at once: pages, sections, versions, frames (in video editor), data points on maps/charts etc. 
+This object could represent your app's pages, sections, versions, video frames, or data points on maps/charts etc. 
 
 ```jsx
 Velt.setLocation({
@@ -271,42 +108,22 @@ Velt.setLocation({
 })
 ```
 
-### Multiple Locations
+If you specify a **Location**, users in the same **Document** will no longer be able to interact if they are not also in the same **Location**.
 
-One neat feature of **Locations** is that the user can actually be in multiple locations at once!
-
-To do this, use the `addLocation()` method for as many locations as you want. The `addLocation()` method takes in key-value paired objects just like `setLocation()`.
+To use a **Location** together with a **Document**, simply call the **setDocumentID()** method before the **setLocation()** method.
 
 ```js 
 if (Velt) {
-    Velt.setDocumentID('some_document_id');
-    Velt.addLocation({id: 1});
-    Velt.addLocation({id: 2});
+  Velt.setDocumentID('some_document_id');
+  Velt.setLocation({
+    'page': 'mainPage',
+    'version': 'v1.2',
+    'videoFrame': '120'
+    // You can keep adding more field to make the location very specific.
+    // The field names can be anything.
+  })
 }
 ```
-
-In this example, the user will have access to both location 1 and location 2!
-
-### Location data attributes
-
-If you don't want to use JavaScript to set the client location, you can alternatively use data attributes. Add the `data-velt-location` attribute to the top level of an element where you want to set the custom location object.
-
-
-```html
-<div class="container">
-  // If you want to add comments to location {"key1": "value1"}, if it is added inside below div
-  // then add location attribute to below div as mentioned here
-  <div class="sub-container" data-velt-location='{"key1": "value1"}'>
-    <div class="card">
-      ... any content ...
-    </div>
-  </div>
-</div>
-```
-
-<Info>
-  **Note:** Make sure that you are converting object to string before setting it to location attribute.
-</Info>
 
   </Tab>
 
@@ -314,7 +131,7 @@ If you don't want to use JavaScript to set the client location, you can alternat
 
 <RequestExample>
 
-```js React
+```js React / Next.js
 import { useVeltClient } from '@veltdev/react';
 import { useEffect, useState } from 'react';
 
@@ -322,10 +139,12 @@ export default function YourDocument() {
 
   const { client } = useVeltClient();
 
-
   useEffect(() => {
     
     if (client) {
+        //Set Document ID
+        client.setDocumentID('some_document_id');
+        
         //Set Location
         client.setLocation({
             'page': 'mainPage',
@@ -346,36 +165,7 @@ export default function YourDocument() {
 }
 ```
 
-```js Next.js
-import { useVeltClient } from '@veltdev/react';
-import { useEffect, useState } from 'react';
 
-export default function YourDocument() {
-
-  const { client } = useVeltClient();
-
-
-  useEffect(() => {
-    if (client) {
-        //Set Location
-        client.setLocation({
-            'page': 'mainPage',
-            'version': 'v1.2',
-            'videoFrame': '120'
-            // You can keep adding more field to make the location very specific.
-            // The field names can be anything.
-        })
-    }
-  }, [client]);
-
-  return (
-    <div>
-      //your document template
-    </div>
-    
-  );
-}
-```
 
 ```html HTML
 <!DOCTYPE html>
@@ -387,14 +177,19 @@ export default function YourDocument() {
       async function loadVelt() {
         await Velt.init("YOUR_VELT_API_KEY");
 
-        //Set Location
-        Velt.setLocation({
+        if (Velt) {
+          //Set Document ID
+          Velt.setDocumentID('some_document_id'); 
+
+          // Set Location
+          Velt.setLocation({
             'page': 'mainPage',
             'version': 'v1.2',
             'videoFrame': '120'
             // You can keep adding more field to make the location very specific.
             // The field names can be anything.
-        })
+          })
+        }
       }
     </script>
   </head>

@@ -1,43 +1,22 @@
 ---
 title: "3. Initialize Document"
-description: "Document is the space where you want your users to collaborate. For a design tool it's the canvas, for a video editor, it's the editor, for a documentation tool, it's the document etc. A document is like a virtual house. Users in the same virtual house can see and interact with each other."
+description: "A Document is the space where you want your users to collaborate. For a design tool it's the canvas. For a video editor, it's the editor. For a documentation tool, it's the document etc. A document is like a virtual house. Users in the same virtual house can see and interact with each other."
 ---
 {/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
 <script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
 <script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
 
 <Tabs>
-  <Tab title="React">
+  <Tab title="React / Next.js">
 
-## 1) Create a component to represent your document
+<Warning>It is critical that you do the following steps within a child component and not within the same root component where you placed the VeltProvider.</Warning> 
+<Info>Realistically, these steps should be done inside your component that represents your document.</Info>
 
-Create a component that will represent your document.
-
-This component will go as a child component within the VeltProvider component we created in the first step.
-
-<Warning>It is critical that you do the following steps within a child component and not within the same root component where you placed the VeltProvider.</Warning>
-
-```js
-
-export default function YourDocument() {
-  return (
-    <div>
-      //your document template
-    </div>
-  )
-}
-```
-
-
-## 2) Get the Velt client
+## 1) Get the Velt client
 
 Import the `useVeltClient` React hook.
 
 You can use this hook within your component to fetch the Velt client.
-
-<Warning>
-Be sure to use the client in a child component of `<VeltProvider>` and not within the same component as `<VeltProvider>`.
-</Warning>
 
 
 ```js
@@ -63,72 +42,13 @@ useEffect(() => {
 
 ## 4) Set a document ID
 
-Pass a unique ID representing your document. Whenever your document initializes your canvas is ready for collaboration, you should call this method. The SDK will not work without this call.
-Users logged into the same document ID can see each other's presence, cursors, comments etc. You can use separate document IDs to represent separate documents.
+When your document has initialized and is ready for collaboration, call the `setDocumentId()` method and pass a unique ID representing your document.
 
+Users logged into the same document ID can see each other's presence, cursors, comments etc. 
 
-```js
-client.setDocumentId('unique-document-id');
-```
+The SDK will not work without this call.
 
-  </Tab>
-  <Tab title="Next.js">
-## 1) Create a component to represent your document
-
-Create a component that will represent your document.
-
-This component will go as a child component within the VeltProvider component we created in the first step.
-
-<Warning>It is critical that you do the following steps within a child component and not within the same root component where you placed the VeltProvider.</Warning>
-
-```js
-
-export default function YourDocument() {
-  return (
-    <div>
-      //your document template
-    </div>
-  )
-}
-```
-
-
-## 2) Get the Velt client
-
-Import the `useVeltClient` React hook.
-
-You can use this hook within your component to fetch the Velt client.
-
-<Warning>
-Be sure to use the client in a child component of `<VeltProvider>` and not within the same component as `<VeltProvider>`.
-</Warning>
-
-
-```js
-import { useVeltClient } from '@veltdev/react';
-```
-
-```js
-const { client } = useVeltClient();
-```
-
-## 3) Create a useEffect hook
-
-Create an effect with the client as a dependency.
-Make sure to check if the client is `null` or `undefined` before you use it.
-
-```js
-useEffect(() => {
-  if (client) {
-    //set document ID
-  }
-}, [client]);
-```
-
-## 4) Set a document ID
-
-Pass a unique ID representing your document. Whenever your document initializes your canvas is ready for collaboration, you should call this method. The SDK will not work without this call.
-Users logged into the same document ID can see each other's presence, cursors, comments etc. You can use separate document IDs to represent separate documents.
+You can use separate document IDs to represent separate documents.
 
 
 ```js
@@ -139,9 +59,13 @@ client.setDocumentId('unique-document-id');
   <Tab title="HTML">
 ## 1) Set a document ID
 
-Pass a unique ID representing your document. Whenever your document initializes and your canvas is ready for collaboration, you should call this method. The SDK will not work without this call.
-Users logged into the same document ID can see each other's presence, cursors, comments etc.
+When your document has initialized and is ready for collaboration, call the `setDocumentId()` method and pass a unique ID representing your document.
 
+Users logged into the same document ID can see each other's presence, cursors, comments etc. 
+
+The SDK will not work without this call.
+
+You can use separate document IDs to represent separate documents.
 
 ```js
 if(Velt){
@@ -154,7 +78,7 @@ if(Velt){
 
 <RequestExample>
 
-```js React
+```js React / Next.js
 // 1) Create a component that will represent your document 
 
 //Warning: Make sure this is a child component to VeltProvider 
@@ -186,49 +110,29 @@ export default function YourDocument() {
 }
 ```
 
-```js Next.js
-// 1) Create a component that will represent your document 
 
-//Warning: Make sure this is a child component to VeltProvider 
-//and not within the same file where VeltProvider is placed.
 
-// 2) Get the Velt client
-import { useVeltClient } from '@veltdev/react';
-import { useEffect, useState } from 'react';
+```html HTML
 
-export default function YourDocument() {
-
-  const { client } = useVeltClient();
-
-  // 3) Create a useEffect hook
-
-  useEffect(() => {
-    if (client) {
-      // 4) Set a document ID
-      client.setDocumentId('unique-document-id');
-    }
-  }, [client]);
-
-  return (
-    <div>
-      //your document template
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Collaboration App</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@veltdev/sdk@1.0.11/velt.js" onload="loadVelt()"></script>
+    <script>
+      async function loadVelt() {
+        await Velt.init("YOUR_VELT_API_KEY");
+        if (Velt) {
+          // 1) Set a document ID
+          Velt.setDocumentId('CUSTOM_DOCUMENT_ID');
+        }       
+      }
+    </script>
+  </head>
+  <body>
     
-  );
-}
-```
-
-```js HTML
-
-<script>
-function initializeDocument() {
-	if(Velt){
-    // 1) Set a document ID
-
-    Velt.setDocumentId('CUSTOM_DOCUMENT_ID');
-  }
-}
-</script>
+  </body>
+</html>
 ```
 
 </RequestExample>

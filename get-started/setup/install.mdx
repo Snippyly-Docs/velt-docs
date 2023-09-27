@@ -6,7 +6,7 @@ title: "1. Install"
 <script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
 
 <Tabs>
-  <Tab title="React">
+  <Tab title="React / Next.js">
 ## 1) Install React package
 
 npm:
@@ -34,8 +34,6 @@ Add the VeltProvider component to the root of your app.
 
 Add your Velt API key.
 
-Later in the next steps we will be creating `<YourAuthComponent>` and `<YourDocument>` to be added as children to the VeltProvider component.
-
 
 ```js
 import { VeltProvider } from '@veltdev/react';
@@ -43,57 +41,13 @@ import { VeltProvider } from '@veltdev/react';
 
 ```js
 <VeltProvider apiKey="YOUR_API_KEY">
-  <YourAuthComponent>
-  <YourDocument>
+  <YourRootComponent/>
 </VeltProvider>
 ```
 
 
   </Tab>
-  <Tab title="Next.js">
-## 1) Install React package
-
-npm:
-```bash
-$ npm install @veltdev/react
-```
-
-yarn:
-```bash
-$ yarn add @veltdev/react
-```
-
-
-## 2) Install types (optional)
-
-If you're using TypeScript, you can install the types package.
-
-```bash
-$ npm install --save-dev @veltdev/types
-```
-
-## 3) Add VeltProvider
-
-Add the VeltProvider component to the root of your app.
-
-Add your Velt API key.
-
-Later in the next steps we will be creating `<YourAuthComponent>` and `<YourDocument>` to be added as children to the VeltProvider component.
-
-
-
-```js
-import { VeltProvider } from '@veltdev/react';
-```
-
-```js
-<VeltProvider apiKey="YOUR_API_KEY">
-  <YourAuthComponent>
-  <YourDocument>
-</VeltProvider>
-```
-
-  </Tab>
+  
   <Tab title="HTML">
 
    ## 1) Import the Velt Script tag
@@ -115,33 +69,19 @@ import { VeltProvider } from '@veltdev/react';
 
 <RequestExample>
 
-```js React
+```js React / Next.js
 import { VeltProvider } from '@veltdev/react';
 
 export default function App() {
 
   return (
     <VeltProvider apiKey="YOUR_API_KEY">
-      <YourAuthComponent>
-      <YourDocument>
+      <YourRootComponent/>
     </VeltProvider>
   );
 }
 ```
 
-```js Next.js
-import { VeltProvider } from '@veltdev/react';
-
-export default function App() {
-
-  return (
-    <VeltProvider apiKey="YOUR_API_KEY">
-      <YourAuthComponent>
-      <YourDocument>
-    </VeltProvider>
-  );
-}
-```
 
 ```html HTML
 
