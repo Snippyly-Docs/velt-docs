@@ -1,28 +1,162 @@
-## Quickstart 
+## 1) Create a React app
 
-1. Install
-
-2. Types 
-
-3. Get the Client
-
-4. Identify
-
-5. Set Document ID
-
-6. Need more details on how to integrate this into an existing app?
-
-
-<RequestExample>
-
-```jsx Examples
-console.log()
+```bash Terminal
+npx create-react-app my-app
 ```
-</RequestExample>
 
-<RequestExample>
+## 2) Install the Velt React package onto your React app
 
-```jsx Examples
-console.log()
+```bash Terminal
+cd my-app && npm install @veltdev/react
 ```
-</RequestExample>
+
+## 3) Install types (optional)
+
+If you're using TypeScript, you can install the types package.
+
+```bash Terminal
+npm install --save-dev @veltdev/types
+```
+
+## 4) Grab your Velt API Key
+
+Go to [console.velt.dev](console.velt.dev) and grab your Velt API Key
+
+<Frame>
+![](/images/velt-console-api-key.png)
+</Frame>
+
+
+
+## 5) Whitelist your website URL
+
+In the Velt console, add the URL where your app is deployed to the list of Managed Domains. 
+
+Be sure to also add 'localhost` as a URL for local development.
+
+<Frame>
+![](/images/velt-console-add-website.png)
+</Frame>
+
+## 4) Configure the VeltProvider
+
+In App.js, add the `VeltProvider` component to the root of your app with your Velt API Key.
+
+Add VeltComments and VeltPresence to test out the Comments and Presence functionality.
+
+```js App.js
+import { VeltProvider, VeltComments, VeltPresence } from '@veltdev/react';
+import YourAuthComponent from './YourAuthComponent';
+import YourDocument from './YourDocument';
+
+export default function App() {
+
+  return (
+    <VeltProvider apiKey="YOUR_API_KEY">
+      <VeltComments/>
+      <VeltPresence/>
+      <YourAuthComponent/>
+      <YourDocument/>
+    </VeltProvider>
+  );
+}
+```
+
+## 5) Identify your user
+
+In YourAuthComponent.js, use the Velt Client to identify your user.
+
+```js YourAuthComponent.js
+import { useVeltClient } from '@veltdev/react';
+import { useEffect } from 'react';
+
+
+export default function YourAuthComponent() {
+
+  const userService = () => {
+    return {
+      uid:"123",
+      displayName:"Bob",
+      email:"bob@gmail.com",
+      photoURL:'https://i.pravatar.cc/300'
+    }
+  }
+
+  // Fetch user data from user service
+  let yourAuthenticatedUser = userService()
+
+  // Get the Velt Client
+  const { client } = useVeltClient();
+
+  useEffect(() => {
+    const initVelt = async () => {
+      if (client && yourAuthenticatedUser) {
+
+        const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
+
+        // Create the Velt user object
+        const user = {
+          userId: uid,
+          name: displayName,
+          email: email,
+          photoUrl: photoURL
+        };
+
+        // Identify the user with the Velt client
+        await client.identify(user)
+      }
+    }
+    initVelt().catch(console.error)
+  }, [client, yourAuthenticatedUser]);
+
+  return (
+    <div>
+    // Your auth component template
+    </div>
+  );
+}
+
+```
+
+## 6) Set the Document ID
+
+In Document.js, use the Velt Client to set the Document ID.
+
+Add the VeltCommentsTool from Velt to test out the Comments functionality.
+
+```js YourDocument.js
+import { useVeltClient, VeltCommentsTool, VeltPresence } from '@veltdev/react';
+import { useEffect, useState } from 'react';
+
+export default function YourDocument() {
+
+  // Get the Velt client
+  const { client } = useVeltClient();
+
+  useEffect(() => {
+    if (client) {
+      // Set a document ID
+      client.setDocumentId('unique-document-id');
+    }
+  }, [client]);
+
+  return (
+    <div>
+      <VeltCommentsTool/>
+    </div>
+    
+  );
+}
+```
+
+8. Need an example?
+
+Fork this repo if you want all the steps above done for you. You will still need to use your own Velt API Key.
+
+[CodeSandBox Link](https://codesandbox.io/s/bold-frog-5y94gx?file=/src/App.js)
+
+9. Need more details on how to integrate this into an existing app?
+
+Check out this guide on [how to set up Velt with your existing app](/get-started/setup/install)
+
+

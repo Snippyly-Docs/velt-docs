@@ -52,8 +52,8 @@
             "get-started/setup/initialize-document",
             "get-started/setup/advanced"
           ]
-        }
-      ]
+        },
+        "get-started/setup/quickstart"      ]
     },
     {
       "group": "Users",
