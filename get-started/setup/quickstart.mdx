@@ -38,7 +38,7 @@ Be sure to also add `localhost` as a URL for local development.
 ![](/images/velt-console-add-website.png)
 </Frame>
 
-## 4) Configure the VeltProvider
+## 6) Configure the VeltProvider
 
 In App.js, add the `VeltProvider` component to the root of your app with your Velt API Key.
 
@@ -62,28 +62,29 @@ export default function App() {
 }
 ```
 
-## 5) Identify your user
+## 7) Identify your user
 
 In YourAuthComponent.js, use the Velt Client to identify your user.
 
 ```js YourAuthComponent.js
-import { useVeltClient } from '@veltdev/react';
-import { useEffect } from 'react';
-
+import { useVeltClient } from "@veltdev/react";
+import { useEffect, useState } from "react";
 
 export default function YourAuthComponent() {
+  let [user, setUser] = useState(null);
 
   const userService = () => {
+    let randomNum = Math.floor(Math.random() * 10);
     return {
-      uid:"123",
-      displayName:"Bob",
-      email:"bob@gmail.com",
-      photoURL:'https://i.pravatar.cc/300'
-    }
-  }
+      uid: "user" + randomNum,
+      displayName: "User: " + randomNum,
+      email: "user" + randomNum + "@gmail.com",
+      photoURL: "https://i.pravatar.cc/30" + randomNum
+    };
+  };
 
   // Fetch user data from user service
-  let yourAuthenticatedUser = userService()
+  let yourAuthenticatedUser = userService();
 
   // Get the Velt Client
   const { client } = useVeltClient();
@@ -91,7 +92,6 @@ export default function YourAuthComponent() {
   useEffect(() => {
     const initVelt = async () => {
       if (client && yourAuthenticatedUser) {
-
         const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
 
         // Create the Velt user object
@@ -101,26 +101,22 @@ export default function YourAuthComponent() {
           email: email,
           photoUrl: photoURL
         };
-
         // Identify the user with the Velt client
-        await client.identify(user)
+        await client.identify(user);
+        setUser(user);
       }
-    }
-    initVelt().catch(console.error)
+    };
+    initVelt().catch(console.error);
   }, [client, yourAuthenticatedUser]);
 
-  return (
-    <div>
-    // Your auth component template
-    </div>
-  );
+  return <div>User: {user?.userId}</div>;
 }
 
 ```
 
-## 6) Set the Document ID
+## 8) Set the Document ID
 
-In Document.js, use the Velt Client to set the Document ID.
+In YourDocument.js, use the Velt Client to set the Document ID.
 
 Add the VeltCommentsTool from Velt to test out the Comments functionality.
 
@@ -149,7 +145,19 @@ export default function YourDocument() {
 }
 ```
 
-8. Need an example?
+9. Test out the Presence and Comments functionality
+
+Comments 
+- Click the Comments button, then hover over any element on the page to leave a comment.
+- Click the Comments button, then try to draw a box on the page to leave a comment.
+- You can also highlight any text to leave a comment.
+
+Presence
+ - Open two browser tabs side by side with one in Incognito mode. 
+
+
+
+9. Need an example?
 
 Fork this repo if you want all the steps above done for you. You will still need to use your own Velt API Key.
 
