@@ -44,6 +44,7 @@
     {
       "group": "Get Started",
       "pages": [
+        "get-started/setup/quickstart" ,
         {
           "group": "Setup",
           "pages": [
@@ -52,8 +53,8 @@
             "get-started/setup/initialize-document",
             "get-started/setup/advanced"
           ]
-        },
-        "get-started/setup/quickstart"      ]
+        }     
+      ]
     },
     {
       "group": "Users",
