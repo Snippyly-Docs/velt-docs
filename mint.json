@@ -305,7 +305,8 @@
         "examples/slides",
         "examples/dashboard",
         "examples/creative-tool",
-        "examples/workflow-builder"
+        "examples/workflow-builder",
+        "examples/toolbar"
       ]
     },
     {
