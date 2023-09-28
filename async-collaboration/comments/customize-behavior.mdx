@@ -916,7 +916,7 @@ commentElement.onCommentModeChange().subscribe((mode) => {
 
 <RequestExample>
 
-```js React
+```js React / Next.js
 
 import { VeltComments } from '@veltdev/react';
 
@@ -997,89 +997,7 @@ export default function App() {
       />
 ```
 
-```js Next.js
 
-
-import { VeltComments } from '@veltdev/react';
-
-export default function App() {
-
-  const yourSignInMethod = async () => {
-    // Add your sign in logic here
-  };
-
-  return (
-    <>
-
-      <div data-velt-comment-disabled> {/* 3) */}
-        // This element cannot be commented on
-      </div>
-
-      <div id="some-element">
-        // Only this element can be commented on if you set allowedElementIds
-      </div>
-
-      <VeltComments
-        areaMode={true} {/* 1) */}
-        allowedElementIds={['some-element']} {/* 2) */}
-        attachments={true} {/* 4)*/}
-        autoCategorize={true} {/* 5) */}
-        commentIndex={true} {/* 6)*/}
-        deviceInfo={true} {/* 7) */}
-        dialogOnHover={true} {/* 8) */}
-        dialogOnTargetElementClick={true} {/* 9) */}
-        floatingMode={false} {/* 10) */}
-        ghostComments={false} {/* 11) */}
-        ghostCommentsIndicator={false} {/* 12) */}
-        moderatorMode={true} {/* 13) */}
-        priority={true} {/* 14) */}
-        resolveButton={true} {/* 15) */}
-        status={false} {/* 16) */}
-        signInButton={true} {/* 17) */}
-        onSignIn={() => yourSignInMethod()} {/* 18) */}
-        onCommentAdd={() => yourMethod()} {/* 19) */}
-        onCommentUpdate={() => yourMethod()} {/* 20) */}
-        suggestionMode={true} {/* 24) */}
-        darkMode={true}  {/* 27) (coming soon) */}
-        commentsOnDom={false} {/* 28) */}
-        commentTool={false} {/* 29) */}
-        {/* 21) */}
-        customCategory={[ 
-          {
-            "id": "bug",
-            "name": "Bug",
-            "color": "red"
-          },
-        ]}
-        {/* 22) */}
-        customPriority={[
-          {
-            "id": "low",
-            "name": "Low",
-            "color": "red",
-            "lightColor": "pink",
-          },
-        ]}
-        {/* 23) */}
-        customStatus={[
-          {
-            "id": "open",
-            "name": "Open",
-            "color": "white",
-            "type": "default",
-            "iconUrl": "", // Pass in an icon URL
-            "svg": "<svg></svg>" // Pass in a serialized SVG
-          },
-        ]}
-
-
-      <VeltCommentTool darkMode={true} /> {/* 27) */}
-
-      <VeltComments onCommentAccept={(event)=>yourMethod(event)}/> {/* 30) */}
-      <VeltComments onCommentReject={(event)=>yourMethod(event)}/> {/* 30) */}
-
-      />
-```
 
 ```js HTML
     <div>
