@@ -73,13 +73,15 @@ You can capture an `onCommentClick` event whenever a user clicks on any Comment 
 ```jsx
 const MyComponent = () => {
 	
-	const onCommentClick = (data) => {
+    //sync video player timeline timestamp with clicked comment
+	const syncTimeline = (data) => {
 		console.log("onCommentClick data: ", data);
+        YourVideoPlayer.setTimeline(data.location.timestamp)
 	}
 
 	return (
 		...
-		<VeltCommentPlayerTimeline onCommentClick={(data) => onCommentClick(data)} />
+		<VeltCommentPlayerTimeline onCommentClick={(data) => syncTimeline(data)} />
 		...
 	)
 }
@@ -104,8 +106,14 @@ Any context data passed when the comment was added
 </ResponseField>
 
 
-In your callback, you can use the Comment data **location** field to set the video player timeline to the same timestamp that is associated with the Comment that was just clicked.
+In your callback, you can use the Comment data's **location** property to set the video player timeline to the same timestamp that is associated with the Comment that was just clicked.
 
+```jsx
+const onCommentClick = (data) => {
+	console.log("onCommentClick data: ", data);
+    YourVideoPlayer.setTimeline(data.location.timestamp)
+}
+```
 
 </Tab>
 
@@ -126,7 +134,7 @@ export default function App() {
 
 
   //sync video player timeline timestamp with clicked comment
-  const onCommentClick = (data) => {
+  const syncTimeline = (data) => {
 	console.log("onCommentClick data: ", data);
     YourVideoPlayer.setTimeline(data.location.timestamp)
   }
@@ -137,7 +145,7 @@ export default function App() {
 
       <div className="video-player-container">
         <YourVideoPlayer/>
-        <VeltCommentPlayerTimeline totalMediaLength={120} onCommentClick={(data) => onCommentClick(data)}/>
+        <VeltCommentPlayerTimeline totalMediaLength={120} onCommentClick={(data) => syncTimeline(data)}/>
       </div>
     </VeltProvider>
   );
