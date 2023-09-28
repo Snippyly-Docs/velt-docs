@@ -31,7 +31,7 @@ import {
 } from '@veltdev/react';
 ```
 
-## 2) Add VeltProvider to the root of your ap and pass in your API key.
+## 2) Add VeltProvider to the root of your app and pass in your API key.
 
 Add the VeltProvider component to the root of your app.
 
@@ -215,6 +215,7 @@ const setLocation = (client) => {
 
 ## 9) Remove Velt Location to remove comments from the animation, when the player is played.
 
+Call removeLocation() when your video player starts playing:
 ```jsx
 const removeLocation = () => {
     //remove the location, so the video player can play without comments appearing in frames
@@ -224,7 +225,7 @@ const removeLocation = () => {
 
 ## 10) Handle the `onCommentClick` event on the clicked Comment bubble on the player timeline 
 
-Add the `onCommentClick` event handler on the `VeltCommentPlayerTimeline` componenet you added earlier.
+Add the `onCommentClick` event handler on the `VeltCommentPlayerTimeline` component you added earlier.
 
 ```jsx
 <VeltCommentPlayerTimeline onCommentClick={(event) => onTimelineCommentClick(event)} />
