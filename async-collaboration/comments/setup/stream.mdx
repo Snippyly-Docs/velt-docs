@@ -6,9 +6,9 @@ title: "Stream Setup"
 <script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
 
 <Tabs>
-  <Tab title="React">
+  <Tab title="React / Next.js">
 ## 1) Import Comment components
-Import the VeltComments component and the VeltCommentTool component.
+Import the `VeltComments` component and the `VeltCommentTool` component.
 
 ```js
 import {
@@ -20,7 +20,7 @@ import {
 
 ## 2) Add Comment component with Stream mode
 
-Add the VeltComments component to the root of your app and mark the streamMode property as true.
+Add the `VeltComments` component to the root of your app and mark the `streamMode` property as `true`.
 
 This component is required to render comments in your app.
 
@@ -35,7 +35,7 @@ Stream mode renders all comment dialog boxes in a column on the right side simil
 ## 3) Add the Stream View container ID
 
 Pass the DOM ID of the main scrolling element. This helps us position & scroll the comment stream as the user scrolls.
-Alternatively, you can move VeltComments component inside the scrolling container and ensure that its the sibling of the target content.
+Alternatively, you can move the `VeltComments` component inside the scrolling container and ensure that its the sibling of the target content.
 
 ```js
 <VeltProvider apiKey="API_KEY">
@@ -54,7 +54,7 @@ Alternatively, you can move VeltComments component inside the scrolling containe
 
 ## 4) Add Comment Tool component
 
-(optional) Add the VeltCommentTool component wherever you want to show the comment tool button.
+(optional) Add the `VeltCommentTool` component wherever you want to show the Comment Tool button.
 
 This is optional as most developers use Stream mode to enable commenting on text vs any element on the DOM. However, if you do need to enable commenting on any element, you can use this tool.
 
@@ -70,76 +70,10 @@ Clicking on it initiates comment mode & changes your mouse cursor to a comment p
 
 Test it out by opening the page with Velt components in your browser.
 
-Select text to attach a comment to it. If you have added VeltCommentTool, click on it and click anywhere on the page to add a comment.
+Select text to attach a comment to it. If you have added `VeltCommentTool`, click on it and click anywhere on the page to add a comment.
 
   </Tab>
-  <Tab title="Next.js">
-## 1) Import Comment components
-Import the VeltComments component and the VeltCommentTool component.
-
-```js
-import {
-  VeltProvider,
-  VeltComments,
-  VeltCommentTool
-} from '@veltdev/react';
-```
-
-## 2) Add Comment component with Stream mode
-
-Add the VeltComments component to the root of your app and mark the streamMode property as true.
-
-This component is required to render comments in your app.
-
-Stream mode renders all comment dialog boxes in a column on the right side similar to Google Docs.
-
-```js
-  <VeltComments
-    streamMode={true}
-  />
-```
-
-## 3) Add the Stream View container ID
-
-Pass the DOM ID of the main scrolling element. This helps us position & scroll the comment stream as the user scrolls.
-Alternatively, you can move VeltComments component inside the scrolling container and ensure that its the sibling of the target content.
-
-```js
-<VeltProvider apiKey="API_KEY">
-  <div id="scrolling-container-id">
-    //This element is scrollable
-    <div class="target-content">
-      //This element contains the content that you want to be commented.
-    </div>
-    <VeltComments
-      streamMode={true}
-      streamViewContainerId="scrolling-container-id"
-    />
-  </div>
-</VeltProvider>
-```
-
-## 4) Add Comment Tool component
-
-(optional) Add the VeltCommentTool component wherever you want to show the comment tool button.
-
-This is optional as most developers use Stream mode to enable commenting on text vs any element on the DOM. However, if you do need to enable commenting on any element, you can use this tool.
-
-Clicking on it initiates comment mode & changes your mouse cursor to a comment pin. Now you can click anywhere on the document to attach comments to any elements.
-
-```js
-<div class="toolbar">
-  <VeltCommentTool />
-</div>
-```
-
-## 5) Test Integration
-
-Test it out by opening the page with Velt components in your browser.
-
-Select text to attach a comment to it. If you have added VeltCommentTool, click on it and click anywhere on the page to add a comment.
-
-  </Tab>
+ 
 
 
     <Tab title="HTML">
@@ -200,7 +134,7 @@ You should be able to leave a comment and see the comment appear in the comment 
 
 <RequestExample>
 
-```js React
+```js React / Next.js
 import { VeltProvider, VeltComments, VeltCommentTool } from '@veltdev/react';
 
 export default function App() {
@@ -231,36 +165,6 @@ export default function App() {
 }
 ```
 
-```js Next.js
-import { VeltProvider, VeltComments, VeltCommentTool } from '@veltdev/react';
-
-export default function App() {
-
-  return (
-    <VeltProvider apiKey="API_KEY">
-
-      <div id="scrolling-container-id">
-
-        //This element is scrollable
-        <div class="target-content">
-          //This element contains the content that you want to be commented.
-        </div>
-
-        <VeltComments
-          streamMode={true}
-          streamViewContainerId="scrolling-container-id"
-        />
-
-      </div>
-
-      <div class="toolbar">
-        <VeltCommentTool />
-      </div>
-
-    </VeltProvider>
-  );
-}
-```
 
 ```html HTML
 <!DOCTYPE html>
