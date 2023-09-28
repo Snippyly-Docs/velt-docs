@@ -418,6 +418,16 @@ Response:
 }
 ```
 
+## 31) Listen to onCommentModeChange
+To subscribe to changes in the comment mode, use the onCommentModeChange() method and subscribe to it with a callback function.
+
+```jsx
+commentElement.onCommentModeChange().subscribe((mode) => {
+    //mode contains the state after change
+});
+```
+
+
 
   </Tab>
   <Tab title="Next.js">
@@ -829,6 +839,15 @@ Response:
   	"replaceContentHtml": "HTML_FORMATTED_TEXT_TO_REPLACE", // optional
   	"replaceContentText": "PLAIN_TEXT_TO_REPLACE", // optional
 }
+```
+
+## 31) Listen to onCommentModeChange
+To subscribe to changes in the comment mode, use the onCommentModeChange() method and subscribe to it with a callback function.
+
+```jsx
+commentElement.onCommentModeChange().subscribe((mode) => {
+    //mode contains the state after change
+});
 ```
 
   </Tab>
@@ -1273,6 +1292,14 @@ Response:
 }
 ```
 
+## 31) Listen to onCommentModeChange
+To subscribe to changes in the comment mode, use the onCommentModeChange() method and subscribe to it with a callback function.
+
+```jsx
+commentElement.onCommentModeChange().subscribe((mode) => {
+    //mode contains the state after change
+});
+```
 
   </Tab>
 </Tabs>
