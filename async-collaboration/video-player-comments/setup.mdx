@@ -66,17 +66,17 @@ const commentElement = client.getCommentElement();
 commentElement.setTotalMediaLength(120);
 ```
 
-## 5) Handle onCommentClick event to sync video player timeline with timestamp of clicked Comment
+## 5) Handle onCommentClick event to sync video player timeline with currentMediaPosition of clicked Comment
 
 You can capture an `onCommentClick` event whenever a user clicks on any Comment in VeltCommentPlayerTimeline component.
 
 ```jsx
 const MyComponent = () => {
 	
-    //sync video player timeline timestamp with clicked comment
+    //sync video player timeline currentMediaPosition with clicked comment
 	const syncTimeline = (data) => {
 		console.log("onCommentClick data: ", data);
-        YourVideoPlayer.setTimeline(data.location.timestamp)
+        YourVideoPlayer.setTimeline(data.location.currentMediaPosition)
 	}
 
 	return (
@@ -106,14 +106,16 @@ Any context data passed when the comment was added
 </ResponseField>
 
 
-In your callback, you can use the Comment data's **location** property to set the video player timeline to the same timestamp that is associated with the Comment that was just clicked.
+In your callback, you can use the Comment data's **location** property to set the video player timeline to the same `currentMediaPosition` that is associated with the Comment that was just clicked.
 
 ```jsx
 const syncTimeline = (data) => {
 	console.log("onCommentClick data: ", data);
-    YourVideoPlayer.setTimeline(data.location.timestamp)
+    YourVideoPlayer.setTimeline(data.location.currentMediaPosition)
 }
 ```
+
+<Info>currentMediaPosition is a protected keyword that is used to arrange the comment bubbles on top of the video player timeline in the correct spots</Info>
 
 </Tab>
 
@@ -150,7 +152,7 @@ const commentElement = client.getCommentElement();
 commentElement.setTotalMediaLength(120);
 ```
 
-## 5) Handle onCommentClick event to sync video player timeline with timestamp of clicked Comment
+## 5) Handle onCommentClick event to sync video player timeline with `currentMediaPosition` of clicked Comment
 
 You can capture an `onCommentClick` event whenever a user clicks on any Comment in VeltCommentPlayerTimeline component.
 
@@ -159,8 +161,8 @@ const commentPlayerTimelineTag = document.querySelector('velt-comment-player-tim
 
 commentPlayerTimelineTag.addEventListener('onCommentClick', (event) => {
 	console.log("onCommentClick data: ", event.detail);
-    //sync video player timeline timestamp with clicked comment
-    YourVideoPlayer.setTimeline(data.location.timestamp)
+    //sync video player timeline currentMediaPosition with clicked comment
+    YourVideoPlayer.setTimeline(data.location.currentMediaPosition)
 });
 ```
 
@@ -183,15 +185,16 @@ Any context data passed when the comment was added
 </ResponseField>
 
 
-In your callback, you can use the Comment data's **location** property to set the video player timeline to the same timestamp that is associated with the Comment that was just clicked.
+In your callback, you can use the Comment data's **location** property to set the video player timeline to the same `currentMediaPosition` that is associated with the Comment that was just clicked.
 
 ```jsx
 const onCommentClick = (data) => {
 	console.log("onCommentClick data: ", data);
-    //sync video player timeline timestamp with clicked comment
-    YourVideoPlayer.setTimeline(data.location.timestamp)
+    //sync video player timeline currentMediaPosition with clicked comment
+    YourVideoPlayer.setTimeline(data.location.currentMediaPosition)
 }
 ```
+<Info>currentMediaPosition is a protected keyword that is used to arrange the comment bubbles on top of the video player timeline in the correct spots</Info>
 
 </Tab>
 
@@ -210,10 +213,10 @@ import {
 export default function App() {
 
 
-  //sync video player timeline timestamp with clicked comment
+  //sync video player timeline currentMediaPosition with clicked comment
   const syncTimeline = (data) => {
 	console.log("onCommentClick data: ", data);
-    YourVideoPlayer.setTimeline(data.location.timestamp)
+    YourVideoPlayer.setTimeline(data.location.currentMediaPosition)
   }
 
   return (
@@ -245,8 +248,8 @@ export default function App() {
 
         commentPlayerTimelineTag.addEventListener('onCommentClick', (event) => {
             console.log("onCommentClick data: ", event.detail);
-            //sync video player timeline timestamp with clicked comment
-            YourVideoPlayer.setTimeline(data.location.timestamp)
+            //sync video player timeline currentMediaPosition with clicked comment
+            YourVideoPlayer.setTimeline(data.location.currentMediaPosition)
         });
 
       }
