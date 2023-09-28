@@ -66,7 +66,7 @@ const commentElement = client.getCommentElement();
 commentElement.setTotalMediaLength(120);
 ```
 
-## 5) onCommentClick
+## 5) Handle onCommentClick event to sync video player timeline with timestamp of clicked Comment
 
 You can capture an `onCommentClick` event whenever a user clicks on any Comment in VeltCommentPlayerTimeline component.
 
@@ -104,7 +104,7 @@ Any context data passed when the comment was added
 </ResponseField>
 
 
-In your callback, you can use the Comment data to set the video player timeline to the same timestamp that is associated with the Comment that was just clicked.
+In your callback, you can use the Comment data **location** field to set the video player timeline to the same timestamp that is associated with the Comment that was just clicked.
 
 
 </Tab>
