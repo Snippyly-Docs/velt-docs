@@ -1,0 +1,117 @@
+---
+title: "Setup"
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+<Tabs>
+
+<Tab title="React / Next.js">
+
+## 1) Import Comment components
+
+**Import the `VeltComments`,`VeltCommentTool`, `VeltProvider, and `VeltCommentPlayerTimeline` components.**
+
+```js
+import {
+  VeltProvider,
+  VeltComments,
+  VeltCommentTool,
+  VeltCommentPlayerTimeline
+} from '@veltdev/react';
+```
+
+## 2) Add Comments component
+
+**Add the `VeltComments` component to the root of your app.**
+
+This component is required to render comments in your app.
+
+```js
+<VeltProvider apiKey="API_KEY">
+  <VeltComments />
+</VeltProvider>
+```
+
+## 3) Place the `VeltCommentPlayerTimeline` component as a sibling to your video player
+To add a commentable timeline for a video player, add the `VeltCommentPlayerTimeline` component as a sibling to your video player component.
+
+It will auto adjust to the same width as your video player.
+
+
+```jsx
+<div>
+  <YourVideoPlayer/>
+  <VeltCommentPlayerTimeline/>
+</div>
+```
+
+<Warning>
+Right now we assume you have a maximum of one VeltCommentPlayerTimeline component and one sibling video player component per Document ID
+</Warning>
+
+## 4) Set the totalMediaLength
+
+You can pass an integer to `totalMediaLength` using props to represent the total number of frames or seconds in the video:
+
+```jsx
+<VeltCommentPlayerTimeline totalMediaLength={120} />
+```
+
+Alternatively, you can set this using API method calls:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.setTotalMediaLength(120);
+```
+
+## 5) onCommentClick
+
+You can capture an `onCommentClick` event whenever a user clicks on any Comment in VeltCommentPlayerTimeline component.
+
+```jsx
+const MyComponent = () => {
+	
+	const onCommentClick = (data) => {
+		console.log("onCommentClick data: ", data);
+	}
+
+	return (
+		...
+		<VeltCommentPlayerTimeline onCommentClick={(data) => onCommentClick(data)} />
+		...
+	)
+}
+```
+
+The Comment data will be in the following format:
+
+<ResponseField name="documentId" type="string">
+The document ID where the comment was added
+</ResponseField>
+
+<ResponseField name="location" type="string">
+The location where the comment was added
+</ResponseField>
+
+<ResponseField name="targetElementId" type="string">
+The DOM ID of the target element on which the comment was added
+</ResponseField>
+
+<ResponseField name="context" type="Object | undefined">
+Any context data passed when the comment was added
+</ResponseField>
+
+
+In your callback, you can use the Comment data to set the video player timeline to the same timestamp that is associated with the Comment that was just clicked.
+
+
+</Tab>
+
+
+</Tabs>
+
+
+
+

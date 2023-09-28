@@ -24,10 +24,6 @@
   ],
   "tabs": [
     {
-      "name": "API Reference",
-      "url": "api-reference"
-    },
-    {
       "name": "Examples",
       "url": "examples"
     },
@@ -44,7 +40,6 @@
     {
       "group": "Get Started",
       "pages": [
-        "get-started/setup/quickstart" ,
         {
           "group": "Setup",
           "pages": [
@@ -194,6 +189,13 @@
                 "async-collaboration/comments-sidebar/customize-ui/slots"
               ]
             }
+          ]
+        },
+        {
+          "group": "Video Player Comments",
+          "pages": [
+            "async-collaboration/video-player-comments/overview",
+            "async-collaboration/video-player-comments/setup"
           ]
         },
         {
