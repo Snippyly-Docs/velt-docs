@@ -192,13 +192,6 @@
           ]
         },
         {
-          "group": "Video Player Comments",
-          "pages": [
-            "async-collaboration/video-player-comments/overview",
-            "async-collaboration/video-player-comments/setup"
-          ]
-        },
-        {
           "group": "System Comments",
           "pages": [
             "async-collaboration/system-comments/overview",
