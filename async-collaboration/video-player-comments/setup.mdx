@@ -290,84 +290,6 @@ commentElement.allowedElementIds(['lottiePlayerContainer']);
 
 </Tab>
 
-<Tab title="HTML">
-## 1) Place the `<velt-comment-player-timeline>` component as a sibling to your video player
-To add a commentable timeline for a video player, add the `VeltCommentPlayerTimeline` component as a sibling to your video player component.
-
-It will auto adjust to the same width as your video player.
-
-
-```jsx
-<div>
-  <video-player></video-player>
-  <velt-comment-player-timeline></velt-comment-player-timeline>
-</div>
-```
-
-<Warning>
-Right now we assume you have a maximum of one velt-comment-player-timeline component and one sibling video player component per Document ID
-</Warning>
-
-## 4) Set the totalMediaLength
-
-You can pass an integer to `totalMediaLength` using props to represent the total number of frames or seconds in the video:
-
-```jsx
-<velt-comment-player-timeline total-media-length="120"></velt-comment-player-timeline>
-```
-
-Alternatively, you can set this using API method calls:
-
-```jsx
-const commentElement = client.getCommentElement();
-commentElement.setTotalMediaLength(120);
-```
-
-## 5) Handle onCommentClick event to sync video player timeline with `currentMediaPosition` of clicked Comment
-
-You can capture an `onCommentClick` event whenever a user clicks on any Comment in VeltCommentPlayerTimeline component.
-
-```jsx
-const commentPlayerTimelineTag = document.querySelector('velt-comment-player-timeline');
-
-commentPlayerTimelineTag.addEventListener('onCommentClick', (event) => {
-	console.log("onCommentClick data: ", event.detail);
-    //sync video player timeline currentMediaPosition with clicked comment
-    YourVideoPlayer.setTimeline(data.location.currentMediaPosition)
-});
-```
-
-The Comment data will be in the following format:
-
-<ResponseField name="documentId" type="string">
-The document ID where the comment was added
-</ResponseField>
-
-<ResponseField name="location" type="Object">
-The location where the comment was added
-</ResponseField>
-
-<ResponseField name="targetElementId" type="string">
-The DOM ID of the target element on which the comment was added
-</ResponseField>
-
-<ResponseField name="context" type="Object | undefined">
-Any context data passed when the comment was added
-</ResponseField>
-
-
-In your callback, you can use the Comment data's **location** property to set the video player timeline to the same `currentMediaPosition` that is associated with the Comment that was just clicked.
-
-```jsx
-const onCommentClick = (data) => {
-	console.log("onCommentClick data: ", data);
-    //sync video player timeline currentMediaPosition with clicked comment
-    YourVideoPlayer.setTimeline(data.location.currentMediaPosition)
-}
-```
-<Info>currentMediaPosition is a protected keyword that is used to arrange the comment bubbles on top of the video player timeline in the correct spots</Info>
-
-</Tab>
 
 </Tabs>
 
@@ -458,35 +380,6 @@ export default function App() {
 
 ```
 
-```html HTML
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Video Player Comments</title>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@veltdev/sdk@1.0.11/velt.js" onload="loadVelt()"></script>
-    <script>
-      async function loadVelt() {
-        await Velt.init("YOUR_VELT_API_KEY");
-
-        const commentPlayerTimelineTag = document.querySelector('velt-comment-player-timeline');
-
-        commentPlayerTimelineTag.addEventListener('onCommentClick', (event) => {
-            console.log("onCommentClick data: ", event.detail);
-            //sync video player timeline currentMediaPosition with clicked comment
-            YourVideoPlayer.setTimeline(data.location.currentMediaPosition)
-        });
-
-      }
-    </script>
-  </head>
-  <body>
-    <div>
-        <video-player></video-player>
-        <velt-comment-player-timeline></velt-comment-player-timeline>
-    </div>
-  </body>
-</html>
-```
 
 
 </RequestExample>
