@@ -13,7 +13,7 @@ title: "Customize Behavior"
 
 Provide a list of element DOM IDs where commenting should be allowed.
 
-Comments will be disabled for all other elements. Note, this does not impact Popover mode.
+Comments will be disabled for all other elements. Note, this does not impact `Popover` mode.
 
 ```js
 <VeltComments allowedElementIds={['some-element']} />
@@ -35,7 +35,7 @@ Whether file attachments are enabled.
 
 When this is on, users can attach image files to their comments. Users can download or delete an attachment. Users can attach multiple files at once.
 
-Currently we support .png, .jpg, .gif (static & animated), .svg file types upto 2MB per file.
+Currently we support `.png`, `.jpg`, `.gif` (static & animated), `.svg` file types upto 2MB per file.
 
 ```js
 <VeltComments attachments={true} />
@@ -138,9 +138,9 @@ Whether comments require moderator approval.
 
 `Default: false`
 
-By default, when a user adds a comment it is visible to all authenticated users on the same document. Moderator mode makes visibility of all comments private to only admin users and the comment author. Admin users will see an approve button on the comment dialog. Once approved the comment will be visible to all users who can access the document.
+By default, when a user adds a comment it is visible to all authenticated users on the same `document`. Moderator mode makes visibility of all comments private to only `admin` users and the comment author. Admin users will see an approve button on the comment dialog. Once approved the comment will be visible to all users who can access the `document`.
 
-You can set some users as admin by setting the isAdmin property in the User object, during the identify() call.
+You can set some users as `admin` by setting the `isAdmin` property in the User object, during the `identify()` call.
 
 ```js
 <VeltComments moderatorMode={true} />
