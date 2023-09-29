@@ -20,7 +20,7 @@ import {
 
 ## 2) Add Comment component with Inbox mode
 
-Add the `VeltComments` component to the root of your app and mark the inboxMode property as true.
+Add the `VeltComments` component to the root of your app and mark the `inboxMode` property as true.
 
 This component is required to render comments in your app.
 
@@ -59,9 +59,15 @@ You should be able to leave a comment by selecting some text or using the Commen
  
     <Tab title="HTML">
 ## 1) Add Comment component with Inbox mode
-Add the comment component to your template. Try to put it as close to the root level of your `<body>`.
+Add the comment component to your template. Try to put it as close to the root level of your `<body>`. 
 
-This component is required to render comments in your app. Inbox mode provides a more conversational sidebar UI.
+Set the `inbox-mode` attribute to `true`.
+
+This component is required to render comments in your app.
+
+This mode enable a more focused inbox style UI for each comment on the right side. Instead of showing a comment dialog box, it shows the given comment in a sidebar.
+
+You can combine this with Freestyle, Popover, or Text mode.
 
 ```html
 <body>

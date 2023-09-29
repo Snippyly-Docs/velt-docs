@@ -8,13 +8,14 @@ title: "Popover Setup"
 <Tabs>
   <Tab title="React / Next.js">
 ## 1) Import Comment components
-Import the `VeltComments` component and the `VeltCommentTool` component.
+Import the `VeltComments`, `VeltCommentTool`, and `VeltCommentBubble` components.
 
 ```js
 import {
   VeltProvider,
   VeltComments,
-  VeltCommentTool
+  VeltCommentTool,
+  VeltCommentBubble
 } from '@veltdev/react';
 ```
 
@@ -44,9 +45,14 @@ Once the comment is saved, you will notice a triangle on the top right corner of
 
 ```js
 <div class="table">
-  <div className="cell" id="cell-id">
+  <div className="cell" id="cell-id-1">
     <VeltCommentTool
-      targetCommentElementId="cell-id"
+      targetCommentElementId="cell-id-1"
+    />
+  </div>
+  <div className="cell" id="cell-id-2">
+    <VeltCommentTool
+      targetCommentElementId="cell-id-2"
     />
   </div>
 </div>
@@ -63,9 +69,14 @@ This gives you a lot of flexibility as you can place this component anywhere and
 
 ```js
 <div class="table">
-  <div className="cell" id="cell-id">
+  <div className="cell" id="cell-id-1">
     <VeltCommentBubble
-      targetCommentElementId="cell-id"
+      targetCommentElementId="cell-id-1"
+    />
+  </div>
+  <div className="cell" id="cell-id-2">
+    <VeltCommentBubble
+      targetCommentElementId="cell-id-2"
     />
   </div>
 </div>
@@ -103,10 +114,17 @@ You must specify a target element ID which binds the tool to that element. When 
 Once the comment is saved, you will notice a triangle on the top right corner of the element indicating that a comment is present on this element.
 
 ```html
-<div class="toolbar">
+<div class="table">
+  <div className="cell" id="cell-id-1">
     <velt-comment-tool
-      target-comment-element-id="some-element"
+      targetCommentElementId="cell-id-1"
     ></velt-comment-tool>
+  </div>
+  <div className="cell" id="cell-id-2">
+    <velt-comment-tool
+      targetCommentElementId="cell-id-2"
+    ></velt-comment-tool>
+  </div>
 </div>
 ```
 
@@ -119,11 +137,17 @@ It also shows the total number of threads in the given comment.
 This gives you a lot of flexibility as you can place this component anywhere and provides a more obvious affordance to your users.
 
 ```html
-<div id="some-element">
-  <velt-comment-bubble
-    target-comment-element-id="some-element"
-  ></velt-comment-bubble>
-  Attach a comment to this div!
+<div class="table">
+  <div className="cell" id="cell-id-1">
+    <velt-comment-bubble>
+      targetCommentElementId="cell-id-1"
+    ><velt-comment-bubble>
+  </div>
+  <div className="cell" id="cell-id-2">
+    <velt-comment-bubble>
+      targetCommentElementId="cell-id-2"
+    ><velt-comment-bubble>
+  </div>
 </div>
 ```
 
@@ -142,7 +166,8 @@ You should be able to leave a comment on the target element using the comment to
 import {
   VeltProvider,
   VeltComments,
-  VeltCommentTool
+  VeltCommentTool,
+  VeltCommentBubble
 } from '@veltdev/react';
 
 export default function App() {
@@ -152,16 +177,15 @@ export default function App() {
       <VeltComments popoverMode={true} />
 
       <div class="table">
-        <div className="cell" id="cell-id">
-
+        <div className="cell" id="cell-id-1">
           <VeltCommentTool
-            targetCommentElementId="cell-id"
+            targetCommentElementId="cell-id-1"
           />
-
+        </div>
+        <div className="cell" id="cell-id-2">
           <VeltCommentBubble
-            targetCommentElementId="cell-id"
+            targetCommentElementId="cell-id-2"
           />
-
         </div>
       </div>
     </VeltProvider>
@@ -179,17 +203,17 @@ export default function App() {
   <body>
     <velt-comments popover-mode="true"></velt-comments>
 
-    <div class="toolbar">
-      <velt-comment-tool
-        target-comment-element-id="some-element"
-      ></velt-comment-tool>
-    </div>
-
-    <div id="some-element">
-      <velt-comment-bubble
-        target-comment-element-id="some-element"
-      ></velt-comment-bubble>
-      Attach a comment to this div!
+    <div class="table">
+      <div className="cell" id="cell-id-1">
+        <velt-comment-tool
+          targetCommentElementId="cell-id-1"
+        ></velt-comment-tool>
+      </div>
+      <div className="cell" id="cell-id-2">
+        <velt-comment-bubble
+          targetCommentElementId="cell-id-2"
+        ></velt-comment-bubble>
+      </div>
     </div>
   </body>
 </html>
