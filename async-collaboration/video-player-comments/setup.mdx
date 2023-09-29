@@ -5,9 +5,15 @@ title: "Setup"
 <script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
 <script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
 
+
+
+
 <Tabs>
 
 <Tab title="React / Next.js">
+
+<Warning>Make sure you turn React strict mode off.</Warning>
+
 
 ## 1. Import Velt Components and Providers
 
@@ -268,6 +274,19 @@ The DOM ID of the target element on which the comment was added
 <ResponseField name="context" type="Object | undefined">
 Any context data passed when the comment was added
 </ResponseField>
+
+
+# Additional Configurations
+
+## Allow comments only on certain elements
+
+Provide a list of element DOM IDs where commenting should be allowed.
+Comments will be disabled for all other elements.
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.allowedElementIds(['lottiePlayerContainer']);
+```
 
 </Tab>
 
