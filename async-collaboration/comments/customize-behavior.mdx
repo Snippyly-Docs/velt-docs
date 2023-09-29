@@ -222,6 +222,13 @@ This event is emitted when a new comment is created
 <VeltComments onCommentAdd={(data) => yourMethod(data)} />
 ````
 
+```jsx
+const yourMethod = (event) => {
+  event?.addContext({ customKey: 'customValue' });
+}
+```
+
+
 onCommentAdd Event Schema:
 
 <ResponseField name="documentId" type="string">
@@ -232,12 +239,8 @@ The document ID where the comment was added
 The location where the comment was added
 </ResponseField>
 
-<ResponseField name="targetElementId" type="string">
-The DOM ID of the target element on which the comment was added
-</ResponseField>
-
-<ResponseField name="context" type="Object | undefined">
-Any context data passed when the comment was added
+<ResponseField name="addContext" type="Function">
+Use this to set custom data on the comment
 </ResponseField>
 
 ## 20) Take action when comment is updated
@@ -252,7 +255,6 @@ Whether to enable Sign In button on comment dialog when user is anonymous or sig
 
 onCommentUpdate Event Schema:
 
-<ResponseField name="documentId" type="string">
 The document ID where the comment was added
 </ResponseField>
 
@@ -260,12 +262,8 @@ The document ID where the comment was added
 The location where the comment was added
 </ResponseField>
 
-<ResponseField name="targetElementId" type="string">
-The DOM ID of the target element on which the comment was added
-</ResponseField>
-
-<ResponseField name="context" type="Object | undefined">
-Any context data passed when the comment was added
+<ResponseField name="addContext" type="Function">
+Use this to set custom data on the comment
 </ResponseField>
 
 ## 21) Set Custom Categories
