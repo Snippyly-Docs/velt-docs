@@ -9,15 +9,15 @@ title: "Setup"
 
 <Tab title="React / Next.js">
 
-## 1) Import Velt Components and Providers
+## 1. Import Velt Components and Providers
 
 Import the folllowing component from Velt:
-- VeltProvider - used to enable Velt components throughout your app
-- VeltComments - used to enable the Comment feature in your app
-- VeltCommentTool - used to turn on and off Comment mode
-- VeltCommentPlayerTimeline - used to enable Comments on a video player
-- VeltCommentsSidebar - used to enable a sidebar that shows active comments
-- VeltSidebarButton - used to toggle on/off the sidebar
+- `VeltProvider`: Bootstraps Velt SDK.
+- `VeltComments`: Renders comments on the DOM.
+- `VeltCommentTool`: Enables or disables adding comments.
+- `VeltCommentPlayerTimeline`: Adds comments bubble over your player seek bar.
+- `VeltCommentsSidebar`: Adds a sidebar that shows all comments. Users can also search, filter & navigate to the comments from here.
+- `VeltSidebarButton`: Toggles the sidebar on/off.
 
 
 ```js
@@ -31,22 +31,17 @@ import {
 } from '@veltdev/react';
 ```
 
-## 2) Add VeltProvider to the root of your app and pass in your API key.
-
-Add the VeltProvider component to the root of your app.
-
-Add your Velt API key.
-
+## 2. Add `<VeltProvider>` to the root of your app and pass in your API key.
 
 ```jsx
 <VeltProvider apiKey="YOUR_API_KEY">
-  <YourRootComponent/>
+  <YourRootComponent />
 </VeltProvider>
 ```
 
-## 3) Authenticate your logged in user with the SDK.
+## 3. Authenticate your logged in user with the SDK.
 
-In your auth component, call the `identify()` method and pass in the Velt User.
+In your auth component, call the `identify()` method and pass in your User object in this format.
 
 
 ```jsx
@@ -54,41 +49,46 @@ await client.identify(user);
 ```
 
 
-## 4) Set the Document ID. 
+## 4. Set the Document ID. 
 
-In your Document component, call the `setDocumentId()` method and pass in an unique ID for your Document.
+On the app page component where your player loads, call the `setDocumentId()` method and pass in an unique ID that represents the file that the player loads.
 
 
 ```jsx
-client.setDocumentId('unique-id');
+client.setDocumentId('file-unique-id');
 ```
 
-## 5) Add Velt Components in your app
+## 5. Add Velt Components in your app
 
-### 5a) Add the VeltComments component in the root of your app
+### 5a. Add the `VeltComments` component in the root of your app
 
-Add the VeltComments component to enable the Comment feature in your app.
+Add the `VeltComments` component to enable the Comment feature in your app.
 
 Enable the follow attributes to be `true`:
 
-- `priority` (allows user to P0, P1, or P2 as priority)
-- `autoCategorize` (allows AI to categorize comment as Question, Feedback, Bug, Other.)
-- `commentIndex`(shows a small icon showing index of the comment in order of creation)
+- `priority`: allows user to P0, P1, or P2 as priority. You can customize this list.
+- `autoCategorize`: allows AI to categorize comment as Question, Feedback, Bug, Other. You can customize this list.
+- `commentIndex`: shows a small icon showing index of the comment in order of creation.
 
 
 ```jsx
 <VeltComments priority={true} autoCategorize={true} commentIndex={true}/>
 ```
 
-### 5b) Add the VeltCommentTool component, wherever you want your "comment toolbar" to be.
+### 5b. Add the `VeltCommentTool` component wherever you want your render the comment tool.
+Note you can also provide your own button to this component.
 
 ```jsx
-<VeltCommentTool/>
+<VeltCommentTool>
+  <button slot="button">
+    {/* your custom button (optional) */}
+  </button>
+</VeltCommentTool>
 ```
 
-### 5c) Place the `VeltCommentPlayerTimeline` component as a sibling to your video player
+### 5c. Place the `VeltCommentPlayerTimeline` component as a sibling to your video player.
 
-To add a commentable timeline for a video player, add the `VeltCommentPlayerTimeline` component as a sibling to your video player component.
+To show comment bubbles on your player seek bar, add the `<VeltCommentPlayerTimeline>` component as a sibling to your video player component.
 
 It will auto adjust to the same width as your video player.
 
@@ -100,28 +100,23 @@ It will auto adjust to the same width as your video player.
 ```
 
 <Info>
-Right now we assume you have a maximum of one VeltCommentPlayerTimeline component and one sibling video player component per Document ID
+Right now we assume you have a maximum of one `<VeltCommentPlayerTimeline>` component and one sibling video player component per `documentID`
 </Info>
 
 <Warning>
-Static positioning will not work on the parent container of VeltCommentPlayerTimeline
+Ensure that the parent container of `<VeltCommentPlayerTimeline>` doesnt have CSS position value as 'static'.
 </Warning>
 
-### 5d) Add the VeltCommentsSidebar component.
-
-Add the VeltCommentsSidebar component to add a sidebar to your app containing all active comments.
-
-Enable `embedMode` to be `true`.
+### 5d. Add the `<VeltCommentsSidebar>` component.
+(Optional) To embed the sidebar in your existing component, set `embedMode` prop as `true`.
 
 ```jsx
 <VeltCommentsSidebar embedMode={true}/>
 ```
 
-### 5e) Add the VeltSidebarButton component.
-
-Add the VeltSidebarButton component and pass in your custom button (optional). 
-
-This will open or close the Comment Sidebar. 
+### 5e. Add the `<VeltSidebarButton>` component.
+This will open or close the Comment Sidebar.
+Note you can also provide your own button to this component.
 
 ```jsx
 <VeltSidebarButton>
@@ -132,7 +127,7 @@ This will open or close the Comment Sidebar.
 ```
 
 
-## 6) Set the totalMediaLength on the VeltCommentPlayerTimeline
+## 6. Set the `totalMediaLength` on the `VeltCommentPlayerTimeline`
 
 You can pass an integer to `totalMediaLength` using props to represent the total number of frames or seconds in the video:
 
@@ -140,27 +135,29 @@ You can pass an integer to `totalMediaLength` using props to represent the total
 <VeltCommentPlayerTimeline totalMediaLength={120} />
 ```
 
-Alternatively, you can set this using API method calls. This is useful if you first need to grab the total frames from another method before setting it.
+Alternatively, you can set this using API method call. This is useful if you first need to grab the total frames from another method before setting it.
 
 ```jsx
 const commentElement = client.getCommentElement();
 commentElement.setTotalMediaLength(120);
 ```
 
-## 7) Subscribe to changes in Comment Tool mode. 
+## 7. Subscribe to when the Comment Tool is activated by the User. 
 
-You can subscribe to changes in the comment mode using the `onCommentModeChange` event handler.
+Add an event handler on where you originally placed `<VeltCommentTool>` to handle `onCommentModeChange` events.
+Use this whenever the user clicks on the comment tool, to pause your player and set a new `Location` in the Velt SDK.
+Setting a `Location` in the Velt SDK ensures that the comments are tied to that particular media frame or timestamp. 
 
-You can use this to pause your video player whenever a new comment is being made and set a new Location for your video player to match the current comment being made.
 
 ```jsx
+
+<VeltCommentTool onCommentModeChange={(mode) => onCommentModeChange(mode)} />
+
 const onCommentModeChange = (mode) => {
-    //mode will be `true` if the user has turned on the comment tool
-  
-    // If the comment tool is active, pause the player and set the "location". Here Location refers to the current position of the lottie animation.
+    // mode will be `true` if the user has activated the comment tool
+    // If the comment tool is active, pause the player and set the "location".
     if (mode) {
         // pause player
-
         // See step 8 below for details 
         setLocation()
     }
@@ -168,34 +165,12 @@ const onCommentModeChange = (mode) => {
 
 ```
 
-The clicked Comment data will be in the following format:
 
-<ResponseField name="documentId" type="string">
-The document ID where the comment was added
-</ResponseField>
+## 8. Set Velt `location`
 
-<ResponseField name="location" type="string">
-The location where the comment was added
-</ResponseField>
+You can pass in a key value pair object that represents the current state of your player. If you are using the `VeltCommentPlayerTimeline` component, ensure to set the current rounded frame or second in the special key `currentMediaPosition`.
 
-<ResponseField name="targetElementId" type="string">
-The DOM ID of the target element on which the comment was added
-</ResponseField>
-
-<ResponseField name="context" type="Object | undefined">
-Any context data passed when the comment was added
-</ResponseField>
-
-
-
-
-Add an event handler on where you originally placed `VeltComments` to handle `onCommentModeChange` events.
-```jsx
-<VeltComments onCommentModeChange={(event)=>onCommentModeChange(event)}/>
-```
-
-
-## 8) Set Velt location with the `currentMediaPosition` property set to the current frame to ensure comments are added correctly
+<Info>`currentMediaPosition` is a protected keyword that is used to arrange the comment bubbles on top of the video player timeline in the correct spot</Info>
 
 ```jsx
 const setLocation = (client) => {
@@ -210,12 +185,10 @@ const setLocation = (client) => {
 }
 ```
 
-<Info>currentMediaPosition is a protected keyword that is used to arrange the comment bubbles on top of the video player timeline in the correct spots</Info>
+## 9. When the player is played, remove Velt `Location` to remove comments from the media.
 
+Call `removeLocation()` when your player starts playing:
 
-## 9) Remove Velt Location to remove comments from the animation, when the player is played.
-
-Call removeLocation() when your video player starts playing:
 ```jsx
 const removeLocation = () => {
     //remove the location, so the video player can play without comments appearing in frames
@@ -223,50 +196,16 @@ const removeLocation = () => {
 }
 ```
 
-## 10) Handle the `onCommentClick` event on the clicked Comment bubble on the player timeline 
+## 10. Set your player's state when the user clicks on the comment.
 
-Add the `onCommentClick` event handler on the `VeltCommentPlayerTimeline` component you added earlier.
+Add the `onCommentClick` event handler on the `VeltCommentsSidebar` & `VeltCommentPlayerTimeline` components you added earlier.
+The event will give you back the `location` object that you had set earlier.
+You can use this object to update your player state and also update the SDK's `location` so that we can start rendering the comments associated with that `location`.
 
-```jsx
-<VeltCommentPlayerTimeline onCommentClick={(event) => onTimelineCommentClick(event)} />
-```
-
-This event handler will be used to move the video player seeker to the same frame where the clicked Comment was added to.
-
-```jsx
-const onTimelineCommentClick = (event) => {
-  if (event) {
-      // Get the location object from the event.
-      const { location } = event;
-      if (location) {
-          // Get the media position where the comment was added.
-          const { currentMediaPosition } = location;
-          if (currentMediaPosition) {
-              // Pause the player.
-
-              // Seek to the given comment media position.
-
-              // Set the Velt Location to the clicked comment location.
-              client.setLocation(location);
-          }
-      }
-  }
-}
-```
-
-## 11) Handle the `onSideBarCommentClick` event on Comments clicked on the sidebar 
-
-
-Add the `onSideBarCommentClick` event handler on the `VeltCommentsSidebar` componenet you added earlier.
-
-
+### a. Handle it on the `VeltCommentsSidebar`:
 ```jsx
 <VeltCommentsSidebar embedMode={true} onSidebarCommentClick={(event) => onSidebarCommentClick(event)} />
-```
 
-This event handler will be used to move the video player seeker to the same frame where the clicked Comment was added to.
-
-```jsx
 const onSideBarCommentClick = (event) => {
     if (event) {
       // Get the location object from the event.
@@ -288,6 +227,47 @@ const onSideBarCommentClick = (event) => {
 ```
 
 
+### b. Handle it on the `VeltCommentPlayerTimeline`:
+```jsx
+<VeltCommentPlayerTimeline onCommentClick={(event) => onTimelineCommentClick(event)} />
+
+const onTimelineCommentClick = (event) => {
+  if (event) {
+      // Get the location object from the event.
+      const { location } = event;
+      if (location) {
+          // Get the media position where the comment was added.
+          const { currentMediaPosition } = location;
+          if (currentMediaPosition) {
+              // Pause the player.
+
+              // Seek to the given comment media position.
+
+              // Set the Velt Location to the clicked comment location.
+              client.setLocation(location);
+          }
+      }
+  }
+}
+```
+
+The clicked Comment data will be in the following format:
+
+<ResponseField name="documentId" type="string">
+The document ID where the comment was added
+</ResponseField>
+
+<ResponseField name="location" type="string">
+The location where the comment was added
+</ResponseField>
+
+<ResponseField name="targetElementId" type="string">
+The DOM ID of the target element on which the comment was added
+</ResponseField>
+
+<ResponseField name="context" type="Object | undefined">
+Any context data passed when the comment was added
+</ResponseField>
 
 </Tab>
 
