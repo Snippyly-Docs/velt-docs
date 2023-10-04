@@ -40,6 +40,8 @@
     {
       "group": "Get Started",
       "pages": [
+        "get-started/overview",
+        "get-started/quickstart",
         {
           "group": "Setup",
           "pages": [
