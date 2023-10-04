@@ -45,9 +45,8 @@ Any context data passed when the comment was added
 // event handler for when a comment is clicked on 
 const onCommentClick = (event) => {
   //handle custom navigation by getting location
-  const { selectedTabIndex } = event.location;
-  setTabIndex(selectedTabIndex);
-};
+  const { pageId } = event.location;
+  yourNavigateToPageMethod(pageId);
 ```
 
 ### 1b) Custom navigation without using Location
@@ -63,8 +62,8 @@ If you do not want to use Location, you can alternatively handle custom navigati
 // event handler for when a comment is clicked on 
 const onCommentClick = (event) => {
   //handle custom navigation by getting context
-  const { selectedTabIndex } = event.context;
-  setTabIndex(selectedTabIndex);
+  const { pageId } = event.context;
+  yourNavigateToPageMethod(pageId);
 };
 ```
 
@@ -105,16 +104,14 @@ Any context data passed when the comment was added
 
 
 ```js
-let tabIndex = 0;
-
 const commentElement = document.querySelector('velt-comments-sidebar');
 commentElement.addEventListener('onSideBarCommentClick', onCommentClick);
 
 // event handler for when a comment is clicked on 
 const onCommentClick = (event) => {
   //handle custom navigation by getting location
-  const { selectedTabIndex } = event.location;
-  setTabIndex(selectedTabIndex);
+  const { pageId } = event.location;
+  yourNavigateToPageMethod(pageId);
 };
 ```
 
@@ -131,8 +128,8 @@ commentElement.addEventListener('onSideBarCommentClick', onCommentClick);
 // event handler for when a comment is clicked on 
 const onCommentClick = (event) => {
   //handle custom navigation by getting context
-  const { selectedTabIndex } = event.context;
-  setTabIndex(selectedTabIndex);
+  const { pageId } = event.context;
+  yourNavigateToPageMethod(pageId);
 };
 ```
 
@@ -155,20 +152,18 @@ import { useState } from 'react';
 
 export default function App() {
 
-  const [tabIndex, setTabIndex] = useState(0);
-
   // event handler for when a comment is clicked on (with Location)
     const onCommentClick = (event) => {
       //handle custom navigation by getting location
-      const { selectedTabIndex } = event.location;
-      setTabIndex(selectedTabIndex);
+      const { pageId } = event.location;
+      yourNavigateToPageMethod(pageId);
     };
 
   // event handler for when a comment is clicked on (without Location)
   const onCommentClick = (event) => {
     //handle custom navigation by getting context
-    const { selectedTabIndex } = event.context;
-    setTabIndex(selectedTabIndex);
+    const { pageId } = event.context;
+    yourNavigateToPageMethod(pageId);
   };
 
   return (
@@ -190,21 +185,19 @@ export default function App() {
   </head>
   <script>
 
-    let tabIndex = 0;
-
     
     // event handler for when a comment is clicked on (with Location)
     const onCommentClick = (event) => {
       //handle custom navigation by getting location
-      const { selectedTabIndex } = event.location;
-      setTabIndex(selectedTabIndex);
+      const { pageId } = event.location;
+      yourNavigateToPageMethod(pageId);
     };
 
     //event handler for when a comment is clicked on (without Location)
     const onCommentClick = (event) => {
       //handle custom navigation by getting context
-      const { selectedTabIndex } = event.context;
-      setTabIndex(selectedTabIndex);
+      const { pageId } = event.context;
+      yourNavigateToPageMethod(pageId);
     };
     const commentElement = document.querySelector('velt-comments-sidebar');
     commentElement.addEventListener('onSideBarCommentClick, onCommentClick);
