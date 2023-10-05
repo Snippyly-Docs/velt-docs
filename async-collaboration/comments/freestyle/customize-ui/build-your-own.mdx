@@ -12,7 +12,11 @@ Import the `useVeltClient` React hook.
 You can use this hook within your component to fetch the Velt client.
 
 ```js
-import { VeltComments, useVeltClient } from '@veltdev/react';
+import { useVeltClient } from '@veltdev/react';
+```
+
+```jsx
+  const { client } = useVeltClient();
 ```
 
 ## 2) Create a useEffect hook
@@ -51,6 +55,8 @@ Subscribe to constant comment changes.
 We will send you a new list of comments everytime there is a change so you can build out your own user UI and logic. You can pass in a `documentId` and `location` to filter out unwanted comments.
 
 ```js
+const commentElement = client.getCommentElement();
+
 commentElement.getAllCommentAnnotations(documentId, location).subscribe((comments) => {
   // Do something with comments list
 });
@@ -67,9 +73,12 @@ Import the `useVeltClient` React hook.
 You can use this hook within your component to fetch the Velt client.
 
 ```js
-import { VeltComments, useVeltClient } from '@veltdev/react';
+import {  useVeltClient } from '@veltdev/react';
 ```
-
+ 
+```jsx
+  const { client } = useVeltClient();
+```
 ## 2) Create a useEffect hook
 
 Create an effect with the `client` as a dependency.
@@ -104,7 +113,11 @@ Subscribe to constant comment changes.
 
 We will send you a new list of comments everytime there is a change so you can build out your own user UI and logic. You can pass in a `documentId` and `location` to filter out unwanted comments.
 
+
 ```js
+
+const commentElement = client.getCommentElement();
+
 commentElement.getAllCommentAnnotations(documentId, location).subscribe((comments) => {
   // Do something with comments list
 });
@@ -162,10 +175,10 @@ commentElement.getAllCommentAnnotations(documentId, location).subscribe((comment
 <RequestExample>
 
 ```js React
-import { VeltComments, useVeltClient } from '@veltdev/react';
+import { useVeltClient } from '@veltdev/react';
 import { useEffect } from 'react';
 
-export default function App() {
+export default function YourDocument() {
 
   const { client } = useVeltClient();
 
@@ -190,7 +203,6 @@ export default function App() {
 
   return (
     <>
-      <VeltComments />
       {/* ... */}
     </>
   );
@@ -198,10 +210,10 @@ export default function App() {
 ```
 
 ```js Next.js
-import { VeltComments, useVeltClient } from '@veltdev/react';
+import { useVeltClient } from '@veltdev/react';
 import { useEffect } from 'react';
 
-export default function App() {
+export default function YourDocument() {
 
   const { client } = useVeltClient();
 
@@ -226,7 +238,6 @@ export default function App() {
 
   return (
     <>
-      <VeltComments />
       {/* ... */}
     </>
   );

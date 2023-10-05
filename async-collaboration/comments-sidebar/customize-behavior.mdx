@@ -9,7 +9,7 @@ title: "Customize Behavior"
 <Tab title="React / Next.js">
 
 ## 1) Customize navigation for non-URL based navigation
-**By default, we attempt to navigate the user to the comment location when a user clicks on one in the sidebar.**
+**By default, we attempt to navigate the user to the comment Location when a user clicks on one in the sidebar.**
 
 If you want to alter this behavior, you can listen to click events and add an event listener to handle the navigation in a custom way.
 
@@ -68,6 +68,29 @@ const onCommentClick = (event) => {
 ```
 
 <Info>You would choose to use addContext() over Location if you do not want to segregate your comments by Location</Info>
+
+## 2) Enable/Disable Sidebar URL Navigation
+
+`Default: false`
+
+By default, `Comment Sidebar` URL navigation is disabled. So when user clicks on any comment in the sidebar, we will not redirect the user to a different page url if the comment was located on a different page. You would need to listen to `onSideBarCommentClick` events and then handle the event to change the URL.
+
+To enable Sidebar URL Navigation, you can set the `urlNavigation` attribute to `true`. When this is enabled, clicking on Sidebar comments will change the page URL to wherever the comment was added.
+
+```jsx
+{/* `true` to enable sidebar url navigation, `false` to disable sidebar url navigation */}
+<VeltCommentsSidebar urlNavigation={true} />
+```
+
+You can also use API methods:
+
+```js
+const commentElement = Velt.getCommentElement();
+// to enable sidebar url navigation
+commentElement.enableSidebarUrlNavigation();
+// to disable sidebar url navigation
+commentElement.disableSidebarUrlNavigation();
+```
 
 </Tab>
 
@@ -135,6 +158,29 @@ const onCommentClick = (event) => {
 
 
 <Info>You would choose to use addContext() over Location if you do not want to segregate your comments by Location</Info>
+
+## 2) Enable/Disable Sidebar URL Navigation
+
+`Default: false`
+
+By default, `Comment Sidebar` URL navigation is disabled. So when user clicks on any comment in the sidebar, we will not redirect the user to a different page url if the comment was located on a different page. You would need to listen to `onSideBarCommentClick` events and then handle the event to change the URL.
+
+To enable Sidebar URL Navigation, you can set the `urlNavigation` attribute to `true`. When this is enabled, clicking on Sidebar comments will change the page URL to wherever the comment was added.
+
+```js
+<!-- `true` to enable sidebar url navigation, `false` to disable sidebar url navigation -->
+<velt-comments-sidebar url-navigation="false"></velt-comments-sidebar>
+```
+
+You can also use API methods:
+
+```js
+const commentElement = Velt.getCommentElement();
+// to enable sidebar url navigation
+commentElement.enableSidebarUrlNavigation();
+// to disable sidebar url navigation
+commentElement.disableSidebarUrlNavigation();
+```
 
 </Tab>
 

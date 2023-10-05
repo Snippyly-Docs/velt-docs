@@ -505,6 +505,18 @@ if (client) {
 }
 ```
 
+## 32) ### Add comment on selected text
+
+By default, when you highlight over any text in `textMode` a Comment Tool button will appear. Clicking the button will add a comment on the highlighted text.
+
+If you want to trigger the comment using an API method call instead of clicking the button, you can do the following:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+// to add comment on selected text
+commentElement.addCommentOnSelectedText();
+```
+
   </Tab>
   
 
@@ -946,6 +958,18 @@ To subscribe to changes in the comment mode, use the onCommentModeChange() metho
 commentElement.onCommentModeChange().subscribe((mode) => {
     //mode contains the state after change
 });
+```
+
+## 32) ### Add comment on selected text
+
+By default, when you highlight over any text in `textMode` a Comment Tool button will appear. Clicking the button will add a comment on the highlighted text.
+
+If you want to trigger the comment using an API method call instead of clicking the button, you can do the following:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+// to add comment on selected text
+commentElement.addCommentOnSelectedText();
 ```
 
   </Tab>
