@@ -12,8 +12,10 @@ description: "A Document is the space where you want your users to collaborate. 
 <Warning>It is critical that you do the following steps within a child component and not within the same root component where you placed the VeltProvider.</Warning> 
 <Info>Realistically, these steps should be done inside your component that represents your document.</Info>
 
-## 1) Get the Velt client
 
+<Steps>
+
+<Step title="Get the Velt client">
 Import the `useVeltClient` React hook.
 
 You can use this hook within your component to fetch the Velt client.
@@ -26,9 +28,9 @@ import { useVeltClient } from '@veltdev/react';
 ```js
 const { client } = useVeltClient();
 ```
+</Step>
 
-## 3) Create a useEffect hook
-
+<Step title="Create a useEffect hook">
 Create an effect with the client as a dependency.
 Make sure to check if the client is `null` or `undefined` before you use it.
 
@@ -40,8 +42,9 @@ useEffect(() => {
 }, [client]);
 ```
 
-## 4) Set a document ID
+</Step>
 
+<Step title="Set a document ID">
 When your document has initialized and is ready for collaboration, call the `setDocumentId()` method and pass a unique ID representing your document.
 
 Users logged into the same document ID can see each other's presence, cursors, comments etc. 
@@ -54,10 +57,20 @@ You can use separate document IDs to represent separate documents.
 ```js
 client.setDocumentId('unique-document-id');
 ```
+</Step>
+
+</Steps>
+
+
+
+
+
 
   </Tab>
   <Tab title="HTML">
-## 1) Set a document ID
+
+<Steps>
+<Step title="Set a Document ID">
 
 When your document has initialized and is ready for collaboration, call the `setDocumentId()` method and pass a unique ID representing your document.
 
@@ -72,6 +85,12 @@ if(Velt){
     Velt.setDocumentId('CUSTOM_DOCUMENT_ID');
 }
 ```
+</Step>
+<Step title="You're Done!">
+
+</Step>
+</Steps>
+
 
   </Tab>
 </Tabs>

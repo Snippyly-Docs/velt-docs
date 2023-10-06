@@ -12,7 +12,9 @@ description: "Autheticate your logged in users with the SDK."
 <Warning>It is critical that you do the following steps within a child component and not within the same root component where you placed the VeltProvider.</Warning>
 <Info>Realistically, these steps should be done inside your component that handles authentication.</Info>
 
-## 1) Get the Velt client
+<Steps>
+
+<Step title="Get the Velt client">
 
 Import the `useVeltClient` React hook. You can use this hook within your
 component to fetch the Velt client. 
@@ -25,10 +27,10 @@ import { useVeltClient } from '@veltdev/react';
 const { client } = useVeltClient();
 ```
 
-## 2) Create a `useEffect` hook
 
-Create the `useEffect` hook with `client` and `yourAuthenticatedUser` as dependencies.
+</Step>
 
+<Step title="Create a `useEffect` hook">
 ```js
   useEffect(() => {
     if (client && yourAuthenticatedUser) {
@@ -36,9 +38,9 @@ Create the `useEffect` hook with `client` and `yourAuthenticatedUser` as depende
     }
   }, [client, yourAuthenticatedUser]);
 ```
+</Step>
 
-## 3) Fetch relevant user info
-
+<Step title="Fetch relevant user info">
 Create a Velt User object by taking the relevant fields from `yourAuthenticatedUser`.
 
 ```js
@@ -55,12 +57,13 @@ Create a Velt User object by taking the relevant fields from `yourAuthenticatedU
   };
 ```
 
-
+<Info>
 To enable @mention in the comments, you need to pass the user's contacts. Learn more about how it works [here](https://docs.velt.dev/users/add-user-contacts/setup).
+</Info>
 
+</Step>
 
-## 4) Pass the user object to the SDK
-
+<Step title=" Pass the user object to the SDK">
 Call the `identify()` method and pass in the Velt User.
 
 ```js
@@ -69,27 +72,66 @@ Call the `identify()` method and pass in the Velt User.
 
 <Info>The `client.identify()` method is asynchronous.</Info>
 
+</Step>
+</Steps>
+
+
+
+
+
+
+
+
+
 
 
   </Tab>
   <Tab title="HTML">
 
-## 1) Identify the Logged In User
+<Steps>
 
+
+
+<Step title="Fetch relevant user info">
+Create a Velt User object.
+
+```js
+
+  // Fetch the relevant user info from `yourAuthenticatedUser`
+  const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
+
+  // Create the Velt user object
+  const user = {
+    userId: uid,
+    name: displayName,
+    email: email,
+    photoUrl: photoURL
+  };
+```
+
+<Info>
+To enable @mention in the comments, you need to pass the user's contacts. Learn more about how it works [here](https://docs.velt.dev/users/add-user-contacts/setup).
+</Info>
+
+</Step>
+
+<Step title="Identify the Logged In User">
 Call this function in the component where you authenticate your users once your Velt client and your user object is available.
 
 If your .js files are all in one file, you will need to include the .js file on every html page you want the features to be enabled on.
 
 Make sure you pass the user with the fields defined in the User object or refer to the example below.
 
-To enable @mention in the comments, you need to pass the user's contacts. Learn more about how it works [here](https://docs.velt.dev/users/add-user-contacts/setup).
 
 ```js
     await Velt.identify(yourLoggedInUser)
 ```
 
 <Info>The `Velt.identify()` method is asynchronous</Info>
+</Step>
 
+
+</Steps>
 
   </Tab>
 </Tabs>
