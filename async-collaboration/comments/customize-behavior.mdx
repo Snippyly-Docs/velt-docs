@@ -19,6 +19,13 @@ Comments will be disabled for all other elements. Note, this does not impact `Po
 <VeltComments allowedElementIds={['some-element']} />
 ````
 
+API Method:
+
+```
+const commentElement = client.getCommentElement();
+commentElement.allowedElementIds['some-element'];
+```
+
 ## 2) Disable comments on certain elements
 
 Disable certain elements from being commented on.
@@ -43,6 +50,14 @@ Currently we support `.png`, `.jpg`, `.gif` (static & animated), `.svg` file typ
 <VeltComments attachments={true} />
 ````
 
+API Method:
+
+```
+const commentElement = client.getCommentElement();
+commentElement.enableAttachments();
+commentElement.disableAttachments();
+```
+
 ## 4) AI auto categorization of comments
 
 Whether AI auto-categorization of comments is enabled.
@@ -54,6 +69,14 @@ We use AI to analyze your comment content and auto-categorize it so users can fi
 ```js
 <VeltComments autoCategorize={true} />
 ````
+
+API Method:
+
+```
+const commentElement = client.getCommentElement();
+commentElement.enableAutoCategorize();
+commentElement.disableAutoCategorize();
+```
 
 ## 5) Set Custom Categories
 
@@ -80,6 +103,20 @@ The `color` property is used to set the category pill background color.
 ]}/>
 ````
 
+API Method:
+
+```
+const commentElement = client.getCommentElement();
+commentElement.setCustomCategory([
+  {
+    "id": "bug",
+    "name": "Bug",
+    "color": "red"
+  }
+])
+```
+
+
 ## 6) Comment index
 
 Whether comment index is enabled.
@@ -91,6 +128,14 @@ This appears in the comment sidebar and on the comment pins. When this is on, we
 ```js
 <VeltComments commentIndex={true} />
 ````
+
+API Method:
+
+```
+const commentElement = client.getCommentElement();
+commentElement.enableCommentIndex();
+commentElement.disableCommentIndex();
+```
 
 ## 7) Device type indicator
 
@@ -105,6 +150,15 @@ When this is on, we show a small device type icon indicating which device the co
 <VeltComments deviceInfo={true} />
 ````
 
+API Method:
+
+```
+const commentElement = client.getCommentElement();
+commentElement.enableDeviceInfo();
+commentElement.disableDeviceInfo();
+```
+
+
 ## 8) Comment dialog on hover
 
 Whether the comment dialog shows on hover over the comment pin or the target element.
@@ -114,6 +168,14 @@ Whether the comment dialog shows on hover over the comment pin or the target ele
 ```js
 <VeltComments dialogOnHover={true} />
 ````
+
+API Method:
+
+```
+const commentElement = client.getCommentElement();
+commentElement.enableDialogOnHover();
+commentElement.disableDialogOnHover();
+```
 
 ## 9) Comment dialog on target element click
 
@@ -125,6 +187,14 @@ Whether the comment dialog opens when target element is clicked. This is relevan
 <VeltComments dialogOnTargetElementClick={true} />
 ````
 
+API Method:
+
+```
+const commentElement = client.getCommentElement();
+commentElement.enableDialogOnTargetElementClick();
+commentElement.disableDialogOnTargetElementClick();
+```
+
 ## 10) Floating comment dialog
 
 Whether floating comment dialog is shown next to comment pin on hover or click.
@@ -134,6 +204,14 @@ Whether floating comment dialog is shown next to comment pin on hover or click.
 ```js
 <VeltComments floatingCommentDialog={true} />
 ````
+
+API Method:
+
+```
+const commentElement = client.getCommentElement();
+commentElement.enableFloatingCommentDialog();
+commentElement.disableFloatingCommentDialog();
+```
 
 ## 11) Ghost comments
 
@@ -147,6 +225,15 @@ Ghost comments are comments that were once linked to certain content on the DOM 
 <VeltComments ghostComments={true} />
 ````
 
+API Method:
+
+```
+const commentElement = client.getCommentElement();
+commentElement.enableGhostComments();
+commentElement.disableGhostComments();
+```
+
+
 ## 12) Ghost comments indicator
 
 Whether to show ghost comment labels in the comment sidebar.
@@ -158,6 +245,14 @@ Ghost comments are always shown in the comments sidebar so that users can see th
 ```js
 <VeltComments ghostCommentsIndicator={true} />
 ````
+
+API Method:
+
+```
+const commentElement = client.getCommentElement();
+commentElement.enableGhostCommentsIndicator();
+commentElement.disableGhostCommentsIndicator();
+```
 
 ## 13) Moderator mode
 
@@ -173,6 +268,15 @@ You can set some users as `admin` by setting the `isAdmin` property in the User 
 <VeltComments moderatorMode={true} />
 ````
 
+API Method:
+
+```
+const commentElement = client.getCommentElement();
+commentElement.enableModeratorMode();
+commentElement.disableModeratorMode();
+```
+
+
 ## 14) Priority
 
 Whether to enable setting priority on comments.
@@ -184,6 +288,15 @@ When this is on, users can assign a priority to each comment & filter comment by
 ```js
 <VeltComments priority={true} />
 ````
+
+API Method:
+
+```
+const commentElement = client.getCommentElement();
+commentElement.enablePriority();
+commentElement.disablePriority();
+```
+
 
 ## 15) Set Custom Priorites
 
@@ -212,6 +325,20 @@ The `lightColor` property sets the background color of the filter.
 ]}/>
 ```
 
+API Method:
+
+```
+const commentElement = client.getCommentElement();
+commentElement.setCustomPriority([
+  {
+    "id": "low",
+    "name": "Low",
+    "color": "red",
+    "lightColor": "pink",
+  },
+])
+```
+
 
 ## 16) Resolve button
 
@@ -226,6 +353,15 @@ This adds a tick mark button on the top right corner of the comment dialog. Clic
 <VeltComments resolveButton={true} />
 ````
 
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableResolveButton();
+commentElement.disableResolveButton();
+```
+
+
 ## 17) Status
 
 Whether to enable the default status dropdown & filters.
@@ -237,6 +373,15 @@ When this is on, users can assign a status to each comment & filter comment by s
 ```js
 <VeltComments status={true} />
 ````
+
+
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableStatus();
+commentElement.disableStatus();
+```
 
 ## 18) Set Custom Statuses
 
@@ -263,8 +408,24 @@ Setting the Status Icon using the `svg` property:
     "lightColor:"green",
     "type": "default",
     "svg": "<svg></svg>" // Pass in a serialized SVG
-  },
+  }
 ]}/>
+```
+
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.setCustomStatus([
+  {
+    "id": "open",
+    "name": "Open",
+    "color": "white",
+    "lightColor:"green",
+    "type": "default",
+    "svg": "<svg></svg>" // Pass in a serialized SVG
+  }
+])
 ```
 
 ## 19) Sign In button
@@ -279,6 +440,15 @@ This allows anonymous or signed out users to still read the comments but encoura
 ```js
 <VeltComments signInButton={true} />
 ````
+
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableSignInButton();
+commentElement.disableSignInButton();
+```
+
 
 ## 20) onSignIn
 
@@ -365,6 +535,16 @@ To accept comments, set the `suggestionMode` attribute to `true`.
 <VeltComments suggestionMode={true} />
 ````
 
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableSuggestionMode();
+commentElement.disableSuggestionMode();
+```
+
+
+
 
 ## 24) Listen to onCommentAccept and onCommentReject events
 
@@ -427,6 +607,15 @@ Whether dark mode is enabled.
 ```js
 <VeltComments darkMode={true} />
 ````
+
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableDarkMode();
+commentElement.disableDarkMode();
+```
+
 
 ## 28) Show/Hide comments on DOM
 
