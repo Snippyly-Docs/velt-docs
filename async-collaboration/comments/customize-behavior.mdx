@@ -21,7 +21,7 @@ Comments will be disabled for all other elements. Note, this does not impact `Po
 
 API Method:
 
-```
+```jsx
 const commentElement = client.getCommentElement();
 commentElement.allowedElementIds['some-element'];
 ```
@@ -52,7 +52,7 @@ Currently we support `.png`, `.jpg`, `.gif` (static & animated), `.svg` file typ
 
 API Method:
 
-```
+```jsx
 const commentElement = client.getCommentElement();
 commentElement.enableAttachments();
 commentElement.disableAttachments();
@@ -72,7 +72,7 @@ We use AI to analyze your comment content and auto-categorize it so users can fi
 
 API Method:
 
-```
+```jsx
 const commentElement = client.getCommentElement();
 commentElement.enableAutoCategorize();
 commentElement.disableAutoCategorize();
@@ -105,7 +105,7 @@ The `color` property is used to set the category pill background color.
 
 API Method:
 
-```
+```jsx
 const commentElement = client.getCommentElement();
 commentElement.setCustomCategory([
   {
@@ -131,7 +131,7 @@ This appears in the comment sidebar and on the comment pins. When this is on, we
 
 API Method:
 
-```
+```jsx
 const commentElement = client.getCommentElement();
 commentElement.enableCommentIndex();
 commentElement.disableCommentIndex();
@@ -152,7 +152,7 @@ When this is on, we show a small device type icon indicating which device the co
 
 API Method:
 
-```
+```jsx
 const commentElement = client.getCommentElement();
 commentElement.enableDeviceInfo();
 commentElement.disableDeviceInfo();
@@ -171,7 +171,7 @@ Whether the comment dialog shows on hover over the comment pin or the target ele
 
 API Method:
 
-```
+```jsx
 const commentElement = client.getCommentElement();
 commentElement.enableDialogOnHover();
 commentElement.disableDialogOnHover();
@@ -227,7 +227,7 @@ Ghost comments are comments that were once linked to certain content on the DOM 
 
 API Method:
 
-```
+```jsx
 const commentElement = client.getCommentElement();
 commentElement.enableGhostComments();
 commentElement.disableGhostComments();
@@ -248,7 +248,7 @@ Ghost comments are always shown in the comments sidebar so that users can see th
 
 API Method:
 
-```
+```jsx
 const commentElement = client.getCommentElement();
 commentElement.enableGhostCommentsIndicator();
 commentElement.disableGhostCommentsIndicator();
@@ -270,7 +270,7 @@ You can set some users as `admin` by setting the `isAdmin` property in the User 
 
 API Method:
 
-```
+```jsx
 const commentElement = client.getCommentElement();
 commentElement.enableModeratorMode();
 commentElement.disableModeratorMode();
@@ -291,7 +291,7 @@ When this is on, users can assign a priority to each comment & filter comment by
 
 API Method:
 
-```
+```jsx
 const commentElement = client.getCommentElement();
 commentElement.enablePriority();
 commentElement.disablePriority();
@@ -327,7 +327,7 @@ The `lightColor` property sets the background color of the filter.
 
 API Method:
 
-```
+```jsx
 const commentElement = client.getCommentElement();
 commentElement.setCustomPriority([
   {
@@ -682,6 +682,7 @@ commentElement.onCommentModeChange().subscribe((mode) => {
     //mode contains the state after change
 });
 ```
+
 
 ## 31) Delete comment
 
