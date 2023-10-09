@@ -7,8 +7,7 @@ title: "Setup"
 
 <Tabs>
 <Tab title="React">
-## 1) Import VeltCommentsSidebar and VeltSidebarButton ffom `@veltdev/react`
-**Import the comments sidebar component.**
+## 1) Import Comments Sidebar Components
 
 ```js
 import { 
@@ -46,47 +45,6 @@ This is completely optional and you can toggle the sidebar in the comment dialog
 You should be able to click the `All comments` link in a comment dialog box on the bottom.
 </Tab>
 
-<Tab title="Next.js">
-
-## 1) Import VeltCommentsSidebar and VeltSidebarButton ffom `@veltdev/react`
-**Import the comments sidebar component.**
-
-```js
-import { 
-  VeltProvider, 
-  VeltCommentsSidebar, 
-  VeltSidebarButton,
-  VeltCommentTool 
-} from '@veltdev/react';
-```
-
-We offer specific components for our users that use React.
-
-## 2) Add Comments and Sidebar components
-**Add the VeltComments and VeltCommentsSidebar components to the root of your app.**
-
-```js
-<VeltComments />
-<VeltCommentsSidebar />
-```
-
-This component is required to render comments in your app.
-
-## 3) Add Sidebar button
-**Add the Sidebar button to toggle the sidebar.**
-
-```js
-<VeltSidebarButton />
-```
-
-This is completely optional and you can toggle the sidebar in the comment dialog as well.
-
-## 4) Test Integration
-**Test it out by opening the sidebar.**
-
-You should be able to click the `All comments` link in a comment dialog box on the bottom.
-
-</Tab>
 
 <Tab title="HTML">
     ## 1) Import the Velt Script tag
@@ -104,14 +62,13 @@ You should be able to click the `All comments` link in a comment dialog box on t
     ```
 
     ## 3) Place the `<velt-comments-sidebar>` component
-    Place the component wherever you want the invite button to appear.
-
+Place the `<velt-comments-sidebar>` component at the root of your app.
 ```html HTML
 <velt-comments-sidebar></velt-comments-sidebar>
 ```
 
     ## 4) Place the `<velt-sidebar-button>` component
-    Place the component wherever you want the invite button to appear.
+Place the `<velt-sidebar-button>` component wherever you want the toggle button to appear.
 
 ```html HTML
 <velt-sidebar-button></velt-sidebar-button>
@@ -147,30 +104,6 @@ export default function App() {
 }
 ```
 
-```js Next.js
-import { 
-  VeltProvider, 
-  VeltCommentsSidebar, 
-  VeltSidebarButton,
-  VeltCommentTool 
-} from '@veltdev/react';
-
-export default function App() {
-
-  return (
-    <VeltProvider apiKey="API_KEY">
-      <VeltComments /> {/* Add VeltComments to the root of your app provider */}
-      <VeltCommentsSidebar /> {/* Add VeltCommentsSidebar to the root of your app provider */}
-
-      <div className="toolbar">
-        <VeltCommentTool /> {/* Add VeltCommentTool wherever you want it to appear */}
-        <VeltSidebarButton /> {/* Add VeltCommentSideBarButton wherever you want it to appear */}
-      </div>
-
-    </VeltProvider>
-  );
-}
-```
 
 
 ```html HTML
@@ -188,10 +121,10 @@ export default function App() {
   <body>
     <velt-comments></velt-comments> <!-- add to the root of your app-->
     <velt-comments-sidebar></velt-comments-sidebar> <!-- add to the root of your app -->
-    <tool-bar> <!-- a component representing a toolbar-->
+    <div class="toolbar"> <!-- a component representing a toolbar-->
       <velt-comment-tool></velt-comment-tool> <!-- add wherever you want it to appear-->
-      <velt-sidebar-button></velt-sidebar-button> <!-- add wherever you want it to appea -->
-    </tool-bar
+      <velt-sidebar-button></velt-sidebar-button> <!-- add wherever you want it to appear -->
+    </div>
     
 
   </body>
