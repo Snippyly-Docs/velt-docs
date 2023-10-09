@@ -139,6 +139,12 @@
           "pages": [
             "realtime-collaboration/single-editor-mode/overview"
           ]
+        },
+        {
+          "group": "Live Co-Editing",
+          "pages": [
+            "live-co-editing/overview"
+          ]
         }
       ]
     },
