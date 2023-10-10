@@ -168,7 +168,7 @@
             {
               "group": "Customize Behavior",
               "pages": [
-                "async-collaboration/comments/customize-behavior/api-methods",
+                "async-collaboration/comments/customize-behavior/action-methods",
                 "async-collaboration/comments/customize-behavior/display-metadata",
                 "async-collaboration/comments/customize-behavior/event-handlers",
                 "async-collaboration/comments/customize-behavior/general-controls",
