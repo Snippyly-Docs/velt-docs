@@ -7,7 +7,10 @@ title: "Freestyle Setup"
 
 <Tabs>
   <Tab title="React / Next.js">
-## 1) Import Comment components
+
+<Steps>
+
+<Step title="Import Comment components">
 Import the `VeltComments` component and the `VeltCommentTool` component.
 
 ```js
@@ -17,9 +20,10 @@ import {
   VeltCommentTool
 } from '@veltdev/react';
 ```
+</Step>
 
-## 2) Add Comments component
 
+<Step title="Add Comments component">
 Add the `VeltComments` component to the root of your app.
 
 This component is required to render comments in your app.
@@ -30,9 +34,8 @@ This component is required to render comments in your app.
 </VeltProvider>
 ```
 
-
-## 3) Add Comment Tool component
-
+</Step>
+<Step title="Add Comment Tool component">
 Add the `VeltCommentTool` component wherever you want to show the comment tool button.
 
 Clicking on it initiates comment mode & changes your mouse cursor to a comment pin. Now you can click anywhere on the document to attach comments to any elements.
@@ -42,17 +45,23 @@ Clicking on it initiates comment mode & changes your mouse cursor to a comment p
   <VeltCommentTool />
 </div>
 ```
-
-## 4) Test Integration
+</Step>
+<Step title="Test Integration">
 
 Test it out by opening the page with Velt components in your browser.
 
 Click on the Comment Tool and click anywhere on the page to add a comment.
 
-  </Tab>
+</Step>
+</Steps>
+
+</Tab>
  
   <Tab title="HTML">
-## 1) Add Comment component
+
+<Steps>
+
+<Step title="Add Comment component">
 Add the comment component to your template. Try to put it as close to the root level of your `<body>`.
 
 This component is required to render comments in your app.
@@ -62,24 +71,20 @@ This component is required to render comments in your app.
   <velt-comments></velt-comments>
 </body>
 ```
+</Step>
 
-## 2) Add the Comment tool component
-
-The comment tool allows you to add comments.
-
-When you click on the comment tool, it initiates comment mode. In Freestyle mode, you can attach comments to any elements on the page.
-
-```html
-<div class="toolbar">
-  <velt-comment-tool></velt-comment-tool>
-</div>
-```
-
-## 3) Test Integration
-
+<Step title="Test Integration">
 Test it out by adding a comment.
 
 You should be able to leave comments using the comment tool.
+
+</Step>
+
+<Step>
+</Step>
+
+</Steps>
+
 
   </Tab>
 </Tabs>

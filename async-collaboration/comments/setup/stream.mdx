@@ -7,7 +7,9 @@ title: "Stream Setup"
 
 <Tabs>
   <Tab title="React / Next.js">
-## 1) Import Comment components
+
+<Steps>
+<Step title="Import Comment components">
 Import the `VeltComments` component.
 
 ```js
@@ -16,9 +18,10 @@ import {
   VeltComments,
 } from '@veltdev/react';
 ```
+</Step>
 
-## 2) Add `VeltComments` component with Stream mode
 
+<Step title="Add `VeltComments` component with Stream mode">
 Add the `VeltComments` component inside a scrolling container. Make it a sibling to the element that contains the content you want to be commented.
 
 In the `VeltComments` component, mark the `streamMode` attribute as `true`. 
@@ -45,25 +48,30 @@ Setting a reference to the container ID helps us position & scroll the comment s
 </VeltProvider>
 
 ```
-
-
-
-## 3) Test Integration
-
+</Step>
+<Step title="Test Integration">
 Test it out by adding a comment.
 
 Select any text, a comment tool will appear near the highlighted text. 
 
 Click on it to add a comment and see the comment appear in the comment stream.
 
+</Step>
+</Steps>
+
+
+
+
+
   </Tab>
  
 
 
     <Tab title="HTML">
-## 1) Add `<velt-comments>` component with Stream mode
 
+<Steps>
 
+<Step title="Add the velt-comments component with Stream mode">
 Add the `<velt-comments>`  component inside a scrolling container. Make it a sibling to the element that contains the content you want to be commented.
 
 In the `<velt-comments>`  component, mark the `stream-mode` attribute as `true`. 
@@ -90,14 +98,18 @@ Setting a reference to the container ID helps us position & scroll the comment s
 </body>
 ```
 
+</Step>
 
-## 2) Test Integration
-
+<Step title="Test Integration">
 Test it out by adding a comment.
 
 Select any text, a comment tool will appear near the highlighted text. 
 
 Click on it to add a comment and see the comment appear in the comment stream.
+
+</Step>
+
+</Steps>
 
   </Tab>
 </Tabs>

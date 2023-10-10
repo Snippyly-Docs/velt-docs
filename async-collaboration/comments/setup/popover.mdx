@@ -7,7 +7,10 @@ title: "Popover Setup"
 
 <Tabs>
   <Tab title="React / Next.js">
-## 1) Import Comment components
+
+<Steps>
+
+<Step title="Import Comment components">
 Import the `VeltComments`, `VeltCommentTool`, and `VeltCommentBubble` components.
 
 ```js
@@ -19,7 +22,9 @@ import {
 } from '@veltdev/react';
 ```
 
-## 2) Add Comments component with Popover mode
+</Step>
+
+<Step title="Add Comments component with Popover mode">
 
 Add the `VeltComments` component to the root of your app and mark the `popoverMode` property as `true`.
 
@@ -32,9 +37,9 @@ Popover mode means that comments can be attached to specific target elements. Th
   <VeltComments popoverMode={true}/>
 </VeltProvider>
 ```
+</Step>
 
-## 3) Add Comment Tool component
-
+<Step title="Add Comment Tool component">
 Add the `VeltCommentTool` component on each component where you want to enable commenting.
 
 For example, in a table you could add this tool to each cell and show it on hover or right click context menu.
@@ -57,11 +62,10 @@ Once the comment is saved, you will notice a triangle on the top right corner of
   </div>
 </div>
 ```
+</Step>
 
-
-## 4) Add the Comment Bubble component
-
-(optional) This component accepts a target element ID & binds to the comment associated with it.
+<Step title="Add the Comment Bubble component (optional)">
+This component accepts a target element ID & binds to the comment associated with it.
 
 It also shows the total number of threads in the given comment.
 
@@ -81,18 +85,35 @@ This gives you a lot of flexibility as you can place this component anywhere and
   </div>
 </div>
 ```
+</Step>
 
-## 5) Test Integration
-
+<Step title="Test Integration">
 Test it out by opening the page with Velt components in your browser.
 
 Click on the Comment Tool and leave a comment on the target element.
+</Step>
+
+</Steps>
+
+
+
+
+
+
+
+
+
+
+
 
   </Tab>
  
 
   <Tab title="HTML">
-## 1) Add Comment component with Popover mode
+
+<Steps>
+
+<Step title="Add Comment component with Popover mode">
 Add the comment component to your template. Try to put it as close to the root level of your `<body>`.
 
 This component is required to render comments in your app.
@@ -102,9 +123,9 @@ This component is required to render comments in your app.
     <velt-comments popover-mode="true"></velt-comments>
 </body>
 ```
+</Step>
 
-## 2) Add the Comment tool component
-
+<Step title="Add the Comment tool component">
 Add the  `<velt-comment-tool>`component on each component where you want to enable commenting.
 
 For example, in a table you could add this tool to each cell and show it on hover or right click context menu.
@@ -127,10 +148,10 @@ Once the comment is saved, you will notice a triangle on the top right corner of
   </div>
 </div>
 ```
+</Step>
 
-## 3) Add the Comment Bubble component
-
-(optional) This component accepts a target element ID & binds to the comment associated with it.
+<Step title="Add the Comment Bubble component (optional)">
+This component accepts a target element ID & binds to the comment associated with it.
 
 It also shows the total number of threads in the given comment.
 
@@ -150,12 +171,18 @@ This gives you a lot of flexibility as you can place this component anywhere and
   </div>
 </div>
 ```
+</Step>
 
-## 4) Test Integration
-
+<Step title="Test Integration">
 Test it out by adding a comment.
 
 You should be able to leave a comment on the target element using the comment tool.
+
+</Step>
+
+</Steps> 
+
+
 
   </Tab>
 </Tabs>

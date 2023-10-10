@@ -7,7 +7,10 @@ title: "Inbox Setup"
 
 <Tabs>
   <Tab title="React / Next.js">
-## 1) Import Comment components
+
+<Steps>
+
+<Step title="Import Comment components">
 Import the `VeltComments` component and the `VeltCommentTool` component.
 
 ```js
@@ -17,9 +20,10 @@ import {
   VeltCommentTool
 } from '@veltdev/react';
 ```
+</Step>
 
-## 2) Add Comment component with Inbox mode
 
+<Step title="Add Comment component with Inbox mode">
 Add the `VeltComments` component to the root of your app and mark the `inboxMode` property as true.
 
 This component is required to render comments in your app.
@@ -34,10 +38,9 @@ You can combine this with Freestyle, Popover, or Text mode.
 </VeltProvider>
 ```
 
+</Step>
 
-
-## 3) Add Comment Tool component
-
+<Step title="Add Comment Tool component">
 Add the `VeltCommentTool` component wherever you want to show the comment tool button.
 
 Clicking on it initiates comment mode & changes your mouse cursor to a comment pin. Now you can click anywhere on the document to attach comments to any elements.
@@ -47,18 +50,29 @@ Clicking on it initiates comment mode & changes your mouse cursor to a comment p
   <VeltCommentTool />
 </div>
 ```
-## 4) Test Integration
+</Step>
 
+<Step title="Test Integration">
 Test it out by opening the page with Velt components in your browser.
 
 You should be able to leave a comment by selecting some text or using the Comment Tool.
+
+</Step>
+
+</Steps>
+
+
+
 
   </Tab>
 
 
  
     <Tab title="HTML">
-## 1) Add Comment component with Inbox mode
+
+<Steps>
+
+<Step title="Add Comment component with Inbox mode">
 Add the comment component to your template. Try to put it as close to the root level of your `<body>`. 
 
 Set the `inbox-mode` attribute to `true`.
@@ -74,9 +88,9 @@ You can combine this with Freestyle, Popover, or Text mode.
   <velt-comments inbox-mode="true"></velt-comments>
 </body>
 ```
+</Step>
 
-## 2) Add the Comment tool component
-
+<Step title="Add the Comment tool component">
 The comment tool allows you to add comments.
 
 When you click on the comment tool, it initiates comment mode. In Freestyle mode, you can attach comments to any elements on the page.
@@ -86,12 +100,18 @@ When you click on the comment tool, it initiates comment mode. In Freestyle mode
   <velt-comment-tool></velt-comment-tool>
 </div>
 ```
+</Step>
 
-## 3) Test Integration
-
+<Step title="Test Integration">
 Test it out by adding a comment.
 
 You should be able to leave a comment by selecting some text.
+
+</Step>
+
+
+</Steps>
+
 
   </Tab>
 </Tabs>
