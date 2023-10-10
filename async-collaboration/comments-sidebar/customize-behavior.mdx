@@ -16,7 +16,7 @@ If you want to alter this behavior, you can listen to click events and add an ev
 
 ### 1a) Custom navigation using Location
 
-Using the onSideBarCommentClick handler, you can fetch the context and make the necessary state changes to locate the comment correctly.
+Using the onCommentClick handler, you can fetch the context and make the necessary state changes to locate the comment correctly.
 
 **When a comment is clicked, the handler will be called with the location data of the comment.**
 
@@ -38,7 +38,7 @@ Any context data passed when the comment was added
 
 
 ```js
- <VeltCommentsSidebar onSidebarCommentClick={onCommentClick} /> 
+ <VeltCommentsSidebar onCommentClick={onCommentClick} /> 
 ```
 
 ```js
@@ -55,7 +55,7 @@ If you do not want to use Location, you can alternatively handle custom navigati
 
 
 ```js
- <VeltCommentsSidebar onSidebarCommentClick={onCommentClick} /> 
+ <VeltCommentsSidebar onCommentClick={onCommentClick} /> 
 ```
 
 ```js
@@ -73,7 +73,7 @@ const onCommentClick = (event) => {
 
 `Default: false`
 
-By default, `Comment Sidebar` URL navigation is disabled. So when user clicks on any comment in the sidebar, we will not redirect the user to a different page url if the comment was located on a different page. You would need to listen to `onSideBarCommentClick` events and then handle the event to change the URL.
+By default, `Comment Sidebar` URL navigation is disabled. So when user clicks on any comment in the sidebar, we will not redirect the user to a different page url if the comment was located on a different page. You would need to listen to `onCommentClick` events and then handle the event to change the URL.
 
 To enable Sidebar URL Navigation, you can set the `urlNavigation` attribute to `true`. When this is enabled, clicking on Sidebar comments will change the page URL to wherever the comment was added.
 
@@ -98,14 +98,14 @@ commentElement.disableSidebarUrlNavigation();
 <Tab title="HTML">
 
 ## 1) Customize navigation for non-URL based navigation
-**By default, we attempt to navigate the user to the comment location when a user clicks on one in the sidebar.**
+**By default, we attempt to navigate the user to the comment Location when a user clicks on one in the sidebar.**
 
 If you want to alter this behavior, you can listen to click events and add an event listener to handle the navigation in a custom way.
 
 
 ### 1a) Custom navigation using Location
 
-Using the onSideBarCommentClick handler, you can fetch the context and make the necessary state changes to locate the comment correctly.
+Using the onCommentClick handler, you can fetch the context and make the necessary state changes to locate the comment correctly.
 
 **When a comment is clicked, the handler will be called with the location data of the comment.**
 
@@ -128,12 +128,12 @@ Any context data passed when the comment was added
 
 ```js
 const commentElement = document.querySelector('velt-comments-sidebar');
-commentElement.addEventListener('onSideBarCommentClick', onCommentClick);
+commentElement.addEventListener('onCommentClick', onCommentClick);
 
 // event handler for when a comment is clicked on 
 const onCommentClick = (event) => {
   //handle custom navigation by getting location
-  const { pageId } = event.location;
+  const { pageId } = event.detail.location;
   yourNavigateToPageMethod(pageId);
 };
 ```
@@ -146,12 +146,12 @@ If you do not want to use Location, you can alternatively handle custom navigati
 
 ```js
 const commentElement = document.querySelector('velt-comments-sidebar');
-commentElement.addEventListener('onSideBarCommentClick', onCommentClick);
+commentElement.addEventListener('onCommentClick', onCommentClick);
 
 // event handler for when a comment is clicked on 
 const onCommentClick = (event) => {
   //handle custom navigation by getting context
-  const { pageId } = event.context;
+  const { pageId } = event.detail.context;
   yourNavigateToPageMethod(pageId);
 };
 ```
@@ -163,7 +163,7 @@ const onCommentClick = (event) => {
 
 `Default: false`
 
-By default, `Comment Sidebar` URL navigation is disabled. So when user clicks on any comment in the sidebar, we will not redirect the user to a different page url if the comment was located on a different page. You would need to listen to `onSideBarCommentClick` events and then handle the event to change the URL.
+By default, `Comment Sidebar` URL navigation is disabled. So when user clicks on any comment in the sidebar, we will not redirect the user to a different page url if the comment was located on a different page. You would need to listen to `onCommentClick` events and then handle the event to change the URL.
 
 To enable Sidebar URL Navigation, you can set the `urlNavigation` attribute to `true`. When this is enabled, clicking on Sidebar comments will change the page URL to wherever the comment was added.
 
@@ -215,7 +215,7 @@ export default function App() {
   return (
     <VeltProvider apiKey="API_KEY">
       <VeltCommentsSidebar 
-        onSidebarCommentClick={onCommentClick}
+        onCommentClick={onCommentClick}
       />
 
     </VeltProvider>
@@ -229,34 +229,29 @@ export default function App() {
   <head>
     <title>Comment Sidebar documentation</title>
   </head>
-  <script>
+  
+  <body>
 
-    
+    <velt-comments></velt-comments>
+    <velt-comments-sidebar></velt-comments-sidebar>
+
+  <script>
     // event handler for when a comment is clicked on (with Location)
     const onCommentClick = (event) => {
       //handle custom navigation by getting location
-      const { pageId } = event.location;
+      const { pageId } = event.detail.location;
       yourNavigateToPageMethod(pageId);
     };
 
     //event handler for when a comment is clicked on (without Location)
     const onCommentClick = (event) => {
       //handle custom navigation by getting context
-      const { pageId } = event.context;
+      const { pageId } = event.detail.context;
       yourNavigateToPageMethod(pageId);
     };
     const commentElement = document.querySelector('velt-comments-sidebar');
-    commentElement.addEventListener('onSideBarCommentClick, onCommentClick);
-    
-
-    </script>
-  <body>
-
-    <velt-comments></velt-comments>
-    <velt-comments-sidebar></velt-comments-sidebar>
-
-    
-    
+    commentElement.addEventListener('onCommentClick', onCommentClick);
+  </script>
   </body>
 </html>
 ```
