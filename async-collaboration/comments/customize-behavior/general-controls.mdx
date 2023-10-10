@@ -1,0 +1,117 @@
+---
+title: "General Controls"
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+<Tabs>
+<Tab title="React / Next.js">
+
+
+<Steps>
+
+<Step title="Allow comments only on certain elements">
+
+Provide a list of element DOM IDs where commenting should be allowed.
+
+Comments will be disabled for all other elements. Note, this does not impact `Popover` mode.
+
+```js
+<VeltComments allowedElementIds={['some-element']} />
+````
+
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.allowedElementIds['some-element'];
+```
+
+</Step>
+
+<Step title="Disable comments on certain elements">
+Disable certain elements from being commented on.
+
+Add the `data-velt-comment-disabled` attribute to elements where you want to disable commenting.
+
+```html
+<div data-velt-comment-disabled></div>
+```
+
+</Step>
+
+<Step title="Enable/Disable adding comments">
+
+Whether adding comments is enabled.
+
+`Default: true`
+
+By default, this feature is enabled, so users can add pin comments, area comments or text comments. But if they want to disable this feature to add comments, then they can disable/enable it through the ways mentioned below:
+
+```js
+{/* `true` to enable adding comments, `false` to disable adding comments */}
+<VeltComments commentTool={false} />
+```
+
+Using API methods:
+```js
+const commentElement = client.getCommentElement();
+// to enable adding comments
+commentElement.enableCommentTool();
+// to disable adding comments
+commentElement.disableCommentTool();
+```
+
+
+</Step>
+
+<Step title="Ghost comments">
+
+Whether to show ghost comments on the DOM.
+
+`Default: false`
+
+Ghost comments are comments that were once linked to certain content on the DOM but that content is no longer available. If this is on, we display ghost comments in gray, close to where they were originally positioned on the DOM.
+
+```js
+<VeltComments ghostComments={true} />
+````
+
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableGhostComments();
+commentElement.disableGhostComments();
+```
+
+</Step>
+
+<Step title="Ghost comments indicator"> 
+Whether to show ghost comment labels in the comment sidebar.
+
+`Default: true`
+
+Ghost comments are always shown in the comments sidebar so that users can see the history of all comments. If this is on, we show a label on the comment in the sidebar indicating that the original content on which this comment was added is no longer available. This sets better expectations with the users.
+
+```js
+<VeltComments ghostCommentsIndicator={true} />
+````
+
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableGhostCommentsIndicator();
+commentElement.disableGhostCommentsIndicator();
+```
+
+</Step>
+
+</Steps>
+
+</Tab>
+
+</Tabs>
+

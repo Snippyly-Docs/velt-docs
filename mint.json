@@ -165,7 +165,21 @@
                 "async-collaboration/comments/setup/text"
               ]
             },
-            "async-collaboration/comments/customize-behavior",
+            {
+              "group": "Customize Behavior",
+              "pages": [
+                "async-collaboration/comments/customize-behavior/general-controls",
+                "async-collaboration/comments/customize-behavior/visibility-controls",
+                "async-collaboration/comments/customize-behavior/ui-controls",
+                "async-collaboration/comments/customize-behavior/task-management",
+                "async-collaboration/comments/customize-behavior/modes",
+                "async-collaboration/comments/customize-behavior/display-metadata",
+                "async-collaboration/comments/customize-behavior/multimedia",
+                "async-collaboration/comments/customize-behavior/retrieve-comments",
+                "async-collaboration/comments/customize-behavior/event-handlers",
+                "async-collaboration/comments/customize-behavior/api-methods"
+              ]
+            },
             {
               "group": "Customize UI",
               "pages": [

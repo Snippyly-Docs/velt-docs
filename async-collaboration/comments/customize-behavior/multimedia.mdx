@@ -1,0 +1,41 @@
+---
+title: "Multimedia Features"
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+<Tabs>
+<Tab title="React / Next.js">
+
+<Steps>
+
+<Step stepNumber="1" title="File attachments">
+Whether file attachments are enabled.
+
+`Default: true`
+
+When this is on, users can attach image files to their comments. Users can download or delete an attachment. Users can attach multiple files at once.
+
+Currently we support `.png`, `.jpg`, `.gif` (static & animated), `.svg` file types up to 2MB per file.
+
+```js
+<VeltComments attachments={true} />
+````
+
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableAttachments();
+commentElement.disableAttachments();
+```
+</Step>
+
+
+
+</Steps>
+
+</Tab>
+
+</Tabs>

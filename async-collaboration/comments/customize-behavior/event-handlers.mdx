@@ -1,0 +1,107 @@
+---
+title: "Event Handlers"
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+<Tabs>
+<Tab title="React / Next.js">
+
+<Steps>
+
+<Step title="Take action when a comment is added">
+
+The `onCommentAdd` event is emitted when a new comment is created. You can add a callback function to handle `onCommentAdd` events when they occur.
+
+
+```js
+<VeltComments onCommentAdd={(event) => yourMethod(event)} />
+````
+
+#### onCommentAdd Event Schema
+
+<ResponseField name="documentId" type="string">
+The document ID where the comment was added
+</ResponseField>
+
+<ResponseField name="location" type="Object">
+The location where the comment was added
+</ResponseField>
+
+<ResponseField name="addContext" type="Function">
+Use this to set custom data on the comment
+</ResponseField>
+
+</Step>
+
+
+<Step title="Attach additional context to each comment">
+
+When an `onCommentAdd` event occurs, you can also attach additional context to the comment using the `event.addContext()` method, which takes in a key-value paired object.
+
+
+```js
+<VeltComments onCommentAdd={(event) => yourMethod(event)} />
+````
+
+```jsx
+const yourMethod = (event) => {
+  event?.addContext({ customKey: 'customValue' });
+}
+```
+
+
+</Step>
+
+<Step title="Take action when comment is updated">
+The `onCommentUpdate` event is emitted when a comment is updated.
+
+```js
+<VeltComments onCommentUpdate={(event) => yourMethod(event)} />
+````
+
+#### onCommentUpdate Event Schema
+
+
+<ResponseField name="annotation" type="CommentAnnotation">
+The annotation that is associated with the comment that was updated
+</ResponseField>
+
+<ResponseField name="type" type="string">
+The type of comment that was updated
+</ResponseField>
+
+<ResponseField name="targetAnnotationId" type="string">
+The ID of the target annotation that contains the comment that was updated
+</ResponseField>
+
+<ResponseField name="targetCommentId" type="number">
+The ID of the target comment that was updated
+</ResponseField>
+
+</Step>
+
+<Step title="Listen to onCommentModeChange events">
+
+To subscribe to changes in the comment mode, use the `onCommentModeChange()` method and subscribe to it with a callback function.
+
+As a property on `VeltCommentTool`:
+```jsx
+<VeltCommentTool onCommentModeChange={(mode) => onCommentModeChange(mode)} />
+```
+
+API method:
+```jsx
+commentElement.onCommentModeChange().subscribe((mode) => {
+    //mode contains the state after change
+});
+```
+
+</Step>
+
+</Steps>
+
+</Tab>
+
+</Tabs>
