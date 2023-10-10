@@ -321,7 +321,7 @@ commentElement.disableSignInButton();
 </Step>
 
 <Step title="onSignIn">
-When the user clicks on the sign in button, we will emit an onSignIn() event that you can handle with your own sign in method. 
+When the user clicks on the sign in button, we will emit an `onSignIn` event that you can handle with your own sign in method. 
 
 No data is passed with the event.
 
@@ -337,3 +337,109 @@ No data is passed with the event.
 </Tab>
 
 </Tabs>
+
+<RequestExample>
+
+```jsx React / Next.js
+
+import { VeltComments } from '@veltdev/react';
+
+import { useEffect } from 'react'
+
+export default function YourDocument() {
+
+  useEffect(()=>{
+    const commentElement = client.getCommentElement();
+    commentElement.enableAutoCategorize(); // 1
+    commentElement.disableAutoCategorize(); // 1
+    // 2
+    commentElement.setCustomCategory([
+        {
+            "id": "bug",
+            "name": "Bug",
+            "color": "red"
+        }
+    ])
+    commentElement.enablePriority(); // 3
+    commentElement.disablePriority(); // 3
+    // 4
+    commentElement.setCustomPriority([
+        {
+            "id": "low",
+            "name": "Low",
+            "color": "red",
+            "lightColor": "pink"
+        }
+    ])
+    commentElement.enableStatus(); // 5
+    commentElement.disableStatus(); // 5
+    commentElement.setCustomStatus([
+        {
+            "id": "open",
+            "name": "Open",
+            "color": "white",
+            "lightColor:"green",
+            "type": "default",
+            "svg": "<svg></svg>" // Pass in a serialized SVG
+        }
+    ])
+    commentElement.enableResolveButton(); // 7
+    commentElement.disableResolveButton(); // 7
+    commentElement.enableModeratorMode(); // 8 
+    commentElement.disableModeratorMode(); // 8
+    commentElement.enableSuggestionMode(); // 9
+    commentElement.disableSuggestionMode(); // 9
+    commentElement.enableSignInButton(); // 10 
+    commentElement.disableSignInButton(); // 10
+
+  })
+
+  return (
+    <div>
+
+        <VeltComments          
+            autoCategorize={true} {/* 1 */}
+            {/* 2 */}
+            customCategory={[
+                {
+                    "id": "bug",
+                    "name": "Bug",
+                    "color": "red"
+                }
+            ]}
+            priority={true} {/* 3 */}
+            {/* 4 */}
+            customPriority={[
+                {
+                    "id": "low",
+                    "name": "Low",
+                    "color": "red",
+                    "lightColor": "pink"
+                }
+            ]}
+            status={true} {/* 5 */}
+            {/* 6 */}
+            customStatus = {[
+                {
+                    "id": "open",
+                    "name": "Open",
+                    "color": "white",
+                    "lightColor:"green",
+                    "type": "default",
+                    "svg": "<svg></svg>" // Pass in a serialized SVG
+                }
+            ]}
+            resolveButton={true} {/* 7 */}
+            moderatorMode={true} {/* 8 */}
+            suggestionMode={true} {/* 9 */}
+            onCommentAccept={(event)=>yourMethod(event)} {/* 10 */}
+            onCommentReject={(event)=>yourMethod(event)} {/* 10 */}
+            signInButton={true} {/* 11 */}
+            onSignIn={() => yourSignInMethod()} {/* 12 */}
+
+
+        />
+    </div>
+```
+
+</RequestExample>
