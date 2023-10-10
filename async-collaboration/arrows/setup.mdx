@@ -6,38 +6,34 @@ title: "Setup"
 <script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
 
 <Tabs>
-  <Tab title="React">
-    ## 1) Import `VeltArrowsTool` from `@veltdev/react`
-    Import the component
+  <Tab title="React / Next.js">
+    ## 1) Import the Arrow components from `@veltdev/react`
+    Import the components
 
     ```js
-    import { VeltArrowsTool } from '@veltdev/react';
+    import { VeltArrows, VeltArrowsTool } from '@veltdev/react';
     ```
 
-    ## 2) Place the VeltArrowsTool component
-    Place the component wherever you want the invite button to appear.
+    ## 2) Place the `VeltArrows` component
+    Place the `VeltArrows` component at the root of your app.
 
     ```js
-    <VeltArrowsTool />
+    <div>
+      <VeltArrows/>
+    </div>
     ```
 
-  </Tab>
-  <Tab title="Next.js">
-    ## 1) Import `VeltArrowsTool` from `@veltdev/react`
-    Import the component
+    ## 3) Place the `VeltArrowsTool` component
+    Place the `VeltArrowsTool` component wherever you want the invite button to appear.
 
     ```js
-    import { VeltArrowsTool } from '@veltdev/react';
-    ```
-
-    ## 2) Place the VeltArrowsTool component
-    Place the component wherever you want the invite button to appear.
-
-    ```js
-    <VeltArrowsTool />
+    <div className="toolbar">
+      <VeltArrowsTool />
+    </div>
     ```
 
   </Tab>
+
   <Tab title="HTML">
     ## 1) Import the Velt Script tag
     ```html
@@ -53,11 +49,22 @@ title: "Setup"
     }
     ```
 
-    ## 3) Place the `<velt-arrows-tool>` component
+    ## 3) Place the `<velt-arrows>` component
+    Place the `<velt-arrows>` component at the root of your app.
+
+    ```html
+    <div>
+      <velt-arrows></velt-arrows>
+    </div>
+    ```
+
+    ## 4) Place the `<velt-arrows-tool>` component
     Place the component wherever you want the invite button to appear.
 
     ```html
-    <velt-arrows-tool></velt-arrows-tool>
+    <div class="toolbar">
+      <velt-arrows-tool></velt-arrows-tool>
+    </div>
     ```
 
   </Tab>
@@ -65,33 +72,25 @@ title: "Setup"
 
 <RequestExample>
 
-```js React
-import { VeltArrowsTool } from '@veltdev/react';
+```js React / Next.js
+import { VeltArrows, VeltArrowsTool } from '@veltdev/react';
 
 function YourComponent() {
 
   return (
-    //
-    <VeltArrowsTool />
-    //
+    <div>
+      <VeltArrows/>
+      <div className="toolbar">
+        <VeltArrowsTool />
+      </div>
+      
+    </div>
   )
   
 }
 ```
 
-```js Next.js
-import { VeltArrowsTool } from '@veltdev/react';
 
-function YourComponent() {
-
-  return (
-    //
-    <VeltArrowsTool />
-    //
-  )
-  
-}
-```
 
 
 ```html HTML
@@ -107,12 +106,13 @@ function YourComponent() {
     </script>
   </head>
   <body>
-    <!-- Place the `<velt-arrows-tool>` component -->
-    <velt-arrows-tool></velt-arrows-tool>
+    <velt-arrows></velt-arrows>
+    <div class="toolbar">
+      <velt-arrows-tool></velt-arrows-tool>
+    </div>
+    
   </body>
 </html>
 ```
-
-
 
 </RequestExample>

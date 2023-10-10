@@ -66,6 +66,26 @@ commentElement.disablePopoverMode();
 
 </Step>
 
+<Step title="Enable Popover mode triangle">
+Whether the popover triangle appears when Popover Mode is enabled.
+
+`Default: true`
+
+```jsx
+<VeltComments popoverTriangleComponent={true}/>
+```
+
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enablePopoverTriangleComponent();
+commentElement.disablePopoverTriangleComponent();
+```
+
+</Step>
+
+
 <Step title="Stream mode">
 <Info>For a complete setup guide for Stream mode, [read here](/async-collaboration/comments/setup/stream).</Info>
 
@@ -108,6 +128,52 @@ commentElement.disableTextComments();
 
 </Step>
 
+<Step title="Persistent comment mode">
+Whether Persistent comment mode is enabled.
+
+`Default: false`
+
+When Persistent comment mode is enabled, you can continue leave additional comments after finishing a comment. 
+
+When it is disabled, you will need to reclick the Comment Tool every time when you want to make a comment.
+
+```jsx
+<VeltComments persistentCommentMode={true}/>
+```
+
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enablePersistentCommentMode();
+commentElement.disablePersistentCommentMode();
+```
+
+</Step>
+
+<Step title="Inline Comment Mode">
+
+Whether In-line comment mode is enabled.
+
+When In-line comment mode is enabled, comments will appear under the text they are associated with in the DOM, instead of as a pop up window.
+
+`Default: false`
+
+```jsx
+<VeltComments inlineCommentMode={true}/>
+```
+
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableInlineCommentMode();
+commentElement.disableInlineCommentMode();
+```
+
+
+</Step>
+
 </Steps>
 
 </Tab>
@@ -130,10 +196,16 @@ export default function YourDocument() {
     commentElement.disableInboxMode(); // 2
     commentElement.enablePopoverMode(); // 3
     commentElement.disablePopoverMode(); // 3
-    commentElement.enableStreamMode(); // 4
-    commentElement.disableStreamMode(); // 4
-    commentElement.enableTextComments(); // 5
-    commentElement.disableTextComments(); // 5
+    commentElement.enablePopoverTriangleComponent(); // 4
+    commentElement.disablePopoverTriangleComponent(); // 4
+    commentElement.enableStreamMode(); // 5
+    commentElement.disableStreamMode(); // 5
+    commentElement.enableTextComments(); // 6
+    commentElement.disableTextComments(); // 6
+    commentElement.enablePersistentCommentMode(); // 7
+    commentElement.disablePersistentCommentMode(); // 7
+    commentElement.enableInlineCommentMode(); // 8
+    commentElement.disableInlineCommentMode(); // 8
 
   })
 
@@ -143,8 +215,11 @@ export default function YourDocument() {
         <VeltComments           {/* 1 */}
             inboxMode={true}    {/* 2 */}
             popoverMode={true}  {/* 3 */}
-            streamMode={true}   {/* 4 */}
-            textMode={true}     {/* 5 */}
+            popoverTriangleComponent={true} {/* 4 */}
+            streamMode={true}   {/* 5 */}
+            textMode={true}     {/* 6 */}
+            persistentCommentMode={true} {/* 7 */}
+            inlineCommentMode={true} {/* 8 */}
         />
     </div>
 ```

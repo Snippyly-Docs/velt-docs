@@ -9,7 +9,7 @@ title: "UI Controls"
 <Tab title="React / Next.js">
 
 <Steps>
-<Step stepNumber="1" title="Dark Mode">
+<Step title="Dark Mode">
 Whether dark mode is enabled.
 
 `Default: false`
@@ -27,6 +27,52 @@ commentElement.disableDarkMode();
 ```
 
 </Step>
+
+<Step title="Mobile Mode">
+Whether mobile mode is enabled.
+
+When mobile mode is enabled and the screen width is small enough, comment windows will appear fixed to the bottom of the screen and full width instead of the usual popup window.
+
+`Default: false`
+
+```js
+<VeltComments mobileMode={true} />
+````
+
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableMobileMode();
+commentElement.disableMobileMode();
+```
+
+</Step>
+
+<Step title="Enable Minimap">
+
+Whether the minimap is enabled.
+
+`Default: false`
+
+The minimap shows a bar on the edge of the screen with indicators that show where comments exist.
+
+```js
+<VeltComments minimap={true} />
+````
+
+
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableMinimap();
+commentElement.disableMinimap();
+```
+
+</Step>
+
+
 </Steps>
 
 
@@ -48,7 +94,11 @@ export default function YourDocument() {
   useEffect(()=>{
     const commentElement = client.getCommentElement();
     commentElement.enableDarkMode(); // 1
-    commentElement.disableDarkMode(); // 2
+    commentElement.disableDarkMode(); // 1
+    commentElement.enableMobileMode(); // 2
+    commentElement.disableMobileMode(); // 2
+    commentElement.enableMinimap(); // 3
+    commentElement.disableMinimap(); // 3  
 
   })
 
@@ -57,6 +107,8 @@ export default function YourDocument() {
 
         <VeltComments          
             darkMode={true}    {/* 1 */}
+            mobileMode={true}  {/* 2 */}
+            minimap={true}  {/* 3 */}
         />
     </div>
 ```
