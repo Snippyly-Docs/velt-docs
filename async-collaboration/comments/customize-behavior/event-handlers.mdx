@@ -107,3 +107,51 @@ commentElement.onCommentModeChange().subscribe((mode) => {
 </Tab>
 
 </Tabs>
+
+<RequestExample>
+
+```jsx
+
+import { VeltComments } from '@veltdev/react';
+
+import { useEffect } from 'react'
+
+export default function YourDocument() {
+
+  // 2
+  const addContext = (event) => {
+    event?.addContext({ customKey: 'customValue' });
+  }
+
+  commentElement.onCommentModeChange().subscribe((mode) => {
+    //mode contains the state after change
+});
+
+
+  useEffect(()=>{
+    const commentElement = client.getCommentElement();
+    commentElement.enableCommentIndex(); // 1 
+    commentElement.disableCommentIndex(); // 1
+    commentElement.enableDeviceInfo(); // 2 
+    commentElement.disableDeviceInfo(); // 2
+    
+    // 4
+    commentElement.onCommentModeChange().subscribe((mode) => { 
+        //mode contains the state after change
+    });
+
+  })
+
+  return (
+    <div>
+        <VeltComments 
+            onCommentAdd={(event) => addContext(event)} {/* 1 */}
+            onCommentUpdate={(event) => yourMethod(event)} {/* 3 */}
+            onCommentModeChange={(mode) => yourMethod(mode)} {/* 4 */}
+
+            deviceInfo={true}  {/* 2 */}
+        />
+    </div>
+```
+
+</RequestExample>

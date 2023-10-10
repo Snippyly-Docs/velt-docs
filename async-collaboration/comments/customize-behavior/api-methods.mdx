@@ -1,5 +1,5 @@
 ---
-title: "API Methods"
+title: "Action Controls"
 ---
 {/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
 <script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
@@ -28,7 +28,7 @@ By default, when you highlight over any text in `textMode` a Comment Tool button
 If you want to trigger the comment using an API method call instead of clicking the button, you can do the following:
 
 ```jsx
-const commentElement = Velt.getCommentElement();
+const commentElement = client.getCommentElement();
 // to add comment on selected text
 commentElement.addCommentOnSelectedText();
 ```
@@ -40,3 +40,27 @@ commentElement.addCommentOnSelectedText();
 </Tab>
 
 </Tabs>
+
+<RequestExample>
+
+```jsx
+
+import { VeltComments } from '@veltdev/react';
+
+import { useEffect } from 'react'
+
+export default function YourDocument() {
+
+  useEffect(()=>{
+    const commentElement = client.getCommentElement();
+    commentElement.deleteComment(); // 1
+    commentElement.addCommentOnSelectedText(); // 2
+  })
+
+  return (
+    <div>
+      <VeltComments />
+    </div>
+```
+
+</RequestExample>
