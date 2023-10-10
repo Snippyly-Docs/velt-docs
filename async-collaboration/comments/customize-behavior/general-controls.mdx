@@ -112,6 +112,21 @@ commentElement.disableGhostCommentsIndicator();
 
 </Step>
 
+<Step title="Enable / Disable Comment Mode">
+
+Whether Comment mode is enabled.
+
+This method can be used to turn Comment mode on or off.
+
+API Method:
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableCommentMode()
+commentElement.disableCommentMode()
+```
+
+</Step>
+
 </Steps>
 
 </Tab>
@@ -137,6 +152,8 @@ export default function YourDocument() {
     commentElement.disableGhostComments(); // 4
     commentElement.enableGhostCommentsIndicator(); // 5
     commentElement.disableGhostCommentsIndicator(); // 5
+    commentElement.enableCommentMode(); // 6
+    commentElement.disableCommentMode(); // 6
   
   })
 

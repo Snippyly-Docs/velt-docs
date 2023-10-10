@@ -85,11 +85,22 @@ To enable Sidebar URL Navigation, you can set the `urlNavigation` attribute to `
 You can also use API methods:
 
 ```js
-const commentElement = Velt.getCommentElement();
+const commentElement = client.getCommentElement();
 // to enable sidebar url navigation
 commentElement.enableSidebarUrlNavigation();
 // to disable sidebar url navigation
 commentElement.disableSidebarUrlNavigation();
+```
+
+## 3) Toggling the Comments Side Bar
+
+To toggle the sidebar, you can use the following methods:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.openCommentSidebar(); // opens the comments side bar
+commentElement.closeCommentSidebar(); // closes the comments side bar
+commentElement.toggleCommentSidebar(); // toggles the comments side bar
 ```
 
 </Tab>
@@ -182,6 +193,18 @@ commentElement.enableSidebarUrlNavigation();
 commentElement.disableSidebarUrlNavigation();
 ```
 
+## 3) Toggling the Comments Side Bar
+
+To toggle the sidebar, you can use the following methods:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.openCommentSidebar(); // opens the comments side bar
+commentElement.closeCommentSidebar(); // closes the comments side bar
+commentElement.toggleCommentSidebar(); // toggles the comments side bar
+```
+
+
 </Tab>
 
 
@@ -191,12 +214,15 @@ commentElement.disableSidebarUrlNavigation();
 
 ```js React
 import { 
+  useVeltClient,
   VeltProvider, 
   VeltCommentsSidebar
 } from '@veltdev/react';
-import { useState } from 'react';
+import { useState , useEffect} from 'react';
 
 export default function App() {
+
+  const { client } = useVeltClient();
 
   // event handler for when a comment is clicked on (with Location)
     const onCommentClick = (event) => {
@@ -211,6 +237,15 @@ export default function App() {
     const { pageId } = event.context;
     yourNavigateToPageMethod(pageId);
   };
+
+  useEffect(()=>{
+    if(client){
+      const commentElement = client.getCommentElement();
+      commentElement.openCommentSidebar(); // opens the comments side bar
+      commentElement.closeCommentSidebar(); // closes the comments side bar
+      commentElement.toggleCommentSidebar(); // toggles the comments side bar
+    }
+  })
 
   return (
     <VeltProvider apiKey="API_KEY">
@@ -236,21 +271,28 @@ export default function App() {
     <velt-comments-sidebar></velt-comments-sidebar>
 
   <script>
-    // event handler for when a comment is clicked on (with Location)
-    const onCommentClick = (event) => {
-      //handle custom navigation by getting location
-      const { pageId } = event.detail.location;
-      yourNavigateToPageMethod(pageId);
-    };
+    if(Velt){
+      // event handler for when a comment is clicked on (with Location)
+      const onCommentClick = (event) => {
+        //handle custom navigation by getting location
+        const { pageId } = event.detail.location;
+        yourNavigateToPageMethod(pageId);
+      };
 
-    //event handler for when a comment is clicked on (without Location)
-    const onCommentClick = (event) => {
-      //handle custom navigation by getting context
-      const { pageId } = event.detail.context;
-      yourNavigateToPageMethod(pageId);
-    };
-    const commentElement = document.querySelector('velt-comments-sidebar');
-    commentElement.addEventListener('onCommentClick', onCommentClick);
+      //event handler for when a comment is clicked on (without Location)
+      const onCommentClick = (event) => {
+        //handle custom navigation by getting context
+        const { pageId } = event.detail.context;
+        yourNavigateToPageMethod(pageId);
+      };
+      const commentElement = document.querySelector('velt-comments-sidebar');
+      commentElement.addEventListener('onCommentClick', onCommentClick);
+
+      commentElement.openCommentSidebar(); // opens the comments side bar
+      commentElement.closeCommentSidebar(); // closes the comments side bar
+      commentElement.toggleCommentSidebar(); // toggles the comments side bar
+      }
+    }
   </script>
   </body>
 </html>
