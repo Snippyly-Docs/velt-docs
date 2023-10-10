@@ -115,3 +115,40 @@ commentElement.disableGhostCommentsIndicator();
 
 </Tabs>
 
+<RequestExample>
+
+```jsx
+
+import { VeltComments } from '@veltdev/react';
+
+import { useEffect } from 'react'
+
+export default function YourDocument() {
+
+  useEffect(()=>{
+    const commentElement = client.getCommentElement();
+    commentElement.allowedElementIds['some-element']; // 1
+    commentElement.enableCommentTool(); // 3
+    commentElement.disableCommentTool(); // 3
+    commentElement.enableGhostComments(); // 4
+    commentElement.disableGhostComments(); // 4
+    commentElement.enableGhostCommentsIndicator(); // 5
+    commentElement.disableGhostCommentsIndicator(); // 5
+  
+  })
+
+  return (
+    <div>
+        <div data-velt-comment-disabled></div> {/* 2 */}
+
+        <VeltComments  
+            allowedElementIds={['some-element']} {/* 1 */}
+            commentTool={false}  {/* 3 */}
+            ghostComments={true} {/* 4 */}
+            ghostCommentsIndicator={true} {/* 5 */}
+
+        />
+    </div>
+```
+
+</RequestExample>
