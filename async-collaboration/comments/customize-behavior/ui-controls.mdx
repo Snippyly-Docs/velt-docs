@@ -85,21 +85,23 @@ commentElement.disableMinimap();
 
 ```jsx React / Next.js
 
-import { VeltComments } from '@veltdev/react';
+import { VeltComments, useVeltClient } from '@veltdev/react';
 
 import { useEffect } from 'react'
 
 export default function YourDocument() {
+  const { client } = useVeltClient();  
 
   useEffect(()=>{
-    const commentElement = client.getCommentElement();
-    commentElement.enableDarkMode(); // 1
-    commentElement.disableDarkMode(); // 1
-    commentElement.enableMobileMode(); // 2
-    commentElement.disableMobileMode(); // 2
-    commentElement.enableMinimap(); // 3
-    commentElement.disableMinimap(); // 3  
-
+    if(client){
+      const commentElement = client.getCommentElement();
+      commentElement.enableDarkMode(); // 1
+      commentElement.disableDarkMode(); // 1
+      commentElement.enableMobileMode(); // 2
+      commentElement.disableMobileMode(); // 2
+      commentElement.enableMinimap(); // 3
+      commentElement.disableMinimap(); // 3  
+    }
   })
 
   return (

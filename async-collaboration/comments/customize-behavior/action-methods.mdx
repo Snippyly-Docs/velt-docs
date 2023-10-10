@@ -35,6 +35,21 @@ commentElement.addCommentOnSelectedText();
 
 </Step>
 
+<Step title="Turning on and off Comment Mode">
+
+This method can be used to turn Comment mode on or off.
+
+When Comment mode is off, users will not be able to leave comments on the page.
+
+API Method:
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableCommentMode();
+commentElement.disableCommentMode();
+```
+
+</Step>
+
 </Steps>
 
 </Tab>
@@ -45,16 +60,22 @@ commentElement.addCommentOnSelectedText();
 
 ```jsx React / Next.js
 
-import { VeltComments } from '@veltdev/react';
+import { VeltComments, useVeltClient } from '@veltdev/react';
 
 import { useEffect } from 'react'
 
 export default function YourDocument() {
 
+  const { client } = useVeltClient();
+
   useEffect(()=>{
-    const commentElement = client.getCommentElement();
-    commentElement.deleteComment(); // 1
-    commentElement.addCommentOnSelectedText(); // 2
+    if(client){
+      const commentElement = client.getCommentElement();
+      commentElement.deleteComment(); // 1
+      commentElement.addCommentOnSelectedText(); // 2
+      commentElement.enableCommentMode() // 3
+      commentElement.disableCommentMode() // 3
+    }å
   })
 
   return (

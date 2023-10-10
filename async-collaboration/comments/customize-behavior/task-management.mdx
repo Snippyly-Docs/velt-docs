@@ -342,56 +342,60 @@ No data is passed with the event.
 
 ```jsx React / Next.js
 
-import { VeltComments } from '@veltdev/react';
+import { VeltComments, useVeltClient } from '@veltdev/react';
 
 import { useEffect } from 'react'
 
 export default function YourDocument() {
+  const { client } = useVeltClient();  
 
   useEffect(()=>{
-    const commentElement = client.getCommentElement();
-    commentElement.enableAutoCategorize(); // 1
-    commentElement.disableAutoCategorize(); // 1
-    // 2
-    commentElement.setCustomCategory([
-        {
-            "id": "bug",
-            "name": "Bug",
-            "color": "red"
-        }
-    ])
-    commentElement.enablePriority(); // 3
-    commentElement.disablePriority(); // 3
-    // 4
-    commentElement.setCustomPriority([
-        {
-            "id": "low",
-            "name": "Low",
-            "color": "red",
-            "lightColor": "pink"
-        }
-    ])
-    commentElement.enableStatus(); // 5
-    commentElement.disableStatus(); // 5
-    commentElement.setCustomStatus([
-        {
-            "id": "open",
-            "name": "Open",
-            "color": "white",
-            "lightColor:"green",
-            "type": "default",
-            "svg": "<svg></svg>" // Pass in a serialized SVG
-        }
-    ])
-    commentElement.enableResolveButton(); // 7
-    commentElement.disableResolveButton(); // 7
-    commentElement.enableModeratorMode(); // 8 
-    commentElement.disableModeratorMode(); // 8
-    commentElement.enableSuggestionMode(); // 9
-    commentElement.disableSuggestionMode(); // 9
-    commentElement.enableSignInButton(); // 10 
-    commentElement.disableSignInButton(); // 10
+    if(client){
+      const commentElement = client.getCommentElement();
+      commentElement.enableAutoCategorize(); // 1
+      commentElement.disableAutoCategorize(); // 1
+      // 2
+      commentElement.setCustomCategory([
+         {
+              "id": "bug",  
+              "name": "Bug",
+              "color": "red"
+          }
+      ])
+      commentElement.enablePriority(); // 3
+      commentElement.disablePriority(); // 3
+      // 4
+      commentElement.setCustomPriority([
+          {
+              "id": "low",
+              "name": "Low",
+              "color": "red",
+              "lightColor": "pink"
+          }
+      ])
+      commentElement.enableStatus(); // 5
+      commentElement.disableStatus(); // 5
+      commentElement.setCustomStatus([
+          {
+              "id": "open",
+              "name": "Open",
+              "color": "white",
+              "lightColor:"green",
+              "type": "default",
+              "svg": "<svg></svg>" // Pass in a serialized SVG
+          }
+      ])
+      commentElement.enableResolveButton(); // 7
+      commentElement.disableResolveButton(); // 7
+      commentElement.enableModeratorMode(); // 8 
+      commentElement.disableModeratorMode(); // 8
+      commentElement.enableSuggestionMode(); // 9
+      commentElement.disableSuggestionMode(); // 9
+      commentElement.enableSignInButton(); // 10 
+      commentElement.disableSignInButton(); // 10
 
+
+    }
   })
 
   return (

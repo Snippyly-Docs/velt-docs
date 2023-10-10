@@ -184,28 +184,32 @@ commentElement.disableInlineCommentMode();
 
 ```jsx React / Next.js
 
-import { VeltComments } from '@veltdev/react';
+import { VeltComments, useVeltClient } from '@veltdev/react';
 
 import { useEffect } from 'react'
 
 export default function YourDocument() {
+  const { client } = useVeltClient();
 
   useEffect(()=>{
-    const commentElement = client.getCommentElement();
-    commentElement.enableInboxMode(); // 2
-    commentElement.disableInboxMode(); // 2
-    commentElement.enablePopoverMode(); // 3
-    commentElement.disablePopoverMode(); // 3
-    commentElement.enablePopoverTriangleComponent(); // 4
-    commentElement.disablePopoverTriangleComponent(); // 4
-    commentElement.enableStreamMode(); // 5
-    commentElement.disableStreamMode(); // 5
-    commentElement.enableTextComments(); // 6
-    commentElement.disableTextComments(); // 6
-    commentElement.enablePersistentCommentMode(); // 7
-    commentElement.disablePersistentCommentMode(); // 7
-    commentElement.enableInlineCommentMode(); // 8
-    commentElement.disableInlineCommentMode(); // 8
+    if(client){
+      const commentElement = client.getCommentElement();
+      commentElement.enableInboxMode(); // 2
+      commentElement.disableInboxMode(); // 2
+      commentElement.enablePopoverMode(); // 3
+      commentElement.disablePopoverMode(); // 3
+      commentElement.enablePopoverTriangleComponent(); // 4
+      commentElement.disablePopoverTriangleComponent(); // 4
+      commentElement.enableStreamMode(); // 5
+      commentElement.disableStreamMode(); // 5
+      commentElement.enableTextComments(); // 6
+      commentElement.disableTextComments(); // 6
+      commentElement.enablePersistentCommentMode(); // 7
+      commentElement.disablePersistentCommentMode(); // 7
+      commentElement.enableInlineCommentMode(); // 8
+      commentElement.disableInlineCommentMode(); // 8
+    }
+    
 
   })
 

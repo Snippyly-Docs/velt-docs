@@ -41,16 +41,13 @@ Add the `data-velt-comment-disabled` attribute to elements where you want to dis
 
 </Step>
 
-<Step title="Enable/Disable adding comments">
+<Step title="Enable or Disabling the Comment Tool button">
 
-Whether adding comments is enabled.
+Whether the Comment Tool button is Enabled.
 
 `Default: true`
 
-By default, adding comments is enabled, so users can add pin comments, area comments or text comments.
-
-
-If you want to disable adding comments, then you can do it through the following ways:
+When the Comment Tool is disabled, it can not be used to leave comments. Other ways to leave comments, such as highlighting text, will also be disabled.
 
 ```js
 {/* `true` to enable adding comments, `false` to disable adding comments */}
@@ -112,20 +109,7 @@ commentElement.disableGhostCommentsIndicator();
 
 </Step>
 
-<Step title="Enable / Disable Comment Mode">
 
-Whether Comment mode is enabled.
-
-This method can be used to turn Comment mode on or off.
-
-API Method:
-```jsx
-const commentElement = client.getCommentElement();
-commentElement.enableCommentMode()
-commentElement.disableCommentMode()
-```
-
-</Step>
 
 </Steps>
 
@@ -137,24 +121,25 @@ commentElement.disableCommentMode()
 
 ```jsx React / Next.js
 
-import { VeltComments } from '@veltdev/react';
+import { VeltComments, useVeltClient } from '@veltdev/react';
 
 import { useEffect } from 'react'
 
 export default function YourDocument() {
+  const { client } = useVeltClient();
 
   useEffect(()=>{
-    const commentElement = client.getCommentElement();
-    commentElement.allowedElementIds['some-element']; // 1
-    commentElement.enableCommentTool(); // 3
-    commentElement.disableCommentTool(); // 3
-    commentElement.enableGhostComments(); // 4
-    commentElement.disableGhostComments(); // 4
-    commentElement.enableGhostCommentsIndicator(); // 5
-    commentElement.disableGhostCommentsIndicator(); // 5
-    commentElement.enableCommentMode(); // 6
-    commentElement.disableCommentMode(); // 6
-  
+    if(client){
+      const commentElement = client.getCommentElement();
+      commentElement.allowedElementIds['some-element']; // 1
+      commentElement.enableCommentTool(); // 3
+      commentElement.disableCommentTool(); // 3
+      commentElement.enableGhostComments(); // 4
+      commentElement.disableGhostComments(); // 4
+      commentElement.enableGhostCommentsIndicator(); // 5
+      commentElement.disableGhostCommentsIndicator(); // 5
+    }
+
   })
 
   return (

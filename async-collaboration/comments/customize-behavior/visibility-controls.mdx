@@ -105,22 +105,26 @@ commentElement.disableFloatingCommentDialog();
 
 ```jsx React / Next.js
 
-import { VeltComments } from '@veltdev/react';
+import { VeltComments, useVeltClient } from '@veltdev/react';
 
 import { useEffect } from 'react'
 
 export default function YourDocument() {
+  const { client } = useVeltClient();  
 
   useEffect(()=>{
-    const commentElement = client.getCommentElement();
-    commentElement.showCommentsOnDom(); // 1
-    commentElement.hideCommentsOnDom(); // 1
-    commentElement.enableDialogOnHover(); // 2
-    commentElement.disableDialogOnHover(); // 2
-    commentElement.enableDialogOnTargetElementClick(); // 3
-    commentElement.disableDialogOnTargetElementClick(); // 3
-    commentElement.enableFloatingCommentDialog(); // 4 
-    commentElement.disableFloatingCommentDialog(); // 4
+    if(client){
+      const commentElement = client.getCommentElement();
+      commentElement.showCommentsOnDom(); // 1
+      commentElement.hideCommentsOnDom(); // 1
+      commentElement.enableDialogOnHover(); // 2
+      commentElement.disableDialogOnHover(); // 2
+      commentElement.enableDialogOnTargetElementClick(); // 3
+      commentElement.disableDialogOnTargetElementClick(); // 3
+      commentElement.enableFloatingCommentDialog(); // 4 
+      commentElement.disableFloatingCommentDialog(); // 4
+    }
+    
 
   })
 

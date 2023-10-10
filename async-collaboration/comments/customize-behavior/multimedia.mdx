@@ -44,22 +44,23 @@ commentElement.disableAttachments();
 
 ```jsx React / Next.js
 
-import { VeltComments } from '@veltdev/react';
+import { VeltComments, useVeltClient } from '@veltdev/react';
 
 import { useEffect } from 'react'
 
 export default function YourDocument() {
+  const { client } = useVeltClient();
 
   useEffect(()=>{
-    const commentElement = client.getCommentElement();
-    commentElement.enableAttachments(); // 1
-    commentElement.disableAttachments(); //1 
-
+    if(client){
+      const commentElement = client.getCommentElement();
+      commentElement.enableAttachments(); // 1
+      commentElement.disableAttachments(); //1 
+    }
   })
 
   return (
     <div>
-
         <VeltComments          
             attachments={true}    {/* 1 */}
         />

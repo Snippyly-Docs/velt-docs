@@ -59,18 +59,22 @@ commentElement.disableDeviceInfo();
 
 ```jsx React / Next.js
 
-import { VeltComments } from '@veltdev/react';
+import { VeltComments, useVeltClient } from '@veltdev/react';
 
 import { useEffect } from 'react'
 
 export default function YourDocument() {
+  const { client } = useVeltClient();
 
   useEffect(()=>{
-    const commentElement = client.getCommentElement();
-    commentElement.enableCommentIndex(); // 1 
-    commentElement.disableCommentIndex(); // 1
-    commentElement.enableDeviceInfo(); // 2 
-    commentElement.disableDeviceInfo(); // 2
+    if(client){
+      const commentElement = client.getCommentElement();
+      commentElement.enableCommentIndex(); // 1 
+      commentElement.disableCommentIndex(); // 1
+      commentElement.enableDeviceInfo(); // 2 
+      commentElement.disableDeviceInfo(); // 2
+    }
+
   })
 
   return (
