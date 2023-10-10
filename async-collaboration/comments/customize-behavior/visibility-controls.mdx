@@ -100,3 +100,40 @@ commentElement.disableFloatingCommentDialog();
 </Tab>
 
 </Tabs>
+
+<RequestExample>
+
+```jsx React / Next.js
+
+import { VeltComments } from '@veltdev/react';
+
+import { useEffect } from 'react'
+
+export default function YourDocument() {
+
+  useEffect(()=>{
+    const commentElement = client.getCommentElement();
+    commentElement.showCommentsOnDom(); // 1
+    commentElement.hideCommentsOnDom(); // 1
+    commentElement.enableDialogOnHover(); // 2
+    commentElement.disableDialogOnHover(); // 2
+    commentElement.enableDialogOnTargetElementClick(); // 3
+    commentElement.disableDialogOnTargetElementClick(); // 3
+    commentElement.enableFloatingCommentDialog(); // 4 
+    commentElement.disableFloatingCommentDialog(); // 4
+
+  })
+
+  return (
+    <div>
+
+        <VeltComments          
+            commentsOnDom={false} {/* 1 */}
+            dialogOnHover={true} {/* 2 */}
+            dialogOnTargetElementClick={true} {/* 3 */}
+            floatingCommentDialog={true} {/* 4 */}
+        />
+    </div>
+```
+
+</RequestExample>

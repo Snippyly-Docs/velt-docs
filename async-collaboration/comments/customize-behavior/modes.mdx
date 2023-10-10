@@ -113,3 +113,40 @@ commentElement.disableTextComments();
 </Tab>
 
 </Tabs>
+
+<RequestExample>
+
+```jsx React / Next.js
+
+import { VeltComments } from '@veltdev/react';
+
+import { useEffect } from 'react'
+
+export default function YourDocument() {
+
+  useEffect(()=>{
+    const commentElement = client.getCommentElement();
+    commentElement.enableInboxMode(); // 2
+    commentElement.disableInboxMode(); // 2
+    commentElement.enablePopoverMode(); // 3
+    commentElement.disablePopoverMode(); // 3
+    commentElement.enableStreamMode(); // 4
+    commentElement.disableStreamMode(); // 4
+    commentElement.enableTextComments(); // 5
+    commentElement.disableTextComments(); // 5
+
+  })
+
+  return (
+    <div>
+
+        <VeltComments           {/* 1 */}
+            inboxMode={true}    {/* 2 */}
+            popoverMode={true}  {/* 3 */}
+            streamMode={true}   {/* 4 */}
+            textMode={true}     {/* 5 */}
+        />
+    </div>
+```
+
+</RequestExample>

@@ -47,3 +47,31 @@ To read more about how to configure webhooks, check out the [webhooks documentat
 </Tab>
 
 </Tabs>
+
+<RequestExample>
+
+```jsx React / Next.js
+
+import { VeltComments } from '@veltdev/react';
+
+import { useEffect } from 'react'
+
+export default function YourDocument() {
+
+  useEffect(()=>{
+    const commentElement = client.getCommentElement();
+
+    // 1
+    commentElement.getAllCommentAnnotations().subscribe((comments) => {
+        // Do something with comments
+    });
+
+  })
+
+  return (
+    <div>
+        <VeltComments />
+    </div>
+```
+
+</RequestExample>

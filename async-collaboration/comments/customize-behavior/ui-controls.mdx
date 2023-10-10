@@ -33,3 +33,32 @@ commentElement.disableDarkMode();
 </Tab>
 
 </Tabs>
+
+
+<RequestExample>
+
+```jsx React / Next.js
+
+import { VeltComments } from '@veltdev/react';
+
+import { useEffect } from 'react'
+
+export default function YourDocument() {
+
+  useEffect(()=>{
+    const commentElement = client.getCommentElement();
+    commentElement.enableDarkMode(); // 1
+    commentElement.disableDarkMode(); // 2
+
+  })
+
+  return (
+    <div>
+
+        <VeltComments          
+            darkMode={true}    {/* 1 */}
+        />
+    </div>
+```
+
+</RequestExample>

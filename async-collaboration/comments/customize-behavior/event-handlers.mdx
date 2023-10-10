@@ -110,7 +110,7 @@ commentElement.onCommentModeChange().subscribe((mode) => {
 
 <RequestExample>
 
-```jsx
+```jsx React / Next.js
 
 import { VeltComments } from '@veltdev/react';
 
@@ -134,7 +134,7 @@ export default function YourDocument() {
     commentElement.disableCommentIndex(); // 1
     commentElement.enableDeviceInfo(); // 2 
     commentElement.disableDeviceInfo(); // 2
-    
+
     // 4
     commentElement.onCommentModeChange().subscribe((mode) => { 
         //mode contains the state after change
