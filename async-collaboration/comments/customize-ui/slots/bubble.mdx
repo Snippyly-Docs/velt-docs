@@ -3,10 +3,14 @@ title: "Bubble"
 ---
 <Tabs>
   <Tab title="React">
-   ## 1) Replace the Comment Bubble
 
-   Provide a template for the Comment Bubble.
-   Target the `content` slot in order to replace comment bubbles on the screen.
+
+<Steps>
+
+<Step title='Replace the Comment Bubble'>
+
+Provide a template for the Comment Bubble.
+Target the `content` slot in order to replace comment bubbles on the screen.
 
 ```js
 <VeltCommentBubble>
@@ -17,11 +21,12 @@ title: "Bubble"
 ```
 
 
-   ## 2) Bind data to the element style
+</Step>
 
-  Use data attributes to bind information like the comment status or priority color.
+<Step title='Bind data to the element style'>
+Use data attributes to bind information like the comment status or priority color.
 
-  Set the style property target as the value of the data attribute. If you don't provide one, we'll make our best guess.
+Set the style property target as the value of the data attribute. If you don't provide one, we'll make our best guess.
 
 ```js
 <VeltCommentBubble>
@@ -34,10 +39,12 @@ title: "Bubble"
   </div>
 </VeltCommentBubble>
 ```
-  ## 3) Bind data to an element attribute
-  Use data attributes to bind information like the user's avatar `src`, the comment thread length, etc.
+</Step>
 
-  Set the attribute target as the value of the data attribute. If you don't provide one, we'll make our best guess.
+<Step title='Bind data to an element attribute'>
+Use data attributes to bind information like the user's avatar `src`, the comment thread length, etc.
+
+Set the attribute target as the value of the data attribute. If you don't provide one, we'll make our best guess.
 
 ```js
 <VeltCommentBubble>
@@ -50,14 +57,22 @@ title: "Bubble"
   </div>
 </VeltCommentBubble>
 ```
+</Step>
+
+</Steps>
+
+  
 </Tab>
 
 
   <Tab title="HTML">
-  ## 1) Replace the Comment Bubble
-  Provide a template for the Comment Bubble.
+
+<Steps>
+
+<Step title='Replace the Comment Bubble'>
+Provide a template for the Comment Bubble.
   
-  Target the `content` slot in order to replace comment pins on the screen.
+Target the `content` slot in order to replace comment pins on the screen.
 
 ```html
 <velt-comments>
@@ -66,11 +81,12 @@ title: "Bubble"
   </div>
 </velt-comments>
 ```
+</Step>
 
-  ## 2) Bind data to the element style
-  Use data attributes to bind information like the comment status or priority color.
+<Step title='Bind data to the element style'>
+Use data attributes to bind information like the comment status or priority color.
 
-  Set the style property target as the value of the data attribute. If you don't provide one, we'll make our best guess.
+Set the style property target as the value of the data attribute. If you don't provide one, we'll make our best guess.
 ```html
 <velt-comments>
   <div slot="content" class="custom-comment-bubble">
@@ -81,10 +97,12 @@ title: "Bubble"
   </div>
 </velt-comments>
 ```
-  ## 3) Bind data to an element attribute
-  Use data attributes to bind information like the user's avatar src, the comment thread length, etc.
+</Step>
 
-  Set the attribute target as the value of the data attribute. If you don't provide one, we'll make our best guess.
+<Step title='Bind data to an element attribute'>
+Use data attributes to bind information like the user's avatar src, the comment thread length, etc.
+
+Set the attribute target as the value of the data attribute. If you don't provide one, we'll make our best guess.
 ```html
 <velt-comments>
   <div slot="content" class="custom-comment-bubble">
@@ -96,6 +114,15 @@ title: "Bubble"
   </div>
 </velt-comments>
 ```
+</Step>
+
+</Steps>
+
+
+  
+
+  
+  
   </Tab>
 </Tabs>
 

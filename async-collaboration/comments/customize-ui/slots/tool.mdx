@@ -3,9 +3,12 @@ title: "Tool"
 ---
 
 <Tabs>
-<Tab title="React">
-## 1) Replace the Comment Tool
+<Tab title="React / Next.js">
 
+
+<Steps>
+
+<Step stepNumber="1" title="Replace the Comment Tool">
 Provide a template for the Comment Tool.
 
 Target the `button` slot with your own custom template.
@@ -17,29 +20,22 @@ Target the `button` slot with your own custom template.
   </div>
 </VeltCommentTool>
 ```
+</Step>
+
+
+</Steps>
+
+
+
 
 </Tab>
 
-<Tab title="Next.js">
-
-## 1) Replace the Comment Tool
-
-Provide a template for the Comment Tool.
-
-Target the `button` slot with your own custom template.
-```js
-<VeltCommentTool>
-  <div slot="button">
-    <img src="..." />
-  </div>
-</VeltCommentTool>
-```
-
-</Tab>
 
 <Tab title="HTML">
-## 1) Replace the Comment Tool
 
+<Steps>
+
+<Step stepNumber="1" title="Replace the Comment Tool">
 Provide a template for the Comment Tool.
 
 Target the `button` slot with your own custom template.
@@ -52,12 +48,21 @@ Target the `button` slot with your own custom template.
 </velt-comment-tool>
 ```
 
+</Step>
+
+
+
+</Steps>
+
+
+
+
 </Tab>
 </Tabs>
 
 <RequestExample>
 
-```js React
+```js React / Next.js
 import {
   VeltCommentTool
 } from '@veltdev/react';
@@ -77,26 +82,7 @@ export default function App() {
   );
 }
 ```
-```js Next.js
-import {
-  VeltCommentTool
-} from '@veltdev/react';
 
-export default function App() {
-
-  return (
-    <>
-
-      <VeltCommentTool>
-        <div slot="button">
-          <img src="..." />
-        </div>
-      </VeltCommentTool>
-
-    </>
-  );
-}
-```
 ```html HTML
 
 <!doctype html>

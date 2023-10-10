@@ -187,13 +187,13 @@
                 {
                   "group": "1. Slots",
                   "pages": [
-                    "async-collaboration/comments/freestyle/customize-ui/slots/pin",
-                    "async-collaboration/comments/freestyle/customize-ui/slots/bubble",
-                    "async-collaboration/comments/freestyle/customize-ui/slots/tool"
+                    "async-collaboration/comments/customize-ui/slots/pin",
+                    "async-collaboration/comments/customize-ui/slots/bubble",
+                    "async-collaboration/comments/customize-ui/slots/tool"
                   ]
                 },
-                "async-collaboration/comments/freestyle/customize-ui/parts",
-                "async-collaboration/comments/freestyle/customize-ui/variables"
+                "async-collaboration/comments/customize-ui/parts",
+                "async-collaboration/comments/customize-ui/variables"
               ]
             }
           ]
