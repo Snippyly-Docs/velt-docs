@@ -272,6 +272,33 @@ commentElement.disableSuggestionMode();
 
 </Step>
 
+<Step title="Listen to `onCommentAccept` and `onCommentReject` events">
+
+To listen to comments that are Accepted or Rejected in Suggestion mode, pass callbacks to the `onCommentAccept` and onCommentReject` event handlers.
+
+```js
+<VeltComments onCommentAccept={(event)=>yourMethod(event)}/>
+<VeltComments onCommentReject={(event)=>yourMethod(event)}/>
+```
+
+Response:
+
+```js
+{
+    "annotationId": "ANNOTATION_ID",
+    "actionUser": {
+        // user object
+    },
+    "actionType": "accept", // accept or reject
+    "annotation": {
+        // raw annotation object
+    },
+  	"replaceContentHtml": "HTML_FORMATTED_TEXT_TO_REPLACE", // optional
+  	"replaceContentText": "PLAIN_TEXT_TO_REPLACE", // optional
+}
+```
+</Step>
+
 <Step title="Sign In button">
 Whether to enable Sign In button on comment dialog when user is anonymous or signed out.
 
@@ -302,65 +329,9 @@ No data is passed with the event.
 <VeltComments onSignIn={() => yourSignInMethod()} />
 ````
 
-## 21) Attach additional context to each comment
-
-The `onCommentAdd` event is emitted when a new comment is created. 
-
-You can add a callback to attach additional context to each comment using the `event.addContext()` method which takes in a key-value paired object.
-
-
-```js
-<VeltComments onCommentAdd={(event) => yourMethod(event)} />
-````
-
-```jsx
-const yourMethod = (event) => {
-  event?.addContext({ customKey: 'customValue' });
-}
-```
-
-### onCommentAdd Event Schema
-
-<ResponseField name="documentId" type="string">
-The document ID where the comment was added
-</ResponseField>
-
-<ResponseField name="location" type="Object">
-The location where the comment was added
-</ResponseField>
-
-<ResponseField name="addContext" type="Function">
-Use this to set custom data on the comment
-</ResponseField>
-
 </Step>
 
-<Step title="Listen to `onCommentAccept` and `onCommentReject` events">
 
-To listen to comments that are Accepted or Rejected in Suggestion mode, pass callbacks to the `onCommentAccept` and onCommentReject` event handlers.
-
-```js
-<VeltComments onCommentAccept={(event)=>yourMethod(event)}/>
-<VeltComments onCommentReject={(event)=>yourMethod(event)}/>
-```
-
-Response:
-
-```js
-{
-    "annotationId": "ANNOTATION_ID",
-    "actionUser": {
-        // user object
-    },
-    "actionType": "accept", // accept or reject
-    "annotation": {
-        // raw annotation object
-    },
-  	"replaceContentHtml": "HTML_FORMATTED_TEXT_TO_REPLACE", // optional
-  	"replaceContentText": "PLAIN_TEXT_TO_REPLACE", // optional
-}
-```
-</Step>
 </Steps>
 
 </Tab>
