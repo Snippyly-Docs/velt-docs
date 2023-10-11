@@ -44,7 +44,7 @@ In the Velt console, add the URL where your app is deployed to the list of Manag
 
 <Step title="Configure the VeltProvider">
 
-In App.js, add the `VeltProvider` component to the root of your app with your Velt API Key.
+In **App.js**, add the `VeltProvider` component to the root of your app with your Velt API Key.
 
 ```js App.js
 <VeltProvider apiKey="YOUR_API_KEY">
@@ -54,8 +54,23 @@ In App.js, add the `VeltProvider` component to the root of your app with your Ve
 ```
 </Step>
 
+<Step title="Initialize the Velt client">
+
+Import `useVeltClient` and then use it to initialize the Velt client.
+
+You will need to do this in both **YourAuthComponent.js** and **YourDocument.js**.
+
+```js
+import { useVeltClient } from '@veltdev/react';
+
+const { client } = useVeltClient();
+```
+
+</Step>
+
 <Step title="Identify your user">
-In YourAuthComponent.js, use the Velt Client to identify your user.
+In **YourAuthComponent.js**, use the Velt client to identify your user.
+
 
 ```js YourAuthComponent.js
 await client.identify(user)
@@ -65,9 +80,7 @@ await client.identify(user)
 
   
 <Step title="Set the Document ID">
-In YourDocument.js, use the Velt Client to set the Document ID.
-
-Add the VeltCommentsTool from Velt to test out the Comments functionality.
+In **YourDocument.js**, use the Velt client to set the Document ID.
 
 ```js YourDocument.js
 client.setDocumentId('unique-document-id');
@@ -75,7 +88,7 @@ client.setDocumentId('unique-document-id');
 </Step>
 
 <Step title="Add the VeltComments, VeltCommentsTool and VeltPresence components">
-Add `VeltComments` and `VeltPresence` to enable the Comments and Presence functionality.
+In **App.js**, add `VeltComments` and `VeltPresence` to enable the Comments and Presence functionality.
 
 ```js App.js
 <VeltProvider apiKey="YOUR_API_KEY">
@@ -85,6 +98,8 @@ Add `VeltComments` and `VeltPresence` to enable the Comments and Presence functi
   <YourDocument/>
 </VeltProvider>
 ```
+
+In **YourDocument.js**, add the `VeltCommentsTool`to test out the Comments functionality.
 
 ```js YourDocument.js
 <div>
@@ -107,6 +122,9 @@ Add `VeltComments` and `VeltPresence` to enable the Comments and Presence functi
 Fork this repo if you want all the steps above done for you. You will still need to use your own Velt API Key.
 
 [CodeSandBox Link](https://codesandbox.io/s/bold-frog-5y94gx?file=/src/App.js)
+
+[View Demo in Larger Window](https://quickstart-demo-mocha.vercel.app/)
+
 
 <Frame>
 <iframe 
