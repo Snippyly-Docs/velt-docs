@@ -8,14 +8,18 @@ title: "Customize Behavior"
 <Tabs>
 <Tab title="React / Next.js">
 
-## 1) Customize navigation for non-URL based navigation
+
+<Steps>
+
+<Step title="Customize navigation for non-URL based navigation">
 **By default, we attempt to navigate the user to the comment Location when a user clicks on one in the sidebar.**
 
 If you want to alter this behavior, you can listen to click events and add an event listener to handle the navigation in a custom way.
 
 
-### 1a) Custom navigation using Location
+</Step>
 
+<Step title="Custom navigation using Location">
 Using the onCommentClick handler, you can fetch the context and make the necessary state changes to locate the comment correctly.
 
 **When a comment is clicked, the handler will be called with the location data of the comment.**
@@ -48,8 +52,9 @@ const onCommentClick = (event) => {
   const { pageId } = event.location;
   yourNavigateToPageMethod(pageId);
 ```
+</Step>
 
-### 1b) Custom navigation without using Location
+<Step title="Custom navigation without using Location">
 
 If you do not want to use Location, you can alternatively handle custom navigation by calling the `addContext()` method in the event handler.
 
@@ -69,7 +74,9 @@ const onCommentClick = (event) => {
 
 <Info>You would choose to use addContext() over Location if you do not want to segregate your comments by Location</Info>
 
-## 2) Enable/Disable Sidebar URL Navigation
+</Step>
+
+<Step title="Enable/Disable Sidebar URL Navigation">
 
 `Default: false`
 
@@ -91,9 +98,10 @@ commentElement.enableSidebarUrlNavigation();
 // to disable sidebar url navigation
 commentElement.disableSidebarUrlNavigation();
 ```
+</Step>
 
-## 3) Toggling the Comments Side Bar
 
+<Step title="Toggling the Comments Side Bar">
 To toggle the sidebar, you can use the following methods:
 
 ```jsx
@@ -103,19 +111,26 @@ commentElement.closeCommentSidebar(); // closes the comments side bar
 commentElement.toggleCommentSidebar(); // toggles the comments side bar
 ```
 
+</Step>
+
+</Steps>
+
+
 </Tab>
 
 
 <Tab title="HTML">
 
-## 1) Customize navigation for non-URL based navigation
+<Steps>
+
+<Step title="Customize navigation for non-URL based navigation">
 **By default, we attempt to navigate the user to the comment Location when a user clicks on one in the sidebar.**
 
 If you want to alter this behavior, you can listen to click events and add an event listener to handle the navigation in a custom way.
 
+</Step>
 
-### 1a) Custom navigation using Location
-
+<Step title="Custom navigation using Location">
 Using the onCommentClick handler, you can fetch the context and make the necessary state changes to locate the comment correctly.
 
 **When a comment is clicked, the handler will be called with the location data of the comment.**
@@ -148,12 +163,10 @@ const onCommentClick = (event) => {
   yourNavigateToPageMethod(pageId);
 };
 ```
+</Step>
 
-### 1b) Custom navigation without using Location
-
+<Step title="Custom navigation without using Location">
 If you do not want to use Location, you can alternatively handle custom navigation by calling the `addContext()` method in the event handler.
-
-
 
 ```js
 const commentElement = document.querySelector('velt-comments-sidebar');
@@ -170,8 +183,11 @@ const onCommentClick = (event) => {
 
 <Info>You would choose to use addContext() over Location if you do not want to segregate your comments by Location</Info>
 
-## 2) Enable/Disable Sidebar URL Navigation
 
+</Step>
+
+
+<Step title="Enable/Disable Sidebar URL Navigation">
 `Default: false`
 
 By default, `Comment Sidebar` URL navigation is disabled. So when user clicks on any comment in the sidebar, we will not redirect the user to a different page url if the comment was located on a different page. You would need to listen to `onCommentClick` events and then handle the event to change the URL.
@@ -192,9 +208,9 @@ commentElement.enableSidebarUrlNavigation();
 // to disable sidebar url navigation
 commentElement.disableSidebarUrlNavigation();
 ```
+</Step>
 
-## 3) Toggling the Comments Side Bar
-
+<Step title="Toggling the Comments Side Bar">
 To toggle the sidebar, you can use the following methods:
 
 ```jsx
@@ -203,6 +219,10 @@ commentElement.openCommentSidebar(); // opens the comments side bar
 commentElement.closeCommentSidebar(); // closes the comments side bar
 commentElement.toggleCommentSidebar(); // toggles the comments side bar
 ```
+</Step>
+
+
+</Steps>
 
 
 </Tab>
@@ -212,7 +232,7 @@ commentElement.toggleCommentSidebar(); // toggles the comments side bar
 
 <RequestExample>
 
-```js React
+```js React / Next.js
 import { 
   useVeltClient,
   VeltProvider, 
@@ -244,6 +264,8 @@ export default function App() {
       commentElement.openCommentSidebar(); // opens the comments side bar
       commentElement.closeCommentSidebar(); // closes the comments side bar
       commentElement.toggleCommentSidebar(); // toggles the comments side bar
+      commentElement.enableSidebarUrlNavigation();
+      commentElement.disableSidebarUrlNavigation();
     }
   })
 
@@ -251,6 +273,7 @@ export default function App() {
     <VeltProvider apiKey="API_KEY">
       <VeltCommentsSidebar 
         onCommentClick={onCommentClick}
+        urlNavigation={false}
       />
 
     </VeltProvider>
@@ -268,7 +291,7 @@ export default function App() {
   <body>
 
     <velt-comments></velt-comments>
-    <velt-comments-sidebar></velt-comments-sidebar>
+    <velt-comments-sidebar url-navigation="false"></velt-comments-sidebar>
 
   <script>
     if(Velt){
@@ -291,7 +314,9 @@ export default function App() {
       commentElement.openCommentSidebar(); // opens the comments side bar
       commentElement.closeCommentSidebar(); // closes the comments side bar
       commentElement.toggleCommentSidebar(); // toggles the comments side bar
-      }
+      commentElement.enableSidebarUrlNavigation();
+      commentElement.disableSidebarUrlNavigation();
+      
     }
   </script>
   </body>
