@@ -192,8 +192,22 @@
                     "async-collaboration/comments/customize-ui/slots/tool"
                   ]
                 },
-                "async-collaboration/comments/customize-ui/parts",
-                "async-collaboration/comments/customize-ui/variables"
+                {
+                  "group": "2. Parts",
+                  "pages": [
+                    "async-collaboration/comments/customize-ui/parts/pin",
+                    "async-collaboration/comments/customize-ui/parts/bubble",
+                    "async-collaboration/comments/customize-ui/parts/tool"
+                  ]
+                },
+                {
+                  "group": "3. Variables",
+                  "pages": [
+                    "async-collaboration/comments/customize-ui/variables/pin",
+                    "async-collaboration/comments/customize-ui/variables/bubble",
+                    "async-collaboration/comments/customize-ui/variables/tool"
+                  ]
+                }
               ]
             }
           ]
