@@ -177,7 +177,8 @@
                 "async-collaboration/comments/customize-behavior/retrieve-comments",
                 "async-collaboration/comments/customize-behavior/task-management",
                 "async-collaboration/comments/customize-behavior/ui-controls",
-                "async-collaboration/comments/customize-behavior/visibility-controls"
+                "async-collaboration/comments/customize-behavior/visibility-controls",
+                "async-collaboration/comments/customize-behavior/webhooks"
                 
               ]
             },
