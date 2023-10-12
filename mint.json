@@ -60,7 +60,7 @@
           "group": "Add User Contacts",
           "pages": [
             "users/add-user-contacts/setup",
-            "users/add-user-contacts/customize-behavior",
+            "users/add-user-contacts/advanced",
             "users/add-user-contacts/api-reset-contact-list"
           ]
         }
@@ -353,7 +353,8 @@
     {
       "group": "Release Notes",
       "pages": [
-        "release-notes/sept-15-2023"
+        "release-notes/sept-15-2023",
+        "release-notes/oct-12-2023"
       ]
     }
   ],

@@ -1,5 +1,5 @@
 ---
-title: "Customize Behavior"
+title: "Advanced Setup Options"
 ---
 {/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
 <script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
@@ -23,44 +23,6 @@ client.identify(yourLoggedInUser, {
 });
 ```
 
-## Reset Contact List using POST Method API
-
-You can also replace an entire Group Ids contact list using a POST Method on the following API endpoint.
-
-Endpoint:
-```
-https://updatecontactlist-4mfhcuyw2q-uc.a.run.app
-```
-
-Header:
-```jsx
-Authorization: Bearer {AUTH_TOKEN}
-```
-
-Body:
-```jsx
-{
-    "apiKey": "API_KEY",
-    "groupId": "GROUP_ID",
-		// list of contacts
-    "contacts": [
-        {
-            "name": "Test user1", // optional
-            "email": "testuser1@gmail.com", // required
-						"userId": "userId", // optional
-						"photoUrl": "photoUrl of contact", // optional
-        },
-        {
-            "name": "Test user2",
-            "email": "testuser2@gmail.com"
-        },
-        {
-            "name": "Test user3",
-            "email": "vivek+6.10.1+guestmode@snippyly.com"
-        }
-    ]
-}
-```
 
 
 </Tab>
