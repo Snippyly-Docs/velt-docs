@@ -57,11 +57,16 @@
       "group": "Users",
       "pages": [
         {
-          "group": "Add User Contacts",
+          "group": "Client Side",
           "pages": [
-            "users/add-user-contacts/setup",
-            "users/add-user-contacts/advanced",
-            "users/add-user-contacts/api-reset-contact-list"
+            "users/client-side/setup",
+            "users/client-side/advanced"
+          ]
+        },
+        {
+          "group": "Server Side",
+          "pages": [
+            "users/server-side/api-reset-contact-list"
           ]
         }
       ]
