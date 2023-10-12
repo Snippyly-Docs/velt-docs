@@ -9,7 +9,7 @@ title: "Customize Behavior"
 <Tab title="React / Next.js">
 
 
-<Steps>
+<Steps titleSize="h2">
 
 <Step title="Customize navigation for non-URL based navigation">
 **By default, we attempt to navigate the user to the comment Location when a user clicks on one in the sidebar.**
@@ -17,28 +17,19 @@ title: "Customize Behavior"
 If you want to alter this behavior, you can listen to click events and add an event listener to handle the navigation in a custom way.
 
 
-</Step>
 
-<Step title="Custom navigation using Location">
+### Custom navigation using Location
+
 Using the onCommentClick handler, you can fetch the context and make the necessary state changes to locate the comment correctly.
 
 **When a comment is clicked, the handler will be called with the location data of the comment.**
 
-<ResponseField name="documentId" type="string">
-The document ID where the comment was added
-</ResponseField>
-
-<ResponseField name="location" type="string">
-The location where the comment was added
-</ResponseField>
-
-<ResponseField name="targetElementId" type="string">
-The DOM ID of the target element on which the comment was added
-</ResponseField>
-
-<ResponseField name="context" type="Object | undefined">
-Any context data passed when the comment was added
-</ResponseField>
+| property | type | description|
+|---|---|---|
+| `documentId` | string | The document ID where the comment was added |
+| `location` | string | The location where the comment was added |
+| `targetElementId` | string | The DOM ID of the target element on which the comment was added |
+| `context` | Object | Any context data passed when the comment was added |
 
 
 ```js
@@ -52,9 +43,8 @@ const onCommentClick = (event) => {
   const { pageId } = event.location;
   yourNavigateToPageMethod(pageId);
 ```
-</Step>
 
-<Step title="Custom navigation without using Location">
+### Custom navigation without using Location
 
 If you do not want to use Location, you can alternatively handle custom navigation by calling the `addContext()` method in the event handler.
 
@@ -113,6 +103,8 @@ commentElement.toggleCommentSidebar(); // toggles the comments side bar
 
 </Step>
 
+
+
 </Steps>
 
 
@@ -121,35 +113,26 @@ commentElement.toggleCommentSidebar(); // toggles the comments side bar
 
 <Tab title="HTML">
 
-<Steps>
+<Steps titleSize="h2">
 
 <Step title="Customize navigation for non-URL based navigation">
 **By default, we attempt to navigate the user to the comment Location when a user clicks on one in the sidebar.**
 
 If you want to alter this behavior, you can listen to click events and add an event listener to handle the navigation in a custom way.
 
-</Step>
 
-<Step title="Custom navigation using Location">
+### Custom navigation using Location
+
 Using the onCommentClick handler, you can fetch the context and make the necessary state changes to locate the comment correctly.
 
 **When a comment is clicked, the handler will be called with the location data of the comment.**
 
-<ResponseField name="documentId" type="string">
-The document ID where the comment was added
-</ResponseField>
-
-<ResponseField name="location" type="string">
-The location where the comment was added
-</ResponseField>
-
-<ResponseField name="targetElementId" type="string">
-The DOM ID of the target element on which the comment was added
-</ResponseField>
-
-<ResponseField name="context" type="Object | undefined">
-Any context data passed when the comment was added
-</ResponseField>
+| property | type | description|
+|---|---|---|
+| `documentId` | string | The document ID where the comment was added |
+| `location` | string | The location where the comment was added |
+| `targetElementId` | string | The DOM ID of the target element on which the comment was added |
+| `context` | Object | Any context data passed when the comment was added |
 
 
 ```js
@@ -163,9 +146,9 @@ const onCommentClick = (event) => {
   yourNavigateToPageMethod(pageId);
 };
 ```
-</Step>
 
-<Step title="Custom navigation without using Location">
+### Custom navigation without using Location
+
 If you do not want to use Location, you can alternatively handle custom navigation by calling the `addContext()` method in the event handler.
 
 ```js

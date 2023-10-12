@@ -6,7 +6,7 @@ title: "Customize Behavior"
 <script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
 
 <Tabs>
-<Tab title="React">
+<Tab title="React \ Next.js">
 
 
 ## Reset Contact List
@@ -23,22 +23,43 @@ client.identify(yourLoggedInUser, {
 });
 ```
 
-</Tab>
+## Reset Contact List using POST Method API
 
-<Tab title="Next.js">
+You can also replace an entire Group Ids contact list using a POST Method on the following API endpoint.
 
-## Reset Contact List
+Endpoint:
+```
+https://updatecontactlist-4mfhcuyw2q-uc.a.run.app
+```
 
-To reset a user's contact list, use the `client.identify()` mehtod and pass in `{replaceContacts: true}` as the second parameter.
-
+Header:
 ```jsx
-client.identify(yourLoggedInUser, {
-    replaceContacts: true
-}).then((res) => {
-  // User auth successful with Velt
-}).catch((err) => {
-  // Failed to authenticate user with Velt
-});
+Authorization: Bearer {AUTH_TOKEN}
+```
+
+Body:
+```jsx
+{
+    "apiKey": "API_KEY",
+    "groupId": "GROUP_ID",
+		// list of contacts
+    "contacts": [
+        {
+            "name": "Test user1", // optional
+            "email": "testuser1@gmail.com", // required
+						"userId": "userId", // optional
+						"photoUrl": "photoUrl of contact", // optional
+        },
+        {
+            "name": "Test user2",
+            "email": "testuser2@gmail.com"
+        },
+        {
+            "name": "Test user3",
+            "email": "vivek+6.10.1+guestmode@snippyly.com"
+        }
+    ]
+}
 ```
 
 
@@ -68,37 +89,7 @@ client.identify(yourLoggedInUser, {
 
 <RequestExample>
 
-```jsx React
-import { useVeltClient } from '@veltdev/react';
-import { useEffect} from '/react';
-
-
-function YourComponent() {
-
-    const { client } = useVeltClient();
-
-    useEffect(() => {
-        if(client){
-            //Reset Contact List
-            client.identify(yourLoggedInUser, {
-                replaceContacts: true
-            }).then((res) => {
-            // User auth successful with Velt
-            }).catch((err) => {
-            // Failed to authenticate user with Velt
-            });
-        }
-    },[client]);
-
-  return (
-    <div>
-
-    </div>
-  )
-}
-```
-
-```jsx Next.js
+```jsx React / Next.js
 import { useVeltClient } from '@veltdev/react';
 import { useEffect} from '/react';
 

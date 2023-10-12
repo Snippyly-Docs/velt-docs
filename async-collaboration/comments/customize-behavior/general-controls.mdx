@@ -9,7 +9,7 @@ title: "General Controls"
 <Tab title="React / Next.js">
 
 
-<Steps>
+<Steps titleSize="h2">
 
 <Step title="Allow comments only on certain elements">
 
@@ -108,6 +108,52 @@ commentElement.disableGhostCommentsIndicator();
 ```
 
 </Step>
+
+
+<Step title="Enabling Sidebar Button on Comment Dialog">
+
+Whether the Sidebar Button on Comment Dialogs show up.
+
+`Default: true`
+
+By Default, each Comment Dialog has a button at the bottom that will open the Comments Sidebar when clicked.
+
+To disable it, you can set it to false:
+
+```jsx
+<VeltComments sidebarButtonOnCommentDialog={true} />
+```
+
+API Methods:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableSidebarButtonOnCommentDialog()
+commentElement.disableSidebarButtonOnCommentDialog() 
+```
+
+</Step>
+
+<Step title-"Subscribing to Sidebar Button Clicks on Comment Dialog">
+
+If you want to subscribe to clicks on the Sidebar Button at the bottom of the Comment Dialog you can do so by passing a callback to the `onSidebarButtonOnCommentDialogClick` event handler.
+
+
+```jsx
+<VeltComments onSidebarButtonOnCommentDialogClick={(event)=>yourMethod(event)} />
+```
+
+API Methods:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.onSidebarButtonOnCommentDialogClick().subscribe((event) => yourMethod(event));
+```
+
+
+
+</Step>
+
 
 
 

@@ -8,7 +8,7 @@ title: "Multimedia Features"
 <Tabs>
 <Tab title="React / Next.js">
 
-<Steps>
+<Steps titleSize="h2">
 
 <Step stepNumber="1" title="File attachments">
 Whether file attachments are enabled.
@@ -30,9 +30,75 @@ const commentElement = client.getCommentElement();
 commentElement.enableAttachments();
 commentElement.disableAttachments();
 ```
+
 </Step>
 
+<Step title="Set Recorder Media Options">
 
+Set the Recorder media options within Comments: (audio, screen, video, all, or none).
+
+`Default: "audio"`
+
+To set the Recorder media options, pass in a comma separated string of the features you want to enable. 
+
+
+To enable only the **screen** option:
+
+```jsx
+<VeltComments recordings="screen" />
+```
+
+To enable the **video** and **screen** options:
+
+```jsx
+<VeltComments recordings="video,screen" />
+```
+
+To enable all options:
+
+```jsx
+<VeltComments recordings="all" />
+```
+
+To disable all options:
+
+```jsx
+<VeltComments recordings="none" />
+```
+
+API Methods:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.setAllowedRecordings("video"); // set video mode only
+commentElement.setAllowedRecordings("audio,screen"); // set audio and screen mode only
+commentElement.setAllowedRecordings("all"); // set all modes
+commentElement.setAllowedRecordings("none"); // disable all modes
+```
+
+
+</Step>
+
+<Step title="Enable Reactions">
+
+Whether emoji reactions are enabled.
+
+`Default: true`
+
+```jsx
+<VeltComments reactions={true} />
+```
+
+API Methods:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableReactions();
+commentElement.disableReactions();
+```
+
+
+</Step>
 
 </Steps>
 
