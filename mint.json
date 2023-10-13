@@ -315,17 +315,6 @@
       ]
     },
     {
-      "group": "Beta Features",
-      "pages": [
-        {
-          "group": "Live Co-Editing",
-          "pages": [
-            "live-co-editing/overview"
-          ]
-        }
-      ]
-    },
-    {
       "group": "Webhooks",
       "pages": [
         "webhooks/overview"
