@@ -216,7 +216,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "async-collaboration/comments/webhooks"
           ]
         },
         {
