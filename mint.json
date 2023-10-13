@@ -57,11 +57,10 @@
       "group": "Users",
       "pages": [
         "users/overview",
-        "users/setup",
         {
           "group": "Client Side",
           "pages": [
-            "users/client-side/advanced"
+            "users/client-side/setup"
           ]
         },
         {

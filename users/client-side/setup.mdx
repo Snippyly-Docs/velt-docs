@@ -13,7 +13,7 @@ description: "Set up User groups and User contact lists to enable Users to @ment
 
 <Step title="Create a User object">
 
-Create a User object with the correct User schema.
+Create a `User` object with the following initial fields.
 
 ```jsx
 let user = {
@@ -26,9 +26,9 @@ let user = {
 
 </Step>
 
-<Step title="Set a user group">
+<Step title="Set a groupId">
 
-Set the user group on the User object you just created.
+Set the `groupId` on the `User` object you just created.
 
 Over time, as users from the same `groupId` sign in, they will be automatically added to each other's contact list.
 
@@ -39,9 +39,9 @@ Over time, as users from the same `groupId` sign in, they will be automatically 
 
 <Step title="Manually preload the user contact list"> 
 
-Provide the `contacts` field on your User object with an array of User Contact objects.
+Provide the `contacts` field on your `User` object with an array of `UserContact` objects.
 
-This will preload the User contact list with an initial list of contacts.
+This will preload the `User` contact list with an initial list of contacts.
 
 ```js
  const contacts = [
@@ -50,7 +50,7 @@ This will preload the User contact list with an initial list of contacts.
           name: 'John Doe',
           photoUrl: 'https://i.pravatar.cc/300',
           email: 'john.doe@snippyly.com',
-          groupId: 'some-group-id',
+          groupId: 'some-group-id', //used only for reference
           visibility: 'group' //set visibility to `group` to add the contact to all members of the groupId
         },
         {
@@ -58,22 +58,24 @@ This will preload the User contact list with an initial list of contacts.
           name: 'Mary Doe',
           photoUrl: 'https://i.pravatar.cc/300',
           email: 'mary.doe@snippyly.com',
-          groupId: 'some-group-id',
+          groupId: 'some-group-id', //used only for reference
           visibility: 'private' // set visibilty to `private` to only add the contact to the authenticated User 
         }
       ];
       user.contacts = contacts;
 ```
 
-<Info>Setting visibility to `private` will only add the contact to the authenticate User instead of all `groupId` members.</Info>
+By default, all members of the same `groupId` as the authenticated `User` will also have this list of `UserContacts` added to their contacts list.
+
+<Info>Setting visibility to `private` will only add the `UserContact` to the authenticated `User's` contact list instead of adding it to all `groupId` members.</Info>
 
 </Step>
 
 
 <Step title="Authenticate your user">
-Authenticate your user with the `identify()` method from the Velt client.
+Authenticate your `User` with the `identify()` method from the Velt client.
 
-This will configure your user with the `groupId` and `contacts` list you set previously.
+This will configure your `User` with the `groupId` and `contacts` list you set previously.
 
 ```jsx
 client.identify(user)
@@ -83,8 +85,32 @@ client.identify(user)
 
 </Steps>
 
+# Advanced Setup
+
+## Replace Contact List
+
+To replace a user's contact list, use the `client.identify()` method and pass in `{replaceContacts: true}` as the second parameter. This will completely replace the users contact list.
+
+```jsx
+client.identify(yourLoggedInUser, {
+    replaceContacts: true
+}).then((res) => {
+  // User auth successful with Velt
+}).catch((err) => {
+  // Failed to authenticate user with Velt
+});
+```
+
+## Private Contacts
+
+To make a `UserContact` a private contact, meaning they will only be added to the authenticated `User's` contact list instead of to all group members' contact lists, set the `visibility` attribute to `private`.
 
 
+```
+{
+  visibility: 'private'
+}
+```
 
 
 
@@ -96,7 +122,7 @@ client.identify(user)
 
 <Step title="Create a User object">
 
-Create a User object with the correct User schema.
+Create a `User` object with the following initial fields.
 
 ```jsx
 let user = {
@@ -109,9 +135,9 @@ let user = {
 
 </Step>
 
-<Step title="Set a user group">
+<Step title="Set a groupId">
 
-Set the user group on the User object you just created.
+Set the `groupId` on the `User` object you just created.
 
 Over time, as users from the same `groupId` sign in, they will be automatically added to each other's contact list.
 
@@ -122,9 +148,9 @@ Over time, as users from the same `groupId` sign in, they will be automatically 
 
 <Step title="Manually preload the user contact list"> 
 
-Provide the `contacts` field on your User object with an array of User Contact objects.
+Provide the `contacts` field on your `User` object with an array of `UserContact` objects.
 
-This will preload the User contact list with an initial list of contacts.
+This will preload the `User` contact list with an initial list of contacts.
 
 ```js
  const contacts = [
@@ -133,7 +159,7 @@ This will preload the User contact list with an initial list of contacts.
           name: 'John Doe',
           photoUrl: 'https://i.pravatar.cc/300',
           email: 'john.doe@snippyly.com',
-          groupId: 'some-group-id',
+          groupId: 'some-group-id', //used only for reference
           visibility: 'group' //set visibility to `group` to add the contact to all members of the groupId
         },
         {
@@ -141,22 +167,24 @@ This will preload the User contact list with an initial list of contacts.
           name: 'Mary Doe',
           photoUrl: 'https://i.pravatar.cc/300',
           email: 'mary.doe@snippyly.com',
-          groupId: 'some-group-id',
+          groupId: 'some-group-id', //used only for reference
           visibility: 'private' // set visibilty to `private` to only add the contact to the authenticated User 
         }
       ];
       user.contacts = contacts;
 ```
 
-<Info>Setting visibility to `private` will only add the contact to the authenticate User instead of all `groupId` members.</Info>
+By default, all members of the same `groupId` as the authenticated `User` will also have this list of `UserContacts` added to their contacts list.
+
+<Info>Setting visibility to `private` will only add the `UserContact` to the authenticated `User's` contact list instead of adding it to all `groupId` members.</Info>
 
 </Step>
 
 
 <Step title="Authenticate your user">
-Authenticate your user with the `identify()` method from the Velt client.
+Authenticate your `User` with the `identify()` method from the Velt client.
 
-This will configure your user with the `groupId` and `contacts` list you set previously.
+This will configure your `User` with the `groupId` and `contacts` list you set previously.
 
 ```jsx
 Velt.identify(user)
@@ -165,6 +193,33 @@ Velt.identify(user)
 </Step>
 
 </Steps>
+
+# Advanced Setup
+
+## Replace Contact List
+
+To replace a user's contact list, use the `client.identify()` method and pass in `{replaceContacts: true}` as the second parameter. This will completely replace the users contact list.
+
+```jsx
+Velt.identify(yourLoggedInUser, {
+    replaceContacts: true
+}).then((res) => {
+  // User auth successful with Velt
+}).catch((err) => {
+  // Failed to authenticate user with Velt
+});
+```
+
+## Private Contacts
+
+To make a `UserContact` a private contact, meaning they will only be added to the authenticated `User's` contact list instead of to all group members' contact lists, set the `visibility` attribute to `private`.
+
+
+```
+{
+  visibility: 'private'
+}
+```
 
   </Tab>
 </Tabs>
