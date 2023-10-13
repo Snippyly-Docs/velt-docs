@@ -6,17 +6,21 @@ title: "Setup"
 <script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
 
 <Tabs>
-  <Tab title="React">
-## 1) Import Presence Component
+  <Tab title="React / Next.js">
 
+
+<Steps>
+
+<Step title="Import Presence Component">
 Import the Presence component from the React library.
 
 ```js
 import { VeltPresence } from '@veltdev/react';
 ```
 
-## 2) Add Presence Component
+</Step>
 
+<Step title="Add Presence Component">
 Add it anywhere you want to see the user avatars.
 
 ```js
@@ -25,70 +29,55 @@ Add it anywhere you want to see the user avatars.
 
 This component renders the avatars of users on the same document in your web app. We automactically detect when users are active on the document and render their avatars.
 
+</Step>
 
-## 3) Test Integration
-
+<Step title="Test Integration">
 Test it out by opening the target page in two browsers with two different users logged in.
 
 You should see the avatars of the users rendered where you added the presence component.
 
-  </Tab>
-  <Tab title="Next.js">
-## 1) Import Presence Component
+</Step>
 
-Import the Presence component from the React library.
 
-```js
-import { VeltPresence } from '@veltdev/react';
+</Steps>
+
+</Tab>
+
+<Tab title="HTML">
+<Steps>
+
+<Step title="Import the Velt Script tag">
+```html
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@veltdev/sdk@1.0.11/velt.js" onload="loadVelt()"></script>
 ```
+</Step>
 
-## 2) Add Presence Component
-
-Add it anywhere you want to see the user avatars.
-
+<Step title="Initialize with your API Key">
+Put this in your root app script:
 ```js
-<VeltPresence />
+async function loadVelt() {
+    await Velt.init("YOUR_VELT_API_KEY");
+}
 ```
+</Step>
 
-This component renders the avatars of users on the same document in your web app. We automactically detect when users are active on the document and render their avatars.
+<Step title="Place the <velt-presence> component">
+Place the component wherever you want the avatars to appear.
 
-
-
-## 3) Test Integration
-
-Test it out by opening the target page in two browsers with two different users logged in.
-
-You should see the avatars of the users rendered where you added the presence component.
-
-  </Tab>
-  <Tab title="HTML">
-    ## 1) Import the Velt Script tag
-    ```html
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@veltdev/sdk@1.0.11/velt.js" onload="loadVelt()"></script>
-    ```
-
-    ## 2) Initialize with your API Key
-
-    Put this in your root app script:
-    ```js
-    async function loadVelt() {
-        await Velt.init("YOUR_VELT_API_KEY");
-    }
-    ```
-
-    ## 3) Place the `<velt-presence>` component
-    Place the component wherever you want the avatars to appear.
-
-    ```html
+```html
 <velt-presence></velt-presence>
 ```
 
-    ## 4) Test Integration
 
+</Step>
+
+<Step title="Test Integration">
 Test it out by opening the target page in two browsers with two different users logged in.
 
 You should see the avatars of the users rendered where you added the presence component.
 
+</Steps>
+   
 
 
 
@@ -110,18 +99,7 @@ export default function App() {
 }
 ```
 
-```js Next.js
-import { VeltPresence } from '@veltdev/react';
 
-export default function App() {
-
-  return (
-    <div className="toolbar">
-      <VeltPresence />
-    </div>
-  );
-}
-```
 
 ```html HTML
 <!DOCTYPE html>
