@@ -56,10 +56,10 @@
     {
       "group": "Users",
       "pages": [
+        "users/setup",
         {
           "group": "Client Side",
           "pages": [
-            "users/client-side/setup",
             "users/client-side/advanced"
           ]
         },
