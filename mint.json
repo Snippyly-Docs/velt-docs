@@ -56,6 +56,7 @@
     {
       "group": "Users",
       "pages": [
+        "users/overview",
         "users/setup",
         {
           "group": "Client Side",
