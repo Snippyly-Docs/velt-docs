@@ -8,80 +8,52 @@ title: "Setup"
 
 
 <Tabs>
-  <Tab title="React">
+  <Tab title="React / Next.js">
 
-## 1) Get the Velt client
-Import the useVeltClient React hook.
+<Steps>
 
-You can use this hook within your component to fetch the Velt client.
-
-```js React
-    let { client } = useVeltClient();
-```
-
-
-
-## 2) Create a useEffect hook
-Create a useEffect hook with the client as dependency.
-
-```js React
-  useEffect(() => {
-    //code to enable Rewriter
-  }, [client]);
-```
-
-## 3) Enable Rewriter
-Within the `useEffect` hook, call getRewriterElement() and then enableRewriter() on the client object to enable Rewriter. Now when a user highlights text on your website, the Rewriter tool will pop up.
-
-
-```js React
-      const rewriterElement = client.getRewriterElement();
-      rewriterElement.enableRewriter();
-```
-
-
-  </Tab>
-
-<Tab title="Next.js">
-
-## 1) Get the Velt client
-Import the useVeltClient React hook.
+<Step title="Get the Velt client">
+Import the `useVeltClient` React hook.
 
 You can use this hook within your component to fetch the Velt client.
 
 ```js React
-    let { client } = useVeltClient();
+let { client } = useVeltClient();
 ```
+</Step>
 
-
-
-## 2) Create a useEffect hook
+<Step title="Create a useEffect hook">
 Create a useEffect hook with the client as dependency.
 
 ```js React
-  useEffect(() => {
-    //code to enable Rewriter
-  }, [client]);
+useEffect(() => {
+  //code to enable Rewriter
+}, [client]);
 ```
+</Step>
 
-## 3) Enable Rewriter
-Within the `useEffect` hook, call getRewriterElement() and then enableRewriter() on the client object to enable Rewriter. Now when a user highlights text on your website, the Rewriter tool will pop up.
-
+<Step title="Enable Rewriter">
+Within the `useEffect` hook, call `getRewriterElement()` and then `enableRewriter()` on the client object to enable `Rewriter`. Now when a user highlights text on your website, the `Rewriter` tool will pop up.
 
 ```js React
-      const rewriterElement = client.getRewriterElement();
-      rewriterElement.enableRewriter();
+const rewriterElement = client.getRewriterElement();
+rewriterElement.enableRewriter();
 ```
+
+</Step>
+
+
+</Steps>
+
 
 
   </Tab>
+
   <Tab title="HTML">
-  
-## 1) Enable Rewriter 
 
+
+<Step stepNumber="1" title="Enable Rewriter">
 Call getRewriterElement() and then enableRewriter() on the Velt client object to enable Rewriter. Now when a user highlights text on your website, the Rewriter tool will pop up.
-
-
 
 ```js
 if (Velt) {
@@ -90,12 +62,17 @@ if (Velt) {
 }
 ```
 
+</Step>
+
+
+
+
   </Tab>
 </Tabs>
 
 <RequestExample>
 
-```js React
+```js React / Next.js
 import { useEffect } from "react";
 import { useVeltClient } from "@veltdev/react";
 
@@ -116,27 +93,7 @@ export default function App() {
 }
 
 ```
-```js Next.js
-import { useEffect } from "react";
-import { useVeltClient } from "@veltdev/react";
 
-export default function App() {
-  let { client } = useVeltClient();
-
-  useEffect(() => {
-    if (client) {
-      //Enable Rewriter
-      const rewriterElement = client.getRewriterElement();
-      rewriterElement.enableRewriter();
-    }
-  }, [client]);
-
-  return (
-    // your app template
-  );
-}
-
-```
 
 ```html HTML
 <!DOCTYPE html>
