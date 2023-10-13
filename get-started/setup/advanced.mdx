@@ -47,27 +47,14 @@ If you specify a **Location**, users in the same **Document** will no longer be 
 To use a **Location** together with a **Document**, simply call the **setDocumentID()** method before the **setLocation()** method.
 
 ```js 
-import { useVeltClient } from '@veltdev/react';
-
-function SomeComponent() {
-
-  const { client } = useVeltClient();
-
-  useEffect(() => {
-    if (client) {
-      client.setDocumentID('some_document_id');
-      client.setLocation({
-        'page': 'mainPage',
-        'version': 'v1.2',
-        'videoFrame': '120'
-        // You can keep adding more field to make the location very specific.
-        // The field names can be anything.
-      })
-    }
-  }, [client]);
-
-  return ();
-}
+client.setDocumentID('some_document_id');
+client.setLocation({
+  'page': 'mainPage',
+  'version': 'v1.2',
+  'videoFrame': '120'
+  // You can keep adding more field to make the location very specific.
+  // The field names can be anything.
+})
 ```
 
 To remove a location that has already been set, you can use the `client.removeLocation()` method:
