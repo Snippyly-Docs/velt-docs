@@ -8,7 +8,10 @@ title: "Setup"
 
 <Tabs>
   <Tab title="React / Next.js">
-## 1) Enable Flock mode on Presence
+
+<Steps titleSize="h2">
+
+<Step title="Enable Flock mode on Presence">
 Enable Flock mode feature.
 
 ```js
@@ -19,16 +22,29 @@ You need to add the [Presence feature](/realtime-collaboration/presence/overview
 
 To start the shared flock session, click on a user's avatar to start following them.
 
-## 2) Test Integration
+</Step>
 
+<Step title="Test Integration">
 Test it out by opening the target page in two browsers with two different users logged in.
 
 You should see the avatars of the users rendered where you added the presence component. Now click on any avatar to start following them.
 
+</Step>
+
+</Step>
+
+
+</Steps>
+
+
+
   </Tab>
   
   <Tab title="HTML">
-## 1) Enable Flock mode on Presence
+
+<Steps titleSize="h2">
+
+<Step title="Enable Flock mode on Presence">
 Enable Flock mode feature.
 
 ```html
@@ -39,18 +55,28 @@ You need to add Presence feature to trigger Flock mode. This will enable Flock m
 
 To start the shared flock session, click on a user's avatar to start following them.
 
-## 2) Test Integration
+</Step>
 
+<Step title="Test Integration">
 Test it out by opening the target page in two browsers with two different users logged in.
 
 You should see the avatars of the users rendered where you added the presence component. Now click on any avatar to start following them.
+
+</Step>
+
+
+</Steps>
+
+
+
+
 
   </Tab>
 </Tabs>
 
 <RequestExample>
 
-```js React
+```js React / Next.js
 import { VeltPresence } from '@veltdev/react';
 
 export default function App() {
