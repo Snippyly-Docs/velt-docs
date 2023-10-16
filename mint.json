@@ -364,7 +364,14 @@
   },
   "feedback": {
     "thumbsRating": true
+  },
+  "api": {
+    "playground": {
+      "mode": "simple"
+    }
   }
+  
+  
 }
 
 
