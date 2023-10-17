@@ -26,7 +26,7 @@ Body:
   	"selectAllContent": true, // Set to `true` if you want to select all the text content of the target element.
   },
   "status": "open", // optional (default: open)
-  "commentData": [
+  "commentData": [ // an array of comment data. Add additional objects of the same schema for each comment reply in the thread.
     {
       "commentText": "This is awesome! Well done.", // To set plain text content
       "commentHtml": "This <span style=\"color: green; background-color: aliceblue; display: inline-block; padding: 4px; border-radius: 4px;\">is test</span> comment.", // To set HTML formatted content
@@ -46,7 +46,7 @@ If the `selectAllContent` field is `true` then the comment is added to the entir
 ### commentHtml
 You can pass HTML content here and we will parse this in the comment and also add the html to the target element when the accept button is clicked.
 
-### Priority Order of Text to Be Repalced
+### Priority Order of Text to Be Replaced
 This is the priority order of the text to be replaced when comment is accepted:
 
 replaceContentHtml > replaceContentText > commentHtml > commentText
@@ -55,7 +55,7 @@ replaceContentHtml > replaceContentText > commentHtml > commentText
 Response:
 
 ```JSON
-	{
+{
   "status": "success",
   "message": "System Comment added successfully.",
   "data": {
@@ -106,6 +106,9 @@ Status message for the response
 Contains annotationId and commentIds
 </ResponseField>
 
+<Expandable title="data">
+
+
 <ResponseField name="annotationId" type="string">
 This is the parent comment annotation id
 </ResponseField>
@@ -113,6 +116,9 @@ This is the parent comment annotation id
 <ResponseField name="commentIds" type="string[]">
 An array with all child comment ids
 </ResponseField>
+
+</Expandable>
+
 
 
 <ResponseExample>

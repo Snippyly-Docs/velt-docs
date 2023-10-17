@@ -7,7 +7,7 @@ title: "Setup"
 
 ## 1) Generate Auth Token
 
-a. Open the Velt Console at [console.velt.dev](console.velt.dev)
+a. Open the Velt Console at [console.velt.dev](https://console.velt.dev)
 
 b. Under the Auth Token section, click on Generate Token button:
 
@@ -25,7 +25,7 @@ a. Prepare a POST request:
 
 Now, prepare a POST API request using the JSON data mentioned below.
 
-Replace your_token_here with the token you copied earlier. Replace 'apiKey', 'documentId' and other values with your actual data.
+Replace your_token_here with the token you copied earlier. Replace `your_api_key_here`, `your_document_id_here` and other values with your actual data.
 
 ```JSON
 {
@@ -38,7 +38,7 @@ Replace your_token_here with the token you copied earlier. Replace 'apiKey', 'do
         "occurrence": 1 // optional (default: 1) This is relevant for text comment. By default, we will attach comment to the first occurence of the target text in your document. You can change this to attach your comment on a more specific text.
     },
     "status": "open", // optional (default: open)
-    "commentData": [
+    "commentData": [ // an array of comment data. Add additional objects of the same schema for each comment reply in the thread.
         {
             "commentHtml": "This is awesome! Well done.",
             "commentText": "Replace: 'This is old comment' with 'This is new comment'", // required

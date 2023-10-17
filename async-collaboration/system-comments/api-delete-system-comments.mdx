@@ -33,7 +33,7 @@ Response:
 ```
 
 ## Delete child comment
-To delete a specific child comment, you can use the same endpoint except you need to modify your data body to include an `annotationId` field. The `annotationId` field will contain the parent annotation ID that the child will be removed from.
+To delete a specific child comment, you can use the same endpoint except you need to modify your data body to include an `commentId` field. The `annotationId` field will contain the parent annotation ID that the child will be removed from.
 
 This will delete the specific child comment inside parent annotation. If there are no more comments available inside comment annotation, then comment annotation will also be deleted.
 
@@ -45,7 +45,7 @@ Body:
   "authToken": "AUTH_TOKEN",
   "documentId": "client-document-id",
   "annotationId": "COMMENT_ANNOTATION_ID",
-  "commentId": 123456 // child comment id to delete
+  "commentId": 123456 // child comment id to delete  - can only delete 1 at a time
 }
 ```
 
