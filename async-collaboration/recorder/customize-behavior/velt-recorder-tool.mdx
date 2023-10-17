@@ -1,0 +1,52 @@
+---
+title: "Velt Recorder Tool"
+---
+
+<Steps>
+<Step title="Recording Types">
+
+Sets the `VeltRecorderTool` recording mode.
+
+`Default: 'audio'`
+
+The `VeltRecorderTool` can be configured to record a user's audio, video or screen.
+
+To set the configuration mode, set the `type` attribute to one of the following:
+ - all
+ - audio 
+ - video
+ - screen
+
+```js
+<VeltRecorderTool type='all' />
+<VeltRecorderTool type='audio' />
+<VeltRecorderTool type='video' />
+<VeltRecorderTool type='screen' />
+```
+
+</Step>
+
+<Step title="Recorder Panel Id">
+
+Sets the `panelId` that the Recording will be played on.
+
+You must also set the `VeltRecorderPlayer` to the same `panelId` for the recording to show up on it.
+
+```js
+<VeltRecorderTool panelId="YOUR_PANEL_ID" />
+<VeltRecorderPlayer panelId="YOUR_PANEL_ID"/>
+```
+
+</Step>
+
+<Step title="Button Label">
+
+Sets a custom label for the `VeltRecorderTool`.
+
+```js
+<VeltRecorderTool buttonLabel="Your Label Text" />
+```
+
+</Step>
+
+</Steps>

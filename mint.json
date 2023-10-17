@@ -269,7 +269,14 @@
           "pages": [
             "async-collaboration/recorder/overview",
             "async-collaboration/recorder/setup",
-            "async-collaboration/recorder/customize-behavior",
+            {
+              "group": "Customize Behavior",
+              "pages": [
+                "async-collaboration/recorder/customize-behavior/velt-recorder-tool",
+                "async-collaboration/recorder/customize-behavior/velt-recorder-control-panel",
+                "async-collaboration/recorder/customize-behavior/velt-recorder-player"
+              ]
+            },
             "async-collaboration/recorder/customize-ui"
 
           ]

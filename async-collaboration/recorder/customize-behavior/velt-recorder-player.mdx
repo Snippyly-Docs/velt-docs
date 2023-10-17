@@ -1,0 +1,58 @@
+---
+title: "Velt Recorder Player"
+---
+
+
+<Steps>
+
+
+<Step title="Show Transcript">
+Whether a transcript of a recording gets shown or not.
+
+`Default: true`
+
+The `VeltRecorderPlayer` will show a transcript of an audio, video or screen recording.
+
+To enable or disable the transcript, set the `show` attribute:
+
+```jsx
+<VeltRecorderPlayer show={true}/>
+```
+
+
+</Step>
+
+
+<Step title="onDelete callback">
+The creator of the recordings will see an option to delete the recording after it has been recorded. Once the user deletes the recording, the `VeltRecorderPlayer` component will emit an event called `onDelete` with the recorder ID. You can listen to the callback and use the response object to perform any clean up on your end. 
+
+This is the response object that you get back:
+
+| Field    | Type                          | Example       |
+| -------- | ------------------------------| --------------|
+| id       | string                        | "recorder_id" |
+
+```js
+import { VeltRecorderPlayer } from '@veltdev/react'
+
+const SomeComponent = () => {
+  
+  const onDelete = (data) => {
+    console.log('on delete: ', data);
+  }
+   
+  return (
+  	//... rest of the component code...
+		<VeltRecorderPlayer recorderId={RECORDER_ID} onDelete={(data) => onDelete(data)} />
+
+    //... rest of the component code...
+  )
+}
+
+export default SomeComponent;
+```
+
+</Step>
+
+
+</Steps>
