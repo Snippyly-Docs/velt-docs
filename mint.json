@@ -114,9 +114,9 @@
         {
           "group": "Follow Me Mode",
           "pages": [
-            "realtime-collaboration/flock-mode/overview",
-            "realtime-collaboration/flock-mode/setup",
-            "realtime-collaboration/flock-mode/customize-behavior"
+            "realtime-collaboration/follow-me-mode/overview",
+            "realtime-collaboration/follow-me-mode/setup",
+            "realtime-collaboration/follow-me-mode/customize-behavior"
           ]
         },
         {
