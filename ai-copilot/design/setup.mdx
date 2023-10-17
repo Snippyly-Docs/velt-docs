@@ -23,7 +23,7 @@ let { client } = useVeltClient();
 </Step>
 
 <Step title="Create a useEffect hook">
-Create a useEffect hook with the client as dependency.
+Create a `useEffect` hook with the client as dependency.
 
 ```js React
 useEffect(() => {
@@ -33,12 +33,25 @@ useEffect(() => {
 </Step>
 
 <Step title="Enable Rewriter">
-Within the `useEffect` hook, call `getRewriterElement()` and then `enableRewriter()` on the client object to enable `Rewriter`. Now when a user highlights text on your website, the `Rewriter` tool will pop up.
+
+`Rewriter` is not enabled by default.
+
+Within the `useEffect` hook, call `client.getRewriterElement()` and then `enableRewriter()` on the returned object to enable `Rewriter`. 
+
+Now when a user highlights text on your website, the `Rewriter` tool will pop up.
 
 ```js React
 const rewriterElement = client.getRewriterElement();
 rewriterElement.enableRewriter();
+rewriterElement.disableRewriter(); //to disable
+
 ```
+
+</Step>
+
+<Step title="Test Rewriter">
+
+Test out `Rewriter` by highlighting some text.
 
 </Step>
 
@@ -51,21 +64,33 @@ rewriterElement.enableRewriter();
 
   <Tab title="HTML">
 
+<Steps>
+<Step title="Enable Rewriter">
 
-<Step stepNumber="1" title="Enable Rewriter">
-Call getRewriterElement() and then enableRewriter() on the Velt client object to enable Rewriter. Now when a user highlights text on your website, the Rewriter tool will pop up.
+`Rewriter` is not enabled by default.
+
+Call `Velt.getRewriterElement()` and then `enableRewriter()` on the returned object to enable `Rewriter`.
+
+Now when a user highlights text on your website, the `Rewriter` tool will pop up.
 
 ```js
 if (Velt) {
   const rewriterElement = Velt.getRewriterElement();
   rewriterElement.enableRewriter();
+  rewriterElement.disableRewriter(); //to disable
 }
 ```
 
 </Step>
 
+<Step title="Test Rewriter">
+
+Test out `Rewriter` by highlighting some text.
+
+</Step>
 
 
+</Steps>
 
   </Tab>
 </Tabs>
@@ -84,6 +109,7 @@ export default function App() {
       //Enable Rewriter
       const rewriterElement = client.getRewriterElement();
       rewriterElement.enableRewriter();
+      rewriterElement.disableRewriter(); //to disable
     }
   }, [client]);
 
@@ -110,6 +136,7 @@ export default function App() {
         //Enable Rewriter
         const rewriterElement = Velt.getRewriterElement();
         rewriterElement.enableRewriter();
+        rewriterElement.disableRewriter(); //to disable
       }
     </script>
   </head>
