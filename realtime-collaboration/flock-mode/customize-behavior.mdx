@@ -10,7 +10,7 @@ title: "Customize Behavior"
 ## 1) Enable custom navigation
 Use a callback for custom navigation or side-effects.
 
-When the leader of a flock navigates, we can use the React Router to update the follower's position. In the callback you will receive a PageInfo object.
+When the leader of a Follow Me session navigates, we can use the React Router to update the follower's position. In the callback you will receive a PageInfo object.
 
 ```js
 <VeltPresence onNavigate={(pageInfo) => navigate(pageInfo.path)} />
@@ -31,9 +31,9 @@ The path after the base URL
 The full URL
 </ResponseField>
 
-## 2) Disable default flock navigation
+## 2) Disable default Follow Me navigation
 
-Disable default flock navigation.
+Disable default Follow Me navigation.
 
 `Default: true`
 
@@ -52,7 +52,7 @@ You can start or Stop Following a User by calling the `startFollowingUser()` and
 
 Start following a user by passing in their user ID to the `startFollowingUser()` method.
 
-You can programatically start a flock session by passing in the user ID of the user you want to lead the session.
+You can programatically start a Follow Me session by passing in the user ID of the user you want to lead the session.
 
 ```js
 // Stop following the user
@@ -62,9 +62,9 @@ presenceElement.startFollowingUser(userId);
 
 ### Stop Following 
 
-Stop flock session for the current user by by calling the `stopFollowingUser()` method.
+Stop Follow Me session for the current user by by calling the `stopFollowingUser()` method.
 
-If the current user is in a flock session, they will be removed from that session. If there are no more followers in the session, the session will be destroyed.
+If the current user is in a Follow Me session, they will be removed from that session. If there are no more followers in the session, the session will be destroyed.
 
 ```js
 // Stop following the user
@@ -80,7 +80,7 @@ presenceElement.stopFollowingUser();
 ## 1) Pass in a callback for navigation
 Use a callback for custom navigation or side-effects.
 
-When the leader of a flock navigates, this callback will be called.
+When the leader of a Follow Me session navigates, this callback will be called.
 
 ```js
 if (presenceDOMElement) {
@@ -102,9 +102,9 @@ The path after the base URL
 The full URL
 </ResponseField>
 
-## 2) Disable default flock navigation
+## 2) Disable default Follow Me navigation
 
-Disable default flock navigation.
+Disable default Follow Me navigation.
 
 `Default: true`
 
@@ -124,7 +124,7 @@ You can start or Stop Following a User by calling the `startFollowingUser()` and
 
 Start following a user by passing in their user ID to the `startFollowingUser()` method.
 
-You can programatically start a flock session by passing in the user ID of the user you want to lead the session.
+You can programatically start a Follow Me session by passing in the user ID of the user you want to lead the session.
 
 ```js
 // Stop following the user
@@ -133,9 +133,9 @@ presenceElement.startFollowingUser(userId);
 
 ### Stop Following 
 
-Stop flock session for the current user by by calling the `stopFollowingUser()` method.
+Stop Follow Me session for the current user by by calling the `stopFollowingUser()` method.
 
-If the current user is in a flock session, they will be removed from that session. If there are no more followers in the session, the session will be destroyed.
+If the current user is in a Follow Me session, they will be removed from that session. If there are no more followers in the session, the session will be destroyed.
 
 ```js
 // Stop following the user
@@ -176,7 +176,7 @@ export default function App() {
       <VeltPresence
         flockMode={true} 
         onNavigate={(pageInfo) => navigate(pageInfo.path)} {/* 1) Enable Custom Navigation */}
-        defaultFlockNavigation={true} {/* 2) Disable Default Flock Navigation */}
+        defaultFlockNavigation={true} {/* 2) Disable Default Follow Me Navigation */}
       />
     </div>
   );
@@ -188,7 +188,7 @@ export default function App() {
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Flock mode documentation</title>
+    <title>Follow Me mode documentation</title>
   </head>
   <body>
     <script>

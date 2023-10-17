@@ -112,7 +112,7 @@
           ]
         },
         {
-          "group": "Flock Mode",
+          "group": "Follow Me Mode",
           "pages": [
             "realtime-collaboration/flock-mode/overview",
             "realtime-collaboration/flock-mode/setup",

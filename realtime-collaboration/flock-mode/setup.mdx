@@ -11,16 +11,16 @@ title: "Setup"
 
 <Steps titleSize="h2">
 
-<Step title="Enable Flock mode on Presence">
-Enable Flock mode feature.
+<Step title="Enable Follow Me mode on Presence">
+Enable Follow Me mode feature.
 
 ```js
  <VeltPresence flockMode={true} />
 ```
 
-You need to add the [Presence feature](/realtime-collaboration/presence/overview) to trigger Flock mode. This will enable Flock mode as an option for your users globally, wherever Presence is shown.
+You need to add the [Presence feature](/realtime-collaboration/presence/overview) to trigger Follow Me mode. This will enable Follow Me mode as an option for your users globally, wherever Presence is shown.
 
-To start the shared flock session, click on a user's avatar to start following them.
+To start the shared Follow Me session, click on a user's avatar to start following them.
 
 </Step>
 
@@ -43,16 +43,16 @@ You should see the avatars of the users rendered where you added the presence co
 
 <Steps titleSize="h2">
 
-<Step title="Enable Flock mode on Presence">
-Enable Flock mode feature.
+<Step title="Enable Follow Me mode on Presence">
+Enable Follow Me mode feature.
 
 ```html
 <velt-presence flock-mode="true"></velt-presence>
 ```
 
-You need to add Presence feature to trigger Flock mode. This will enable Flock mode as an option for your users globally, wherever Presence is shown.
+You need to add Presence feature to trigger Follow Me mode. This will enable Follow Me mode as an option for your users globally, wherever Presence is shown.
 
-To start the shared flock session, click on a user's avatar to start following them.
+To start the shared Follow Me session, click on a user's avatar to start following them.
 
 </Step>
 
@@ -83,7 +83,7 @@ export default function App() {
   return (
     <div className="toolbar">
       <VeltPresence
-        flockMode={true} {/* 1) Enable Flock Mode */}
+        flockMode={true} {/* 1) Enable Follow Me Mode */}
       />
     </div>
   );
@@ -91,7 +91,7 @@ export default function App() {
 ```
 
 ```html HTML
-<velt-presence flock-mode="true"></velt-presence> <!-- Enable Flock Mode -->
+<velt-presence flock-mode="true"></velt-presence> <!-- Enable Follow Me Mode -->
 ```
 
 </RequestExample>
