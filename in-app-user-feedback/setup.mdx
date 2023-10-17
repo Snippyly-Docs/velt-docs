@@ -10,7 +10,7 @@ title: "Setup"
 
 <Steps titleSize="h2">
 
-<Step title="Import `VeltUserRequestTool` from @veltdev/react">
+<Step title="Import VeltUserRequestTool from @veltdev/react">
 Import the `VeltUserRequestTool` component.
 
 ```js
@@ -22,7 +22,9 @@ import { VeltUserRequestTool } from '@veltdev/react';
 Place the component wherever you want the invite button to appear.
 
 ```js
-<VeltUserRequestTool />
+<div className="toolbar">
+  <VeltUserRequestTool />
+</div>
 ```
 </Step>
 
@@ -54,6 +56,13 @@ async function loadVelt() {
 
 <Step title="Place the <velt-user-request-tool> component">
 Place the component wherever you want the invite button to appear.
+
+```jsx
+<div class="toolbar">
+  <velt-user-request-tool></velt-user-request-tool>
+</div>
+```
+
 </Step>
 
 </Steps>
@@ -72,9 +81,9 @@ import { VeltUserRequestTool } from '@veltdev/react';
 function YourComponent() {
 
   return (
-	//...
-    <VeltUserRequestTool />
-    //...
+    <div className="toolbar">
+      <VeltUserRequestTool />
+    </div>
   )
   
 }
@@ -93,8 +102,10 @@ function YourComponent() {
     </script>
   </head>
   <body>
-  <!-- Place the <velt-user-request-tool> component -->
-    <velt-user-request-tool></velt-user-request-tool>
+    <!-- Place the <velt-user-request-tool> component -->
+    <div class="toolbar">
+      <velt-user-request-tool></velt-user-request-tool>
+    </div>
   </body>
 </html>
 ```
