@@ -7,7 +7,10 @@ title: "Customize Behavior"
 
 <Tabs>
   <Tab title="React">
-## 1) Enable avatar mode
+
+<Steps>
+
+<Step title="Enable avatar mode">
 Show the user's avatar floating next to their cursor instead of their name.
 
 Enabling this mode will allow you to show the user's avatar in context with the cursor.
@@ -15,9 +18,9 @@ Enabling this mode will allow you to show the user's avatar in context with the 
 ```js
 <VeltCursor avatarMode={true} />
 ```
+</Step>
 
-## 2) Set inactivity time
-
+<Step title="Set inactivity time">
 Set the time it takes for a user to go inactive in milliseconds.
 
 By default we mark a user as inactive if they do not take any action on the document within a 5 mins timeframe.
@@ -27,9 +30,9 @@ If they unfocus the tab, we mark them inactive immediately.
 ```js
 <VeltCursor inactivityTime={300000} />
 ```
+</Step>
 
-## 3) Set allowed element IDs
-
+<Step title="Set allowed element IDs">
 Provide a list of element IDs where the cursors should show.
 
 If you provide a list of element IDs, we will only show cursors that hover over those specific elements.
@@ -42,68 +45,37 @@ For eg: For an app with canvas and tool picker: You can whitelist the canvas ID 
 
 <Warning>You must pass a string into allowedElementIds instead of an object</Warning>
 
+</Step>
 
-## 4) Subscribe to changes in User Cursors
 
+<Step title="Subscribe to changes in User Cursors">
 Whenever the cursor for any user changes, we emit this event with the updated list of users currently online on this document with their cursor positions.
 
 ```js
 <VeltCursor onCursorUserChange={(cursorUsers) => yourMethod(cursorUsers)} />
 ```
-
-  </Tab>
-  <Tab title="Next.js">
-## 1) Enable avatar mode
-Show the user's avatar floating next to their cursor instead of their name.
-
-Enabling this mode will allow you to show the user's avatar in context with the cursor.
-
-```js
-<VeltCursor avatarMode={true} />
-```
-
-## 2) Set inactivity time
-
-Set the time it takes for a user to go inactive in milliseconds.
-
-By default we mark a user as inactive if they do not take any action on the document within a 5 mins timeframe.
-
-If they unfocus the tab, we mark them inactive immediately.
-
-```js
-<VeltCursor inactivityTime={300000} />
-```
-
-## 3) Set allowed element IDs
-
-Provide a list of element IDs where the cursors should show.
-
-If you provide a list of element IDs, we will only show cursors that hover over those specific elements.
-
-For eg: For an app with canvas and tool picker: You can whitelist the canvas ID so that the cursors are only visible on the canvas and not the tool picker.
+</Step>
 
 
 
-```js
-<VeltCursor allowedElementIds={JSON.stringify(['element-1', 'element-2'])} />
-```
-
-<Warning>You must pass a string into allowedElementIds instead of an object</Warning>
+</Steps>
 
 
-## 4) Subscribe to changes in User Cursors
 
-Whenever the cursor for any user changes, we emit this event with the updated list of users currently online on this document with their cursor positions.
 
-```js
-<VeltCursor onCursorUserChange={(cursorUsers) => yourMethod(cursorUsers)} />
-```
+
+
+
 
 
   </Tab>
+  
+
     <Tab title="HTML">
-## 1) Enable avatar mode
 
+<Steps>
+
+<Step title="Enable avatar mode">
 Show the user's avatar floating next to their cursor.
 
 Enabling this mode will allow you to show the user's avatar in context with the cursor.
@@ -111,28 +83,27 @@ Enabling this mode will allow you to show the user's avatar in context with the 
 ```html
 <velt-cursor avatar-mode="true"></velt-cursor>
 ```
+</Step>
 
-## 2) Set inactivity time
-
+<Step title="Set inactivity time">
 Set the time it takes for a cursor to disappear.
 If a user leaves their mouse cursor, set the time it takes for that cursor to disappear on everyone else's screen. If they unfocus the tab, they will immediately go inactive
 
 ```html
 <velt-cursor inactivity-time="300000"></velt-cursor>
 ```
+</Step>
 
-## 3) Set allowed element IDs
-
+<Step title="Set allowed element IDs">
 Whitelist allowed elements
 If you provide a list of element IDs, we will only show cursors that hover over those specific elements.
 
 ```html
 <velt-cursor allowed-element-ids='["element-1", "element-2"]'></velt-cursor>
 ```
+</Step>
 
-## 4) Subscribe to changes in User Cursors
-
-
+<Step title="Subscribe to changes in User Cursors">
 Whenever the cursor for any user changes, we emit this event with the updated list of users currently online on this document with their cursor positions.
 
 
@@ -147,13 +118,23 @@ if(Velt){
 }
 </script>
 ```
-## 5) Enable Dark Mode (coming soon)
+</Step>
 
-To enable Dark Mode, set the dark-mode attribute to `true`
 
-```html
-<velt-cursor dark-mode='true'></velt-cursor>
-```
+
+</Steps>
+
+
+
+
+
+
+
+
+
+
+
+
 
   </Tab>
 </Tabs>
@@ -178,23 +159,6 @@ export default function App() {
 }
 ```
 
-```js Next.js
-import { VeltProvider, VeltCursor } from '@veltdev/react';
-
-export default function App() {
-
-  return (
-    <VeltProvider apiKey="API_KEY">
-      <VeltCursor
-        avatarMode={true} {/* 1) Enable avatar mode */}
-        inactivityTime={300000} {/* 2) Set inactivity time */}
-        allowedElementIds={JSON.stringify(['element-1', 'element-2'])} {/* 3) Set allowed element IDs */}
-        onCursorUserChange={(cursorUsers) => yourMethod(cursorUsers)} {/* 4) Subscribe to changes in User Cursors */}
-      />
-    </VeltProvider>
-  );
-}
-```
 
 ```html HTML
 <!DOCTYPE html>
