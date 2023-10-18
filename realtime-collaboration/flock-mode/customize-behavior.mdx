@@ -6,8 +6,11 @@ title: "Customize Behavior"
 <script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
 
 <Tabs>
-  <Tab title="React">
-## 1) Enable custom navigation
+  <Tab title="React / Next.js">
+
+<Steps>
+
+<Step title="Enable custom navigation">
 Use a callback for custom navigation or side-effects.
 
 When the leader of a `Follow Me` session navigates, we can use the React Router to update the follower's position. In the callback you will receive a PageInfo object.
@@ -18,21 +21,14 @@ When the leader of a `Follow Me` session navigates, we can use the React Router 
 
 ### PageInfo
 
+| property | type | description|
+|---|---|---|
+| `baseUrl` | string | The base URL of the site |
+| `path` | string | The path after the base URL |
+| `url` | string | The full URL |
+</Step>
 
-<ResponseField name="baseUrl" type="string">
-The base URL of the site
-</ResponseField> 
-
-<ResponseField name="path" type="string">
-The path after the base URL
-</ResponseField>
-
-<ResponseField name="url" type="string">
-The full URL
-</ResponseField>
-
-## 2) Disable default `Follow Me` navigation
-
+<Step title="Disable default Follow Me navigation">
 Disable default `Follow Me` navigation.
 
 `Default: true`
@@ -42,10 +38,9 @@ Our default navigation uses window.location.href to detect navigation. If you ar
 ```js
 <VeltPresence defaultFlockNavigation={true} />
 ```
+</Step>
 
-
-## 3) Start or Stop Following a User
-
+<Step title="Start or Stop Following a User">
 You can start or Stop Following a User by calling the `startFollowingUser()` and `stopFollowingUser()` methods within a useEffect() hook.
 
 ### Start Following
@@ -71,18 +66,39 @@ If the current user is in a `Follow Me` session, they will be removed from that 
 presenceElement.stopFollowingUser();
 ```
 
+</Step>
+
+
+</Steps>
+
+
+
+
+
+
+
+
+
+
+
 
 
   </Tab>
   
     <Tab title="HTML">
-    
-## 1) Pass in a callback for navigation
+
+
+<Steps>
+
+<Step title="Enable custom navigation">
 Use a callback for custom navigation or side-effects.
 
 When the leader of a `Follow Me` session navigates, this callback will be called.
 
 ```js
+
+let onNavigateHandler = (pageInfo) => navigate(pageInfo.path);
+
 if (presenceDOMElement) {
   presenceDOMElement.addEventListener("onNavigate", onNavigateHandler);
 }
@@ -90,20 +106,15 @@ if (presenceDOMElement) {
 
 ### PageInfo
 
-<ResponseField name="baseUrl" type="string">
-The base URL of the site
-</ResponseField> 
+| property | type | description|
+|---|---|---|
+| `baseUrl` | string | The base URL of the site |
+| `path` | string | The path after the base URL |
+| `url` | string | The full URL |
 
-<ResponseField name="path" type="string">
-The path after the base URL
-</ResponseField>
+</Step>
 
-<ResponseField name="url" type="string">
-The full URL
-</ResponseField>
-
-## 2) Disable default `Follow Me` navigation
-
+<Step title="Disable default Follow Me navigation">
 Disable default `Follow Me` navigation.
 
 `Default: true`
@@ -113,10 +124,9 @@ If you are handling navigation using a callback, you can opt to disable our defa
 ```js
 <velt-presence disable-flock-navigation="true"></velt-presence>
 ```
+</Step>
 
-
-## 3) Start or Stop Following a User
-
+<Step title="Start or Stop Following a User">
 You can start or Stop Following a User by calling the `startFollowingUser()` and `stopFollowingUser()` methods within a script tag.
 
 
@@ -141,6 +151,19 @@ If the current user is in a `Follow Me` session, they will be removed from that 
 // Stop following the user
 presenceElement.stopFollowingUser();
 ```
+
+
+</Step>
+
+
+</Steps>
+    
+
+
+
+
+
+
 
 
   </Tab>
