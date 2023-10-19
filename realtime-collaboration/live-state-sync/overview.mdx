@@ -1,15 +1,17 @@
 <Warning>These Features are currently in beta and may be subject to change.</Warning>
 
 <Tabs>
-    <Tab title="React">
+    <Tab title="React / Next.js">
 
 # Live State Sync
 
-With Live State Sync, you can create a shared data object that persists and syncs across all clients live on a given document.
+With `Live State Sync`, you can create a shared data object that persists and syncs across all clients live on a given document.
 
 
-## 1. Set or Update a shared live data object
 
+<Steps>
+
+<Step title="Set or Update a shared live data object">
 Sets or updates a custom shared data object that will be synced across all clients live on the current document.
 Pass in a unique ID and the data object you want to sync. If the object already exists with that ID, then it will be updated.
 
@@ -25,51 +27,9 @@ const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
 ```
 
+</Step>
 
-## 2. Get a shared live data object
-
-Subscribes to an existing shared live data object. Pass in the unique ID that you had used to set the data.
-
-Input params:
-
-- `liveStateDataId`: `string`; (optional)
-
-```jsx
-const liveStateDataId = 'uniqueId';
-const liveStateSyncElement = client.getLiveStateSyncElement();
-liveStateSyncElement.getLiveStateData(liveStateDataId).subscribe((data) => {
-		// your logic here...
-});
-```
-    </Tab>
-
-    <Tab title="Next.js">
-
-# Live State Sync
-
-With Live State Sync, you can create a shared data object that persists and syncs across all clients live on a given document.
-
-
-## 1. Set or Update a shared live data object
-
-Sets or updates a custom shared data object that will be synced across all clients live on the current document.
-Pass in a unique ID and the data object you want to sync. If the object already exists with that ID, then it will be updated.
-
-Input params:
-- `liveStateDataId`: `string`;
-
-- `liveStateData`: `any`;
-
-```jsx
-const liveStateDataId = 'uniqueId';
-const liveStateData = { 'key': 'value' }; // any type of data
-const liveStateSyncElement = client.getLiveStateSyncElement();
-liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
-```
-
-
-## 2. Get a shared live data object
-
+<Step title="Get a shared live data object">
 Subscribes to an existing shared live data object. Pass in the unique ID that you had used to set the data.
 
 Input params:
@@ -84,18 +44,27 @@ liveStateSyncElement.getLiveStateData(liveStateDataId).subscribe((data) => {
 });
 ```
 
+</Step>
+
+
+</Steps>
+
 
     </Tab>
+
+   
 
     <Tab title="HTML">
 
 # Live State Sync
 
-With Live State Sync, you can create a shared data object that persists and syncs across all clients live on a given document.
+With `Live State Sync`, you can create a shared data object that persists and syncs across all clients live on a given document.
 
 
-## 1. Set or Update a shared live data object
 
+<Steps>
+
+<Step title="Set or Update a shared live data object">
 Sets or updates a custom shared data object that will be synced across all clients live on the current document.
 Pass in a unique ID and the data object you want to sync. If the object already exists with that ID, then it will be updated.
 
@@ -105,14 +74,15 @@ Input params:
 - `liveStateData`: `any`;
 
 ```jsx
-const liveStateDataId = "uniqueId";
-const liveStateData = { "key": "value" }; // any type of data
+const liveStateDataId = 'uniqueId';
+const liveStateData = { 'key': 'value' }; // any type of data
 const liveStateSyncElement = Velt.getLiveStateSyncElement();
 liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
 ```
 
-## 2. Get a shared live data object
+</Step>
 
+<Step title="Get a shared live data object">
 Subscribes to an existing shared live data object. Pass in the unique ID that you had used to set the data.
 
 Input params:
@@ -120,13 +90,17 @@ Input params:
 - `liveStateDataId`: `string`; (optional)
 
 ```jsx
-const liveStateDataId = "uniqueId";
+const liveStateDataId = 'uniqueId';
 const liveStateSyncElement = Velt.getLiveStateSyncElement();
 liveStateSyncElement.getLiveStateData(liveStateDataId).subscribe((data) => {
 		// your logic here...
 });
 ```
 
+</Step>
+
+
+</Steps>
 
     </Tab>
 
@@ -135,38 +109,37 @@ liveStateSyncElement.getLiveStateData(liveStateDataId).subscribe((data) => {
 
 <RequestExample>
 
-```jsx React
-const { client } = useVeltClient();
+```jsx React / Next.js
+import { useVeltClient, useEffect } from '@veltdev/react';
 
-const liveStateDataId = "uniqueId";
-const liveStateData = { "key": "value" }; // any type of data
-const liveStateSyncElement = client.getLiveStateSyncElement();
+export default function YourDocument() {
+  const { client } = useVeltClient();
 
-//Set Live State Data
-liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
+  useEffect(()=>{
+    if(client){
+        const liveStateDataId = "uniqueId";
+        const liveStateData = { "key": "value" }; // any type of data
+        const liveStateSyncElement = client.getLiveStateSyncElement();
 
-
-//Subscribe to Live State Data
-liveStateSyncElement.getLiveStateData(liveStateDataId).subscribe((data) => {
-		// your logic here...
-});
-```
-
-```jsx Next.js
-const { client } = useVeltClient();
-
-const liveStateDataId = "uniqueId";
-const liveStateData = { "key": "value" }; // any type of data
-const liveStateSyncElement = client.getLiveStateSyncElement();
-
-//Set Live State Data
-liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
+        //Set Live State Data
+        liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
 
 
-//Subscribe to Live State Data
-liveStateSyncElement.getLiveStateData(liveStateDataId).subscribe((data) => {
-		// your logic here...
-});
+        //Subscribe to Live State Data
+        liveStateSyncElement.getLiveStateData(liveStateDataId).subscribe((data) => {
+        // your logic here...
+        });
+    }
+  })
+
+
+  return (
+    <div>
+      ...
+    </div>
+  );
+}
+
 ```
 
 ```jsx HTML
