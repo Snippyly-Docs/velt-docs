@@ -13,7 +13,7 @@ title: "Customize Behavior"
 <Step title="Enable custom navigation">
 Use a callback for custom navigation or side-effects.
 
-When the leader of a `Follow Me` session navigates, we can use the React Router to update the follower's position. In the callback you will receive a PageInfo object.
+When the leader of a `Follow Me` session navigates, we can use the React Router to update the follower's position. In the callback you will receive a `PageInfo` object.
 
 ```js
 <VeltPresence onNavigate={(pageInfo) => navigate(pageInfo.path)} />
@@ -93,7 +93,7 @@ presenceElement.stopFollowingUser();
 <Step title="Enable custom navigation">
 Use a callback for custom navigation or side-effects.
 
-When the leader of a `Follow Me` session navigates, this callback will be called.
+When the leader of a `Follow Me` session navigates, we can use the React Router to update the follower's position. In the callback you will receive a `PageInfo` object.
 
 ```js
 
