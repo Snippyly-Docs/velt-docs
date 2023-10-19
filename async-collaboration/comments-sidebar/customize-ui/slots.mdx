@@ -1,27 +1,24 @@
 ---
 title: "Custom Button"
-sidebarTitle: "2. Custom Button"
+sidebarTitle: "Custom Button"
 ---
 {/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
 <script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
 <script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
 
-<Steps titleSize="h2">
-
-<Step stepNumber="1" title="Replace the Sidebar Button">
+## Replace the Sidebar Button
 **Provide a template for the sidebar button.**
 
 Target the button slot with your own custom template.
-</Step>
-
-<Step  title="Your done!">
-
-</Step>
 
 
-</Steps>
-
-
+```jsx
+<VeltSidebarButton>
+  <div class="sidebar-button">
+    <img src="..." />
+  </div>
+</VeltSidebarButton>
+```
 
 
 

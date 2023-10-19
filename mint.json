@@ -192,7 +192,7 @@
               "group": "Customize UI",
               "pages": [
                 {
-                  "group": "1. Slots",
+                  "group": "Slots",
                   "pages": [
                     "async-collaboration/comments/customize-ui/slots/pin",
                     "async-collaboration/comments/customize-ui/slots/bubble",
@@ -200,7 +200,7 @@
                   ]
                 },
                 {
-                  "group": "2. Parts",
+                  "group": "Parts",
                   "pages": [
                     "async-collaboration/comments/customize-ui/parts/pin",
                     "async-collaboration/comments/customize-ui/parts/bubble",
@@ -208,7 +208,7 @@
                   ]
                 },
                 {
-                  "group": "3. Variables",
+                  "group": "Variables",
                   "pages": [
                     "async-collaboration/comments/customize-ui/variables/pin",
                     "async-collaboration/comments/customize-ui/variables/bubble",
