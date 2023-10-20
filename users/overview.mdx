@@ -36,12 +36,12 @@ A `User` has the following schema:
 
 Over time, as `Users` from the same `groupId` sign in, they will be automatically added to each other's contact list.
 
-They can then @mention or assign each other when they make comments.
+They can then `@mention` or assign each other when they make comments.
 
 
 ## User contacts list
 
-`UserContacts` are used to load the list of people that a user can @mention or assign when they make a comment. As we mentioned before, `Users` in the same `groupId` will get added to each other's contact lists.
+`UserContacts` are used to load the list of people that a user can `@mention` or assign when they make a comment. As we mentioned before, `Users` in the same `groupId` will get added to each other's contact lists.
 
 A User has a `contacts` attribute that has an array of `UserContact` objects. A `UserContact` has the following schema:
 

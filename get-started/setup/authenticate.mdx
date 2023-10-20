@@ -30,7 +30,7 @@ const { client } = useVeltClient();
 
 </Step>
 
-<Step title="Create a `useEffect` hook">
+<Step title="Create a useEffect hook">
 ```js
   useEffect(() => {
     if (client && yourAuthenticatedUser) {
@@ -41,7 +41,7 @@ const { client } = useVeltClient();
 </Step>
 
 <Step title="Fetch relevant user info">
-Create a Velt User object by taking the relevant fields from `yourAuthenticatedUser`.
+Create a Velt `User` object by taking the relevant fields from `yourAuthenticatedUser`.
 
 ```js
 
@@ -58,13 +58,13 @@ Create a Velt User object by taking the relevant fields from `yourAuthenticatedU
 ```
 
 <Info>
-To enable @mention in the comments, you need to pass the user's contacts. Learn more about how it works [here](https://docs.velt.dev/users/add-user-contacts/setup).
+To enable `@mention` in the comments, you need to pass the user's contacts. Learn more about how it works [here](https://docs.velt.dev/users/add-user-contacts/setup).
 </Info>
 
 </Step>
 
-<Step title=" Pass the user object to the SDK">
-Call the `identify()` method and pass in the Velt User.
+<Step title=" Pass the User object to the SDK">
+Call the `identify()` method and pass in the Velt `User` object.
 
 ```js
   await client.identify(user);
@@ -93,7 +93,7 @@ Call the `identify()` method and pass in the Velt User.
 
 
 <Step title="Fetch relevant user info">
-Create a Velt User object.
+Create a Velt `User` object.
 
 ```js
 
@@ -110,17 +110,17 @@ Create a Velt User object.
 ```
 
 <Info>
-To enable @mention in the comments, you need to pass the user's contacts. Learn more about how it works [here](https://docs.velt.dev/users/add-user-contacts/setup).
+To enable `@mention` in the comments, you need to pass the `User's` contacts. Learn more about how it works [here](https://docs.velt.dev/users/add-user-contacts/setup).
 </Info>
 
 </Step>
 
 <Step title="Identify the Logged In User">
-Call this function in the component where you authenticate your users once your Velt client and your user object is available.
+Call this function in the component where you authenticate your `Users` once your Velt client and your `User` object is available.
 
-If your .js files are all in one file, you will need to include the .js file on every html page you want the features to be enabled on.
+If your `.js` files are all in one file, you will need to include the `.js` file on every html page you want the features to be enabled on.
 
-Make sure you pass the user with the fields defined in the User object or refer to the example below.
+Make sure you pass the `User` with the fields defined in the `User` object or refer to the example below.
 
 
 ```js
