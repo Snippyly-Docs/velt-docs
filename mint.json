@@ -151,6 +151,12 @@
           "pages": [
             "live-co-editing/overview"
           ]
+        },
+        {
+          "group": "Video Player Sync",
+          "pages": [
+            "realtime-collaboration/video-player-sync/overview"
+          ]
         }
       ]
     },
