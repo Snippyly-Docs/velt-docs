@@ -46,6 +46,46 @@ To read more about how to configure webhooks, check out the [webhooks documentat
 
 </Tab>
 
+<Tab title="HTML">
+
+<Steps titleSize="h2">
+
+<Step title="To retrieve comments in the frontend">
+
+To retrieve all comments in the frontend, call getCommentElement() on the Velt client and then `subscribe()` to `getAllCommentAnnotations()` and pass in a callback function.
+
+Whenever there is a change to the comments structure, the callback function will be triggered and will contain all current comments in an array.
+
+```js
+if (Velt) {
+  const commentElement = Velt.getCommentElement();
+  commentElement.getAllCommentAnnotations().subscribe((comments) => {
+    // Do something with comments
+  });
+}
+```
+
+</Step>
+
+
+
+<Step title="To retrieve comments in the backend">
+
+For this you should use our Webhook service. Let's say you want to be notified whenever a comment is added or updated, you can provide us an endpoint and we will send the comment data to that end point as and when there is an update. You can then process it further. Note that you cannot retrieve historical comments using this.
+
+You can enable and configure webhook in your Velt Console as shown below. After you enable this, you need to provide an endpoint url. We will make a post request to that endpoint to send the comment data.
+
+To read more about how to configure webhooks, check out the [webhooks documentation](/webhooks/overview).
+
+![](https://files.readme.io/0ac5e4a-image.png)
+</Step>
+
+
+</Steps>
+
+
+</Tab>
+
 </Tabs>
 
 <RequestExample>
@@ -78,4 +118,21 @@ export default function YourDocument() {
     </div>
 ```
 
+
+
+```html HTML
+<body>
+  <velt-comments></velt-comments>
+<script>
+  if(Velt){
+    const commentElement = Velt.getCommentElement();
+
+    // 1
+    commentElement.getAllCommentAnnotations().subscribe((comments) => {
+      // Do something with comments
+    });
+  }
+</script>
+</body>
+```
 </RequestExample>

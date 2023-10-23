@@ -143,8 +143,8 @@ export default function YourDocument() {
 </velt-comments>
 
 <script>
-if(client){
-    const commentElement = client.getCommentElement();
+if(Velt){
+    const commentElement = Velt.getCommentElement();
     commentElement.enableCommentIndex(); // 1 
     commentElement.disableCommentIndex(); // 1
     commentElement.enableDeviceInfo(); // 2 

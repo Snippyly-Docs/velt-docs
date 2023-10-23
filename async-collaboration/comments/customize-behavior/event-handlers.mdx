@@ -202,7 +202,7 @@ To subscribe to changes in the comment mode, use the `onCommentModeChange()` met
 
 API method:
 ```jsx
-const commentElement = client.getCommentElement();
+const commentElement = Velt.getCommentElement();
 commentElement.onCommentModeChange().subscribe((mode) => {
     //mode contains the state after change
 });
@@ -253,34 +253,35 @@ export default function YourDocument() {
     </div>
 ```
 
-```js HTML
+```html HTML
 <body>
   <velt-comments></velt-comments>
   <velt-comment-tool></velt-comment-tool>
 
 <script>
-if(Velt){
-  const veltCommentsTag = document.querySelector('velt-comments');
+  if(Velt){
+    const veltCommentsTag = document.querySelector('velt-comments');
 
-  //1
-  veltCommentsTag?.addEventListener('onCommentAdd', (event) => {
-    console.log('*** onCommentAdd ***');
-    console.log(event.detail); 
-    //2
-    event.detail?.addContext({ customKey: 'customValue' });
-  });
+    //1
+    veltCommentsTag?.addEventListener('onCommentAdd', (event) => {
+      console.log('*** onCommentAdd ***');
+      console.log(event.detail); 
+      //2
+      event.detail?.addContext({ customKey: 'customValue' });
+    });
 
-  // 3
-  veltCommentsTag?.addEventListener('onCommentUpdate', (event) => {
-    console.log('*** onCommentUpdate ***');
-    console.log(event.detail);
-  });
+    // 3
+    veltCommentsTag?.addEventListener('onCommentUpdate', (event) => {
+      console.log('*** onCommentUpdate ***');
+      console.log(event.detail);
+    });
 
-  // 4
-  commentElement.onCommentModeChange().subscribe((mode) => { 
-    //mode contains the state after change
-  });
-}
+    // 4
+    const commentElement = Velt.getCommentElement();
+    commentElement.onCommentModeChange().subscribe((mode) => { 
+      //mode contains the state after change
+    });
+  }
 </script>
 </body>
 ```
