@@ -192,7 +192,8 @@ Whether Freestyle Mode is enabled.
 `Default: true`
 
 ```jsx
-<velt-comments></velt-comments> {/* Freestyle mode is enabled by default when you use velt-comments}
+<!-- Freestyle mode is enabled by default when you use velt-comments -->
+<velt-comments></velt-comments> 
 ```
 
 </Step>
@@ -204,6 +205,10 @@ Whether Inbox Mode is enabled.
 
 `Default: false`
 
+
+```jsx
+<velt-comments inbox-mode="true"></velt-comments> 
+```
 
 API Method:
 
@@ -222,6 +227,10 @@ Whether Popover Mode is enabled.
 
 `Default: false`
 
+```jsx
+<velt-comments popover-mode="true"></velt-comments> 
+```
+
 
 API Method:
 
@@ -237,6 +246,10 @@ commentElement.disablePopoverMode();
 Whether the popover triangle appears when Popover Mode is enabled.
 
 `Default: true`
+
+```jsx
+<velt-comments popover-triangle-component="true"></velt-comments> 
+```
 
 API Method:
 
@@ -256,6 +269,10 @@ Whether Stream Mode is enabled.
 
 `Default: false`
 
+```jsx
+<velt-comments stream-mode="true"></velt-comments> 
+```
+
 API Method:
 
 ```jsx
@@ -272,6 +289,10 @@ commentElement.disableStreamMode();
 Whether Text Mode is enabled.
 
 `Default: true`
+
+```jsx
+<velt-comments text-mode="true"></velt-comments> 
+```
 
 API Method:
 
@@ -292,6 +313,11 @@ When Persistent comment mode is enabled, you can continue leave additional comme
 
 When it is disabled, you will need to reclick the Comment Tool every time when you want to make a comment.
 
+
+```jsx
+<velt-comments persistent-comment-mode="true"></velt-comments> 
+```
+
 API Method:
 
 ```jsx
@@ -309,6 +335,10 @@ Whether In-line comment mode is enabled.
 When In-line comment mode is enabled, comments will appear under the text they are associated with in the DOM, instead of as a pop up window.
 
 `Default: false`
+
+```jsx
+<velt-comments inline-comment-mode="true"></velt-comments> 
+```
 
 API Method:
 
@@ -381,8 +411,15 @@ export default function YourDocument() {
 ```jsx HTML
 
 <body>
-<!-- // 1 -->
-<velt-comments></velt-comments>
+<velt-comments
+  inbox-mode="true"    
+  popover-mode="true" 
+  popover-triangle-component="true" 
+  stream-mode="true"    
+  text-mode="true"    
+  persistent-comment-mode="true" 
+  inline-comment-mode="true" 
+></velt-comments>
 <script>
   if(Velt){
     const commentElement = client.getCommentElement();

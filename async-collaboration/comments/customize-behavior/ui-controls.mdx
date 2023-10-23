@@ -78,6 +78,79 @@ commentElement.disableMinimap();
 
 </Tab>
 
+<Tab title="HTML">
+
+<Steps titleSize="h2">
+<Step title="Dark Mode">
+Whether dark mode is enabled.
+
+`Default: false`
+
+```js
+<velt-comments dark-mode="true"></velt-comments>
+````
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enableDarkMode();
+commentElement.disableDarkMode();
+```
+
+</Step>
+
+<Step title="Mobile Mode">
+Whether mobile mode is enabled.
+
+When mobile mode is enabled and the screen width is small enough, comment windows will appear fixed to the bottom of the screen and full width instead of the usual popup window.
+
+`Default: false`
+
+```js
+<velt-comments mobile-mode="true"></velt-comments>
+````
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enableMobileMode();
+commentElement.disableMobileMode();
+```
+
+</Step>
+
+<Step title="Enable Minimap">
+
+Whether the minimap is enabled.
+
+`Default: false`
+
+The minimap shows a bar on the edge of the screen with indicators that show where comments exist.
+
+```js
+<velt-comments minimap="true"></velt-comments>
+
+````
+
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enableMinimap();
+commentElement.disableMinimap();
+```
+
+</Step>
+
+
+</Steps>
+
+
+</Tab>
+
 </Tabs>
 
 
@@ -106,13 +179,40 @@ export default function YourDocument() {
 
   return (
     <div>
-
         <VeltComments          
             darkMode={true}    {/* 1 */}
             mobileMode={true}  {/* 2 */}
             minimap={true}  {/* 3 */}
         />
     </div>
+  )
+}
 ```
+
+```html HTML
+<body>
+  <velt-comments         
+    dark-mode="true"    
+    mobile-mode="true"  
+    minimap="true" 
+  >
+</velt-comments
+<script>
+if(Velt){
+  const commentElement = Velt.getCommentElement();
+  commentElement.enableDarkMode(); // 1
+  commentElement.disableDarkMode(); // 1
+  commentElement.enableMobileMode(); // 2
+  commentElement.disableMobileMode(); // 2
+  commentElement.enableMinimap(); // 3
+  commentElement.disableMinimap(); // 3  
+}
+</script>
+
+</body>
+
+```
+
+
 
 </RequestExample>

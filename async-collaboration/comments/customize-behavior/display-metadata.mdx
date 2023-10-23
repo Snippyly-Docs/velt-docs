@@ -64,7 +64,7 @@ Whether comment index is enabled.
 This appears in the comment sidebar and on the comment pins. When this is on, we show a small icon indicating the comment index in the order of creation date. This enables users to find and navigate to the desired comment quickly.
 
 ```js
-<velt-comments commentIndex="true"></velt-comments>
+<velt-comments comment-index="true"></velt-comments>
 ````
 
 API Method:
@@ -84,7 +84,7 @@ When this is on, we show a small device type icon indicating which device the co
 
 
 ```js
-<velt-comments deviceInfo="true"></velt-comments>
+<velt-comments device-info="true"></velt-comments>
 
 ````
 
@@ -138,8 +138,8 @@ export default function YourDocument() {
 ```js HTML
 <body>
 <velt-comments 
-  commentIndex="true" 
-  deviceInfo="true">
+  comment-index="true" 
+  device-info="true">
 </velt-comments>
 
 <script>

@@ -118,7 +118,7 @@ There are 2 ways to show/hide comments on DOM:
 Configuring attributes on the React Component:
 ```js
 <!-- `true` to show comments, `false` to hide comments -->
-<velt-comments commentsOnDom="false"></velt-comments>
+<velt-comments comments-on-dom="false"></velt-comments>
 ```
 
 Using API methods:
@@ -138,7 +138,7 @@ Whether the comment dialog shows on hover over the comment pin or the target ele
 `Default: true`
 
 ```js
-<velt-comments dialogOnHover="true"></velt-comments>
+<velt-comments dialog-on-hover="true"></velt-comments>
 ````
 
 API Method:
@@ -156,7 +156,7 @@ Whether the comment dialog opens when target element is clicked. This is relevan
 `Default: true`
 
 ```js
-<velt-comments dialogOnTargetElementClick="true"><velt-comments>
+<velt-comments dialog-on-target-element-click="true"><velt-comments>
 ````
 
 API Method:
@@ -174,7 +174,7 @@ Whether floating comment dialog is shown next to comment pin on hover or click.
 `Default: true`
 
 ```js
-<velt-comments floatingCommentDialog="true"></velt-comments>
+<velt-comments floating-comment-dialog="true"></velt-comments>
 ````
 
 API Method:
@@ -223,7 +223,6 @@ export default function YourDocument() {
 
   return (
     <div>
-
         <VeltComments          
             commentsOnDom={false} {/* 1 */}
             dialogOnHover={true} {/* 2 */}
@@ -236,10 +235,10 @@ export default function YourDocument() {
 ```html HTML
 <body>
   <velt-comments
-    commentsOnDom="false" 
-    dialogOnHover="true" 
-    dialogOnTargetElementClick="true"
-    floatingCommentDialog="true" 
+    comments-on-dom="false" 
+    dialog-on-hover="true" 
+    dialog-on-target-element-click="true"
+    floating-comment-dialog="true" 
   >
 </velt-comments>
 
