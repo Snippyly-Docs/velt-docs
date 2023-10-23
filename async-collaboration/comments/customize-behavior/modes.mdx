@@ -178,6 +178,153 @@ commentElement.disableInlineCommentMode();
 
 </Tab>
 
+
+<Tab title="HTML">
+
+<Steps titleSize="h2">
+
+<Step title="Freestyle mode">
+
+<Info>For a complete setup guide for Freestyle mode, [read here](/async-collaboration/comments/setup/freestyle).</Info>
+
+Whether Freestyle Mode is enabled.
+
+`Default: true`
+
+```jsx
+<velt-comments></velt-comments> {/* Freestyle mode is enabled by default when you use velt-comments}
+```
+
+</Step>
+
+<Step title="Inbox mode">
+<Info>For a complete setup guide for Inbox mode, [read here](/async-collaboration/comments/setup/inbox).</Info>
+
+Whether Inbox Mode is enabled.
+
+`Default: false`
+
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enableInboxMode();
+commentElement.disableInboxMode();
+```
+
+</Step>
+
+<Step title="Popover mode">
+<Info>For a complete setup guide for Popover mode, [read here](/async-collaboration/comments/setup/popover).</Info>
+
+Whether Popover Mode is enabled.
+
+`Default: false`
+
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enablePopoverMode();
+commentElement.disablePopoverMode();
+```
+
+</Step>
+
+<Step title="Enable Popover mode triangle">
+Whether the popover triangle appears when Popover Mode is enabled.
+
+`Default: true`
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enablePopoverTriangleComponent();
+commentElement.disablePopoverTriangleComponent();
+```
+
+</Step>
+
+
+<Step title="Stream mode">
+<Info>For a complete setup guide for Stream mode, [read here](/async-collaboration/comments/setup/stream).</Info>
+
+Whether Stream Mode is enabled.
+
+`Default: false`
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enableStreamMode();
+commentElement.disableStreamMode();
+```
+
+</Step>
+
+<Step title="Text mode">
+<Info>For a complete setup guide for Text mode, [read here](/async-collaboration/comments/setup/text).</Info>
+
+Whether Text Mode is enabled.
+
+`Default: true`
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enableTextComments();
+commentElement.disableTextComments();
+```
+
+</Step>
+
+<Step title="Persistent comment mode">
+Whether Persistent comment mode is enabled.
+
+`Default: false`
+
+When Persistent comment mode is enabled, you can continue leave additional comments after finishing a comment. 
+
+When it is disabled, you will need to reclick the Comment Tool every time when you want to make a comment.
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enablePersistentCommentMode();
+commentElement.disablePersistentCommentMode();
+```
+
+</Step>
+
+<Step title="Inline Comment Mode">
+
+Whether In-line comment mode is enabled.
+
+When In-line comment mode is enabled, comments will appear under the text they are associated with in the DOM, instead of as a pop up window.
+
+`Default: false`
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enableInlineCommentMode();
+commentElement.disableInlineCommentMode();
+```
+
+
+</Step>
+
+</Steps>
+
+</Tab>
+
 </Tabs>
 
 <RequestExample>
@@ -226,6 +373,36 @@ export default function YourDocument() {
             inlineCommentMode={true} {/* 8 */}
         />
     </div>
+  )
+}
 ```
 
+
+```jsx HTML
+
+<body>
+<!-- // 1 -->
+<velt-comments></velt-comments>
+<script>
+  if(Velt){
+    const commentElement = client.getCommentElement();
+    commentElement.enableInboxMode(); // 2
+    commentElement.disableInboxMode(); // 2
+    commentElement.enablePopoverMode(); // 3
+    commentElement.disablePopoverMode(); // 3
+    commentElement.enablePopoverTriangleComponent(); // 4
+    commentElement.disablePopoverTriangleComponent(); // 4
+    commentElement.enableStreamMode(); // 5
+    commentElement.disableStreamMode(); // 5
+    commentElement.enableTextComments(); // 6
+    commentElement.disableTextComments(); // 6
+    commentElement.enablePersistentCommentMode(); // 7
+    commentElement.disablePersistentCommentMode(); // 7
+    commentElement.enableInlineCommentMode(); // 8
+    commentElement.disableInlineCommentMode(); // 8
+  }
+  </script>
+</body>
+
+```
 </RequestExample>

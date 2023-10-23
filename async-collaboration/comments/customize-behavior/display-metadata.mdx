@@ -53,6 +53,54 @@ commentElement.disableDeviceInfo();
 
 </Tab>
 
+<Tab title="HTML">
+
+<Steps titleSize="h2">
+<Step title="Comment index">
+Whether comment index is enabled.
+
+`Default: false`
+
+This appears in the comment sidebar and on the comment pins. When this is on, we show a small icon indicating the comment index in the order of creation date. This enables users to find and navigate to the desired comment quickly.
+
+```js
+<velt-comments commentIndex="true"></velt-comments>
+````
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enableCommentIndex();
+commentElement.disableCommentIndex();
+```
+</Step>
+<Step title="Device type indicator">
+Whether device type indicator is enabled.
+
+`Default: false`
+
+When this is on, we show a small device type icon indicating which device the comment was created on. This is useful especially for design tools, where additional context is needed for debugging issues.
+
+
+```js
+<velt-comments deviceInfo="true"></velt-comments>
+
+````
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enableDeviceInfo();
+commentElement.disableDeviceInfo();
+```
+
+</Step>
+</Steps>
+
+</Tab>
+
 </Tabs>
 
 <RequestExample>
@@ -84,6 +132,28 @@ export default function YourDocument() {
             deviceInfo={true}  {/* 2 */}
         />
     </div>
+  )
+}
 ```
+```js HTML
+<body>
+<velt-comments 
+  commentIndex="true" 
+  deviceInfo="true">
+</velt-comments>
+
+<script>
+if(client){
+    const commentElement = client.getCommentElement();
+    commentElement.enableCommentIndex(); // 1 
+    commentElement.disableCommentIndex(); // 1
+    commentElement.enableDeviceInfo(); // 2 
+    commentElement.disableDeviceInfo(); // 2
+  }
+</script>
+</body>
+
+```
+
 
 </RequestExample>
