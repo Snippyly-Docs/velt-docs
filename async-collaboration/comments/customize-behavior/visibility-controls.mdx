@@ -99,6 +99,99 @@ commentElement.disableFloatingCommentDialog();
 
 </Tab>
 
+<Tab title="HTML">
+
+<Steps titleSize="h2">
+
+<Step title="Show/Hide comments on DOM">
+
+
+Whether comments are shown on the DOM.
+
+`Default: true`
+
+By default, all the comments will be visible on DOM whenever we are able to detect to elements for that. But users can hide it from DOM if required.
+
+
+There are 2 ways to show/hide comments on DOM:
+
+Configuring attributes on the React Component:
+```js
+<!-- `true` to show comments, `false` to hide comments -->
+<velt-comments commentsOnDom="false"></velt-comments>
+```
+
+Using API methods:
+```js
+const commentElement = Velt.getCommentElement();
+// to show comments on DOM
+commentElement.showCommentsOnDom();
+// to hide comments on DOM
+commentElement.hideCommentsOnDom();
+```
+
+</Step>
+
+<Step title="Comment dialog on hover">
+Whether the comment dialog shows on hover over the comment pin or the target element.
+
+`Default: true`
+
+```js
+<velt-comments dialogOnHover="true"></velt-comments>
+````
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enableDialogOnHover();
+commentElement.disableDialogOnHover();
+```
+</Step>
+
+<Step title="Comment dialog on target element click">
+Whether the comment dialog opens when target element is clicked. This is relevant only for Popover mode.
+
+`Default: true`
+
+```js
+<velt-comments dialogOnTargetElementClick="true"><velt-comments>
+````
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enableDialogOnTargetElementClick();
+commentElement.disableDialogOnTargetElementClick();
+```
+</Step>
+
+<Step title="Floating comment dialog">
+Whether floating comment dialog is shown next to comment pin on hover or click.
+
+`Default: true`
+
+```js
+<velt-comments floatingCommentDialog="true"></velt-comments>
+````
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enableFloatingCommentDialog();
+commentElement.disableFloatingCommentDialog();
+```
+</Step>
+
+
+</Steps>
+
+
+</Tab>
+
 </Tabs>
 
 <RequestExample>
@@ -140,4 +233,31 @@ export default function YourDocument() {
     </div>
 ```
 
+```html HTML
+<body>
+  <velt-comments
+    commentsOnDom="false" 
+    dialogOnHover="true" 
+    dialogOnTargetElementClick="true"
+    floatingCommentDialog="true" 
+  >
+</velt-comments>
+
+<script>
+  if(Velt){
+    const commentElement = Velt.getCommentElement();
+    commentElement.showCommentsOnDom(); // 1
+    commentElement.hideCommentsOnDom(); // 1
+    commentElement.enableDialogOnHover(); // 2
+    commentElement.disableDialogOnHover(); // 2
+    commentElement.enableDialogOnTargetElementClick(); // 3
+    commentElement.disableDialogOnTargetElementClick(); // 3
+    commentElement.enableFloatingCommentDialog(); // 4 
+    commentElement.disableFloatingCommentDialog(); // 4
+  }
+</script>
+
+</body>
+
+```
 </RequestExample>
