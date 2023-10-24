@@ -129,3 +129,37 @@ recorderControlPanel?.addEventListener('onRecordedData', (s) => {
 
 
 
+<RequestExample>
+
+```jsx React / Next.js
+
+import { VeltRecorderControlPanel } from '@veltdev/react'
+
+const SomeComponent = () => {
+
+    const onRecordedData = (id,tag) => {
+        console.log(id,tag)
+    }
+    return (
+        <div>
+            <VeltRecorderControlPanel mode="thread" onRecordedData={onRecordedData} />
+        </div>
+    )
+}
+
+export default SomeComponent;
+```
+
+```html HTML
+<body>
+    <velt-recorder-control-panel mode="thread"></velt-recorder-control-panel>
+  <script>
+    const recorderControlPanel = document.querySelector('velt-recorder-control-panel');
+    recorderControlPanel?.addEventListener('onRecordedData', (s) => {
+        console.log('onRecordedData', s.detail);
+    });
+  </script>
+</body>   
+```
+
+</RequestExample>

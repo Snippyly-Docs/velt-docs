@@ -336,6 +336,350 @@ No data is passed with the event.
 
 </Tab>
 
+
+<Tab title="HTML">
+
+<Steps titleSize="h2">
+
+<Step title="AI auto categorization of comments">
+
+Whether AI auto-categorization of comments is enabled.
+
+`Default: false`
+
+We use AI to analyze your comment content and auto-categorize it so users can filter comments easily. You can provide a list of custom categories that we should use to categorize the comments (shown below).
+
+```js
+<velt-comments auto-categorize="true"></velt-comments>
+````
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enableAutoCategorize();
+commentElement.disableAutoCategorize();
+```
+
+</Step>
+
+<Step title="Set Custom Categories">
+Pass custom categories in the `custom-category` prop.
+
+`Default categories: Question, Feedback, Bug, Other.`
+
+With custom categories, you can replace the default categories with your own values.
+
+These categories are used in the `Comments Sidebar` to filter comments by category. The AI `auto-categorize` feature uses the list of categories to determine the closest category to choose from.
+
+The input format to the `custom-category` prop should be an array of objects with an `id`, `name`, and `color`. 
+
+The `color` property is used to set the category pill background color.
+
+
+```js
+<velt-comments customCategory='[
+  {
+    "id": "bug",
+    "name": "Bug",
+    "color": "red"
+  }
+]'></velt-comments>
+````
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.setCustomCategory([
+  {
+    "id": "bug",
+    "name": "Bug",
+    "color": "red"
+  }
+])
+```
+
+</Step>
+
+<Step title="Priority">
+Whether to enable setting priority on comments.
+
+`Default: false`
+
+When this is on, users can assign a priority to each comment & filter comment by priority in the sidebar. You can customize the list of priority options as shown later on this page in the Set Custom Priorities section.
+
+```js
+<velt-comments priority="true"></velt-comments>
+````
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enablePriority();
+commentElement.disablePriority();
+```
+
+</Step>
+
+<Step title="Set Custom Priorities">
+Pass custom priorities in the `custom-priority` prop.
+
+`Default priorities: P0, P1, P2`
+
+With custom priorities, you can replace the default priorities with your own values. These priorities are also used in the comment sidebar to filter comments by priority.
+
+This will work if you have enabled the priority feature.
+
+The `color` property is used to set the priority pill background color.
+
+The `lightColor` property sets the background color of the filter.
+
+
+```js
+<velt-comments custom-priority='[
+  {
+    "id": "low",
+    "name": "Low",
+    "color": "red",
+    "lightColor": "pink",
+  }
+]'></velt-comments>
+```
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.setCustomPriority([
+  {
+    "id": "low",
+    "name": "Low",
+    "color": "red",
+    "lightColor": "pink",
+  },
+])
+```
+</Step>
+
+<Step title="Status">
+Whether to enable the default status dropdown & filters.
+
+`Default: true`
+
+When this is on, users can assign a status to each comment & filter comment by status in the sidebar. You can customize the list of status options as shown below on this page.
+
+```js
+<velt-comments status="true"></velt-comments>
+````
+
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enableStatus();
+commentElement.disableStatus();
+```
+</Step>
+
+<Step title="Set Custom Statuses">
+Set custom statuses in the `customStatus` prop.
+
+`Default statuses: Open, In Progress, Resolved`
+
+With custom statuses, you can replace the default statuses with your own values. These statuses are also used in the comment sidebar to filter comments by status.
+
+Setting the Status type using the `type` property:
+  - default: This will be the default status assigned to each comment.
+  - ongoing: This is treated as an intermediary status, you can add as many statuses with type ongoing as you want.
+  - terminal: This represents a status that is completed. Comments with this status type are no longer shown in the DOM.
+
+Setting the Status Icon using the `svg` property:
+  - You can pass in a serialized SVG. We automatically parse and colorize SVGs. If instead you pass in an icon URL, you will have to colorize each icon yourself to match the status color.
+
+```js
+<velt-comments custom-status='[
+  {
+    "id": "open",
+    "name": "Open",
+    "color": "white",
+    "lightColor:"green",
+    "type": "default",
+    "svg": "<svg></svg>" // Pass in a serialized SVG
+  }
+]'></velt-comments>
+```
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.setCustomStatus([
+  {
+    "id": "open",
+    "name": "Open",
+    "color": "white",
+    "lightColor:"green",
+    "type": "default",
+    "svg": "<svg></svg>" // Pass in a serialized SVG
+  }
+])
+```
+
+</Step>
+
+<Step title="Resolve button">
+
+Whether to show resolve button on comments.
+
+`Default: true`
+
+This adds a tick mark button on the top right corner of the comment dialog. Clicking on this button will mark the comment as resolved.
+
+
+```js
+<velt-comments resolve-button="true"></velt-comments>
+````
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enableResolveButton();
+commentElement.disableResolveButton();
+```
+
+</Step>
+
+<Step title="Moderator mode">
+
+Whether comments require moderator approval.
+
+`Default: false`
+
+By default, when a user adds a comment it is visible to all authenticated users on the same `document`. Moderator mode makes visibility of all comments private to only `admin` users and the comment author. Admin users will see an approve button on the comment dialog. Once approved the comment will be visible to all users who can access the `document`.
+
+You can set some users as `admin` by setting the `isAdmin` property in the User object, during the `identify()` call.
+
+```js
+<velt-comments moderator-mode="true"></velt-comments>
+````
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enableModeratorMode();
+commentElement.disableModeratorMode();
+```
+
+
+</Step>
+
+<Step title="Ability to accept or reject comments">
+
+Whether to enable suggestion mode to accept or reject comments.
+
+`Default: false`
+
+To accept comments, set the `suggestion-mode` attribute to `true`.
+
+```js
+<velt-comments suggestion-mode="true"></velt-comments>
+````
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enableSuggestionMode();
+commentElement.disableSuggestionMode();
+```
+
+
+
+</Step>
+
+<Step title="Listen to `onCommentAccept` and `onCommentReject` events">
+
+To listen to comments that are Accepted or Rejected in Suggestion mode, pass callbacks to the `onCommentAccept` and onCommentReject` event handlers.
+
+```js
+const veltCommentsTag = document.querySelector('velt-comments');
+
+veltCommentsTag?.addEventListener('onCommentAccept', (event) => {
+  console.log('*** onCommentAccept ***');
+  console.log(event.detail);
+});
+
+veltCommentsTag?.addEventListener('onCommentReject', (event) => {
+  console.log('*** onCommentReject ***');
+  console.log(event.detail);
+});
+```
+
+Response:
+
+```js
+{
+    "annotationId": "ANNOTATION_ID",
+    "actionUser": {
+        // user object
+    },
+    "actionType": "accept", // accept or reject
+    "annotation": {
+        // raw annotation object
+    },
+  	"replaceContentHtml": "HTML_FORMATTED_TEXT_TO_REPLACE", // optional
+  	"replaceContentText": "PLAIN_TEXT_TO_REPLACE", // optional
+}
+```
+</Step>
+
+<Step title="Sign In button">
+Whether to enable Sign In button on comment dialog when user is anonymous or signed out.
+
+`Default: false`
+
+This allows anonymous or signed out users to still read the comments but encourages them to sign in if they want to respond to the comments. 
+
+
+```js
+<velt-comments sign-in-button="true"></velt-comments>
+````
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enableSignInButton();
+commentElement.disableSignInButton();
+```
+</Step>
+
+<Step title="onSignIn">
+When the user clicks on the sign in button, we will emit an `onSignIn` event that you can handle with your own sign in method. 
+
+No data is passed with the event.
+
+```js
+const veltCommentsTag = document.querySelector('velt-comments');
+
+veltCommentsTag?.addEventListener('onSignIn', (event) => {
+  console.log('*** onCommentSignIn ***');
+  console.log(event.detail);
+});
+````
+
+</Step>
+
+
+</Steps>
+
+</Tab>
+
 </Tabs>
 
 <RequestExample>
@@ -446,4 +790,91 @@ export default function YourDocument() {
     </div>
 ```
 
+
+```html HTML
+<body>
+  <velt-comments        
+    auto-categorize="true" 
+    custom-category='[
+        {
+            "id": "bug",
+            "name": "Bug",
+            "color": "red"
+        }
+    ]'
+    priority="true" 
+    custom-priority='[
+      {
+          "id": "low",
+          "name": "Low",
+          "color": "red",
+          "lightColor": "pink"
+      }
+    ]'
+    status="true" 
+    custom-status = '[
+        {
+            "id": "open",
+            "name": "Open",
+            "color": "white",
+            "lightColor:"green",
+            "type": "default",
+            "svg": "<svg></svg>" // Pass in a serialized SVG
+        }
+    ]'
+    resolve-button="true"
+    moderator-mode="true"
+    suggestion-mode="true"
+    sign-in-button="true"
+  ></velt-comments>
+  <script>
+    if(Velt){
+      const commentElement = Velt.getCommentElement();
+      commentElement.enableAutoCategorize(); // 1
+      commentElement.disableAutoCategorize(); // 1
+      // 2
+      commentElement.setCustomCategory([
+          {
+              "id": "bug",  
+              "name": "Bug",
+              "color": "red"
+          }
+      ])
+      commentElement.enablePriority(); // 3
+      commentElement.disablePriority(); // 3
+      // 4
+      commentElement.setCustomPriority([
+          {
+              "id": "low",
+              "name": "Low",
+              "color": "red",
+              "lightColor": "pink"
+          }
+      ])
+      commentElement.enableStatus(); // 5
+      commentElement.disableStatus(); // 5
+      commentElement.setCustomStatus([
+          {
+              "id": "open",
+              "name": "Open",
+              "color": "white",
+              "lightColor:"green",
+              "type": "default",
+              "svg": "<svg></svg>" // Pass in a serialized SVG
+          }
+      ])
+      commentElement.enableResolveButton(); // 7
+      commentElement.disableResolveButton(); // 7
+      commentElement.enableModeratorMode(); // 8 
+      commentElement.disableModeratorMode(); // 8
+      commentElement.enableSuggestionMode(); // 9
+      commentElement.disableSuggestionMode(); // 9
+      commentElement.enableSignInButton(); // 10 
+      commentElement.disableSignInButton(); // 10
+
+
+    }
+  </script>
+</body>
+```
 </RequestExample>

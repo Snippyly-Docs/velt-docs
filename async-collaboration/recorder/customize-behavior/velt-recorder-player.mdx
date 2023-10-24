@@ -8,6 +8,19 @@ title: "Velt Recorder Player"
 <Tab title="React / Next.js">
 
 <Steps>
+<Step title="Recorder Panel Id">
+
+Sets the `recorderId` to determine which `VeltRecorderTool` the video comes from.
+
+You must also set the `VeltRecorderTool` `panelId` to the same value as `recorderId` for the recording to show up on the `VeltRecorderPlayer`.
+
+```js
+<VeltRecorderTool panelId="YOUR_PANEL_ID" />
+<VeltRecorderPlayer recorderId="YOUR_PANEL_ID"/>
+```
+
+</Step>
+
 <Step title="Show Transcript">
 Whether a transcript of a recording gets shown or not.
 
@@ -35,23 +48,7 @@ This is the response object that you get back:
 | id       | string                        | "recorder_id" |
 
 ```js
-import { VeltRecorderPlayer } from '@veltdev/react'
-
-const SomeComponent = () => {
-  
-  const onDelete = (data) => {
-    console.log('on delete: ', data);
-  }
-   
-  return (
-  	//... rest of the component code...
-		<VeltRecorderPlayer recorderId={RECORDER_ID} onDelete={(data) => onDelete(data)} />
-
-    //... rest of the component code...
-  )
-}
-
-export default SomeComponent;
+<VeltRecorderPlayer recorderId={RECORDER_ID} onDelete={(data) => yourDeleteMethod(data)} />
 ```
 
 </Step>
@@ -64,6 +61,20 @@ export default SomeComponent;
 <Tab title="HTML">
 
 <Steps>
+
+<Step title="Recorder Panel Id">
+
+Sets the `recorderId` to determine which `<velt-recorder-tool>` the video comes from.
+
+You must also set the `<velt-recorder-tool>`  `panelId` to the same value as `recorderId` for the recording to show up on the `<velt-recorder-player>` .
+
+```js
+<velt-recorder-tool panelId="YOUR_PANEL_ID"></velt-recorder-tool>
+<velt-recorder-player recorderId="YOUR_PANEL_ID"></velt-recorder-player>
+```
+
+</Step>
+
 
 <Step title="Show Transcript">
 Whether a transcript of a recording gets shown or not.
@@ -109,3 +120,39 @@ recorderPlayer?.addEventListener('onDelete', (s) => {
 
 
 
+<RequestExample>
+
+```jsx React / Next.js
+import { VeltRecorderTool, VeltRecorderPlayer } from '@veltdev/react'
+
+const SomeComponent = () => {
+  
+  const yourDeleteMethod = (data) => {
+    console.log('on delete: ', data);
+  }
+   
+  return (
+  	<div>
+      <VeltRecorderTool panelId="RECORDER_ID"/>
+		  <VeltRecorderPlayer recorderId="RECORDER_ID" onDelete={(data) => yourDeleteMethod(data)} show={true}/>
+    </div>
+  )
+}
+
+export default SomeComponent;
+```
+
+
+```html HTML
+<body>
+    <velt-recorder-player recorderId="RECORDER_ID" show="true"></velt-recorder-player>
+  <script>
+    const recorderPlayer = document.querySelector('velt-recorder-player');
+    recorderPlayer?.addEventListener('onDelete', (s) => {
+        console.log('onDelete', s.detail);
+    });
+  </script>
+</body>   
+```
+
+</RequestExample>
