@@ -1,0 +1,24 @@
+import { DocumentAccessType } from "../../utils/enums";
+import { UserIAM } from "./user-iam.data.model";
+export declare type DocumentIAMFeatures = {
+    all?: {
+        disabled?: boolean;
+        restricted?: boolean;
+    };
+};
+export declare class DocumentIAM {
+    /**
+     * The document access type
+     */
+    documentAccessType: DocumentAccessType;
+    /**
+     * Features
+     */
+    features: DocumentIAMFeatures | undefined;
+    /**
+     * Users with access to the document
+     */
+    users: {
+        [userId: string]: UserIAM;
+    };
+}

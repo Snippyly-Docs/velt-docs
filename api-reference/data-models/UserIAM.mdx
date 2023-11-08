@@ -1,0 +1,11 @@
+## `UserIAM` Class Properties
+
+| Property       | Type            | Optional | Description                                                  |
+|----------------|-----------------|----------|--------------------------------------------------------------|
+| `id`           | `string`        | No       | The user's identification, typically the email address.      |
+| `user`         | `UserContact`   | No       | Contact details of the user.                                 |
+| `role`         | `UserRole`      | No       | The user's role within the document or system.               |
+| `invitedBy`    | `User`          | Yes      | The user who invited this user to the system.                |
+| `invitedDate`  | `any`           | Yes      | The date on which the user was invited.                      |
+| `updatedBy`    | `User`          | Yes      | The user who last updated this user's IAM details.           |
+| `updatedDate`  | `any`           | Yes      | The date on which the user's IAM details were last updated.  |

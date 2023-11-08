@@ -1,0 +1,21 @@
+import { LiveStateData, SingleEditorLiveStateData } from "./live-state-data.data.model";
+export declare class LiveStateDataMap {
+    /**
+     * Map of all unique LiveStateData set by you on the given document.
+     */
+    custom?: {
+        [liveStateDataId: string]: LiveStateData;
+    };
+    /**
+     * Map of all unique LiveStateData set by the default editor on the given document.
+     */
+    default?: {
+        singleEditor?: SingleEditorLiveStateData;
+        autoSyncState?: {
+            current?: LiveStateData;
+            history?: {
+                [liveStateDataId: string]: LiveStateData;
+            };
+        };
+    };
+}

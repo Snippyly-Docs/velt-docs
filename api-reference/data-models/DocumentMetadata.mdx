@@ -1,0 +1,22 @@
+import { LocationMetadata } from "./location-metadata.model";
+import { PageInfo } from "./page-info.model";
+export declare class DocumentMetadata {
+    /**
+     * Unique document id generated from client document id
+     */
+    documentId?: string;
+    /**
+     * Document id provided by client
+     */
+    clientDocumentId?: string | number;
+    /**
+     * Page metadata
+     */
+    pageInfo?: PageInfo;
+    /**
+     *
+     */
+    locations?: {
+        [locationId: number]: LocationMetadata;
+    };
+}

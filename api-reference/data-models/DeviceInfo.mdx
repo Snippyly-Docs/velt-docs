@@ -1,0 +1,47 @@
+## `DeviceInfo` Class Properties
+
+### `IDeviceInfo` Interface
+
+| Property       | Type   | Optional | Description                                   |
+|----------------|--------|----------|-----------------------------------------------|
+| userAgent      | string | Yes      | The user agent string of the user's device.   |
+| browserName    | string | Yes      | The name of the browser being used.           |
+| browserVersion | string | Yes      | The version of the browser.                   |
+| deviceType     | string | Yes      | The type of device (e.g., mobile, desktop).   |
+| osName         | string | Yes      | The name of the operating system.             |
+| osVersion      | string | Yes      | The version of the operating system.          |
+| screenWidth    | number | Yes      | The width of the screen in pixels.            |
+| screenHeight   | number | Yes      | The height of the screen in pixels.           |
+
+### `DeviceInfo` Class
+
+| Property/Method      | Type                           | Optional | Description                                                                                               |
+|----------------------|--------------------------------|----------|-----------------------------------------------------------------------------------------------------------|
+| userAgent            | string                         | Yes      | The user agent string of the user's device.                                                               |
+| browserName          | string                         | Yes      | The name of the browser being used.                                                                       |
+| browserVersion       | string                         | Yes      | The version of the browser.                                                                               |
+| deviceType           | string                         | Yes      | The type of device (e.g., mobile, desktop).                                                               |
+| orientation          | string                         | Yes      | The orientation of the user's device.                                                                     |
+| osName               | string                         | Yes      | The name of the operating system.                                                                         |
+| osVersion            | string                         | Yes      | The version of the operating system.                                                                      |
+| screenWidth          | number                         | Yes      | The width of the screen in pixels.                                                                        |
+| screenHeight         | number                         | Yes      | The height of the screen in pixels.                                                                       |
+| Breakpoints          | `{ [key: string]: boolean }`  | No       | Static property containing breakpoints with key as breakpoint media query and value as boolean.           |
+| Orientations         | `{ [key: string]: boolean }`  | No       | Static property containing orientations with key as orientation media query and value as boolean.         |
+| constructor()        | N/A                            | N/A      | Initializes a new instance of the `DeviceInfo` class.                                                     |
+| getBrowserName()     | string                         | No       | Returns the name of the browser.                                                                          |
+| getDeviceType()      | string                         | No       | Returns the type of device.                                                                               |
+| getOrientation()     | string                         | No       | Returns the device orientation.                                                                           |
+| getOSName()          | string                         | No       | Returns the operating system name.                                                                        |
+| getOSVersion()       | string                         | No       | Returns the operating system version.                                                                     |
+| getBrowserVersion()  | string                         | No       | Returns the browser version.                                                                              |
+| getOperaVersion()    | string                         | No       | Returns the version of Opera browser, if applicable.                                                      |
+| getChromeVersion()   | string                         | No       | Returns the version of Chrome browser, if applicable.                                                     |
+| getSafariVersion()   | string                         | No       | Returns the version of Safari browser, if applicable.                                                     |
+| getFirefoxVersion()  | string                         | No       | Returns the version of Firefox browser, if applicable.                                                    |
+| getIEVersion()       | string                         | No       | Returns the version of Internet Explorer browser, if applicable.                                           |
+| getScreenWidth()     | number                         | No       | Returns the width of the screen.                                                                          |
+| getScreenHeight()    | number                         | No       | Returns the height of the screen.                                                                         |
+| getDeviceInfo()      | `IDeviceInfo`                  | No       | Returns an `IDeviceInfo` object containing the device information.                                        |
+
+The `DeviceInfo` class appears to provide a set of methods for retrieving information about the user's device, including browser details, device type, operating system, and screen dimensions. It also includes static properties for breakpoints and orientations to handle responsive design aspects. The `getDeviceInfo()` method compiles this information into an object that adheres to the `IDeviceInfo` interface structure.
