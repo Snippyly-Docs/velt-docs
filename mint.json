@@ -1,7 +1,11 @@
 {
   "$schema": "https://mintlify.com/schema.json",
   "name": "Velt",
-  "logo": "/velt-logo.png",
+  "logo": {
+    "light":"/velt-logo.png",
+    "dark":"/velt-logo.png",
+    "href":"https://docs.velt.dev"
+  }
   "favicon": "/favicon-light.ico",
   "colors": {
     "primary": "#272728",
