@@ -3,15 +3,13 @@ title: DocumentUser
 ---
 ### `DocumentUser` Class Properties
 
-This class encapsulates the details of a user's association with a document, including their identification, contact information, role, and metadata regarding their invitation and updates to their document status.
-
 | Property      | Type            | Optional | Description                                                     |
 |---------------|-----------------|----------|-----------------------------------------------------------------|
-| id            | string          | No       | The unique identifier for the user, typically their email ID.   |
-| user          | UserContact     | No       | Object containing the user's contact details.                   |
-| role          | UserRole        | No       | Enum or object defining the user's role within the document.    |
-| invitedBy     | User            | Yes      | The user who invited the current user to the document.          |
-| invitedDate   | any             | Yes      | The date when the current user was invited to the document.     |
-| updatedBy     | User            | Yes      | The user who last updated this user's document-related info.    |
-| updatedDate   | any             | Yes      | The date when the user's document-related information was last updated. |
+| `id`            | string          | No       | The unique identifier for the user, typically their email ID.   |
+| `user`          | `UserContact`     | No       | Object containing the user's contact details.                   |
+| `role`          | `UserRole `       | No       | Enum or object defining the user's role within the document.    |
+| `invitedBy`     | `User`            | Yes      | The user who invited the current user to the document.          |
+| `invitedDate`   | any             | Yes      | The date when the current user was invited to the document.     |
+| `updatedBy`     | `User`            | Yes      | The user who last updated this user's document-related info.    |
+| `updatedDate`   | any             | Yes      | The date when the user's document-related information was last updated. |
 

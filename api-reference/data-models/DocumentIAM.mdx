@@ -1,24 +1,20 @@
-import { DocumentAccessType } from "../../utils/enums";
-import { UserIAM } from "./user-iam.data.model";
-export declare type DocumentIAMFeatures = {
-    all?: {
-        disabled?: boolean;
-        restricted?: boolean;
-    };
-};
-export declare class DocumentIAM {
-    /**
-     * The document access type
-     */
-    documentAccessType: DocumentAccessType;
-    /**
-     * Features
-     */
-    features: DocumentIAMFeatures | undefined;
-    /**
-     * Users with access to the document
-     */
-    users: {
-        [userId: string]: UserIAM;
-    };
-}
+## `DocumentIAM` Class Properties
+
+| Property              | Type                            | Optional | Description                                           |
+|-----------------------|---------------------------------|----------|-------------------------------------------------------|
+| `documentAccessType`  | `DocumentAccessType`            | No       | The type of access allowed for the document.          |
+| `features`            | `DocumentIAMFeatures \| undefined` | Yes      | Features relating to document access, may be undefined.|
+| `users`               | `{ [userId: string]: UserIAM}`  | No       | Object containing `UserIAM` objects with the user's ID string as the key. |
+
+## `DocumentIAMFeatures` Type Properties
+
+| Property | Type    | Optional | Description                                           |
+|----------|---------|----------|-------------------------------------------------------|
+| `all`    | Object  | Yes      | Object containing features applicable to all users.   |
+
+### `all` Object Properties
+
+| Property       | Type    | Optional | Description                                      |
+|----------------|---------|----------|--------------------------------------------------|
+| `disabled`     | boolean | Yes      | If true, indicates the feature is disabled.       |
+| `restricted`   | boolean | Yes      | If true, indicates the feature is restricted.     |

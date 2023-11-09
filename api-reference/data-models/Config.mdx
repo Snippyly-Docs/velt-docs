@@ -1,7 +1,5 @@
 ## `Config` Class Properties
 
-This class is used to configure the Snippyly integration and control the availability of its features within a web application. The following table lists the properties of the `Config` class:
-
 | Property                  | Type               | Optional | Default                                               | Description                                                                                                                            |
 |---------------------------|--------------------|----------|-------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `urlAllowList`            | string[]           | Yes      | All pages                                             | Restricts Snippyly features to specific pages by specifying partial URL strings.                                                       |
@@ -12,5 +10,4 @@ This class is used to configure the Snippyly integration and control the availab
 | `debugMode`               | boolean            | Yes      | -                                                     | Enables or disables debug mode. This change will be reflected after a page refresh.                                                    |
 | `usePrefersColorScheme`   | boolean            | Yes      | -                                                     | If set to true, listens to changes on the `prefers-color-scheme` media query to set the global theme of Snippyly components.           |
 
-**Note**: The defaults for `urlAllowList`, `featureAllowList`, `userPlanAllowList`, `userIdAllowList`, and `userGroupIdAllowList` are to allow all respective entities if not specified.
 
