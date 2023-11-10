@@ -244,8 +244,9 @@
             {
               "group": "Setup",
               "pages": [
-                "async-collaboration/video-player-comments/setup/lottie-player-setup",
-                "async-collaboration/video-player-comments/setup/video-player-setup"
+                "async-collaboration/video-player-comments/setup/video-player-setup",
+                "async-collaboration/video-player-comments/setup/lottie-player-setup"
+                
               ]
             }
           ]
