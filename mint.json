@@ -241,7 +241,13 @@
           "group": "Media Player Comments",
           "pages": [
             "async-collaboration/video-player-comments/overview",
-            "async-collaboration/video-player-comments/setup"
+            {
+              "group": "Setup",
+              "pages": [
+                "async-collaboration/video-player-comments/setup/lottie-player-setup",
+                "async-collaboration/video-player-comments/setup/video-player-setup"
+              ]
+            }
            
           ]
         },
