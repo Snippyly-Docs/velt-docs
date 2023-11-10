@@ -1,5 +1,5 @@
 ---
-title: "UI Controls"
+title: "UI/UX Controls"
 ---
 {/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
 <script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
@@ -69,6 +69,33 @@ const commentElement = client.getCommentElement();
 commentElement.enableMinimap();
 commentElement.disableMinimap();
 ```
+
+</Step>
+
+<Step title="Enable / Disable Scroll to Comment on Click">
+
+Whether, users will be scrolled to the location of a `Comment` when it is clicked.
+
+`Default: true`
+
+By default, users will be redirected to a `Comment` if the comment id is provided in the url. But sometimes this experience is annoying, so we have provided a way to disable the option to automatically scroll users to the location of the `Comment`.
+
+To disable the feature, set `scrollToComponent` to `false`.
+
+```html
+<VeltComments scrollToComponent={false}/>
+```
+
+API methods:
+
+```jsx
+const commentElement = client.getCommentElement();
+// To enable scroll to component
+commentElement.enableScrollToComponent();
+// To disable scroll to component
+commentElement.disableScrollToComponent();
+```
+
 
 </Step>
 
@@ -145,6 +172,33 @@ commentElement.disableMinimap();
 
 </Step>
 
+<Step title="Enable / Disable Scroll to Comment on Click">
+
+Whether, users will be scrolled to the location of a `Comment` when it is clicked.
+
+`Default: true`
+
+By default, users will be redirected to a `Comment` if the comment id is provided in the url. But sometimes this experience is annoying, so we have provided a way to disable the option to automatically scroll users to the location of the `Comment`.
+
+To disable the feature, set `scroll-to-component` to `false`.
+
+```html
+<velt-comments scroll-to-component="false"></velt-comments>
+```
+
+API methods:
+
+```jsx
+const commentElement = client.getCommentElement();
+// To enable scroll to component
+commentElement.enableScrollToComponent();
+// To disable scroll to component
+commentElement.disableScrollToComponent();
+```
+
+
+</Step>
+
 
 </Steps>
 
@@ -183,6 +237,7 @@ export default function YourDocument() {
             darkMode={true}    {/* 1 */}
             mobileMode={true}  {/* 2 */}
             minimap={true}  {/* 3 */}
+            scrollToComponent={false} {/* 4 */}
         />
     </div>
   )
@@ -195,6 +250,7 @@ export default function YourDocument() {
     dark-mode="true"    
     mobile-mode="true"  
     minimap="true" 
+    scroll-to-component="false"
   >
 </velt-comments
 <script>

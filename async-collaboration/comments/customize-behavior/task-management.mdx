@@ -331,6 +331,33 @@ No data is passed with the event.
 
 </Step>
 
+<Step title="Enable/Disable private comment mode">
+
+Whether private comment mode is enabled.
+
+`Default: false`
+
+Admin users can enable `private comment mode`. Once `private comment mode` is enabled, all the newly added comment annotations by the admin user will be private comments by default, meaning only other admins can see it.
+
+To enable private comment mode, set the `privateCommentMode` attribute to `true`:
+
+```html
+<VeltComments privateCommentMode={true} />
+```
+
+API Methods:
+
+```jsx
+const commentElement = client.getCommentElement();
+// To enable private comment mode
+commentElement.enablePrivateCommentMode();
+// To disable private comment mode
+commentElement.disablePrivateCommentMode();
+```
+
+
+</Step>
+
 
 </Steps>
 
@@ -675,6 +702,33 @@ veltCommentsTag?.addEventListener('onSignIn', (event) => {
 
 </Step>
 
+<Step title="Enable/Disable private comment mode">
+
+Whether private comment mode is enabled.
+
+`Default: false`
+
+Admin users can enable `private comment mode`. Once `private comment mode` is enabled, all the newly added comment annotations by the admin user will be private comments by default, meaning only other admins can see it.
+
+To enable private comment mode, set the `private-comment-mode` attribute to `true`:
+
+```html
+<velt-comments private-comment-mode="true"></velt-comments>
+```
+
+API to enable/disable private comment mode:
+
+```jsx
+const commentElement = client.getCommentElement();
+// To enable private comment mode
+commentElement.enablePrivateCommentMode();
+// To disable private comment mode
+commentElement.disablePrivateCommentMode();
+```
+
+
+</Step>
+
 
 </Steps>
 
@@ -737,6 +791,8 @@ export default function YourDocument() {
       commentElement.disableSuggestionMode(); // 9
       commentElement.enableSignInButton(); // 10 
       commentElement.disableSignInButton(); // 10
+      commentElement.enablePrivateCommentMode(); // 13
+      commentElement.disablePrivateCommentMode(); // 13
 
 
     }
@@ -784,6 +840,7 @@ export default function YourDocument() {
             onCommentReject={(event)=>yourMethod(event)} {/* 10 */}
             signInButton={true} {/* 11 */}
             onSignIn={() => yourSignInMethod()} {/* 12 */}
+            privateCommentMode={true} {/* 13 */}
 
 
         />
@@ -826,6 +883,7 @@ export default function YourDocument() {
     moderator-mode="true"
     suggestion-mode="true"
     sign-in-button="true"
+    private-comment-mode="true"
   ></velt-comments>
   <script>
     if(Velt){
@@ -871,6 +929,9 @@ export default function YourDocument() {
       commentElement.disableSuggestionMode(); // 9
       commentElement.enableSignInButton(); // 10 
       commentElement.disableSignInButton(); // 10
+      commentElement.enablePrivateCommentMode(); // 13
+      commentElement.disablePrivateCommentMode(); // 13
+
 
 
     }

@@ -154,7 +154,17 @@ commentElement.onSidebarButtonOnCommentDialogClick().subscribe((event) => yourMe
 
 </Step>
 
+<Step title="Comments iframe support">
 
+To support comments on top of an iframe, add the `data-velt-iframe-container="true"` attribute in the container element of the iframe.
+
+```html
+<div data-velt-iframe-container="true">
+	<iframe src="https://www.wikipedia.org/" width="500px" height="500px"></iframe>
+</div>
+```
+
+</Step>
 
 
 </Steps>
@@ -304,6 +314,18 @@ commentElement.onSidebarButtonOnCommentDialogClick().subscribe((event) => yourMe
 
 </Step>
 
+<Step title="Comments iframe support">
+
+To support comments on top of an iframe, add the `data-velt-iframe-container="true"` attribute in the container element of the iframe.
+
+```html
+<div data-velt-iframe-container="true">
+	<iframe src="https://www.wikipedia.org/" width="500px" height="500px"></iframe>
+</div>
+```
+
+</Step>
+
 
 
 
@@ -342,6 +364,11 @@ export default function YourDocument() {
     <div>
         <div data-velt-comment-disabled></div> {/* 2 */}
 
+        {/* 8 */}
+        <div data-velt-iframe-container="true">
+          <iframe src="https://www.wikipedia.org/" width="500px" height="500px"></iframe>
+        </div>
+
         <VeltComments  
             allowedElementIds={['some-element']} {/* 1 */}
             commentTool={false}  {/* 3 */}
@@ -364,6 +391,10 @@ export default function YourDocument() {
       ghost-comments="true"
       ghost-comments-indicator="true"
   ></velt-comments>
+
+  <div data-velt-iframe-container="true">
+    <iframe src="https://www.wikipedia.org/" width="500px" height="500px"></iframe>
+  </div>
 
 <script>
   if(Velt){
