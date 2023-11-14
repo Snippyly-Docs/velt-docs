@@ -10,7 +10,7 @@
   "colors": {
     "primary": "#272728",
     "light": "#D5D5D5",
-    "dark": "#06A6D1"
+    "dark": "#000000"
   },
   "modeToggle": {
     "default": "dark"
