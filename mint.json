@@ -1,16 +1,19 @@
 {
   "$schema": "https://mintlify.com/schema.json",
   "name": "Velt",
-  "logo": "/logo.png",
-  "favicon": "/favicon.png",
+  "logo":{
+    "light": "/velt-logo-big-light.png",
+    "dark": "/velt-logo-big.png",
+    "href": "https://docs.velt.dev"
+  },
+  "favicon": "/Favicon-dark.png",
   "colors": {
     "primary": "#272728",
     "light": "#D5D5D5",
     "dark": "#06A6D1"
   },
   "modeToggle": {
-    "default": "dark",
-    "isHidden": true
+    "default": "dark"
   },
   "topbarCtaButton": {
     "name": "Sign in",
