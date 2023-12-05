@@ -46,14 +46,15 @@ Create a Velt `User` object by taking the relevant fields from `yourAuthenticate
 ```js
 
   // Fetch the relevant user info from `yourAuthenticatedUser`
-  const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
+  const { uid, displayName, email, photoURL, groupId } = yourAuthenticatedUser;
 
   // Create the Velt user object
   const user = {
     userId: uid,
     name: displayName,
     email: email,
-    photoUrl: photoURL
+    photoUrl: photoURL,
+    groupId: groupId // this is the organization id the user belongs to.
   };
 ```
 
@@ -98,14 +99,15 @@ Create a Velt `User` object.
 ```js
 
   // Fetch the relevant user info from `yourAuthenticatedUser`
-  const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
+  const { uid, displayName, email, photoURL, groupId } = yourAuthenticatedUser;
 
   // Create the Velt user object
   const user = {
     userId: uid,
     name: displayName,
     email: email,
-    photoUrl: photoURL
+    photoUrl: photoURL,
+    groupId: groupId
   };
 ```
 
@@ -154,7 +156,8 @@ export default function YourAuthComponent() {
       uid:"123",
       displayName:"Bob",
       email:"bob@gmail.com",
-      photoURL:'https://i.pravatar.cc/300'
+      photoURL:'https://i.pravatar.cc/300',
+      groupId: groupId
     }
   }
 
@@ -168,14 +171,15 @@ export default function YourAuthComponent() {
       if (client && yourAuthenticatedUser) {
 
         // 3) Fetch the relevant user info from yourAuthenticatedUser
-        const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
+        const { uid, displayName, email, photoURL, groupId } = yourAuthenticatedUser;
 
         // Create the Velt user object
         const user = {
           userId: uid,
           name: displayName,
           email: email,
-          photoUrl: photoURL
+          photoUrl: photoURL,
+          groupId: groupId
         };
 
         //4) Pass the user object to the SDK
