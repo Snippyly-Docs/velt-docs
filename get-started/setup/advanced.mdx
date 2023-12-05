@@ -57,11 +57,41 @@ client.setLocation({
 })
 ```
 
+
 To remove a `Location` that has already been set, you can use the `client.removeLocation()` method:
 
 ```jsx
 client.removeLocation()
 ```
+
+## Adding multiple Locations
+
+To add multiple locations that are meant to be active at the same time, use the `client.addLocation()` method:
+
+```jsx
+client.addLocation({
+  'page': 'scene1',
+  'version': 'v1.2',
+  'videoFrame': '120'
+})
+
+client.addLocation({
+  'page': 'scene2',
+  'version': 'v1.2',
+  'videoFrame': '50'
+})
+
+client.addLocation({
+  'page': 'scene3',
+  'version': 'v1.2',
+  'videoFrame': '80'
+})
+```
+
+<Info>
+Currently, if you have multiple locations you can not modify individual locations directly. You will need to remove all locations with `client.removeLocation()` and re-add them with the changes you want to see.
+</Info>
+
 
 </Tab>
   
@@ -124,6 +154,34 @@ To remove a `Location` that has already been set, you can use the `client.remove
 ```jsx
 client.removeLocation()
 ```
+
+## Adding multiple Locations
+
+To add multiple locations that are meant to be active at the same time, use the `client.addLocation()` method:
+
+```jsx
+client.addLocation({
+  'page': 'scene1',
+  'version': 'v1.2',
+  'videoFrame': '120'
+})
+
+client.addLocation({
+  'page': 'scene2',
+  'version': 'v1.2',
+  'videoFrame': '50'
+})
+
+client.addLocation({
+  'page': 'scene3',
+  'version': 'v1.2',
+  'videoFrame': '80'
+})
+```
+
+<Info>
+Currently, if you have multiple locations you can not modify individual locations directly. You will need to remove all locations with `client.removeLocation()` and re-add them with the changes you want to see.
+</Info>
 
   </Tab>
 
