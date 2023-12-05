@@ -69,6 +69,8 @@ client.removeLocation()
 To add multiple locations that are meant to be active at the same time, use the `client.addLocation()` method:
 
 ```jsx
+client.setDocumentID('some_document_id');
+
 client.addLocation({
   'page': 'scene1',
   'version': 'v1.2',
@@ -92,6 +94,30 @@ client.addLocation({
 Currently, if you have multiple locations you can not modify individual locations directly. You will need to remove all locations with `client.removeLocation()` and re-add them with the changes you want to see.
 </Info>
 
+### Location data attributes
+
+If you have multiple locations and want to designate a container to represent a location you can use the `data-velt-location` attribute.
+
+Add the `data-velt-location` attribute to the top level of an element where you want to link your location.
+
+You can link your location to the element by passing a key value pair that exists within the location on the data attribute.
+
+<Warning>
+Be sure to convert the key value pair to a string before passing it to the data attribute.
+</Warning>
+
+
+```html copy {4}
+<div class="container">
+  // If you want to add comments to location {"key1": "value1"}, if it is added inside below div
+  // then add location attribute to below div as mentioned here
+  <div class="sub-container" data-snippyly-location='{"key1": "value1"}'>
+    <div class="card">
+      ... any content ...
+    </div>
+  </div>
+</div>
+```
 
 </Tab>
   
@@ -160,6 +186,8 @@ client.removeLocation()
 To add multiple locations that are meant to be active at the same time, use the `client.addLocation()` method:
 
 ```jsx
+client.setDocumentID('some_document_id');
+
 client.addLocation({
   'page': 'scene1',
   'version': 'v1.2',
@@ -182,6 +210,33 @@ client.addLocation({
 <Info>
 Currently, if you have multiple locations you can not modify individual locations directly. You will need to remove all locations with `client.removeLocation()` and re-add them with the changes you want to see.
 </Info>
+
+### Location data attributes
+
+If you have multiple locations and want to designate a container to represent a location you can use the `data-velt-location` attribute.
+
+Add the `data-velt-location` attribute to the top level of an element where you want to link your location.
+
+You can link your location to the element by passing a key value pair that exists within the location on the data attribute.
+
+<Warning>
+Be sure to convert the key value pair to a string before passing it to the data attribute.
+</Warning>
+
+
+```html copy {4}
+<div class="container">
+  // If you want to add comments to location {"key1": "value1"}, if it is added inside below div
+  // then add location attribute to below div as mentioned here
+  <div class="sub-container" data-snippyly-location='{"key1": "value1"}'>
+    <div class="card">
+      ... any content ...
+    </div>
+  </div>
+</div>
+```
+
+
 
   </Tab>
 
