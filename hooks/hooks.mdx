@@ -53,9 +53,49 @@ export default function YourDocument() {
 
 Hook that calls `client.setLocation()`.
 
+```jsx
+import { useSetLocation } from '@veltdev/react';
+
+export default function YourDocument() {
+
+  const handleSetLocation = () => {
+    useSetLocation({
+        scene: "scene1"
+    })
+  }
+
+
+  return (
+    <div>
+        <button onClick={handleSetLocation}>Set Location to Scene 1</button>
+    </div>
+  )
+}
+```
+
 ## useAddLocation()
 
 Hook that calls `client.addLocation()`.
+
+```jsx
+import { useAddLocation } from '@veltdev/react';
+
+export default function YourDocument() {
+
+  const handleAddLocation = () => {
+    useAddLocation({
+        scene: "scene1"
+    })
+  }
+
+
+  return (
+    <div>
+        <button onClick={handleAddLocation}>Add Scene 1 Location</button>
+    </div>
+  )
+}
+```
 
 ## usePresenceUtils()
 
