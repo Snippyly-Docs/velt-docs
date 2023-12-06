@@ -137,6 +137,27 @@ Hook that calls `client.getHuddleElement()`.
 
 Hook that calls `client.getLiveStateSyncElement()`.
 
+
+```jsx
+import { useLiveStateSyncUtils } from '@veltdev/react';
+
+export default function YourDocument() {
+
+  let liveStateElement = useLiveSelectionUtils()
+  //Enable Single Editor Mode
+  liveStateElement?.enableSingleEditorMode();
+
+
+  return (
+    <div>
+        <button onClick={handleSetLocation}>Set Location to Scene 1</button>
+    </div>
+  )
+}
+```
+
+
+
 ## useCommentAnnotations()
 
 Hook that calls `commentElement.getAllCommentAnnotations()`
@@ -165,9 +186,51 @@ Hook that calls `cursorElement.getOnlineUsersOnCurrentDocument()`
 
 Hook that calls `liveStateSyncElement.getLiveStateData()`
 
+
+```jsx
+import { useLiveStateData, useSetLiveStateData} from '@veltdev/react';
+
+export default function YourDocument() {
+
+  //sets the live state data object
+  useSetLiveStateData("myUniqueId", { 
+    "myKey": "hello world!",
+  })
+
+  let data = useLiveStateData("myUniqueId")
+
+  return (
+    <div>
+        {data?.myKey}
+    </div>
+  )
+}
+```
+
 ## useSetLiveStateData()
 
 Hook that calls `liveStateSyncElement.setLiveStateData()`
+
+```jsx
+import { useLiveStateData, useSetLiveStateData} from '@veltdev/react';
+
+export default function YourDocument() {
+
+  useSetLiveStateData("myUniqueId", {
+    "myKey": "hello world!",
+  })
+
+
+  //gets the live state data object
+  let data = useLiveStateData("myUniqueId")
+
+  return (
+    <div>
+        {data?.myKey}
+    </div>
+  )
+}
+```
 
 ## useUserEditorState
 
