@@ -171,6 +171,26 @@ export default function YourDocument() {
 }
 ```
 
+## useUserEditorState()
+
+Hook that calls `liveStateSyncElement.isUserEditor()`
+
+```jsx
+import { useUserEditorState} from '@veltdev/react';
+
+export default function YourDocument() {
+
+  let isEditor = useUserEditorState()
+  console.log("Is User Editor?: ", isEditor)
+
+  return (
+    <div>
+        Is User Editor?: {isEditor}
+    </div>
+  )
+}
+```
+
 ## usePresenceUtils()
 
 Hook that calls `client.getPresenceElement()`.
@@ -233,9 +253,7 @@ Hook that calls `commentElement.onSidebarButtonOnCommentDialogClick()`
 Hook that calls `cursorElement.getOnlineUsersOnCurrentDocument()`
 
 
-## useUserEditorState
 
-Hook that calls `liveStateSyncElement.isUserEditor()`
 
 ## usePresenceUsers()
 
