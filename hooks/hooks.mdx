@@ -2,9 +2,52 @@
 
 Hook that calls `client.identify()`.
 
+```jsx
+import { useIdentify } from "@veltdev/react";
+import { useEffect, useState } from "react";
+
+export default function YourAuthComponent() {
+  
+  // Create the Velt user object
+  let veltUser = {
+    userId: "your-user-id",
+    name: "John Smith"
+    email: "jsmith@velt.dev",
+    photoUrl: "https://i.pravatar.cc/304?u=user${randomNum}@velt.dev",
+    groupId: "theoffice",
+  };
+  
+
+  //identify Velt user
+  useIdentify(veltUser)
+
+
+  return (
+    <div>Your Auth Template</div>
+  )
+}
+
+```
+
 ## useSetDocumentId()
 
 Hook that calls `client.setDocumentId()`.
+
+
+```jsx
+import { useSetDocumentId } from '@veltdev/react';
+
+export default function YourDocument() {
+
+  useSetDocumentId("my-document-id")
+
+  return (
+    <div>
+        Your Document Template
+    </div>
+  )
+}
+```
 
 ## useSetLocation()
 
