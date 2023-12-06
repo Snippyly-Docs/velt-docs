@@ -44,10 +44,10 @@ client.setLocation({
 
 If you specify a **Location**, users in the same **Document** will no longer be able to interact if they are not also in the same **Location**.
 
-To use a **Location** together with a **Document**, simply call the **setDocumentID()** method before the **setLocation()** method.
+To use a **Location** together with a **Document**, simply call the **setDocumentId()** method before the **setLocation()** method.
 
 ```js 
-client.setDocumentID('some_document_id');
+client.setDocumentId('some_document_id');
 client.setLocation({
   'page': 'mainPage',
   'version': 'v1.2',
@@ -69,7 +69,7 @@ client.removeLocation()
 To add multiple locations that are meant to be active at the same time, use the `client.addLocation()` method:
 
 ```jsx
-client.setDocumentID('some_document_id');
+client.setDocumentId('some_document_id');
 
 client.addLocation({
   'page': 'scene1',
@@ -160,11 +160,11 @@ Velt.setLocation({
 
 If you specify a **Location**, users in the same **Document** will no longer be able to interact if they are not also in the same **Location**.
 
-To use a **Location** together with a **Document**, simply call the **setDocumentID()** method before the **setLocation()** method.
+To use a **Location** together with a **Document**, simply call the **setDocumentId()** method before the **setLocation()** method.
 
 ```js 
 if (Velt) {
-  Velt.setDocumentID('some_document_id');
+  Velt.setDocumentId('some_document_id');
   Velt.setLocation({
     'page': 'mainPage',
     'version': 'v1.2',
@@ -186,7 +186,7 @@ client.removeLocation()
 To add multiple locations that are meant to be active at the same time, use the `client.addLocation()` method:
 
 ```jsx
-client.setDocumentID('some_document_id');
+client.setDocumentId('some_document_id');
 
 client.addLocation({
   'page': 'scene1',
@@ -256,7 +256,7 @@ export default function YourDocument() {
     
     if (client) {
         //Set Document ID
-        client.setDocumentID('some_document_id');
+        client.setDocumentId('some_document_id');
 
         //Set Location
         client.setLocation({
@@ -292,7 +292,7 @@ export default function YourDocument() {
 
         if (Velt) {
           //Set Document ID
-          Velt.setDocumentID('some_document_id'); 
+          Velt.setDocumentId('some_document_id'); 
 
           // Set Location
           Velt.setLocation({
