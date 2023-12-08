@@ -203,7 +203,8 @@
                   "pages": [
                     "async-collaboration/comments/customize-ui/parts/pin",
                     "async-collaboration/comments/customize-ui/parts/bubble",
-                    "async-collaboration/comments/customize-ui/parts/tool"
+                    "async-collaboration/comments/customize-ui/parts/tool",
+                    "async-collaboration/comments/customize-ui/parts/dialog"
                   ]
                 },
                 {
