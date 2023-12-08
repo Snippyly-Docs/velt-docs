@@ -57,44 +57,51 @@ client.setLocation({
 })
 ```
 
+## Adding multiple Locations
 
-To remove a `Location` that has already been set, you can use the `client.removeLocation()` method:
+To add multiple locations that are meant to be active at the same time, use the `client.setLocation()` method and pass in the location object you want to add as the first parameter and `true` as the second parameter. 
+
+```jsx
+client.setDocumentId('some_document_id');
+
+client.setLocation({
+  'page': 'scene1',
+  'version': 'v1.2',
+  'videoFrame': '120'
+}, true)
+
+client.setLocation({
+  'page': 'scene2',
+  'version': 'v1.2',
+  'videoFrame': '50'
+}, true)
+
+client.setLocation({
+  'page': 'scene3',
+  'version': 'v1.2',
+  'videoFrame': '80'
+}, true)
+```
+
+## Removing Locations
+
+To remove all locations, use the `client.removeLocation()` method.
 
 ```jsx
 client.removeLocation()
 ```
 
-## Adding multiple Locations
-
-To add multiple locations that are meant to be active at the same time, use the `client.addLocation()` method:
+If you have added multiple locations and only want to remove one of them, you can remove it by using `client.removeLocation()` and by passing in the exact location object you want to remove.
 
 ```jsx
-client.setDocumentId('some_document_id');
-
-client.addLocation({
-  'page': 'scene1',
-  'version': 'v1.2',
-  'videoFrame': '120'
-})
-
-client.addLocation({
-  'page': 'scene2',
-  'version': 'v1.2',
-  'videoFrame': '50'
-})
-
-client.addLocation({
-  'page': 'scene3',
-  'version': 'v1.2',
-  'videoFrame': '80'
-})
+// remove specific location
+const locationToRemove = {
+	// your custom location object
+}
+Velt.removeLocation(locationToRemove);
 ```
 
-<Info>
-Currently, if you have multiple locations you can not modify individual locations directly. You will need to remove all locations with `client.removeLocation()` and re-add them with the changes you want to see.
-</Info>
-
-### Location data attributes
+## Location data attributes
 
 If you have multiple locations and want to designate a container to represent a location you can use the `data-velt-location` attribute.
 
@@ -175,43 +182,52 @@ if (Velt) {
 }
 ```
 
-To remove a `Location` that has already been set, you can use the `client.removeLocation()` method:
+
+## Adding multiple Locations
+
+To add multiple locations that are meant to be active at the same time, use the `client.setLocation()` method and pass in `true` as the second parameter. 
+
+```jsx
+client.setDocumentId('some_document_id');
+
+client.setLocation({
+  'page': 'scene1',
+  'version': 'v1.2',
+  'videoFrame': '120'
+}, true)
+
+client.setLocation({
+  'page': 'scene2',
+  'version': 'v1.2',
+  'videoFrame': '50'
+}, true)
+
+client.setLocation({
+  'page': 'scene3',
+  'version': 'v1.2',
+  'videoFrame': '80'
+}, true)
+```
+
+## Removing Locations
+
+To remove all locations, use the `client.removeLocation()` method.
 
 ```jsx
 client.removeLocation()
 ```
 
-## Adding multiple Locations
-
-To add multiple locations that are meant to be active at the same time, use the `client.addLocation()` method:
+If you have added multiple locations and only want to remove one of them, you can remove it by using `client.removeLocation()` and by passing in the exact location object you want to remove.
 
 ```jsx
-client.setDocumentId('some_document_id');
-
-client.addLocation({
-  'page': 'scene1',
-  'version': 'v1.2',
-  'videoFrame': '120'
-})
-
-client.addLocation({
-  'page': 'scene2',
-  'version': 'v1.2',
-  'videoFrame': '50'
-})
-
-client.addLocation({
-  'page': 'scene3',
-  'version': 'v1.2',
-  'videoFrame': '80'
-})
+// remove specific location
+const locationToRemove = {
+	// your custom location object
+}
+Velt.removeLocation(locationToRemove);
 ```
 
-<Info>
-Currently, if you have multiple locations you can not modify individual locations directly. You will need to remove all locations with `client.removeLocation()` and re-add them with the changes you want to see.
-</Info>
-
-### Location data attributes
+## Location data attributes
 
 If you have multiple locations and want to designate a container to represent a location you can use the `data-velt-location` attribute.
 

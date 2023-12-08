@@ -103,6 +103,18 @@ commentElement.toggleCommentSidebar(); // toggles the comments side bar
 
 </Step>
 
+<Step title="Show the current URL path in the sidebar">
+
+`Default: false`
+
+Shows the current URL path in the sidebar by adding "(this page)" next to the current URL path.
+
+```jsx
+<VeltCommentsSidebar currentLocationSuffix={true}/>
+```
+
+</Step>
+
 
 
 </Steps>
@@ -204,6 +216,15 @@ commentElement.toggleCommentSidebar(); // toggles the comments side bar
 ```
 </Step>
 
+<Step title="Show the current URL path in the sidebar">
+
+`Default: false`
+
+Shows the current URL path in the sidebar by adding "(this page)" next to the current URL path.
+
+```jsx
+<velt-comments-sidebar current-location-suffix="true"></velt-comments-sidebar>
+```
 
 </Steps>
 
@@ -257,6 +278,7 @@ export default function App() {
       <VeltCommentsSidebar 
         onCommentClick={onCommentClick}
         urlNavigation={false}
+        currentLocationSuffix={true}
       />
 
     </VeltProvider>
@@ -275,6 +297,7 @@ export default function App() {
 
     <velt-comments></velt-comments>
     <velt-comments-sidebar url-navigation="false"></velt-comments-sidebar>
+    <velt-comments-sidebar current-location-suffix="true"></velt-comments-sidebar>
 
   <script>
     if(Velt){
