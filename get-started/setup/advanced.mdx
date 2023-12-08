@@ -103,6 +103,8 @@ Velt.removeLocation(locationToRemove);
 
 ## Location data attributes
 
+Location data attributes are mandatory if you are using multiple locations.
+
 If you have multiple locations and want to designate a container to represent a location you can use the `data-velt-location` attribute.
 
 Add the `data-velt-location` attribute to the top level of an element where you want to link your location.
@@ -110,7 +112,7 @@ Add the `data-velt-location` attribute to the top level of an element where you 
 You can link your location to the element by passing a key value pair that exists within the location on the data attribute.
 
 <Warning>
-Be sure to convert the key value pair to a string before passing it to the data attribute.
+Be sure to a unique id attribute on each of the containers.
 </Warning>
 
 
@@ -118,7 +120,7 @@ Be sure to convert the key value pair to a string before passing it to the data 
 <div class="container">
   // If you want to add comments to location {"key1": "value1"}, if it is added inside below div
   // then add location attribute to below div as mentioned here
-  <div class="sub-container" data-snippyly-location='{"key1": "value1"}'>
+  <div id="container-id" class="sub-container" data-velt-location={JSON.stringify({key1: "value1"})}>
     <div class="card">
       ... any content ...
     </div>
@@ -229,6 +231,8 @@ Velt.removeLocation(locationToRemove);
 
 ## Location data attributes
 
+Location data attributes are mandatory if you are using multiple locations.
+
 If you have multiple locations and want to designate a container to represent a location you can use the `data-velt-location` attribute.
 
 Add the `data-velt-location` attribute to the top level of an element where you want to link your location.
@@ -236,7 +240,7 @@ Add the `data-velt-location` attribute to the top level of an element where you 
 You can link your location to the element by passing a key value pair that exists within the location on the data attribute.
 
 <Warning>
-Be sure to convert the key value pair to a string before passing it to the data attribute.
+Be sure to convert the key value pair to a string before passing it to the data attribute. Also be sure to add a unique id to each of the containers.
 </Warning>
 
 
@@ -244,7 +248,7 @@ Be sure to convert the key value pair to a string before passing it to the data 
 <div class="container">
   // If you want to add comments to location {"key1": "value1"}, if it is added inside below div
   // then add location attribute to below div as mentioned here
-  <div class="sub-container" data-snippyly-location='{"key1": "value1"}'>
+  <div id="container-id" class="sub-container" data-velt-location='{"key1": "value1"}'>
     <div class="card">
       ... any content ...
     </div>
