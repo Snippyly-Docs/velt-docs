@@ -127,6 +127,59 @@ Enables page level comments in the sidebar.
 
 </Step>
 
+<Step title="Filter Customization">
+
+You can pass a filter config object to customize options for specific filters. For example:
+
+```jsx
+const filterConfig = {
+  location: {
+    enable: true, // enable/disable location filter
+    name: "Pages", // customize location filter heading
+    enableGrouping: true, // to enable/disable grouping based on location filter
+    multiSelection: true, // to enable/disable multiple selection
+  },
+  people: {
+    enable: true, // enable/disable people filter
+    name: "People", // customize people filter heading
+    enableGrouping: true, // to enable/disable grouping based on people filter
+    multiSelection: true, // to enable/disable multiple selection
+  },
+  priority: {
+    enable: true, // enable/disable priority filter
+    name: "Priority", // customize priority filter heading
+    enableGrouping: false, // to enable/disable grouping based on priority filter
+    multiSelection: true, // to enable/disable multiple selection
+  },
+  category: {
+    enable: true, // enable/disable category filter
+    name: "Category", // customize category filter heading
+    enableGrouping: true, // to enable/disable grouping based on category filter
+    multiSelection: true, // to enable/disable multiple selection
+  },
+	...
+};
+
+<VeltCommentsSidebar filterConfig={filterConfig} />
+```
+
+</Step>
+
+<Step title="Group Configuration">
+
+You can enable/disable the option to group comments in the `comment sidebar` with the `groupConfig` attribute:
+
+```jsx
+const groupConfig = {
+  enable: true, // to enable/disable group by option
+  name: "Custom Group By", // customise group by heading
+};
+
+<VeltCommentsSidebar groupConfig={groupConfig} />
+
+```
+
+</Step>
 
 </Steps>
 
@@ -237,7 +290,7 @@ Shows the current URL path in the sidebar by adding "(this page)" next to the cu
 <velt-comments-sidebar current-location-suffix="true"></velt-comments-sidebar>
 ```
 
-</Steps>
+</Step>
 
 
 <Step title="Enable Page Comment Mode">
@@ -252,6 +305,71 @@ Enables page level comments in the sidebar.
 
 </Step>
 
+<Step title="Filter Customization">
+
+You can pass a filter config object to customize options for specific filters. For example:
+
+```jsx
+const filterConfig = {
+  location: {
+    enable: true, // enable/disable location filter
+    name: "Pages", // customize location filter heading
+    enableGrouping: true, // to enable/disable grouping based on location filter
+    multiSelection: true, // to enable/disable multiple selection
+  },
+  people: {
+    enable: true, // enable/disable people filter
+    name: "People", // customize people filter heading
+    enableGrouping: true, // to enable/disable grouping based on people filter
+    multiSelection: true, // to enable/disable multiple selection
+  },
+  priority: {
+    enable: true, // enable/disable priority filter
+    name: "Priority", // customize priority filter heading
+    enableGrouping: false, // to enable/disable grouping based on priority filter
+    multiSelection: true, // to enable/disable multiple selection
+  },
+  category: {
+    enable: true, // enable/disable category filter
+    name: "Category", // customize category filter heading
+    enableGrouping: true, // to enable/disable grouping based on category filter
+    multiSelection: true, // to enable/disable multiple selection
+  },
+	...
+};
+
+<velt-comments-sidebar></velt-comments-sidebar>
+<script>
+	const commentsSidebar = document.querySelector(`velt-comments-sidebar`);
+	commentsSidebar?.setAttribute("filter-config", JSON.stringify(filterConfig));
+</script>
+```
+
+</Step>
+
+<Step title="Group Configuration">
+
+You can enable/disable the option to group comments in the `comment sidebar` with the `group-config` attribute:
+
+```jsx
+const groupConfig = {
+  enable: true, // to enable/disable group by option
+  name: "Custom Group By", // customise group by heading
+};
+
+<velt-comments-sidebar></velt-comments-sidebar>
+<script>
+	const commentsSidebar = document.querySelector(`velt-comments-sidebar`);
+	commentsSidebar?.setAttribute("group-config", JSON.stringify(groupConfig));
+</script>
+
+```
+
+</Step>
+
+
+
+</Steps>
 </Tab>
 
 

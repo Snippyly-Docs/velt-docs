@@ -69,6 +69,10 @@ commentElement.setCustomCategory([
 ])
 ```
 
+<Warning>
+Make sure to have at least 2 categories set.
+</Warning>
+
 </Step>
 
 <Step title="Priority">
@@ -131,6 +135,11 @@ commentElement.setCustomPriority([
   },
 ])
 ```
+
+<Warning>
+Make sure to have at least 2 categories set.
+</Warning>
+
 </Step>
 
 <Step title="Status">
@@ -197,6 +206,10 @@ commentElement.setCustomStatus([
   }
 ])
 ```
+
+<Warning>
+Make sure to have at least 2 categories set.
+</Warning>
 
 </Step>
 
@@ -358,6 +371,29 @@ commentElement.disablePrivateCommentMode();
 
 </Step>
 
+<Step title="Enable user @mentions">
+
+Whether user @mentions are enabled.
+
+`Default: true`
+
+To disable user @mentions, set the `userMentions` attribute to `false`: 
+
+```jsx 
+<VeltComments userMentions={false} />
+```
+
+API Methods:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableUserMentions(); // to enable user mentions
+commentElement.disableUserMentions(); // to disable user mentions
+```
+
+
+</Step>
+
 
 </Steps>
 
@@ -427,6 +463,10 @@ commentElement.setCustomCategory([
 ])
 ```
 
+<Warning>
+Make sure to have at least 2 categories set.
+</Warning>
+
 </Step>
 
 <Step title="Priority">
@@ -488,6 +528,11 @@ commentElement.setCustomPriority([
   },
 ])
 ```
+
+<Warning>
+Make sure to have at least 2 categories set.
+</Warning>
+
 </Step>
 
 <Step title="Status">
@@ -554,6 +599,10 @@ commentElement.setCustomStatus([
   }
 ])
 ```
+
+<Warning>
+Make sure to have at least 2 categories set.
+</Warning>
 
 </Step>
 
@@ -729,6 +778,28 @@ commentElement.disablePrivateCommentMode();
 
 </Step>
 
+<Step title="Enable user @mentions">
+
+Whether user @mentions are enabled.
+
+`Default: true`
+
+To disable user @mentions, set the `user-mentions` attribute to `false`: 
+
+```jsx 
+<velt-comments user-mentions="false"></velt-comments>
+```
+
+API Methods:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableUserMentions(); // to enable user mentions
+commentElement.disableUserMentions(); // to disable user mentions
+```
+
+
+</Step>
 
 </Steps>
 
@@ -793,6 +864,8 @@ export default function YourDocument() {
       commentElement.disableSignInButton(); // 10
       commentElement.enablePrivateCommentMode(); // 13
       commentElement.disablePrivateCommentMode(); // 13
+      commentElement.enableUserMentions(); // 14
+      commentElement.disableUserMentions(); // 14
 
 
     }
@@ -841,6 +914,7 @@ export default function YourDocument() {
             signInButton={true} {/* 11 */}
             onSignIn={() => yourSignInMethod()} {/* 12 */}
             privateCommentMode={true} {/* 13 */}
+            userMentions={false} {/* 14 */}
 
 
         />
@@ -884,6 +958,7 @@ export default function YourDocument() {
     suggestion-mode="true"
     sign-in-button="true"
     private-comment-mode="true"
+    user-mentions="false"
   ></velt-comments>
   <script>
     if(Velt){
@@ -931,6 +1006,8 @@ export default function YourDocument() {
       commentElement.disableSignInButton(); // 10
       commentElement.enablePrivateCommentMode(); // 13
       commentElement.disablePrivateCommentMode(); // 13
+      commentElement.enableUserMentions(); // 14
+      commentElement.disableUserMentions(); // 14
 
 
 
