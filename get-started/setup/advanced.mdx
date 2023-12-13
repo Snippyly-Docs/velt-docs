@@ -34,6 +34,7 @@ This object could represent your app's pages, sections, versions, video frames, 
 
 ```jsx
 client.setLocation({
+  'id': 'locationId1',
   'page': 'mainPage',
   'version': 'v1.2',
   'videoFrame': '120'
@@ -49,6 +50,7 @@ To use a **Location** together with a **Document**, simply call the **setDocumen
 ```js 
 client.setDocumentId('some_document_id');
 client.setLocation({
+  'id': 'locationId1',
   'page': 'mainPage',
   'version': 'v1.2',
   'videoFrame': '120'
@@ -65,18 +67,21 @@ To add multiple locations that are meant to be active at the same time, use the 
 client.setDocumentId('some_document_id');
 
 client.setLocation({
+  'id': 'locationId1',
   'page': 'scene1',
   'version': 'v1.2',
   'videoFrame': '120'
 }, true)
 
 client.setLocation({
+  'id': 'locationId2',
   'page': 'scene2',
   'version': 'v1.2',
   'videoFrame': '50'
 }, true)
 
 client.setLocation({
+  'id': 'locationId3',
   'page': 'scene3',
   'version': 'v1.2',
   'videoFrame': '80'
@@ -159,6 +164,7 @@ This object could represent your app's pages, sections, versions, video frames, 
 
 ```jsx
 Velt.setLocation({
+  'id': 'locationId1',
   'page': 'mainPage',
   'version': 'v1.2',
   'videoFrame': '120'
@@ -175,6 +181,7 @@ To use a **Location** together with a **Document**, simply call the **setDocumen
 if (Velt) {
   Velt.setDocumentId('some_document_id');
   Velt.setLocation({
+    'id': 'locationId1',
     'page': 'mainPage',
     'version': 'v1.2',
     'videoFrame': '120'
@@ -192,19 +199,22 @@ To add multiple locations that are meant to be active at the same time, use the 
 ```jsx
 client.setDocumentId('some_document_id');
 
-client.setLocation({
+client.setLocation({ 
+  'id': 'locationId1',
   'page': 'scene1',
   'version': 'v1.2',
   'videoFrame': '120'
 }, true)
 
 client.setLocation({
+  'id': 'locationId2',
   'page': 'scene2',
   'version': 'v1.2',
   'videoFrame': '50'
 }, true)
 
 client.setLocation({
+  'id': 'locationId3',
   'page': 'scene3',
   'version': 'v1.2',
   'videoFrame': '80'
@@ -280,12 +290,23 @@ export default function YourDocument() {
 
         //Set Location
         client.setLocation({
+            'id': 'locationId1',
             'page': 'mainPage',
             'version': 'v1.2',
             'videoFrame': '120'
             // You can keep adding more field to make the location very specific.
             // The field names can be anything.
         })
+
+        //Add another Location
+        client.setLocation({
+            'id': 'locationId2',
+            'page': 'mainPage',
+            'version': 'v1.2',
+            'videoFrame': '240'
+            // You can keep adding more field to make the location very specific.
+            // The field names can be anything.
+        },true)
     }
   }, [client]);
 
@@ -315,13 +336,24 @@ export default function YourDocument() {
           Velt.setDocumentId('some_document_id'); 
 
           // Set Location
-          Velt.setLocation({
+          Velt.setLocation({ 
+            'id': 'locationId1',
             'page': 'mainPage',
             'version': 'v1.2',
             'videoFrame': '120'
             // You can keep adding more field to make the location very specific.
             // The field names can be anything.
           })
+
+          //Add another Location
+          client.setLocation({
+              'id': 'locationId2',
+              'page': 'mainPage',
+              'version': 'v1.2',
+              'videoFrame': '240'
+              // You can keep adding more field to make the location very specific.
+              // The field names can be anything.
+          },true)
         }
       }
     </script>
