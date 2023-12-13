@@ -181,6 +181,41 @@ const groupConfig = {
 
 </Step>
 
+<Step title="Programmatic Filters">
+
+
+You can configure the filters on the `comment sidebar` by passing an object to the `filters` attribute:
+
+```jsx
+const filters = {
+	location: [
+		{ id: 'location1Id' }, // id field is required
+		{ id: 'location2Id' }, // id field is required
+		...
+	],
+	people: [
+		{ userId: 'userIdToFilter' }, // userId or
+		{ email: 'userEmailToFilter' } // user email is required
+		...
+	],
+	priority: ['P0', 'P1', 'P2'], // default supported values
+	status: ['OPEN', 'IN_PROGRESS', 'RESOLVED'], // default supported values
+	category: ['bug', 'feedback', 'question'], // default supported values
+};
+
+
+<VeltCommentsSidebar filters={filters} />
+```
+
+
+API Methods:
+```
+const commentElement = client.getCommentElement();
+commentElement.setCommentSidebarFilters(filters);
+```
+
+</Step>
+
 </Steps>
 
 
@@ -367,6 +402,43 @@ const groupConfig = {
 
 </Step>
 
+<Step title="Programmatic Filters">
+
+
+You can configure the filters on the `comment sidebar` by passing an object to the `filters` attribute:
+
+```jsx
+const filters = {
+	location: [
+		{ id: 'location1Id' }, // id field is required
+		{ id: 'location2Id' }, // id field is required
+		...
+	],
+	people: [
+		{ userId: 'userIdToFilter' }, // userId or
+		{ email: 'userEmailToFilter' } // user email is required
+		...
+	],
+	priority: ['P0', 'P1', 'P2'], // default supported values
+	status: ['OPEN', 'IN_PROGRESS', 'RESOLVED'], // default supported values
+	category: ['bug', 'feedback', 'question'], // default supported values
+};
+
+<velt-comments-sidebar></velt-comments-sidebar>
+<script>
+	const commentsSidebar = document.querySelector(`velt-comments-sidebar`);
+	commentsSidebar?.setAttribute("filters", JSON.stringify(filters));
+</script>
+```
+
+
+API Methods:
+```
+const commentElement = client.getCommentElement();
+commentElement.setCommentSidebarFilters(filters);
+```
+
+</Step>
 
 
 </Steps>
