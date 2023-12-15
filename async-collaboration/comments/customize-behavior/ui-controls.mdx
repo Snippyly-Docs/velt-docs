@@ -99,6 +99,22 @@ commentElement.disableScrollToComponent();
 
 </Step>
 
+<Step title="Enable pin highlighter outline">
+
+Wheter the pin highlighter outline is enabled or not.
+
+`Default: enabled`
+
+
+API Methods:
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableCommentPinHighlighter(); // to enable comment pin highlight
+commentElement.disableCommentPinHighlighter(); // to disable comment pin highlight
+```
+
+</Step>
+
 
 </Steps>
 
@@ -199,6 +215,21 @@ commentElement.disableScrollToComponent();
 
 </Step>
 
+<Step title="Enable pin highlighter outline">
+
+Wheter the pin highlighter outline is enabled or not.
+
+`Default: enabled`
+
+
+API Methods:
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableCommentPinHighlighter(); // to enable comment pin highlight
+commentElement.disableCommentPinHighlighter(); // to disable comment pin highlight
+```
+
+</Step>
 
 </Steps>
 
@@ -228,6 +259,10 @@ export default function YourDocument() {
       commentElement.disableMobileMode(); // 2
       commentElement.enableMinimap(); // 3
       commentElement.disableMinimap(); // 3  
+      commentElement.enableScrollToComponent(); // 4
+      commentElement.disableScrollToComponent(); // 4
+      commentElement.enableCommentPinHighlighter(); // 5
+      commentElement.disableCommentPinHighlighter(); // 5
     }
   })
 
@@ -262,6 +297,10 @@ if(Velt){
   commentElement.disableMobileMode(); // 2
   commentElement.enableMinimap(); // 3
   commentElement.disableMinimap(); // 3  
+  commentElement.enableScrollToComponent(); // 4
+  commentElement.disableScrollToComponent(); // 4
+  commentElement.enableCommentPinHighlighter(); // 5
+  commentElement.disableCommentPinHighlighter(); // 5
 }
 </script>
 
