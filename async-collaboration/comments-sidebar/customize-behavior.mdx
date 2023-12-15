@@ -157,7 +157,6 @@ const filterConfig = {
     enableGrouping: true, // to enable/disable grouping based on category filter
     multiSelection: true, // to enable/disable multiple selection
   },
-	...
 };
 
 <VeltCommentsSidebar filterConfig={filterConfig} />
@@ -184,19 +183,17 @@ const groupConfig = {
 <Step title="Programmatic Filters">
 
 
-You can configure the filters on the `comment sidebar` by passing an object to the `filters` attribute:
+You can progammically set the filters on the `comment sidebar` by passing an object to the `filters` attribute:
 
 ```jsx
 const filters = {
 	location: [
 		{ id: 'location1Id' }, // id field is required
 		{ id: 'location2Id' }, // id field is required
-		...
 	],
 	people: [
 		{ userId: 'userIdToFilter' }, // userId or
 		{ email: 'userEmailToFilter' } // user email is required
-		...
 	],
 	priority: ['P0', 'P1', 'P2'], // default supported values
 	status: ['OPEN', 'IN_PROGRESS', 'RESOLVED'], // default supported values
@@ -369,8 +366,7 @@ const filterConfig = {
     name: "Category", // customize category filter heading
     enableGrouping: true, // to enable/disable grouping based on category filter
     multiSelection: true, // to enable/disable multiple selection
-  },
-	...
+  }
 };
 
 <velt-comments-sidebar></velt-comments-sidebar>
@@ -405,19 +401,17 @@ const groupConfig = {
 <Step title="Programmatic Filters">
 
 
-You can configure the filters on the `comment sidebar` by passing an object to the `filters` attribute:
+You can progammically set the filters on the `comment sidebar` by passing an object to the `filters` attribute:
 
 ```jsx
 const filters = {
 	location: [
 		{ id: 'location1Id' }, // id field is required
 		{ id: 'location2Id' }, // id field is required
-		...
 	],
 	people: [
 		{ userId: 'userIdToFilter' }, // userId or
 		{ email: 'userEmailToFilter' } // user email is required
-		...
 	],
 	priority: ['P0', 'P1', 'P2'], // default supported values
 	status: ['OPEN', 'IN_PROGRESS', 'RESOLVED'], // default supported values
