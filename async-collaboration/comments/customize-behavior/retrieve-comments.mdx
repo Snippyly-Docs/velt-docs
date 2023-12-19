@@ -25,6 +25,22 @@ if (client) {
 }
 ```
 
+By default, `getAllCommentAnnotations` will return data for the current `documentId` and `location`.
+
+If you pass in a `documentId` to `getAllCommentAnnotations` as an argument, it will return all comments in the given `documentId`.
+
+If you pass in a `documentId` as the first argument and a `location` object as the second argument, it will return all comments in the given `documentId` and `location`.
+
+
+```js
+if (client) {
+  const commentElement = client.getCommentElement();
+  commentElement.getAllCommentAnnotations('my-document-id', { id:'my-location-id',locationName:"MainVideoPlayer",timestamp:120}).subscribe((comments) => {
+    // Get comments with my-document-id and my-locaiton-id
+  });
+}
+```
+
 </Step>
 
 
@@ -64,6 +80,23 @@ if (Velt) {
   });
 }
 ```
+
+By default, `getAllCommentAnnotations` will return data for the current `documentId` and `location`.
+
+If you pass in a `documentId` to `getAllCommentAnnotations` as an argument, it will return all comments in the given `documentId`.
+
+If you pass in a `documentId` as the first argument and a `location` object as the second argument, it will return all comments in the given `documentId` and `location`.
+
+
+```js
+if (Velt) {
+  const commentElement = Velt.getCommentElement();
+  commentElement.getAllCommentAnnotations('my-document-id', { id:'my-location-id',locationName:"MainVideoPlayer",timestamp:120}).subscribe((comments) => {
+    // Get comments with my-document-id and my-locaiton-id
+  });
+}
+```
+
 
 </Step>
 

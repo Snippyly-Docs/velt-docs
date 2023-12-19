@@ -32,9 +32,16 @@ A **Location** can be described using any plain JSON object and can be set using
 
 This object could represent your app's pages, sections, versions, video frames, or data points on maps/charts etc. 
 
+There are two important fields you should care about in your location object that are protected keywords: 
+- `id` - a unique ID to identify your location. It can be used by other methods to find or remove the location later. This field is required.
+- `locationName` - a name to describe your location. It is used by other Velt components, such as the `VeltCommentsSideBar`, to label your location. This field is optional but highly recommended.
+
+
+
 ```jsx
 client.setLocation({
   'id': 'locationId1',
+  'locationName': 'MainVideoPlayer',
   'page': 'mainPage',
   'version': 'v1.2',
   'videoFrame': '120'
@@ -51,6 +58,7 @@ To use a **Location** together with a **Document**, simply call the **setDocumen
 client.setDocumentId('some_document_id');
 client.setLocation({
   'id': 'locationId1',
+  'locationName': 'MainVideoPlayer',
   'page': 'mainPage',
   'version': 'v1.2',
   'videoFrame': '120'
@@ -68,6 +76,7 @@ client.setDocumentId('some_document_id');
 
 client.setLocation({
   'id': 'locationId1',
+  'locationName': 'Scene1LocationName',
   'page': 'scene1',
   'version': 'v1.2',
   'videoFrame': '120'
@@ -75,6 +84,7 @@ client.setLocation({
 
 client.setLocation({
   'id': 'locationId2',
+  'locationName': 'Scene2LocationName',
   'page': 'scene2',
   'version': 'v1.2',
   'videoFrame': '50'
@@ -82,6 +92,7 @@ client.setLocation({
 
 client.setLocation({
   'id': 'locationId3',
+  'locationName': 'Scene3LocationName',
   'page': 'scene3',
   'version': 'v1.2',
   'videoFrame': '80'
@@ -152,7 +163,7 @@ For an example, for a Collaborative Slide Presentation application, the **Docume
 
 As another example, for a Collaborative Video Editor, the **Document** would represent the entire video player while the **Location** would represent the timestamp of the video.
 
-<Tip> If a **Document** is like a house, a **Location** is like a room within the building. </Tip>
+<Tip> If a **Document** is like a house, a **Location** is like a room within the house. </Tip>
 
 **Locations** are _completely optional_, you can opt to use them or not. If the complexity of your application does not require the use of **Locations**, you can use **Documents** by themselves to group your users together.
 
@@ -162,9 +173,16 @@ A **Location** can be described using any plain JSON object and can be set using
 
 This object could represent your app's pages, sections, versions, video frames, or data points on maps/charts etc. 
 
+There are two important fields you should care about in your location object that are protected keywords: 
+- `id` - a unique ID to identify your location. It can be used by other methods to find or remove the location later. This field is required.
+- `locationName` - a name to describe your location. It is used by other Velt components, such as the `VeltCommentsSideBar`, to label your location. This field is optional but highly recommended.
+
+
+
 ```jsx
 Velt.setLocation({
   'id': 'locationId1',
+  'locationName': 'MainVideoPlayer',
   'page': 'mainPage',
   'version': 'v1.2',
   'videoFrame': '120'
@@ -182,6 +200,7 @@ if (Velt) {
   Velt.setDocumentId('some_document_id');
   Velt.setLocation({
     'id': 'locationId1',
+    'locationName': 'Scene1LocationName',
     'page': 'mainPage',
     'version': 'v1.2',
     'videoFrame': '120'
@@ -201,6 +220,7 @@ client.setDocumentId('some_document_id');
 
 client.setLocation({ 
   'id': 'locationId1',
+  'locationName': 'Scene1LocationName',
   'page': 'scene1',
   'version': 'v1.2',
   'videoFrame': '120'
@@ -208,6 +228,7 @@ client.setLocation({
 
 client.setLocation({
   'id': 'locationId2',
+  'locationName': 'Scene2LocationName',
   'page': 'scene2',
   'version': 'v1.2',
   'videoFrame': '50'
@@ -215,6 +236,7 @@ client.setLocation({
 
 client.setLocation({
   'id': 'locationId3',
+  'locationName': 'Scene3LocationName',
   'page': 'scene3',
   'version': 'v1.2',
   'videoFrame': '80'
@@ -291,6 +313,7 @@ export default function YourDocument() {
         //Set Location
         client.setLocation({
             'id': 'locationId1',
+            'locationName': 'Scene1LocationName',
             'page': 'mainPage',
             'version': 'v1.2',
             'videoFrame': '120'
@@ -301,6 +324,7 @@ export default function YourDocument() {
         //Add another Location
         client.setLocation({
             'id': 'locationId2',
+            'locationName': 'Scene2LocationName',
             'page': 'mainPage',
             'version': 'v1.2',
             'videoFrame': '240'
@@ -338,6 +362,7 @@ export default function YourDocument() {
           // Set Location
           Velt.setLocation({ 
             'id': 'locationId1',
+            'locationName': 'Scene1LocationName',
             'page': 'mainPage',
             'version': 'v1.2',
             'videoFrame': '120'
@@ -348,6 +373,7 @@ export default function YourDocument() {
           //Add another Location
           client.setLocation({
               'id': 'locationId2',
+              'locationName': 'Scene2LocationName',
               'page': 'mainPage',
               'version': 'v1.2',
               'videoFrame': '240'
