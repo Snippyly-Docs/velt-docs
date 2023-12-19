@@ -140,6 +140,10 @@ export default function YourDocument() {
       commentElement.getAllCommentAnnotations().subscribe((comments) => {
         // Do something with comments
       });
+
+      commentElement.getAllCommentAnnotations('my-document-id', { id:'my-location-id',locationName:"MainVideoPlayer",timestamp:120}).subscribe((comments) => {
+        // Get comments with my-document-id and my-locaiton-id
+      });
     }
     
 
@@ -164,6 +168,10 @@ export default function YourDocument() {
     commentElement.getAllCommentAnnotations().subscribe((comments) => {
       // Do something with comments
     });
+
+    commentElement.getAllCommentAnnotations('my-document-id', { id:'my-location-id',locationName:"MainVideoPlayer",timestamp:120}).subscribe((comments) => {
+    // Get comments with my-document-id and my-locaiton-id
+  });
   }
 </script>
 </body>
