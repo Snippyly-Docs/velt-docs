@@ -87,7 +87,7 @@ client.setDocumentId('unique-document-id');
 ```
 </Step>
 
-<Step title="Add the VeltComments, VeltCommentsTool and VeltPresence components">
+<Step title="Add the VeltComments, VeltCommentTool and VeltPresence components">
 In **App.js**, add `VeltComments` and `VeltPresence` to enable the `Comments` and `Presence` functionality.
 
 ```js App.js
@@ -99,19 +99,19 @@ In **App.js**, add `VeltComments` and `VeltPresence` to enable the `Comments` an
 </VeltProvider>
 ```
 
-In **YourDocument.js**, add the `VeltCommentsTool`to test out the `Comments` functionality.
+In **YourDocument.js**, add the `VeltCommentTool`to test out the `Comments` functionality.
 
 ```js YourDocument.js
 <div>
-  <VeltCommentsTool/>
+  <VeltCommentTool/>
 </div>
 ```
 </Step>
 
 <Step title="Test out the Presence and Comments functionality">
 ### Comments 
-- Click the `VeltCommentsTool` button, then hover over any element on the page to leave a comment.
-- Click the `VeltCommentsTool` button, then try to draw a box on the page to leave a comment.
+- Click the `VeltCommentTool` button, then hover over any element on the page to leave a comment.
+- Click the `VeltCommentTool` button, then try to draw a box on the page to leave a comment.
 - You can also highlight any text to leave a comment.
 
 ### Presence
@@ -217,7 +217,7 @@ export default function YourAuthComponent() {
 ```
 
 ```jsx YourDocument.js
-import { useVeltClient, VeltCommentsTool, VeltPresence } from '@veltdev/react';
+import { useVeltClient, VeltCommentTool, VeltPresence } from '@veltdev/react';
 import { useEffect, useState } from 'react';
 
 export default function YourDocument() {
@@ -234,7 +234,7 @@ export default function YourDocument() {
 
   return (
     <div>
-      <VeltCommentsTool/>
+      <VeltCommentTool/>
     </div>
     
   );
