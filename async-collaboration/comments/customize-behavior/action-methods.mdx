@@ -10,13 +10,13 @@ title: "Action Methods"
 
 <Steps titleSize="h2">
 
-<Step title="Delete comment">
-To delete a comment using an API method, use the `deleteComment()` method.
+<Step title="Delete selected comment">
+To delete a comment using an API method, use the `deleteSelectedComment()` method.
 
 ```jsx
 if (client) {
   const commentElement = client.getCommentElement();
-  commentElement.deleteComment();
+  commentElement.deleteSelectedComment();
 }
 ```
 </Step>
@@ -94,13 +94,13 @@ commentElement.addCommentOnElement(element);
 
 <Steps titleSize="h2">
 
-<Step title="Delete comment">
-To delete a comment using an API method, use the `deleteComment()` method.
+<Step title="Delete selected comment">
+To delete a comment using an API method, use the `deleteSelectedComment()` method.
 
 ```jsx
 if (Velt) {
   const commentElement = Velt.getCommentElement();
-  commentElement.deleteComment();
+  commentElement.deleteSelectedComment();
 }
 ```
 </Step>
