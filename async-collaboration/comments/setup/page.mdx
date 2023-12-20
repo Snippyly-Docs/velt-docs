@@ -1,5 +1,5 @@
 ---
-title: "Setup"
+title: "Page Mode Setup"
 ---
 {/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
 <script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
@@ -10,7 +10,7 @@ title: "Setup"
 
 <Steps titleSize="h2">
 
-<Step title="Import Comments Sidebar Components">
+<Step title="Import CommentsSidebar Components">
 
 Import the Comments Sidebar Components.
 
@@ -28,11 +28,21 @@ import {
 <Step title="Add Comments and Sidebar components">
 Add the `VeltComments` and `VeltCommentsSidebar` components to the root of your app.
 
-```jsx 
+```jsx
 <div>
   <VeltComments />
   <VeltCommentsSidebar />
 </div>
+```
+
+</Step>
+
+
+<Step title="Enable Page Mode">
+Set the `pageMode` attribute to true on the `VeltCommentsSidebar` component.
+
+```js App.js
+  <VeltCommentsSidebar pageMode={true}/>
 ```
 
 </Step>
@@ -52,15 +62,14 @@ This is completely optional and you can toggle the sidebar in the comment dialog
 </Step>
 
 
-<Step title="Test Integration">
-Test it out by opening the sidebar.
 
-You should be able to click the `All comments` link in a comment dialog box on the bottom.
+
+<Step title="Test Page Mode">
+Test Page Mode out by opening the sidebar. You should be able to leave Page Mode comments at the bottom of the Comments Sidebar.
 
 </Step>
 
 </Steps>
-
 
 
 </Tab>
@@ -87,17 +96,35 @@ async function loadVelt() {
 
 <Step title="Place the `<velt-comments-sidebar>` component">
 Place the `<velt-comments-sidebar>` component at the root of your app.
-```html
+```html 
 <velt-comments-sidebar></velt-comments-sidebar>
 ```
 </Step>
 
+
+<Step title="Enable Page Mode">
+Enable Page Mode by setting the `page-mode` attribute to `true` on the `<velt-comments-sidebar>` component.
+
+```html 
+<velt-comments-sidebar page-mode="true"></velt-comments-sidebar>
+```
+</Step>
+
+
+
+
 <Step title="Place the `<velt-sidebar-button>` component">
 Place the `<velt-sidebar-button>` component wherever you want the toggle button to appear.
 
-```html
+```html 
 <velt-sidebar-button></velt-sidebar-button>
 ```
+
+</Step>
+
+
+<Step title="Test Page Mode">
+Test Page Mode out by opening the sidebar. You should be able to leave Page Mode comments at the bottom of the Comments Sidebar.
 
 </Step>
 
