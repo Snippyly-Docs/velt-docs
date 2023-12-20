@@ -19,7 +19,7 @@ The `onCommentAdd` event is emitted when a new comment is created. You can add a
 <VeltComments onCommentAdd={(event) => yourMethod(event)} />
 ````
 
-#### onCommentAdd Event Schema
+#### onCommentAdd Event Data Schema
 
 <ResponseField name="documentId" type="string">
 The document ID where the comment was added
@@ -31,6 +31,14 @@ The location where the comment was added
 
 <ResponseField name="addContext" type="Function">
 Use this to set custom data on the comment
+</ResponseField>
+
+<ResponseField name="targetAnnotationId" type="string">
+The id of the target annotation
+</ResponseField>
+
+<ResponseField name="annotation" type="CommentAnnotation">
+The annotation that is associated with the comment that was updated
 </ResponseField>
 
 </Step>
@@ -61,7 +69,7 @@ The `onCommentUpdate` event is emitted when a comment is updated.
 <VeltComments onCommentUpdate={(event) => yourMethod(event)} />
 ````
 
-#### onCommentUpdate Event Schema
+#### onCommentUpdate Event Data Schema
 
 
 <ResponseField name="annotation" type="CommentAnnotation">
