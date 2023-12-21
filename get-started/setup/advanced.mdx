@@ -28,6 +28,7 @@ You can inject CSS with our special `client.injectCustomCss()` method.
 
 ### Passing style definition via string
 
+```jsx
 client?.injectCustomCss({
   type: 'styles',
   value: `
@@ -38,12 +39,16 @@ client?.injectCustomCss({
     }
   `
 });
+```
 
 ### Passing style via link.
+
+```jsx
 client?.injectCustomCss({
   type: 'link',
   value: '/relative_path_to_css/styles.css' // you could also pass the absolute link: 'https://yourappdomain.com/pathtocss/styles.css'
 });
+```
 
 </Tab>
   
@@ -70,6 +75,7 @@ You can inject CSS with our special `Velt.injectCustomCss()` method.
 
 ### Passing style definition via string
 
+```jsx
 Velt?.injectCustomCss({
   type: 'styles',
   value: `
@@ -80,12 +86,16 @@ Velt?.injectCustomCss({
     }
   `
 });
+```
 
 ### Passing style via link.
+
+```jsx
 Velt?.injectCustomCss({
   type: 'link',
   value: '/relative_path_to_css/styles.css' // you could also pass the absolute link: 'https://yourappdomain.com/pathtocss/styles.css'
 });
+```
 
 </Tab>
 
