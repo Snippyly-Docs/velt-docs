@@ -74,11 +74,17 @@ This gives you a lot of flexibility as you can place this component anywhere and
 ```js
 <div class="table">
   <div className="cell" id="cell-id-1">
+    <VeltCommentTool
+      targetCommentElementId="cell-id-1"
+    />
     <VeltCommentBubble
       targetCommentElementId="cell-id-1"
     />
   </div>
   <div className="cell" id="cell-id-2">
+    <VeltCommentTool
+      targetCommentElementId="cell-id-2"
+    />
     <VeltCommentBubble
       targetCommentElementId="cell-id-2"
     />
@@ -159,12 +165,19 @@ This gives you a lot of flexibility as you can place this component anywhere and
 
 ```html
 <div class="table">
+
   <div className="cell" id="cell-id-1">
+    <velt-comment-tool
+      targetCommentElementId="cell-id-1"
+    ></velt-comment-tool>
     <velt-comment-bubble>
       targetCommentElementId="cell-id-1"
     ><velt-comment-bubble>
   </div>
   <div className="cell" id="cell-id-2">
+    <velt-comment-tool
+      targetCommentElementId="cell-id-2"
+    ></velt-comment-tool>
     <velt-comment-bubble>
       targetCommentElementId="cell-id-2"
     ><velt-comment-bubble>
