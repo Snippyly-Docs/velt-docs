@@ -46,22 +46,18 @@ Location data attributes are mandatory if you are using multiple locations.
 
 If you have elements representing multiple locations displayed on the same page, then you can bind them to a `location` using the `data-velt-location` attribute.
 
-Add the `data-velt-location` attribute to the container of an element where you want to link your location.
-
-You can link your location to the element by passing a key value pair that exists within the location on the data attribute.
+Stringify and pass the location object as value to the data attribute.
 
 <Warning>
-Be sure to convert the key value pair to a string before passing it to the data attribute. Also be sure to add a unique id to each of the containers.
+Be sure to Stringify the location object before passing it to the data attribute. Also be sure to add a unique id to each of the containers for extra robustness.
 </Warning>
 
 
 ```html 
-<div class="container">
-  // If you want to add comments to location {"key1": "value1"}, if it is added inside below div
-  // then add location attribute to below div as mentioned here
-  <div id="container-id" class="sub-container" data-velt-location='{"key1": "value1"}'>
+<div class="page">
+  <div id="location1-container-id" data-velt-location='{"key1": "value1"}'>
     <div class="card">
-      ... any content ...
+      // any content
     </div>
   </div>
 </div>
