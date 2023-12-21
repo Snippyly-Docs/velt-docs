@@ -1,0 +1,24 @@
+## Setting a Location
+
+A **Location** can be described using any plain JSON object and can be set using the `client.setLocation()` method.
+
+This object could represent your app's pages, sections, versions, video frames, or data points on maps/charts etc. 
+
+There are two important fields you should care about in your `location` object that are protected keywords: 
+- `id` - a unique ID to identify your location. It can be used by other methods to find or remove the location later. This field is required.
+- `locationName` - a name to describe your location. It is used by other Velt components, such as the `VeltCommentsSideBar`, to label your location. This field is optional but highly recommended.
+
+
+```jsx
+let client = useVeltClient()
+client.setLocation({
+  'id': 'locationId1',
+  'locationName': 'MainVideoPlayer',
+  'page': 'mainPage',
+  'version': 'v1.2',
+  'videoFrame': '120'
+  // You can keep adding more field to make the location very specific.
+  // The field names can be anything.
+})
+```
+

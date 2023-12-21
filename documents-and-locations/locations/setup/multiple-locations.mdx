@@ -1,0 +1,81 @@
+
+## Adding multiple Locations
+
+There are two main steps to adding multiple locations that are both required:
+ 1. adding additional locations with `setLocation()`
+ 2. adding `location data attributes` to the container elements that represent your multiple locations
+
+<Steps>
+<Step title="Adding Multiple Locations with setLocation ">
+To add multiple locations that are meant to be active at the same time, use the `client.setLocation()` method and pass in `true` as the second parameter. 
+
+```jsx
+client.setDocumentId('some_document_id');
+
+client.setLocation({ 
+  'id': 'locationId1',
+  'locationName': 'Scene1LocationName',
+  'page': 'scene1',
+  'version': 'v1.2',
+  'videoFrame': '120'
+}, true)
+
+client.setLocation({
+  'id': 'locationId2',
+  'locationName': 'Scene2LocationName',
+  'page': 'scene2',
+  'version': 'v1.2',
+  'videoFrame': '50'
+}, true)
+
+client.setLocation({
+  'id': 'locationId3',
+  'locationName': 'Scene3LocationName',
+  'page': 'scene3',
+  'version': 'v1.2',
+  'videoFrame': '80'
+}, true)
+```
+
+</Step>
+
+
+<Step title="Location data attributes">
+
+Location data attributes are mandatory if you are using multiple locations.
+
+If you have multiple locations and want to designate a container to represent a location you can use the `data-velt-location` attribute.
+
+Add the `data-velt-location` attribute to the top level of an element where you want to link your location.
+
+You can link your location to the element by passing a key value pair that exists within the location on the data attribute.
+
+<Warning>
+Be sure to convert the key value pair to a string before passing it to the data attribute. Also be sure to add a unique id to each of the containers.
+</Warning>
+
+
+```html 
+<div class="container">
+  // If you want to add comments to location {"key1": "value1"}, if it is added inside below div
+  // then add location attribute to below div as mentioned here
+  <div id="container-id" class="sub-container" data-velt-location='{"key1": "value1"}'>
+    <div class="card">
+      ... any content ...
+    </div>
+  </div>
+</div>
+```
+
+
+
+
+</Step>
+
+</Steps>
+
+
+
+
+
+

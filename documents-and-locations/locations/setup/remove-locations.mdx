@@ -1,0 +1,40 @@
+
+## Adding multiple Locations
+
+
+<Steps>
+
+
+<Step title="Removing all Locations">
+
+To remove all locations, use the `client.removeLocation()` method.
+
+```jsx
+client.removeLocation()
+```
+
+
+</Step>
+
+<Step title="Removing specific Locations">
+
+If you have added multiple locations and only want to remove one of them, you can remove it by using `client.removeLocation()` and by passing in the exact location object you want to remove.
+
+```jsx
+// remove specific location
+const locationToRemove = {
+	// your custom location object
+}
+Velt.removeLocation(locationToRemove);
+```
+
+
+</Step>
+
+</Steps>
+
+
+
+
+
+

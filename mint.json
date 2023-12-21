@@ -65,6 +65,28 @@
       ]
     },
     {
+      "group": "Documents and locations",
+      "pages": [
+        "documents-and-locations/overview",
+        {
+          "group": "Documents",
+          "pages": [
+            "documents-and-locations/documents/setup"
+          ]
+        },
+        {
+          "group": "Locations",
+          "pages": [
+            "documents-and-locations/locations/setup/setup",
+            "documents-and-locations/locations/setup/multiple-locations",
+            "documents-and-locations/locations/setup/remove-locations",
+            "documents-and-locations/locations/setup/api-update-location",
+            "documents-and-locations/locations/setup/api-delete-data-by-location"            
+          ]
+        }       
+      ]
+    },
+    {
       "group": "Realtime Collaboration",
       "pages": [
         {
