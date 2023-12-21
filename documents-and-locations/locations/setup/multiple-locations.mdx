@@ -2,11 +2,11 @@
 ## Adding multiple Locations
 
 There are two main steps to adding multiple locations that are both required:
- 1. adding additional locations with `setLocation()`
- 2. adding `location data attributes` to the container elements that represent your multiple locations
+ 1. Add additional locations with `setLocation()`.
+ 2. Bind location container elements on the page to `locations` using location data attribute.
 
 <Steps>
-<Step title="Adding Multiple Locations with setLocation ">
+<Step title="Adding additional locations with setLocation()">
 To add multiple locations that are meant to be active at the same time, use the `client.setLocation()` method and pass in `true` as the second parameter. 
 
 ```jsx
@@ -40,13 +40,13 @@ client.setLocation({
 </Step>
 
 
-<Step title="Location data attributes">
+<Step title="Mark location containers with data attributes">
 
 Location data attributes are mandatory if you are using multiple locations.
 
-If you have multiple locations and want to designate a container to represent a location you can use the `data-velt-location` attribute.
+If you have elements representing multiple locations displayed on the same page, then you can bind them to a `location` using the `data-velt-location` attribute.
 
-Add the `data-velt-location` attribute to the top level of an element where you want to link your location.
+Add the `data-velt-location` attribute to the container of an element where you want to link your location.
 
 You can link your location to the element by passing a key value pair that exists within the location on the data attribute.
 
