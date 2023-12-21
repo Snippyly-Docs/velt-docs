@@ -9,23 +9,14 @@ title: "Setup"
 <Steps>
 
 <Step title="Generate Auth Token">
-a. Open the Velt Console at [console.velt.dev](https://console.velt.dev)
 
-b. Under the Auth Token section, click on Generate Token button:
+Follow [these steps](/security/auth-tokens) to generate and copy your Auth Token.
 
-![](https://files.readme.io/78efa84-image.png)
-
-c. Copy the generated token
-
-![](https://files.readme.io/97c5e80-image.png)
-
-d. Click on Save button to save the token.
-
+</Info>
 
 </Step>
 
-<Step title="Send POST request">
-a. Prepare a POST request:
+<Step title="Prepare POST request">
 
 Now, prepare a POST API request using the JSON data mentioned below.
 
@@ -57,9 +48,14 @@ Replace your_token_here with the token you copied earlier. Replace `your_api_key
 }
 ```
 
+</Step>
+
+<Step>
+
+
 b. Send the POST request
 
-Finally, send the POST API request to https://us-central1-snippyly-sdk-prod.cloudfunctions.net/addSystemComment API endpoint.
+Finally, send the POST API request to the `https://addsystemcomment.api.velt.dev` API endpoint.
 
 If the request is successful, you should receive a 200 OK HTTP status code, along with a response from the server confirming that the comment has been added.
 
