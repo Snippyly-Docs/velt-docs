@@ -369,6 +369,12 @@
       ]
     },
     {
+      "group": "Security",
+      "pages": [  
+        "security/content-security-policy"
+      ]
+    },
+    {
       "group": "Examples",
       "pages": [
         "examples/overview",
