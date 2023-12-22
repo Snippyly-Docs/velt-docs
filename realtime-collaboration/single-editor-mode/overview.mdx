@@ -292,7 +292,7 @@ liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
 
 </Step>
 
-<Step title="Setting the editor access timeout value">
+<Step title="Setting timeout value for automatic editor access transfer after request">
 
 The `setEditorAccessTimeout()` method is used to set the editor access timeout value in seconds.
 
@@ -323,8 +323,6 @@ liveStateSyncElement.enableEditorAccessTransferOnTimeOut();
 
 The `disableEditorAccessTransferOnTimeOut()` method is used to disable automatic transferring of editor access after timeout.
 
-`Default: enabled`
-
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.disableEditorAccessTransferOnTimeOut();
@@ -332,11 +330,15 @@ liveStateSyncElement.disableEditorAccessTransferOnTimeOut();
 
 </Step>
 
-<Step title="Enable single editor UI">
+<Step title="Enable default Single Editor UI">
 
-In single editor mode, by default there is a small popup at the bottom of the screen that shows whether you are the editor or not and whether other viewers are trying to request editor access.
+In Single Editor mode, by default there is a small toast at the bottom of the screen that shows:
+- whether you are the editor or viewer
+- whether any other viewer has requested editor access
+- access request timeout coundown
+- option to reject request
 
-To enable this pop up, you can use the `enableDefaultSingleEditorUI()` method.
+To enable this toast, you can use the `enableDefaultSingleEditorUI()` method.
 
 `Default: enabled`
 
@@ -350,13 +352,15 @@ liveStateSyncElement.enableDefaultSingleEditorUI();
 
 <Step title="Disable single editor UI">
 
-In single editor mode, by default there is a small popup at the bottom of the screen that shows whether you are the editor or not and whether other viewers are trying to request editor access.
+In Single Editor mode, by default there is a small toast at the bottom of the screen that shows:
+- whether you are the editor or viewer
+- whether any other viewer has requested editor access
+- access request timeout coundown
+- option to reject request
 
-You can choose to disable this popup in favor of using your own custom UI.
+You can choose to disable this toast in favor of using your own custom UI.
 
 To disable this pop up, you can use the `disableDefaultSingleEditorUI()` method.
-
-`Default: enabled`
 
 
 ```jsx
