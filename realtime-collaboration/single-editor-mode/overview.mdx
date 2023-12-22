@@ -778,11 +778,55 @@ function MyComponent(){
         //Reset Editor Access
         liveStateSyncElement.resetUserAccess();
 
-	//Enable Auto Sync State
+	    //Enable Auto Sync State
         liveStateSyncElement.enableAutoSyncState();
 
         //Restrict Auto Sync Access to Specified Parent Elements
         liveStateSyncElement.singleEditorModeContainerIds(['element-1','element-2'])
+
+        //Request editor access from the current editor
+        liveStateSyncElement.requestEditorAccess().subscribe((data) => {
+            // data == null -> Request is pending
+            // data == true -> Request accepted by editor
+            // data == false -> Request rejected by editor
+            
+        });
+       
+        // Check whether editor access is being requested
+        liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
+        // data == true -> Editor access requested by viewer
+        // data == false -> Editor access not requested
+            if(data === true){
+
+                // To accept an editor access request
+                liveStateSyncElement.acceptEditorAccessRequest();
+
+                // To reject an editor access request
+                liveStateSyncElement.rejectEditorAccessRequest();
+
+
+
+            }
+
+        });
+
+        // Setting the editor access timeout value
+        liveStateSyncElement.setEditorAccessTimeout(15); // in seconds
+
+        // Enable automatic transfer of edit access after timeout
+        liveStateSyncElement.enableEditorAccessTransferOnTimeOut();
+
+        // Disable automatic transfer of edit access after timeout
+        liveStateSyncElement.disableEditorAccessTransferOnTimeOut();
+
+        // Enable single editor UI
+        liveStateSyncElement.enableDefaultSingleEditorUI();
+
+        // Disable single editor UI
+        liveStateSyncElement.disableDefaultSingleEditorUI();
+
+
+
     },[])
     return (
         <div>
@@ -831,6 +875,47 @@ if(Velt){
 
     //Restrict Auto Sync Access to Specified Parent Elements
     liveStateSyncElement.singleEditorModeContainerIds(['element-1','element-2']);
+
+    //Request editor access from the current editor
+    liveStateSyncElement.requestEditorAccess().subscribe((data) => {
+        // data == null -> Request is pending
+        // data == true -> Request accepted by editor
+        // data == false -> Request rejected by editor
+        
+    });
+    
+    // Check whether editor access is being requested
+    liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
+    // data == true -> Editor access requested by viewer
+    // data == false -> Editor access not requested
+        if(data === true){
+
+            // To accept an editor access request
+            liveStateSyncElement.acceptEditorAccessRequest();
+
+            // To reject an editor access request
+            liveStateSyncElement.rejectEditorAccessRequest();
+
+
+
+        }
+
+    });
+
+    // Setting the editor access timeout value
+    liveStateSyncElement.setEditorAccessTimeout(15); // in seconds
+
+    // Enable automatic transfer of edit access after timeout
+    liveStateSyncElement.enableEditorAccessTransferOnTimeOut();
+
+    // Disable automatic transfer of edit access after timeout
+    liveStateSyncElement.disableEditorAccessTransferOnTimeOut();
+
+    // Enable single editor UI
+    liveStateSyncElement.enableDefaultSingleEditorUI();
+
+    // Disable single editor UI
+    liveStateSyncElement.disableDefaultSingleEditorUI();
 
 }
 </script>
