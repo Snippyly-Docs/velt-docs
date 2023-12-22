@@ -170,7 +170,7 @@ liveStateSyncElement.resetUserAccess();
 
 Call `requestEditorAccess()` from a Viewer's client to get editor access from the current editor. 
 
-The callback function will return:
+It returns a subscription that emits:
 - `null` if the request is pending
 - `true` if the request went accepted by the editor
 - `false` if the request was rejected by the editor
@@ -473,7 +473,7 @@ liveStateSyncElement.isUserEditor().subscribe((isUserEditor) => {
 
 The `requestEditorAccess()` method is used to attempt to gain editor access from the current editor. 
 
-The callback function will return:
+It returns a subscription that emits:
 - `null` if the request is pending
 - `true` if the request went accepted by the editor
 - `false` if the request was rejected by the editor
@@ -496,7 +496,7 @@ liveStateSyncElement.requestEditorAccess().subscribe((data) => {
 The `isEditorAccessRequested()` method is used to detect on the editor's client whether a non-editor has requested editor access or not. 
 
 
-The callback function will return:
+It returns a subscription that emits:
 - `true` if editor access is being requested by a non-editor
 - `false` if editor access is not being requested by a non-editor
 
