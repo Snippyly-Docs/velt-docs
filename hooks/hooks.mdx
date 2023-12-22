@@ -191,6 +191,25 @@ export default function YourDocument() {
 }
 ```
 
+## useEditorAccessRequestHandler()
+
+Hook that calls `liveStateSyncElement.isEditorAccessRequested()`
+
+```jsx
+import { useEditorAccessRequestHandler } from '@veltdev/react';
+
+export default function YourDocument= () {
+	const editorAccessRequested = useEditorAccessRequestHandler();
+
+
+  return (
+    <div>
+        Is Editor Access Being Requested? : {editorAccessRequested}
+    </div>
+  )
+}
+```
+
 ## usePresenceUtils()
 
 Hook that calls `client.getPresenceElement()`.
