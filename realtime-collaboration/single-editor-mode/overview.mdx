@@ -7,10 +7,7 @@
 
 With Single Editor Mode, only one user will be able to edit the document at any given time. All other users live on the document will automatically be read-only. 
 
-
-<Steps>
-
-<Step title="Accessing the LiveStateSyncElement">
+### Accessing the LiveStateSyncElement
 
 The `LiveStateSyncElement` contains all of the methods used to interact with the `single editor mode` and `live state sync` features.
 
@@ -25,10 +22,12 @@ const liveStateSyncElement = client.getLiveStateSyncElement();
 ### Accessing via a hook
 
 ```jsx
-  let liveStateSyncElement = useLiveSelectionUtils()
+let liveStateSyncElement = useLiveSelectionUtils();
 ```
 
-</Step>
+<Steps>
+
+
 
 <Step title="Enable Single Editor Mode">
 
@@ -409,25 +408,7 @@ liveStateElement.singleEditorModeContainerIds(["rightPanel"]);
     <Tab title="HTML">
 
 
-<Step title="Accessing the LiveStateSyncElement">
 
-The `LiveStateSyncElement` contains all of the methods used to interact with the `single editor mode` and `live state sync` features.
-
-There are two ways to access the `LiveStateSyncElement`.
-
-### Accessing via the Velt client object
-
-```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
-```
-
-### Accessing via a hook
-
-```jsx
-  let liveStateSyncElement = useLiveSelectionUtils()
-```
-
-</Step>
 
 ## Single Editor Mode
 
@@ -435,6 +416,7 @@ With Single Editor Mode, only one user will be able to edit the document at any 
 
 
 <Steps>
+
 
 <Step title="Enable Single Editor Mode">
 
@@ -494,25 +476,7 @@ liveStateSyncElement.isUserEditor().subscribe((isUserEditor) => {
 });
 ```
 
-Using Hooks:
 
-The `useUserEditorState()` hook is used to call `liveStateSyncElement.isUserEditor()` without having to handle the subscription.
-
-```jsx
-import { useUserEditorState} from '@veltdev/react';
-
-export default function YourDocument() {
-
-  let isEditor = useUserEditorState()
-  console.log("Is User Editor?: ", isEditor)
-
-  return (
-    <div>
-        Is User Editor?: {isEditor}
-    </div>
-  )
-}
-```
 
 </Step>
 
@@ -555,25 +519,7 @@ liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
 });
 ```
 
-Using Hooks:
 
-The `useEditorAccessRequestHandler()` hook is used to call `liveStateSyncElement.isEditorAccessRequested()` without having to handle the subscription.
-
-
-```jsx
-import { useEditorAccessRequestHandler } from '@veltdev/react';
-
-export default function YourDocument= () {
-	const editorAccessRequested = useEditorAccessRequestHandler();
-
-
-  return (
-    <div>
-        Is Editor Access Being Requested? : {editorAccessRequested}
-    </div>
-  )
-}
-```
 
 </Step>
 
