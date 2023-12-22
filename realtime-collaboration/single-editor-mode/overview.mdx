@@ -166,7 +166,7 @@ liveStateElement.singleEditorModeContainerIds(["rightPanel"]);
 
 <Step title="Request editor access from the current editor">
 
-The `requestEditorAccess().subscribe()` method is used to attempt to gain editor access from the current editor. 
+The `requestEditorAccess()` method is used to attempt to gain editor access from the current editor. 
 
 The callback function will return:
 - `null` if the request is pending
@@ -188,7 +188,7 @@ liveStateSyncElement.requestEditorAccess().subscribe((data) => {
 
 <Step title="Check whether editor access is being requested">
 
-The `isEditorAccessRequested().subscribe()` method is used to detect on the editor's client whether a non-editor has requested editor access or not. 
+The `isEditorAccessRequested()` method is used to detect on the editor's client whether a non-editor has requested editor access or not. 
 
 
 The callback function will return:
@@ -489,6 +489,168 @@ liveStateElement.singleEditorModeContainerIds(["rightPanel"]);
 
 </Step>
 
+
+<Step title="Request editor access from the current editor">
+
+The `requestEditorAccess()` method is used to attempt to gain editor access from the current editor. 
+
+The callback function will return:
+- `null` if the request is pending
+- `true` if the request went accepted by the editor
+- `false` if the request was rejected by the editor
+
+```jsx
+const liveStateSyncElement = client.getLiveStateSyncElement();
+liveStateSyncElement.requestEditorAccess().subscribe((data) => {
+	// data == null -> Request is pending
+	// data == true -> Request accepted by editor
+    // data == false -> Request rejected by editor
+});
+```
+
+</Step>
+
+
+
+<Step title="Check whether editor access is being requested">
+
+The `isEditorAccessRequested()` method is used to detect on the editor's client whether a non-editor has requested editor access or not. 
+
+
+The callback function will return:
+- `true` if editor access is being requested by a non-editor
+- `false` if editor access is not being requested by a non-editor
+
+```jsx
+const liveStateSyncElement = client.getLiveStateSyncElement();
+liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
+  // data == true -> Editor access requested by viewer
+  // data == false -> Editor access not requested
+});
+```
+
+
+
+</Step>
+
+<Step title="To accept an editor access request">
+
+The 'acceptEditorAccessRequest()' method is used by the current editor to `accept` an editor access request.
+
+```jsx
+const liveStateSyncElement = client.getLiveStateSyncElement();
+liveStateSyncElement.acceptEditorAccessRequest();
+```
+
+To use with `isEditorAccessRequested()`:
+```jsx
+liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
+  // data == true -> Editor access requested by viewer
+  // data == false -> Editor access not requested
+  if(data === true){
+    liveStateSyncElement.acceptEditorAccessRequest();
+  }
+});
+```
+
+</Step>
+
+<Step title="To reject an editor access request">
+
+The 'rejectEditorAccessRequest()' method is used by the current editor to `reject` an editor access request.
+
+```jsx
+const liveStateSyncElement = client.getLiveStateSyncElement();
+liveStateSyncElement.rejectEditorAccessRequest();
+```
+
+To use with `isEditorAccessRequested()`:
+```jsx
+liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
+  // data == true -> Editor access requested by viewer
+  // data == false -> Editor access not requested
+  if(data === true){
+    liveStateSyncElement.rejectEditorAccessRequest();
+  }
+});
+```
+
+
+</Step>
+
+<Step title="Setting the editor access timeout value">
+
+The `setEditorAccessTimeout()` method is used to set the editor access timeout value in seconds.
+
+`Default: 5 seconds`
+
+```jsx
+const liveStateSyncElement = client.getLiveStateSyncElement();
+liveStateSyncElement.setEditorAccessTimeout(15); // in seconds
+```
+
+</Step>
+
+<Step title="Enable automatic transfer of edit access after timeout">
+
+The `enableEditorAccessTransferOnTimeOut()` method is used to enable automatic transferring of editor access after timeout.
+
+`Default: enabled`
+
+```jsx
+const liveStateSyncElement = client.getLiveStateSyncElement();
+liveStateSyncElement.enableEditorAccessTransferOnTimeOut();
+```
+
+
+</Step>
+
+<Step title="Disable automatic transfer of edit access after timeout">
+
+The `enableEditorAccessTransferOnTimeOut()` method is used to disable automatic transferring of editor access after timeout.
+
+`Default: enabled`
+
+```jsx
+const liveStateSyncElement = client.getLiveStateSyncElement();
+liveStateSyncElement.disableEditorAccessTransferOnTimeOut();
+```
+
+</Step>
+
+<Step title="Enable single editor UI">
+
+In single editor mode, by default there is a small popup at the bottom of the screen that shows whether you are the editor or not and whether other viewers are trying to request editor access.
+
+To enable this pop up, you can use the `enableDefaultSingleEditorUI()` method.
+
+`Default: enabled`
+
+
+```jsx
+const liveStateSyncElement = client.getLiveStateSyncElement();
+liveStateSyncElement.enableDefaultSingleEditorUI();
+```
+
+</Step>
+
+<Step title="Disable single editor UI">
+
+In single editor mode, by default there is a small popup at the bottom of the screen that shows whether you are the editor or not and whether other viewers are trying to request editor access.
+
+You can choose to disable this popup in favor of using your own custom UI.
+
+To disable this pop up, you can use the `disableDefaultSingleEditorUI()` method.
+
+`Default: enabled`
+
+
+```jsx
+const liveStateSyncElement = client.getLiveStateSyncElement();
+liveStateSyncElement.disableDefaultSingleEditorUI();
+```
+
+</Step>
 
 
 </Steps>
