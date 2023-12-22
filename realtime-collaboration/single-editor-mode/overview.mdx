@@ -7,7 +7,13 @@
 
 With Single Editor Mode, only one user will be able to edit the document at any given time. All other users live on the document will automatically be read-only. 
 
-### Accessing the LiveStateSyncElement
+
+
+
+<Steps>
+
+
+<Step title="Accessing the LiveStateSyncElement">
 
 The `LiveStateSyncElement` contains all of the methods used to interact with the `single editor mode` and `live state sync` features.
 
@@ -25,8 +31,7 @@ const liveStateSyncElement = client.getLiveStateSyncElement();
 let liveStateSyncElement = useLiveSelectionUtils();
 ```
 
-<Steps>
-
+</Step>
 
 
 <Step title="Enable Single Editor Mode">
@@ -36,7 +41,6 @@ Enables single editor mode.
 `Disabled by default`
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.enableSingleEditorMode(); //enables single editor mode
 ```
 
@@ -49,7 +53,6 @@ You can pass a configuration object to enable `customMode` on Single Editor Mode
 If custom mode is enabled, we will not make the viewer's DOM read-only. You will have to handle the logic yourself.
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.enableSingleEditorMode({ customMode: true });
 ```
 
@@ -60,7 +63,6 @@ liveStateSyncElement.enableSingleEditorMode({ customMode: true });
 Disables single editor mode.
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.disableSingleEditorMode(); // disables single editor mode
 ```
 
@@ -80,7 +82,6 @@ To enable this toast, you can use the `enableDefaultSingleEditorUI()` method.
 
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.enableDefaultSingleEditorUI();
 ```
 
@@ -100,7 +101,6 @@ To disable this pop up, you can use the `disableDefaultSingleEditorUI()` method.
 
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.disableDefaultSingleEditorUI();
 ```
 
@@ -110,7 +110,6 @@ liveStateSyncElement.disableDefaultSingleEditorUI();
 Sets the current user as Editor. Note this will mark all the other users on the document as readonly users.
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.setUserAsEditor();
 ```
 
@@ -161,7 +160,6 @@ export default function YourDocument() {
 Resets access for all users.
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.resetUserAccess();
 ```
 
@@ -178,7 +176,6 @@ The callback function will return:
 - `false` if the request was rejected by the editor
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.requestEditorAccess().subscribe((data) => {
 	// data == null -> Request is pending
 	// data == true -> Request accepted by editor
@@ -200,7 +197,6 @@ It returns a subscription that emits:
 - `false` if current user is not an Editor.
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
   // data == true -> Current user is Editor & access requested by Viewer
   // data == false -> Current user is not Editor
@@ -234,7 +230,6 @@ export default function YourDocument= () {
 Once the Editor gets an Editor Access request, call 'acceptEditorAccessRequest()' method to `accept` the request.
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.acceptEditorAccessRequest();
 ```
 
@@ -256,7 +251,6 @@ liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
 Once the Editor gets an Editor access request, call 'rejectEditorAccessRequest()' method to `reject` the request.
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.rejectEditorAccessRequest();
 ```
 
@@ -281,7 +275,6 @@ The `setEditorAccessTimeout()` method is used to set the editor access timeout v
 `Default: 5 seconds`
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.setEditorAccessTimeout(15); // in seconds
 ```
 
@@ -294,7 +287,6 @@ The `enableEditorAccessTransferOnTimeOut()` method is used to enable automatic t
 `Default: enabled`
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.enableEditorAccessTransferOnTimeOut();
 ```
 
@@ -306,7 +298,6 @@ liveStateSyncElement.enableEditorAccessTransferOnTimeOut();
 The `disableEditorAccessTransferOnTimeOut()` method is used to disable automatic transferring of editor access after timeout.
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.disableEditorAccessTransferOnTimeOut();
 ```
 
@@ -322,7 +313,6 @@ To enable syncing, follow these two steps:
 1. Enable Auto Sync State feature:
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.enableAutoSyncState();
 ```
 
@@ -382,7 +372,6 @@ If you want to exclude any of those html elements from this behavior, you can ad
 By default Single Editor Mode is enabled at <strong>the entire DOM</strong> level. You can restrict this feature to only certain HTML containers & their children by using the `singleEditorModeContainerIds()` method. It takes in an array of element ID strings. These IDs represent the parent elements within which Single Editor Mode will be enabled.
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateElement.singleEditorModeContainerIds(["rightPanel"]);
 ```
 
