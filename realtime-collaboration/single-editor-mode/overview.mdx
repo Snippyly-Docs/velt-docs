@@ -10,6 +10,26 @@ With Single Editor Mode, only one user will be able to edit the document at any 
 
 <Steps>
 
+<Step title="Accessing the LiveStateSyncElement">
+
+The `LiveStateSyncElement` contains all of the methods used to interact with the `single editor mode` and `live state sync` features.
+
+There are two ways to access the `LiveStateSyncElement`.
+
+### Accessing via the Velt client object
+
+```jsx
+const liveStateSyncElement = client.getLiveStateSyncElement();
+```
+
+### Accessing via a hook
+
+```jsx
+  let liveStateSyncElement = useLiveSelectionUtils()
+```
+
+</Step>
+
 <Step title="Enable Single Editor Mode">
 
 Enables single editor mode.
@@ -384,6 +404,28 @@ liveStateSyncElement.disableDefaultSingleEditorUI();
     </Tab>
    
     <Tab title="HTML">
+
+
+<Step title="Accessing the LiveStateSyncElement">
+
+The `LiveStateSyncElement` contains all of the methods used to interact with the `single editor mode` and `live state sync` features.
+
+There are two ways to access the `LiveStateSyncElement`.
+
+### Accessing via the Velt client object
+
+```jsx
+const liveStateSyncElement = client.getLiveStateSyncElement();
+```
+
+### Accessing via a hook
+
+```jsx
+  let liveStateSyncElement = useLiveSelectionUtils()
+```
+
+</Step>
+
 ## Single Editor Mode
 
 With Single Editor Mode, only one user will be able to edit the document at any given time. All other users live on the document will automatically be read-only. 
