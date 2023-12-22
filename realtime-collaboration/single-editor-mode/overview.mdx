@@ -21,17 +21,18 @@ const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.enableSingleEditorMode(); //enables single editor mode
 ```
 
-### Custom Mode to Disable Input Elements in Single Editor Mode
+#### (Optional) Set your DOM to read-only yourself, or let our SDK do it for you. 
 
-Optionally, you can pass a `customMode` configuration object to enable `Custom Mode` on Single Editor Mode. 
+`Default: We handle it for you.`
 
-If custom mode is enabled then we will not disable input elements from our end. You will have to manually disable input elements when the current user is not the editor.
+You can pass a configuration object to enable `customMode` on Single Editor Mode. 
+
+If custom mode is enabled, we will not make the viewer's DOM read-only. You will have to handle the logic yourself.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.enableSingleEditorMode({ customMode: true });
 ```
-
 
 </Step>
 
@@ -48,7 +49,7 @@ liveStateSyncElement.disableSingleEditorMode(); // disables single editor mode
 
 <Step title="Check if current user is the Editor">
 
-`isUserEditor()` is a subscription that returns:
+`isUserEditor()` returns a subscription that emits:
 - `true`: when the current user is set as `editor`
 - `false`: when the current user is set as `reader`
 -  `null`: when the current user's access is not set.
@@ -60,7 +61,7 @@ liveStateSyncElement.isUserEditor().subscribe((isUserEditor) => {
 });
 ```
 
-Using Hooks:
+**Using Hooks:**
 
 The `useUserEditorState()` hook is used to call `liveStateSyncElement.isUserEditor()` without having to handle the subscription.
 
@@ -108,7 +109,7 @@ liveStateSyncElement.resetUserAccess();
 
 </Step>
 
-<Step title="Auto Sync State on Text Elements">
+<Step title="Automatically Sync State on Text Elements">
 Auto syncs the content of the following Text HTML elements, such that when `editor` types, the element's content is synced across all active users currently live on the document.
 - input
 - textarea
@@ -138,8 +139,8 @@ liveStateSyncElement.enableAutoSyncState();
 
 
 
-<Step title="Auto Sync Access on HTML Elements">
-By default in Single Editor Mode, we control enabling and disabling of these html elements on the entire DOM:
+<Step title="Automatically Sync Access on HTML Elements">
+By default in Single Editor Mode, we control making these html elements editable or readonly on the entire DOM:
 - input
 - textarea
 - select
@@ -187,7 +188,7 @@ liveStateElement.singleEditorModeContainerIds(["rightPanel"]);
 
 <Step title="Request editor access from the current editor">
 
-The `requestEditorAccess()` method is used to attempt to gain editor access from the current editor. 
+Call `requestEditorAccess()` from a Viewer's client to get editor access from the current editor. 
 
 The callback function will return:
 - `null` if the request is pending
@@ -209,22 +210,22 @@ liveStateSyncElement.requestEditorAccess().subscribe((data) => {
 
 <Step title="Check whether editor access is being requested">
 
-The `isEditorAccessRequested()` method is used to detect on the editor's client whether a non-editor has requested editor access or not. 
+The `isEditorAccessRequested()` method is used to detect on the Editor's client if a Viewer has requested editor access or not. 
 
 
-The callback function will return:
-- `true` if editor access is being requested by a non-editor
-- `false` if editor access is not being requested by a non-editor
+It returns a subscription that emits:
+- `true` if current user is Editor & Editor access is requested by a Viewer.
+- `false` if current user is not an Editor.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
-  // data == true -> Editor access requested by viewer
-  // data == false -> Editor access not requested
+  // data == true -> Current user is Editor & access requested by Viewer
+  // data == false -> Current user is not Editor
 });
 ```
 
-Using Hooks:
+**Using Hooks:**
 
 The `useEditorAccessRequestHandler()` hook is used to call `liveStateSyncElement.isEditorAccessRequested()` without having to handle the subscription.
 
@@ -244,20 +245,18 @@ export default function YourDocument= () {
 }
 ```
 
-
-
 </Step>
 
 <Step title="To accept an editor access request">
 
-The 'acceptEditorAccessRequest()' method is used by the current editor to `accept` an editor access request.
+Once the Editor gets an Editor Access request, call 'acceptEditorAccessRequest()' method to `accept` the request.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.acceptEditorAccessRequest();
 ```
 
-To use with `isEditorAccessRequested()`:
+Use with `isEditorAccessRequested()`:
 ```jsx
 liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
   // data == true -> Editor access requested by viewer
@@ -272,14 +271,14 @@ liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
 
 <Step title="To reject an editor access request">
 
-The 'rejectEditorAccessRequest()' method is used by the current editor to `reject` an editor access request.
+Once the Editor gets an Editor access request, call 'rejectEditorAccessRequest()' method to `reject` the request.
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.rejectEditorAccessRequest();
 ```
 
-To use with `isEditorAccessRequested()`:
+Use with `isEditorAccessRequested()`:
 ```jsx
 liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
   // data == true -> Editor access requested by viewer
