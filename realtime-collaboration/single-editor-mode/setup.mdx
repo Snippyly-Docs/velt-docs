@@ -53,11 +53,11 @@ If custom mode is enabled, we will not make the viewer's DOM read-only. You will
 liveStateSyncElement.enableSingleEditorMode({ customMode: true });
 ```
 
-#### (Optional) Make all tabs a separate editor
+#### (Optional) Lock Edit access to Single-Tab.
 
 `Default: true`
 
-You can pass a configuration object to make it so that each tab is treated as a separate editor. This way, if multiple tabs are open to the same page at the same time on the same browser, they will each have to request access to edit the page.
+The configuration {singleTabEditor: boolean} limits editing to one tab at a time. If an editor opens the same `document` in multiple tabs and begins editing in one (e.g., Tab 1), edit access is automatically disabled in the others (e.g., Tab 2). To enable editing in a different tab, a button can be implemented to trigger the `editCurrentTab()` method, granting edit access in that specific tab.
 
 ```tsx
 liveStateSyncElement.enableSingleEditorMode({ singleTabEditor: false });
