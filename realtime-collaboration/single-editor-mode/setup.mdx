@@ -160,7 +160,7 @@ import { useUserEditorState} from '@veltdev/react';
 export default function YourDocument() {
 
   let {editor, editorOnCurrentTab} = useUserEditorState()
-  console.log("Is User Editor?: ", isEditor)
+  console.log("Is User Editor?: ", editor)
 
   return (
     <div>
@@ -221,8 +221,7 @@ It returns a subscription that emits the following object:
 
 ```jsx
 liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
-  // data.requestStatus == true -> Current user is Editor & access requested by Viewer
-  // data.requestStatus == false -> Current user is not Editor
+  // data.requestStatus == 'requested' -> Current user is Editor & access requested by Viewer
   // data.requestedBy -> contains data about the User that requested access
 });
 ```
