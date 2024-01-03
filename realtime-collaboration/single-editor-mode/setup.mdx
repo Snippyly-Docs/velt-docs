@@ -240,7 +240,9 @@ export default function YourDocument= () {
 
   return (
     <div>
-        Is Editor Access Being Requested? : {editorAccessRequested}
+        Editor Access Request status: {editorAccessRequested.requestStatus}
+
+        Editor Access Requested by: {editorAccessRequested.requestedBy}
     </div>
   )
 }
@@ -290,6 +292,27 @@ liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
     liveStateSyncElement.rejectEditorAccessRequest();
   }
 });
+```
+</Step>
+
+<Step title="To cancel an edit access request by the Viewer">
+
+The `cancelEditorAccessRequest()` method is used to cancel an existing edit access request by the Viewer.
+
+```jsx
+liveStateSyncElement.cancelEditorAccessRequest();
+```
+
+
+</Step>
+
+
+<Step title="To make the current tab editable when the editor has opened multiple tabs">
+
+The `editCurrentTab()` method is used to make the current tab editable when the editor has opened multiple tabs on the same page.
+
+```jsx
+liveStateSyncElement.editCurrentTab();
 ```
 
 
@@ -401,30 +424,6 @@ By default Single Editor Mode is enabled at <strong>the entire DOM</strong> leve
 ```jsx
 liveStateElement.singleEditorModeContainerIds(["rightPanel"]);
 ```
-
-</Step>
-
-
-<Step title="To cancel an edit access request by the Viewer">
-
-The `cancelEditorAccessRequest()` method is used to cancel an existing edit access request by the Viewer.
-
-```jsx
-liveStateSyncElement.cancelEditorAccessRequest();
-```
-
-
-</Step>
-
-
-<Step title="To make the current tab editable when the editor has opened multiple tabs">
-
-The `editCurrentTab()` method is used to make the current tab editable when the editor has opened multiple tabs on the same page.
-
-```jsx
-liveStateSyncElement.editCurrentTab();
-```
-
 
 </Step>
 
@@ -593,8 +592,7 @@ It returns a subscription that emits the following object:
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
-  // data.requestStatus == true -> Current user is Editor & access requested by Viewer
-  // data.requestStatus == false -> Current user is not Editor
+   // data.requestStatus == 'requested' -> Current user is Editor & access requested by Viewer
   // data.requestedBy -> contains data about the User that requested access
 
 });
