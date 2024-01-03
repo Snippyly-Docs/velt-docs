@@ -146,8 +146,10 @@ liveStateSyncElement.setUserAsEditor();
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
-liveStateSyncElement.isUserEditor().subscribe((isUserEditor) => {
+liveStateSyncElement.isUserEditor().subscribe((userEditorAccess) => {
 		// your logic here...
+    //userEditorAccess.editor <-- True if user is editor
+    //userEditorAccess.editorOnCurrentTab <-- true if the user is editor on current tab
 });
 ```
 
@@ -201,7 +203,7 @@ It returns a subscription that emits:
 liveStateSyncElement.requestEditorAccess().subscribe((data) => {
 	// data == null -> Request is pending
 	// data == true -> Request accepted by editor
-    // data == false -> Request rejected by editor
+  // data == false -> Request rejected by editor
 });
 ```
 
@@ -284,9 +286,11 @@ liveStateSyncElement.rejectEditorAccessRequest();
 Use with `isEditorAccessRequested()`:
 ```jsx
 liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
-  // data == true -> Editor access requested by viewer
-  // data == false -> Editor access not requested
-  if(data === true){
+  // data.requestStatus == true -> Current user is Editor & access requested by Viewer
+  // data.requestStatus == false -> Current user is not Editor
+  // data.requestedBy -> contains data about the User that requested access
+
+  if(data.requestStatus === true){
     liveStateSyncElement.rejectEditorAccessRequest();
   }
 });
@@ -468,6 +472,32 @@ const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.enableSingleEditorMode(); //enables single editor mode
 ```
 
+
+#### (Optional) Set your DOM to read-only yourself, or let our SDK do it for you. 
+
+`Default: We handle it for you.`
+
+You can pass a configuration object to enable `customMode` on Single Editor Mode. 
+
+If custom mode is enabled, we will not make the viewer's DOM read-only. You will have to handle the logic yourself.
+
+```jsx
+liveStateSyncElement.enableSingleEditorMode({ customMode: true });
+```
+
+#### (Optional) Make all tabs a separate editor
+
+`Default: true`
+
+You can pass a configuration object to make it so that each tab is treated as a separate editor. This way, if multiple tabs are open to the same page at the same time on the same browser, they will each have to request access to edit the page.
+
+```tsx
+liveStateSyncElement.enableSingleEditorMode({ singleTabEditor: false });
+```
+
+
+
+
 </Step>
 
 <Step title="Disable Single Editor Mode">
@@ -503,18 +533,30 @@ liveStateSyncElement.resetUserAccess();
 
 <Step title="Check if current user is the Editor">
 
-`isUserEditor()` is a subscription that returns:
-- `true`: when the current user is set as `editor`
-- `false`: when the current user is set as `reader`
--  `null`: when the current user's access is not set.
+`isUserEditor()` returns a subscription that emits the following object:
+
+``` jsx
+{
+		/**
+     * True if the user is editor.
+     */
+    editor?: boolean;
+
+    /**
+     * True if the user is editor on current tab.
+     */
+    editorOnCurrentTab?: boolean;
+}
+```
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
-liveStateSyncElement.isUserEditor().subscribe((isUserEditor) => {
+liveStateSyncElement.isUserEditor().subscribe((userEditorAccess) => {
 		// your logic here...
+    //userEditorAccess.editor <-- True if user is editor
+    //userEditorAccess.editorOnCurrentTab <-- true if the user is editor on current tab
 });
 ```
-
 
 
 </Step>
@@ -533,7 +575,7 @@ const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.requestEditorAccess().subscribe((data) => {
 	// data == null -> Request is pending
 	// data == true -> Request accepted by editor
-    // data == false -> Request rejected by editor
+  // data == false -> Request rejected by editor
 });
 ```
 
@@ -546,15 +588,19 @@ liveStateSyncElement.requestEditorAccess().subscribe((data) => {
 The `isEditorAccessRequested()` method is used to detect on the editor's client whether a non-editor has requested editor access or not. 
 
 
-It returns a subscription that emits:
-- `true` if editor access is being requested by a non-editor
-- `false` if editor access is not being requested by a non-editor
+It returns a subscription that emits the following object:
+
+```jsx
+{ requestStatus: string, requestedBy: User }
+```
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
-  // data == true -> Editor access requested by viewer
-  // data == false -> Editor access not requested
+  // data.requestStatus == true -> Current user is Editor & access requested by Viewer
+  // data.requestStatus == false -> Current user is not Editor
+  // data.requestedBy -> contains data about the User that requested access
+
 });
 ```
 
@@ -571,12 +617,14 @@ const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.acceptEditorAccessRequest();
 ```
 
-To use with `isEditorAccessRequested()`:
+Use with `isEditorAccessRequested()`:
 ```jsx
 liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
-  // data == true -> Editor access requested by viewer
-  // data == false -> Editor access not requested
-  if(data === true){
+  // data.requestStatus == true -> Current user is Editor & access requested by Viewer
+  // data.requestStatus == false -> Current user is not Editor
+  // data.requestedBy -> contains data about the User that requested access
+
+  if(data.requestStatus === true){
     liveStateSyncElement.acceptEditorAccessRequest();
   }
 });
@@ -593,12 +641,14 @@ const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.rejectEditorAccessRequest();
 ```
 
-To use with `isEditorAccessRequested()`:
+Use with `isEditorAccessRequested()`:
 ```jsx
 liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
-  // data == true -> Editor access requested by viewer
-  // data == false -> Editor access not requested
-  if(data === true){
+  // data.requestStatus == true -> Current user is Editor & access requested by Viewer
+  // data.requestStatus == false -> Current user is not Editor
+  // data.requestedBy -> contains data about the User that requested access
+
+  if(data.requestStatus === true){
     liveStateSyncElement.rejectEditorAccessRequest();
   }
 });
@@ -755,6 +805,29 @@ liveStateSyncElement.disableDefaultSingleEditorUI();
 
 </Step>
 
+<Step title="To cancel an edit access request by the Viewer">
+
+The `cancelEditorAccessRequest()` method is used to cancel an existing edit access request by the Viewer.
+
+```jsx
+liveStateSyncElement.cancelEditorAccessRequest();
+```
+
+
+</Step>
+
+
+<Step title="To make the current tab editable when the editor has opened multiple tabs">
+
+The `editCurrentTab()` method is used to make the current tab editable when the editor has opened multiple tabs on the same page.
+
+```jsx
+liveStateSyncElement.editCurrentTab();
+```
+
+
+</Step>
+
 
 </Steps>
 
@@ -783,15 +856,18 @@ function MyComponent(){
 
 
         //Enable Single Editor Mode
-        liveStateSyncElement.enableSingleEditorMode();
+        liveStateSyncElement.enableSingleEditorMode({
+          customMode:false,
+          singleTabEditor:true
+        });
 
         //Disable Single Editor Mode
         liveStateSyncElement.disableSingleEditorMode();
 
-
-        //Check if Current User is Editor
-        liveStateSyncElement.isUserEditor().subscribe((isUserEditor) => {
-                // your logic here...
+        liveStateSyncElement.isUserEditor().subscribe((userEditorAccess) => {
+            // your logic here...
+            //userEditorAccess.editor <-- True if user is editor
+            //userEditorAccess.editorOnCurrentTab <-- true if the user is editor on current tab
         });
 
         //Set Current User as Editor
@@ -816,9 +892,10 @@ function MyComponent(){
        
         // Check whether editor access is being requested
         liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
-        // data == true -> Editor access requested by viewer
-        // data == false -> Editor access not requested
-            if(data === true){
+        // data.requestStatus == true -> Current user is Editor & access requested by Viewer
+        // data.requestStatus == false -> Current user is not Editor
+        // data.requestedBy -> contains data about the User that requested access
+            if(data.requestStatus === true){
 
                 // To accept an editor access request
                 liveStateSyncElement.acceptEditorAccessRequest();
@@ -831,6 +908,10 @@ function MyComponent(){
             }
 
         });
+
+
+
+
 
         // Setting the editor access timeout value
         liveStateSyncElement.setEditorAccessTimeout(15); // in seconds
@@ -846,6 +927,12 @@ function MyComponent(){
 
         // Disable single editor UI
         liveStateSyncElement.disableDefaultSingleEditorUI();
+
+        // To cancel an edit access request by the Viewer
+        liveStateSyncElement.cancelEditorAccessRequest();
+
+        // To make the current tab editable when the editor has opened multiple tabs
+        liveStateSyncElement.editCurrentTab();
 
 
 
@@ -875,15 +962,20 @@ if(Velt){
 
 
     //Enable Single Editor Mode
-    liveStateSyncElement.enableSingleEditorMode();
+    liveStateSyncElement.enableSingleEditorMode({
+      customMode:false,
+      singleTabEditor:true
+    });
 
     //Disable Single Editor Mode
     liveStateSyncElement.disableSingleEditorMode();
 
 
     //Check if Current User is Editor
-    liveStateSyncElement.isUserEditor().subscribe((isUserEditor) => {
-            // your logic here...
+    liveStateSyncElement.isUserEditor().subscribe((userEditorAccess) => {
+        // your logic here...
+        //userEditorAccess.editor <-- True if user is editor
+        //userEditorAccess.editorOnCurrentTab <-- true if the user is editor on current tab
     });
 
     //Set Current User as Editor
@@ -907,22 +999,23 @@ if(Velt){
     });
     
     // Check whether editor access is being requested
-    liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
-    // data == true -> Editor access requested by viewer
-    // data == false -> Editor access not requested
-        if(data === true){
+        liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
+        // data.requestStatus == true -> Current user is Editor & access requested by Viewer
+        // data.requestStatus == false -> Current user is not Editor
+        // data.requestedBy -> contains data about the User that requested access
+            if(data.requestStatus === true){
 
-            // To accept an editor access request
-            liveStateSyncElement.acceptEditorAccessRequest();
+                // To accept an editor access request
+                liveStateSyncElement.acceptEditorAccessRequest();
 
-            // To reject an editor access request
-            liveStateSyncElement.rejectEditorAccessRequest();
+                // To reject an editor access request
+                liveStateSyncElement.rejectEditorAccessRequest();
 
 
 
-        }
+            }
 
-    });
+        });
 
     // Setting the editor access timeout value
     liveStateSyncElement.setEditorAccessTimeout(15); // in seconds
@@ -938,6 +1031,12 @@ if(Velt){
 
     // Disable single editor UI
     liveStateSyncElement.disableDefaultSingleEditorUI();
+
+    // To cancel an edit access request by the Viewer
+    liveStateSyncElement.cancelEditorAccessRequest();
+
+    // To make the current tab editable when the editor has opened multiple tabs
+    liveStateSyncElement.editCurrentTab();
 
 }
 </script>
