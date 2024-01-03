@@ -56,6 +56,17 @@ If custom mode is enabled, we will not make the viewer's DOM read-only. You will
 liveStateSyncElement.enableSingleEditorMode({ customMode: true });
 ```
 
+#### (Optional) Make all tabs a separate editor
+
+`Default: true`
+
+You can pass a configuration object to make it so that each tab is treated as a separate editor. This way, if multiple tabs are open to the same page at the same time on the same browser, they will each have to request access to edit the page.
+
+```tsx
+liveStateSyncElement.enableSingleEditorMode({ singleTabEditor: false });
+```
+
+
 </Step>
 
 <Step title="Disable Single Editor Mode">
@@ -117,10 +128,21 @@ liveStateSyncElement.setUserAsEditor();
 
 <Step title="Check if current user is the Editor">
 
-`isUserEditor()` returns a subscription that emits:
-- `true`: when the current user is set as `editor`
-- `false`: when the current user is set as `reader`
--  `null`: when the current user's access is not set.
+`isUserEditor()` returns a subscription that emits the following object:
+
+``` jsx
+{
+		/**
+     * True if the user is editor.
+     */
+    editor?: boolean;
+
+    /**
+     * True if the user is editor on current tab.
+     */
+    editorOnCurrentTab?: boolean;
+}
+```
 
 ```jsx
 const liveStateSyncElement = client.getLiveStateSyncElement();
@@ -138,12 +160,12 @@ import { useUserEditorState} from '@veltdev/react';
 
 export default function YourDocument() {
 
-  let isEditor = useUserEditorState()
+  let {editor, editorOnCurrentTab} = useUserEditorState()
   console.log("Is User Editor?: ", isEditor)
 
   return (
     <div>
-        Is User Editor?: {isEditor}
+        Is User Editor?: {editor}
     </div>
   )
 }
@@ -192,14 +214,17 @@ liveStateSyncElement.requestEditorAccess().subscribe((data) => {
 The `isEditorAccessRequested()` method is used to detect on the Editor's client if a Viewer has requested editor access or not. 
 
 
-It returns a subscription that emits:
-- `true` if current user is Editor & Editor access is requested by a Viewer.
-- `false` if current user is not an Editor.
+It returns a subscription that emits the following object:
+
+```jsx
+{ requestStatus: string, requestedBy: User }
+```
 
 ```jsx
 liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
-  // data == true -> Current user is Editor & access requested by Viewer
-  // data == false -> Current user is not Editor
+  // data.requestStatus == true -> Current user is Editor & access requested by Viewer
+  // data.requestStatus == false -> Current user is not Editor
+  // data.requestedBy -> contains data about the User that requested access
 });
 ```
 
@@ -236,9 +261,11 @@ liveStateSyncElement.acceptEditorAccessRequest();
 Use with `isEditorAccessRequested()`:
 ```jsx
 liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
-  // data == true -> Editor access requested by viewer
-  // data == false -> Editor access not requested
-  if(data === true){
+  // data.requestStatus == true -> Current user is Editor & access requested by Viewer
+  // data.requestStatus == false -> Current user is not Editor
+  // data.requestedBy -> contains data about the User that requested access
+
+  if(data.requestStatus === true){
     liveStateSyncElement.acceptEditorAccessRequest();
   }
 });
@@ -377,6 +404,29 @@ liveStateElement.singleEditorModeContainerIds(["rightPanel"]);
 
 </Step>
 
+
+<Step title="To cancel an edit access request by the Viewer">
+
+The `cancelEditorAccessRequest()` method is used to cancel an existing edit access request by the Viewer.
+
+```jsx
+liveStateSyncElement.cancelEditorAccessRequest();
+```
+
+
+</Step>
+
+
+<Step title="To make the current tab editable when the editor has opened multiple tabs">
+
+The `editCurrentTab()` method is used to make the current tab editable when the editor has opened multiple tabs on the same page.
+
+```jsx
+liveStateSyncElement.editCurrentTab();
+```
+
+
+</Step>
 
 </Steps>
 
