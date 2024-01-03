@@ -158,7 +158,8 @@
         {
           "group": "Single Editor Mode",
           "pages": [
-            "realtime-collaboration/single-editor-mode/overview"
+            "realtime-collaboration/single-editor-mode/overview",
+            "realtime-collaboration/single-editor-mode/setup"
           ]
         },
         {
