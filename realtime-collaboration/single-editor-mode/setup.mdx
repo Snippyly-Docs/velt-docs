@@ -125,27 +125,27 @@ liveStateSyncElement.setUserAsEditor();
 
 <Step title="Check if current user is the Editor">
 
-`isUserEditor()` returns a subscription that emits the following object:
+`isUserEditor()` returns a subscription that emits the following `UserEditAccess` object:
 
 ``` jsx
 {
 		/**
      * True if the user is editor.
      */
-    editor?: boolean;
+    isEditor?: boolean;
 
     /**
      * True if the user is editor on current tab.
      */
-    editorOnCurrentTab?: boolean;
+    isEditorOnCurrentTab?: boolean;
 }
 ```
 
 ```jsx
 liveStateSyncElement.isUserEditor().subscribe((userEditorAccess) => {
 		// your logic here...
-    //userEditorAccess.editor <-- True if user is editor
-    //userEditorAccess.editorOnCurrentTab <-- true if the user is editor on current tab
+    //userEditorAccess.iseditor <-- True if user is editor
+    //userEditorAccess.isEditorOnCurrentTab <-- true if the user is editor on current tab
 });
 ```
 
@@ -158,12 +158,12 @@ import { useUserEditorState} from '@veltdev/react';
 
 export default function YourDocument() {
 
-  let {editor, editorOnCurrentTab} = useUserEditorState()
-  console.log("Is User Editor?: ", editor)
+  let {isEditor, isEditorOnCurrentTab} = useUserEditorState()
+  console.log("Is User Editor?: ", isEditor)
 
   return (
     <div>
-        Is User Editor?: {editor}
+        Is User Editor?: {isEditor}
     </div>
   )
 }
@@ -620,27 +620,27 @@ liveStateSyncElement.setUserAsEditor();
 
 <Step title="Check if current user is the Editor">
 
-`isUserEditor()` returns a subscription that emits the following object:
+`isUserEditor()` returns a subscription that emits the following `UserEditorAccess` object:
 
 ``` jsx
 {
 		/**
      * True if the user is editor.
      */
-    editor?: boolean;
+    isEditor?: boolean;
 
     /**
      * True if the user is editor on current tab.
      */
-    editorOnCurrentTab?: boolean;
+    isEditorOnCurrentTab?: boolean;
 }
 ```
 
 ```jsx
 liveStateSyncElement.isUserEditor().subscribe((userEditorAccess) => {
 		// your logic here...
-    //userEditorAccess.editor <-- True if user is editor
-    //userEditorAccess.editorOnCurrentTab <-- true if the user is editor on current tab
+    // userEditorAccess.isEditor <-- True if user is editor
+    // userEditorAccess.isEditorOnCurrentTab <-- true if the user is editor on current tab
 });
 ```
 
@@ -947,8 +947,8 @@ function MyComponent(){
 
         liveStateSyncElement.isUserEditor().subscribe((userEditorAccess) => {
             // your logic here...
-            //userEditorAccess.editor <-- True if user is editor
-            //userEditorAccess.editorOnCurrentTab <-- true if the user is editor on current tab
+            //userEditorAccess.isEditor <-- True if user is editor
+            //userEditorAccess.isEditorOnCurrentTab <-- true if the user is editor on current tab
         });
 
         liveStateSyncElement.getEditor().subscribe((user) => {
@@ -1059,8 +1059,8 @@ if(Velt){
     //Check if Current User is Editor
     liveStateSyncElement.isUserEditor().subscribe((userEditorAccess) => {
         // your logic here...
-        //userEditorAccess.editor <-- True if user is editor
-        //userEditorAccess.editorOnCurrentTab <-- true if the user is editor on current tab
+        //userEditorAccess.isEditor <-- True if user is editor
+        //userEditorAccess.isEditorOnCurrentTab <-- true if the user is editor on current tab
     });
 
     liveStateSyncElement.getEditor().subscribe((user) => {

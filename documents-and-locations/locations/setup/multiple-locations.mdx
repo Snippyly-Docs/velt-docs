@@ -22,24 +22,33 @@ client.setDocumentId('some_document_id');
 client.setLocation({ 
   'id': 'locationId1',
   'locationName': 'Scene1LocationName',
+  'version': {
+		'id': 'v1.0',
+		'name': 'Version Name'
+	},
   'page': 'scene1',
-  'version': 'v1.2',
   'videoFrame': '120'
 }, true)
 
 client.setLocation({
   'id': 'locationId2',
   'locationName': 'Scene2LocationName',
+  'version': {
+		'id': 'v1.0',
+		'name': 'Version Name'
+	},
   'page': 'scene2',
-  'version': 'v1.2',
   'videoFrame': '50'
 }, true)
 
 client.setLocation({
   'id': 'locationId3',
   'locationName': 'Scene3LocationName',
+  'version': {
+		'id': 'v1.0',
+		'name': 'Version Name'
+	},
   'page': 'scene3',
-  'version': 'v1.2',
   'videoFrame': '80'
 }, true)
 ```
@@ -114,24 +123,33 @@ Velt.setDocumentId('some_document_id');
 Velt.setLocation({ 
   'id': 'locationId1',
   'locationName': 'Scene1LocationName',
+  'version': {
+		'id': 'v1.0',
+		'name': 'Version Name'
+	},
   'page': 'scene1',
-  'version': 'v1.2',
   'videoFrame': '120'
 }, true)
 
 Velt.setLocation({
   'id': 'locationId2',
   'locationName': 'Scene2LocationName',
+  'version': {
+		'id': 'v1.0',
+		'name': 'Version Name'
+	},
   'page': 'scene2',
-  'version': 'v1.2',
   'videoFrame': '50'
 }, true)
 
 Velt.setLocation({
   'id': 'locationId3',
   'locationName': 'Scene3LocationName',
+  'version': {
+		'id': 'v1.0',
+		'name': 'Version Name'
+	},
   'page': 'scene3',
-  'version': 'v1.2',
   'videoFrame': '80'
 }, true)
 ```
@@ -210,8 +228,11 @@ export default function YourDocument() {
         client.setLocation({
             'id': 'locationId1',
             'locationName': 'Scene1LocationName',
+            'version': {
+              'id': 'v1.0',
+              'name': 'Version Name'
+            },
             'page': 'mainPage',
-            'version': 'v1.2',
             'videoFrame': '120'
             // You can keep adding more field to make the location very specific.
             // The field names can be anything.
@@ -221,8 +242,11 @@ export default function YourDocument() {
         client.setLocation({
             'id': 'locationId2',
             'locationName': 'Scene2LocationName',
+            'version': {
+              'id': 'v1.0',
+              'name': 'Version Name'
+            },
             'page': 'mainPage',
-            'version': 'v1.2',
             'videoFrame': '240'
             // You can keep adding more field to make the location very specific.
             // The field names can be anything.
@@ -236,8 +260,11 @@ export default function YourDocument() {
         <div id="location1-container-id" data-velt-location={JSON.stringify({
             'id': 'locationId1',
             'locationName': 'Scene1LocationName',
+            'version': {
+              'id': 'v1.0',
+              'name': 'Version Name'
+            },
             'page': 'mainPage',
-            'version': 'v1.2',
             'videoFrame': '120'
         })}>
           <div class="card">
@@ -247,8 +274,11 @@ export default function YourDocument() {
         <div id="location2-container-id" data-velt-location={JSON.stringify({
             'id': 'locationId2',
             'locationName': 'Scene2LocationName',
+            'version': {
+              'id': 'v1.0',
+              'name': 'Version Name'
+            },
             'page': 'mainPage',
-            'version': 'v1.2',
             'videoFrame': '240'
         })}>
           <div class="card">
@@ -282,19 +312,25 @@ export default function YourDocument() {
           Velt.setLocation({ 
             'id': 'locationId1',
             'locationName': 'Scene1LocationName',
+            'version': {
+              'id': 'v1.0',
+              'name': 'Version Name'
+            },
             'page': 'mainPage',
-            'version': 'v1.2',
             'videoFrame': '120'
             // You can keep adding more field to make the location very specific.
             // The field names can be anything.
           })
 
           //Add another Location
-          client.setLocation({
+          Velt.setLocation({
               'id': 'locationId2',
               'locationName': 'Scene2LocationName',
+              'version': {
+                'id': 'v1.0',
+                'name': 'Version Name'
+              },
               'page': 'mainPage',
-              'version': 'v1.2',
               'videoFrame': '240'
               // You can keep adding more field to make the location very specific.
               // The field names can be anything.
@@ -308,8 +344,11 @@ export default function YourDocument() {
       <div id="location1-container-id" data-velt-location="{ 
             'id': 'locationId1',
             'locationName': 'Scene1LocationName',
+            'version': {
+              'id': 'v1.0',
+              'name': 'Version Name'
+            },
             'page': 'mainPage',
-            'version': 'v1.2',
             'videoFrame': '120'
           }">
         <div class="card">
@@ -319,8 +358,11 @@ export default function YourDocument() {
       <div id="location2-container-id" data-velt-location="{
               'id': 'locationId2',
               'locationName': 'Scene2LocationName',
+              'version': {
+                'id': 'v1.0',
+                'name': 'Version Name'
+              },
               'page': 'mainPage',
-              'version': 'v1.2',
               'videoFrame': '240'
           }">
         <div class="card">
