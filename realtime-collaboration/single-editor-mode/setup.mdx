@@ -125,27 +125,20 @@ liveStateSyncElement.setUserAsEditor();
 
 <Step title="Check if current user is the Editor">
 
-`isUserEditor()` returns a subscription that emits the following `UserEditAccess` object:
+`isUserEditor()` returns a subscription that emits the following `UserEditorAccess` object:
 
-``` jsx
+```jsx
 {
-		/**
-     * True if the user is editor.
-     */
-    isEditor?: boolean;
-
-    /**
-     * True if the user is editor on current tab.
-     */
-    isEditorOnCurrentTab?: boolean;
+  isEditor: true, // `true` if the user is the editor  
+  isEditorOnCurrentTab: true // true if the user is the editor on the current tab 
 }
+
 ```
 
 ```jsx
 liveStateSyncElement.isUserEditor().subscribe((userEditorAccess) => {
-		// your logic here...
-    //userEditorAccess.iseditor <-- True if user is editor
-    //userEditorAccess.isEditorOnCurrentTab <-- true if the user is editor on current tab
+  //userEditorAccess.isEditor <-- True if user is editor
+  //userEditorAccess.isEditorOnCurrentTab <-- true if the user is editor on current tab
 });
 ```
 
@@ -174,16 +167,9 @@ export default function YourDocument() {
 
 <Step title="Get the current editor">
 
-`getEditor()` returns a subscription that emits the User object of the current editor. 
+`getEditor()` returns a subscription that emits the `User` object representing the current editor. 
 
-```jsx
-liveStateSyncElement.getEditor().subscribe((user) => {
-  // user contains User object data
-
-});
-```
-
-The User object will look like this:
+`User` object schema:
 
 ```jsx
 {
@@ -192,6 +178,13 @@ The User object will look like this:
     "photoUrl": "https://i.pravatar.cc/302",
     "userId": "X",
 }
+```
+
+```jsx
+liveStateSyncElement.getEditor().subscribe((user) => {
+  // user contains User object data
+
+});
 ```
 
 
@@ -254,13 +247,28 @@ liveStateSyncElement.requestEditorAccess().subscribe((data) => {
 
 <Step title="Check whether editor access is being requested">
 
-The `isEditorAccessRequested()` method is used to detect on the Editor's client if a Viewer has requested editor access or not. 
+The `isEditorAccessRequested()` method is used to detect on the `Editor's` client if a `Viewer` has requested editor access or not. 
 
+<Info>
+If the user is not the editor or the request has been canceled, the subscription will emit a `null` value.
+</Info>
 
-It returns a subscription that emits the following object:
+It returns a subscription that emits:
+- `null` if the user is not the editor or the request has been canceled
+- a `isUserEditor` object if the user is the editor and there is an ongoing request
+
+`isUserEditor` Object Schema:
 
 ```jsx
-{ requestStatus: string, requestedBy: User }
+{ 
+  requestStatus: 'requested', // currently always is equal to 'requested' if there is an ongoing request
+  requestedBy: { // User Object
+    "email": "userX@example.com",
+    "name": "User X",
+    "photoUrl": "https://i.pravatar.cc/302",
+    "userId": "X",
+  }
+}
 ```
 
 ```jsx
@@ -298,9 +306,7 @@ export default function YourDocument= () {
 }
 ```
 
-<Info>
-If the user is not the editor or the request has been canceled, the hook return value will be null.
-</Info>
+
 
 </Step>
 
@@ -622,23 +628,18 @@ liveStateSyncElement.setUserAsEditor();
 
 `isUserEditor()` returns a subscription that emits the following `UserEditorAccess` object:
 
-``` jsx
-{
-		/**
-     * True if the user is editor.
-     */
-    isEditor?: boolean;
 
-    /**
-     * True if the user is editor on current tab.
-     */
-    isEditorOnCurrentTab?: boolean;
+```jsx
+{
+  isEditor: true, // `true` if the user is the editor  
+  isEditorOnCurrentTab: true // true if the user is the editor on the current tab 
 }
+
 ```
+
 
 ```jsx
 liveStateSyncElement.isUserEditor().subscribe((userEditorAccess) => {
-		// your logic here...
     // userEditorAccess.isEditor <-- True if user is editor
     // userEditorAccess.isEditorOnCurrentTab <-- true if the user is editor on current tab
 });
@@ -651,16 +652,9 @@ liveStateSyncElement.isUserEditor().subscribe((userEditorAccess) => {
 
 <Step title="Get the current editor">
 
-`getEditor()` returns a subscription that emits the User object of the current editor. 
+`getEditor()` returns a subscription that emits the `User` object that represents the current editor. 
 
-```jsx
-liveStateSyncElement.getEditor().subscribe((user) => {
-  // user contains User object data
-
-});
-```
-
-The User object will look like this:
+`User` object schema:
 
 ```jsx
 {
@@ -670,6 +664,15 @@ The User object will look like this:
     "userId": "X",
 }
 ```
+
+
+```jsx
+liveStateSyncElement.getEditor().subscribe((user) => {
+  // user contains User object data
+
+});
+```
+
 
 
 
@@ -714,10 +717,26 @@ liveStateSyncElement.requestEditorAccess().subscribe((data) => {
 The `isEditorAccessRequested()` method is used to detect on the Editor's client if a Viewer has requested editor access or not. 
 
 
-It returns a subscription that emits the following object:
+<Info>
+If the user is not the editor or the request has been canceled, the subscription will emit a `null` value.
+</Info>
+
+It returns a subscription that emits:
+- `null` if the user is not the editor or the request has been canceled
+- a `isUserEditor` object if the user is the editor and there is an ongoing request
+
+`isUserEditor` Object Schema:
 
 ```jsx
-{ requestStatus: string, requestedBy: User }
+{ 
+  requestStatus: 'requested', // currently always is equal to 'requested' if there is an ongoing request
+  requestedBy: { // User Object
+    "email": "userX@example.com",
+    "name": "User X",
+    "photoUrl": "https://i.pravatar.cc/302",
+    "userId": "X",
+  }
+}
 ```
 
 ```jsx
@@ -946,7 +965,6 @@ function MyComponent(){
         liveStateSyncElement.disableSingleEditorMode();
 
         liveStateSyncElement.isUserEditor().subscribe((userEditorAccess) => {
-            // your logic here...
             //userEditorAccess.isEditor <-- True if user is editor
             //userEditorAccess.isEditorOnCurrentTab <-- true if the user is editor on current tab
         });
@@ -1058,7 +1076,6 @@ if(Velt){
 
     //Check if Current User is Editor
     liveStateSyncElement.isUserEditor().subscribe((userEditorAccess) => {
-        // your logic here...
         //userEditorAccess.isEditor <-- True if user is editor
         //userEditorAccess.isEditorOnCurrentTab <-- true if the user is editor on current tab
     });
