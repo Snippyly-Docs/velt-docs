@@ -142,7 +142,6 @@ liveStateSyncElement.setUserAsEditor();
 ```
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.isUserEditor().subscribe((userEditorAccess) => {
 		// your logic here...
     //userEditorAccess.editor <-- True if user is editor
@@ -173,7 +172,52 @@ export default function YourDocument() {
 </Step>
 
 
+<Step title="Get the current editor">
 
+`getEditor()` returns a subscription that emits the User object of the current editor. 
+
+```jsx
+liveStateSyncElement.getEditor().subscribe((user) => {
+  // user contains User object data
+
+});
+```
+
+The User object will look like this:
+
+```jsx
+{
+    "email": "userX@example.com",
+    "name": "User X",
+    "photoUrl": "https://i.pravatar.cc/302",
+    "userId": "X",
+}
+```
+
+
+**Using Hooks:**
+
+The `useEditor()` hook is used to call `liveStateSyncElement.getEditor()` without having to handle the subscription.
+
+```jsx
+import { useGetEditor} from '@veltdev/react';
+
+export default function YourDocument() {
+
+  let user = useGetEditor()
+  console.log("Editor User Data: ", user)
+
+  return (
+    <div>
+        Editor Email: {user.email}
+        Editor Name: {user.name}
+        Editor ID: {user.userId}
+    </div>
+  )
+}
+```
+
+</Step>
 
 
 
@@ -221,6 +265,7 @@ It returns a subscription that emits the following object:
 
 ```jsx
 liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
+  // data == null --> if user is not editor or the request has been canceled
   // data.requestStatus == 'requested' -> Current user is Editor & access requested by Viewer
   // data.requestedBy -> contains data about the User that requested access
 });
@@ -238,6 +283,11 @@ export default function YourDocument= () {
 	const editorAccessRequested = useEditorAccessRequestHandler();
 
 
+  // editorAccessRequested == null --> if user is not editor or the request has been canceled
+  // editorAccessRequested.requestStatus == 'requested' -> Current user is Editor & access requested by Viewer
+  // editorAccessRequestedrequestedBy -> contains data about the User that requested access
+
+
   return (
     <div>
         Editor Access Request status: {editorAccessRequested.requestStatus}
@@ -247,6 +297,10 @@ export default function YourDocument= () {
   )
 }
 ```
+
+<Info>
+If the user is not the editor or the request has been canceled, the hook return value will be null.
+</Info>
 
 </Step>
 
@@ -261,11 +315,11 @@ liveStateSyncElement.acceptEditorAccessRequest();
 Use with `isEditorAccessRequested()`:
 ```jsx
 liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
-  // data.requestStatus == true -> Current user is Editor & access requested by Viewer
-  // data.requestStatus == false -> Current user is not Editor
+  // data == null --> if user is not editor or the request has been canceled
+  // data.requestStatus == 'requested' -> Current user is Editor & access requested by Viewer
   // data.requestedBy -> contains data about the User that requested access
 
-  if(data.requestStatus === true){
+  if(data.requestStatus === 'requested'){
     liveStateSyncElement.acceptEditorAccessRequest();
   }
 });
@@ -284,11 +338,11 @@ liveStateSyncElement.rejectEditorAccessRequest();
 Use with `isEditorAccessRequested()`:
 ```jsx
 liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
-  // data.requestStatus == true -> Current user is Editor & access requested by Viewer
-  // data.requestStatus == false -> Current user is not Editor
+  // data == null --> if user is not editor or the request has been canceled
+  // data.requestStatus == 'requested' -> Current user is Editor & access requested by Viewer
   // data.requestedBy -> contains data about the User that requested access
 
-  if(data.requestStatus === true){
+  if(data.requestStatus === 'requested'){
     liveStateSyncElement.rejectEditorAccessRequest();
   }
 });
@@ -453,7 +507,23 @@ liveStateElement.singleEditorModeContainerIds(["rightPanel"]);
 With Single Editor Mode, only one user will be able to edit the document at any given time. All other users live on the document will automatically be read-only. 
 
 
+
 <Steps>
+
+
+<Step title="Accessing the LiveStateSyncElement">
+
+The `LiveStateSyncElement` contains all of the methods used to interact with the `single editor mode` and `live state sync` features.
+
+
+### Accessing via the Velt client object
+
+```jsx
+const liveStateSyncElement = client.getLiveStateSyncElement();
+```
+
+
+</Step>
 
 
 <Step title="Enable Single Editor Mode">
@@ -463,10 +533,8 @@ Enables single editor mode.
 `Disabled by default`
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.enableSingleEditorMode(); //enables single editor mode
 ```
-
 
 #### (Optional) Set your DOM to read-only yourself, or let our SDK do it for you. 
 
@@ -480,17 +548,15 @@ If custom mode is enabled, we will not make the viewer's DOM read-only. You will
 liveStateSyncElement.enableSingleEditorMode({ customMode: true });
 ```
 
-#### (Optional) Make all tabs a separate editor
+#### (Optional) Lock Edit access to Single-Tab.
 
 `Default: true`
 
-You can pass a configuration object to make it so that each tab is treated as a separate editor. This way, if multiple tabs are open to the same page at the same time on the same browser, they will each have to request access to edit the page.
+The configuration `{singleTabEditor: boolean}` limits editing to one tab at a time. If an editor opens the same `document` in multiple tabs and begins editing in one (e.g., Tab 1), edit access is automatically disabled in the others (e.g., Tab 2). To enable editing in a different tab, a button can be implemented to trigger the `editCurrentTab()` method, granting edit access in that specific tab.
 
 ```tsx
 liveStateSyncElement.enableSingleEditorMode({ singleTabEditor: false });
 ```
-
-
 
 
 </Step>
@@ -500,8 +566,45 @@ liveStateSyncElement.enableSingleEditorMode({ singleTabEditor: false });
 Disables single editor mode.
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.disableSingleEditorMode(); // disables single editor mode
+```
+
+</Step>
+
+<Step title="Enable default Single Editor UI">
+
+In Single Editor mode, by default there is a small toast at the bottom of the screen that shows:
+- whether you are the editor or viewer
+- whether any other viewer has requested editor access
+- access request timeout coundown
+- option to reject request
+
+To enable this toast, you can use the `enableDefaultSingleEditorUI()` method.
+
+`Default: enabled`
+
+
+```jsx
+liveStateSyncElement.enableDefaultSingleEditorUI();
+```
+
+</Step>
+
+<Step title="Disable default single editor UI">
+
+In Single Editor mode, by default there is a small toast at the bottom of the screen that shows:
+- whether you are the editor or viewer
+- whether any other viewer has requested editor access
+- access request timeout coundown
+- option to reject request
+
+You can choose to disable this toast in favor of using your own custom UI.
+
+To disable this pop up, you can use the `disableDefaultSingleEditorUI()` method.
+
+
+```jsx
+liveStateSyncElement.disableDefaultSingleEditorUI();
 ```
 
 </Step>
@@ -510,18 +613,7 @@ liveStateSyncElement.disableSingleEditorMode(); // disables single editor mode
 Sets the current user as Editor. Note this will mark all the other users on the document as readonly users.
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.setUserAsEditor();
-```
-
-</Step>
-
-<Step title="Reset access for all users">
-Resets access for all users.
-
-```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
-liveStateSyncElement.resetUserAccess();
 ```
 
 </Step>
@@ -545,7 +637,6 @@ liveStateSyncElement.resetUserAccess();
 ```
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.isUserEditor().subscribe((userEditorAccess) => {
 		// your logic here...
     //userEditorAccess.editor <-- True if user is editor
@@ -554,11 +645,52 @@ liveStateSyncElement.isUserEditor().subscribe((userEditorAccess) => {
 ```
 
 
+
+</Step>
+
+
+<Step title="Get the current editor">
+
+`getEditor()` returns a subscription that emits the User object of the current editor. 
+
+```jsx
+liveStateSyncElement.getEditor().subscribe((user) => {
+  // user contains User object data
+
+});
+```
+
+The User object will look like this:
+
+```jsx
+{
+    "email": "userX@example.com",
+    "name": "User X",
+    "photoUrl": "https://i.pravatar.cc/302",
+    "userId": "X",
+}
+```
+
+
+
+
+</Step>
+
+
+
+<Step title="Reset access for all users">
+Resets access for all users.
+
+```jsx
+liveStateSyncElement.resetUserAccess();
+```
+
+
 </Step>
 
 <Step title="Request editor access from the current editor">
 
-The `requestEditorAccess()` method is used to attempt to gain editor access from the current editor. 
+Call `requestEditorAccess()` from a Viewer's client to get editor access from the current editor. 
 
 It returns a subscription that emits:
 - `null` if the request is pending
@@ -566,7 +698,6 @@ It returns a subscription that emits:
 - `false` if the request was rejected by the editor
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.requestEditorAccess().subscribe((data) => {
 	// data == null -> Request is pending
 	// data == true -> Request accepted by editor
@@ -580,7 +711,7 @@ liveStateSyncElement.requestEditorAccess().subscribe((data) => {
 
 <Step title="Check whether editor access is being requested">
 
-The `isEditorAccessRequested()` method is used to detect on the editor's client whether a non-editor has requested editor access or not. 
+The `isEditorAccessRequested()` method is used to detect on the Editor's client if a Viewer has requested editor access or not. 
 
 
 It returns a subscription that emits the following object:
@@ -590,35 +721,34 @@ It returns a subscription that emits the following object:
 ```
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
-   // data.requestStatus == 'requested' -> Current user is Editor & access requested by Viewer
+  // data == null --> if user is not editor or the request has been canceled
+  // data.requestStatus == 'requested' -> Current user is Editor & access requested by Viewer
   // data.requestedBy -> contains data about the User that requested access
-
 });
 ```
 
 
 
+
 </Step>
 
-<Step title="Accept an editor access request">
+<Step title="Accept Editor access request">
 
-The 'acceptEditorAccessRequest()' method is used by the current editor to `accept` an editor access request.
+Once the Editor gets an Editor Access request, call 'acceptEditorAccessRequest()' method to `accept` the request.
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.acceptEditorAccessRequest();
 ```
 
 Use with `isEditorAccessRequested()`:
 ```jsx
 liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
-  // data.requestStatus == true -> Current user is Editor & access requested by Viewer
-  // data.requestStatus == false -> Current user is not Editor
+  // data == null --> if user is not editor or the request has been canceled
+  // data.requestStatus == 'requested' -> Current user is Editor & access requested by Viewer
   // data.requestedBy -> contains data about the User that requested access
 
-  if(data.requestStatus === true){
+  if(data.requestStatus === 'requested'){
     liveStateSyncElement.acceptEditorAccessRequest();
   }
 });
@@ -626,177 +756,26 @@ liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
 
 </Step>
 
-<Step title="Reject an editor access request">
+<Step title="Reject Editor access request">
 
-The 'rejectEditorAccessRequest()' method is used by the current editor to `reject` an editor access request.
+Once the Editor gets an Editor access request, call 'rejectEditorAccessRequest()' method to `reject` the request.
 
 ```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.rejectEditorAccessRequest();
 ```
 
 Use with `isEditorAccessRequested()`:
 ```jsx
 liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
-  // data.requestStatus == true -> Current user is Editor & access requested by Viewer
-  // data.requestStatus == false -> Current user is not Editor
+  // data == null --> if user is not editor or the request has been canceled
+  // data.requestStatus == 'requested' -> Current user is Editor & access requested by Viewer
   // data.requestedBy -> contains data about the User that requested access
 
-  if(data.requestStatus === true){
+  if(data.requestStatus === 'requested'){
     liveStateSyncElement.rejectEditorAccessRequest();
   }
 });
 ```
-
-</Step>
-
-<Step title="Setting the editor access timeout value">
-
-The `setEditorAccessTimeout()` method is used to set the editor access timeout value in seconds.
-
-`Default: 5 seconds`
-
-```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
-liveStateSyncElement.setEditorAccessTimeout(15); // in seconds
-```
-
-</Step>
-
-<Step title="Enable automatic transfer of edit access after timeout">
-
-The `enableEditorAccessTransferOnTimeOut()` method is used to enable automatic transferring of editor access after timeout.
-
-`Default: enabled`
-
-```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
-liveStateSyncElement.enableEditorAccessTransferOnTimeOut();
-```
-
-
-</Step>
-
-<Step title="Disable automatic transfer of edit access after timeout">
-
-The `disableEditorAccessTransferOnTimeOut()` method is used to disable automatic transferring of editor access after timeout.
-
-`Default: enabled`
-
-```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
-liveStateSyncElement.disableEditorAccessTransferOnTimeOut();
-```
-
-</Step>
-
-
-<Step title="Auto Sync State on Text Elements">
-Auto syncs the content of the following Text HTML elements, such that when `editor` types, the element's content is synced across all active users currently live on the document.
-- input
-- textarea
-- ContentEditable Divs
-
-To enable syncing, follow these two steps:
-1. Enable Auto Sync State feature:
-
-```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
-liveStateSyncElement.enableAutoSyncState();
-```
-
-2. Set the `data-velt-sync-state` attribute to `true` on the Text HTML element you want to sync:
-
-<Info>You can set an `id` to the HTML element to make the syncing more robust.</Info>
-
-```jsx
-<textarea id="uniqueId" data-velt-sync-state="true"></textarea>
-```
-
-<Warning>You must add the `data-velt-sync-state` attribute to a native HTML element (e.g. input, textarea). It will not work directly on React components.</Warning>
-
-
-
-</Step>
-
-
-
-<Step title="Auto Sync Access on HTML Elements">
-By default in Single Editor Mode, we control enabling and disabling of these html elements on the entire DOM:
-- input
-- textarea
-- select
-- button
-- contentEditable divs
-
-For users in Read-Only mode, the default elements listed above will be disabled, meaning `click`, `mouseup` and `mousedown` events will be prevented.
-
-If there are any other elements that you want us to control beyond the default elements we listed above, such as `div`, `span` elements etc, then you can add `data-velt-sync-access="true"` to that element.
-
-```jsx
-<div data-velt-sync-access="true"></div>
-```
-
-
-</Step>
-
-
-
-
-<Step title="Exclude default HTML elements from Auto Syncing Access">
-In Single Editor Mode, we control enabling and disabling of certain html elements on the entire DOM.
-If you want to exclude any of those html elements from this behavior, you can add `data-velt-sync-access-disabled="true"` to that element.
-
-```jsx
-<button data-velt-sync-access-disabled="true"></button>
-```
-
-
-</Step>
-
-<Step title="Restrict Single Editor Mode to Specific Parent Containers">
-By default Single Editor Mode is enabled at <strong>the entire DOM</strong> level. You can restrict this feature to only certain HTML containers & their children by using the `singleEditorModeContainerIds()` method. It takes in an array of element ID strings. These IDs represent the parent elements within which Single Editor Mode will be enabled.
-
-```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
-liveStateElement.singleEditorModeContainerIds(["rightPanel"]);
-```
-
-</Step>
-
-
-<Step title="Enable default single editor UI">
-
-In single editor mode, by default there is a small popup at the bottom of the screen that shows whether you are the editor or not and whether other viewers are trying to request editor access.
-
-To enable this pop up, you can use the `enableDefaultSingleEditorUI()` method.
-
-`Default: enabled`
-
-
-```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
-liveStateSyncElement.enableDefaultSingleEditorUI();
-```
-
-</Step>
-
-<Step title="Disable default single editor UI">
-
-In single editor mode, by default there is a small popup at the bottom of the screen that shows whether you are the editor or not and whether other viewers are trying to request editor access.
-
-You can choose to disable this popup in favor of using your own custom UI.
-
-To disable this pop up, you can use the `disableDefaultSingleEditorUI()` method.
-
-`Default: enabled`
-
-
-```jsx
-const liveStateSyncElement = client.getLiveStateSyncElement();
-liveStateSyncElement.disableDefaultSingleEditorUI();
-```
-
 </Step>
 
 <Step title="To cancel an edit access request by the Viewer">
@@ -822,6 +801,114 @@ liveStateSyncElement.editCurrentTab();
 
 </Step>
 
+<Step title="Setting timeout value for automatic editor access transfer after request">
+
+The `setEditorAccessTimeout()` method is used to set the editor access timeout value in seconds.
+
+`Default: 5 seconds`
+
+```jsx
+liveStateSyncElement.setEditorAccessTimeout(15); // in seconds
+```
+
+</Step>
+
+<Step title="Enable automatic transfer of edit access after timeout">
+
+The `enableEditorAccessTransferOnTimeOut()` method is used to enable automatic transferring of editor access after timeout.
+
+`Default: enabled`
+
+```jsx
+liveStateSyncElement.enableEditorAccessTransferOnTimeOut();
+```
+
+
+</Step>
+
+<Step title="Disable automatic transfer of edit access after timeout">
+
+The `disableEditorAccessTransferOnTimeOut()` method is used to disable automatic transferring of editor access after timeout.
+
+```jsx
+liveStateSyncElement.disableEditorAccessTransferOnTimeOut();
+```
+
+</Step>
+
+<Step title="Automatically sync contents of Text Elements">
+Auto syncs the content of the following Text HTML elements, such that when `editor` types, the element's content is synced across all active users currently live on the document.
+- input
+- textarea
+- ContentEditable Divs
+
+To enable syncing, follow these two steps:
+1. Enable Auto Sync State feature:
+
+```jsx
+liveStateSyncElement.enableAutoSyncState();
+```
+
+2. Set the `data-velt-sync-state` attribute to `true` on the Text HTML element you want to sync:
+
+<Info>You can set an `id` to the HTML element to make the syncing more robust.</Info>
+
+```jsx
+<textarea id="uniqueId" data-velt-sync-state="true"></textarea>
+```
+
+<Warning>You must add the `data-velt-sync-state` attribute to a native HTML element (e.g. input, textarea). It will not work directly on React components.</Warning>
+
+
+
+</Step>
+
+
+
+<Step title="Automatically make HTML Elements readonly or editable">
+By default in Single Editor Mode, we control making these html elements editable or readonly on the entire DOM:
+- input
+- textarea
+- select
+- button
+- contentEditable divs
+
+For Viewers, the default elements listed above will be disabled, meaning `click`, `mouseup` and `mousedown` events will be prevented.
+
+If there are any other elements that you want us to control beyond the default elements we listed above, such as `div`, `span` elements etc, then you can add `data-velt-sync-access="true"` to that element.
+
+```jsx
+<div data-velt-sync-access="true"></div>
+```
+
+<Warning>You must add the `data-velt-sync-access` attribute to native HTML elements (e.g. div, span). It will not work directly on React components.</Warning>
+
+</Step>
+
+
+
+
+<Step title="Exclude default HTML elements from Auto Syncing Access">
+In Single Editor Mode, we control enabling and disabling of certain html elements on the entire DOM.
+If you want to exclude any of those html elements from this behavior, you can add `data-velt-sync-access-disabled="true"` to that element.
+
+```jsx
+<button data-velt-sync-access-disabled="true"></button>
+```
+
+<Warning>You must add the `data-velt-sync-access-disabled` attribute to native HTML elements (e.g. button, input). It will not work directly on React components.</Warning>
+
+
+</Step>
+
+<Step title="Restrict Single Editor Mode to Specific Parent Containers">
+By default Single Editor Mode is enabled at <strong>the entire DOM</strong> level. You can restrict this feature to only certain HTML containers & their children by using the `singleEditorModeContainerIds()` method. It takes in an array of element ID strings. These IDs represent the parent elements within which Single Editor Mode will be enabled.
+
+```jsx
+liveStateElement.singleEditorModeContainerIds(["rightPanel"]);
+```
+
+</Step>
 
 </Steps>
 
@@ -864,13 +951,17 @@ function MyComponent(){
             //userEditorAccess.editorOnCurrentTab <-- true if the user is editor on current tab
         });
 
+        liveStateSyncElement.getEditor().subscribe((user) => {
+            // user contains User object data
+        });
+
         //Set Current User as Editor
         liveStateSyncElement.setUserAsEditor();
 
         //Reset Editor Access
         liveStateSyncElement.resetUserAccess();
 
-	    //Enable Auto Sync State
+	      //Enable Auto Sync State
         liveStateSyncElement.enableAutoSyncState();
 
         //Restrict Auto Sync Access to Specified Parent Elements
@@ -886,10 +977,10 @@ function MyComponent(){
        
         // Check whether editor access is being requested
         liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
-        // data.requestStatus == true -> Current user is Editor & access requested by Viewer
-        // data.requestStatus == false -> Current user is not Editor
-        // data.requestedBy -> contains data about the User that requested access
-            if(data.requestStatus === true){
+            // data == null --> if user is not editor or the request has been canceled
+            // data.requestStatus == 'requested' -> Current user is Editor & access requested by Viewer
+            // data.requestedBy -> contains data about the User that requested access
+            if(data.requestStatus === 'requested'){
 
                 // To accept an editor access request
                 liveStateSyncElement.acceptEditorAccessRequest();
@@ -972,6 +1063,10 @@ if(Velt){
         //userEditorAccess.editorOnCurrentTab <-- true if the user is editor on current tab
     });
 
+    liveStateSyncElement.getEditor().subscribe((user) => {
+        // user contains User object data
+    });
+
     //Set Current User as Editor
     liveStateSyncElement.setUserAsEditor();
 
@@ -994,10 +1089,10 @@ if(Velt){
     
     // Check whether editor access is being requested
         liveStateSyncElement.isEditorAccessRequested().subscribe((data) => {
-        // data.requestStatus == true -> Current user is Editor & access requested by Viewer
-        // data.requestStatus == false -> Current user is not Editor
+        // data == null --> if user is not editor or the request has been canceled
+        // data.requestStatus == 'requested' -> Current user is Editor & access requested by Viewer
         // data.requestedBy -> contains data about the User that requested access
-            if(data.requestStatus === true){
+            if(data.requestStatus === 'requested'){
 
                 // To accept an editor access request
                 liveStateSyncElement.acceptEditorAccessRequest();
