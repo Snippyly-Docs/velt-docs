@@ -14,7 +14,7 @@ title: "Setup"
 Import the `Arrow` components
 
 ```js
-import { VeltArrows, VeltArrowsTool } from '@veltdev/react';
+import { VeltArrows, VeltArrowTool } from '@veltdev/react';
 ```
 </Step>
 
@@ -28,12 +28,12 @@ Place the `VeltArrows` component at the root of your app.
 ```
 </Step>
 
-<Step title="Place the VeltArrowsTool component">
+<Step title="Place the VeltArrowTool component">
 Place the `VeltArrowsTool` component wherever you want the invite button to appear.
 
 ```js
 <div className="toolbar">
-  <VeltArrowsTool />
+  <VeltArrowTool />
 </div>
 ```
 </Step>
@@ -73,12 +73,12 @@ Place the `<velt-arrows>` component at the root of your app.
 ```
 </Step>
 
-<Step title="Place the <velt-arrows-tool> component">
+<Step title="Place the <velt-arrow-tool> component">
 Place the component wherever you want the invite button to appear.
 
 ```html
 <div class="toolbar">
-  <velt-arrows-tool></velt-arrows-tool>
+  <velt-arrow-tool></velt-arrow-tool>
 </div>
 ```
 </Step>
@@ -96,7 +96,7 @@ Place the component wherever you want the invite button to appear.
 <RequestExample>
 
 ```js React / Next.js
-import { VeltArrows, VeltArrowsTool } from '@veltdev/react';
+import { VeltArrows, VeltArrowTool } from '@veltdev/react';
 
 function YourComponent() {
 
@@ -104,7 +104,7 @@ function YourComponent() {
     <div>
       <VeltArrows/>
       <div className="toolbar">
-        <VeltArrowsTool />
+        <VeltArrowTool />
       </div>
       
     </div>
@@ -131,7 +131,7 @@ function YourComponent() {
   <body>
     <velt-arrows></velt-arrows>
     <div class="toolbar">
-      <velt-arrows-tool></velt-arrows-tool>
+      <velt-arrow-tool></velt-arrow-tool>
     </div>
     
   </body>
