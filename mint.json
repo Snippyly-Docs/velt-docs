@@ -304,7 +304,7 @@
                 "async-collaboration/arrows/customize-ui/parts",
                 "async-collaboration/arrows/customize-ui/slots",
                 "async-collaboration/arrows/customize-ui/variables",
-                "async-collaboration/arrows/customize-ui/custom-arrow-button"
+                "async-collaboration/arrows/customize-ui/custom-button"
               ]
             }
 
@@ -325,7 +325,17 @@
                 "async-collaboration/recorder/customize-behavior/velt-recorder-player"
               ]
             },
-            "async-collaboration/recorder/customize-ui"
+            {
+              "group": "Customize UI",
+              "pages": [
+                "async-collaboration/recorder/customize-ui/parts",
+                "async-collaboration/recorder/customize-ui/slots",
+                "async-collaboration/recorder/customize-ui/variables",
+                "async-collaboration/recorder/customize-ui/custom-button"
+              ]
+            }
+
+            
 
           ]
         }
