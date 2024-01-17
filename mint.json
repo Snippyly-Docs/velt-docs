@@ -47,6 +47,13 @@
       ]
     },
     {
+      "group": "Global Styles",
+      "pages": [
+        "global-styles/global-styles",
+        "global-styles/css-injection"     
+      ]
+    },
+    {
       "group": "User Contacts List",
       "pages": [
         "users/overview",
