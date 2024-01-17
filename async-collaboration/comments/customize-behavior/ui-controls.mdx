@@ -80,10 +80,10 @@ Whether, users will be scrolled to the location of a `Comment` when it is clicke
 
 By default, users will be redirected to a `Comment` if the comment id is provided in the url. But sometimes this experience is annoying, so we have provided a way to disable the option to automatically scroll users to the location of the `Comment`.
 
-To disable the feature, set `scrollToComponent` to `false`.
+To disable the feature, set `scrollToComment` to `false`.
 
 ```html
-<VeltComments scrollToComponent={false}/>
+<VeltComments scrollToComment={false}/>
 ```
 
 API methods:
@@ -91,9 +91,9 @@ API methods:
 ```jsx
 const commentElement = client.getCommentElement();
 // To enable scroll to component
-commentElement.enableScrollToComponent();
+commentElement.enablescrollToComment();
 // To disable scroll to component
-commentElement.disableScrollToComponent();
+commentElement.disablescrollToComment();
 ```
 
 
@@ -196,10 +196,10 @@ Whether, users will be scrolled to the location of a `Comment` when it is clicke
 
 By default, users will be redirected to a `Comment` if the comment id is provided in the url. But sometimes this experience is annoying, so we have provided a way to disable the option to automatically scroll users to the location of the `Comment`.
 
-To disable the feature, set `scroll-to-component` to `false`.
+To disable the feature, set `scroll-to-comment` to `false`.
 
 ```html
-<velt-comments scroll-to-component="false"></velt-comments>
+<velt-comments scroll-to-comment="false"></velt-comments>
 ```
 
 API methods:
@@ -207,9 +207,9 @@ API methods:
 ```jsx
 const commentElement = client.getCommentElement();
 // To enable scroll to component
-commentElement.enableScrollToComponent();
+commentElement.enablescrollToComment();
 // To disable scroll to component
-commentElement.disableScrollToComponent();
+commentElement.disablescrollToComment();
 ```
 
 
@@ -259,8 +259,8 @@ export default function YourDocument() {
       commentElement.disableMobileMode(); // 2
       commentElement.enableMinimap(); // 3
       commentElement.disableMinimap(); // 3  
-      commentElement.enableScrollToComponent(); // 4
-      commentElement.disableScrollToComponent(); // 4
+      commentElement.enablescrollToComment(); // 4
+      commentElement.disablescrollToComment(); // 4
       commentElement.enableCommentPinHighlighter(); // 5
       commentElement.disableCommentPinHighlighter(); // 5
     }
@@ -272,7 +272,7 @@ export default function YourDocument() {
             darkMode={true}    {/* 1 */}
             mobileMode={true}  {/* 2 */}
             minimap={true}  {/* 3 */}
-            scrollToComponent={false} {/* 4 */}
+            scrollToComment={false} {/* 4 */}
         />
     </div>
   )
@@ -285,7 +285,7 @@ export default function YourDocument() {
     dark-mode="true"    
     mobile-mode="true"  
     minimap="true" 
-    scroll-to-component="false"
+    scroll-to-comment="false"
   >
 </velt-comments
 <script>
@@ -297,8 +297,8 @@ if(Velt){
   commentElement.disableMobileMode(); // 2
   commentElement.enableMinimap(); // 3
   commentElement.disableMinimap(); // 3  
-  commentElement.enableScrollToComponent(); // 4
-  commentElement.disableScrollToComponent(); // 4
+  commentElement.enablescrollToComment(); // 4
+  commentElement.disablescrollToComment(); // 4
   commentElement.enableCommentPinHighlighter(); // 5
   commentElement.disableCommentPinHighlighter(); // 5
 }
