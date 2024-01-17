@@ -343,8 +343,18 @@
           "group": "Share & Invite",
           "pages": [
             "permission-management/share-and-invite/overview",
-            "permission-management/share-and-invite/setup"
+            "permission-management/share-and-invite/setup",
+            {
+              "group": "Customize UI",
+              "pages": [
+                "permission-management/share-and-invite/customize-ui/parts",
+                "permission-management/share-and-invite/customize-ui/slots",
+                "permission-management/share-and-invite/customize-ui/variables"
+              ]
+            }
           ]
+          
+          
         }
       ]
     },
