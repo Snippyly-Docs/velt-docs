@@ -249,6 +249,7 @@
                 {
                   "group": "Variables",
                   "pages": [
+                    "async-collaboration/comments/customize-ui/variables/overview",
                     "async-collaboration/comments/customize-ui/variables/pin",
                     "async-collaboration/comments/customize-ui/variables/bubble",
                     "async-collaboration/comments/customize-ui/variables/tool"
