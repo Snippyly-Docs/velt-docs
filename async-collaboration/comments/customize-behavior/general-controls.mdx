@@ -166,6 +166,30 @@ To support comments on top of an iframe, add the `data-velt-iframe-container="tr
 
 </Step>
 
+<Step title="Enable Hotkeys">
+
+Whether Hotkeys are enabled or not. For now, the only hotkey supported is pressing `c` to enable `comment mode`.
+
+`Default: false`
+
+To enable hotkeys, set the `hotkey` attribute to `true`.
+
+
+```html
+<VeltComments hotkey={false} />
+```
+
+API Methods:
+
+```jsx
+const commentElement = client.getCommentElement();
+// to enable hotkeys
+commentElement.enableHotkey();
+// to disable hotkeys
+commentElement.disableHotkey();
+```
+
+</Step>
 
 </Steps>
 
@@ -328,6 +352,33 @@ To support comments on top of an iframe, add the `data-velt-iframe-container="tr
 
 
 
+<Step title="Enable Hotkeys">
+
+Whether Hotkeys are enabled or not. For now, the only hotkey supported is pressing `c` to enable `comment mode`.
+
+`Default: false`
+
+To enable hotkeys, set the `hotkey` attribute to `true`.
+
+
+```html
+<velt-comments hotkey="true"></velt-comments>
+```
+
+API Methods:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+// to enable hotkeys
+commentElement.enableHotkey();
+// to disable hotkeys
+commentElement.disableHotkey();
+```
+
+</Step>
+
+
+
 
 </Steps>
 
@@ -356,6 +407,11 @@ export default function YourDocument() {
       commentElement.disableGhostComments(); // 4
       commentElement.enableGhostCommentsIndicator(); // 5
       commentElement.disableGhostCommentsIndicator(); // 5
+      commentElement.enableSidebarButtonOnCommentDialog() // 6
+      commentElement.disableSidebarButtonOnCommentDialog() // 6
+      commentElement.onSidebarButtonOnCommentDialogClick().subscribe((event) => yourMethod(event)); // 7
+      commentElement.enableHotkey(); // 9
+      commentElement.disableHotkey(); // 9 
     }
 
   })
@@ -374,6 +430,9 @@ export default function YourDocument() {
             commentTool={false}  {/* 3 */}
             ghostComments={true} {/* 4 */}
             ghostCommentsIndicator={true} {/* 5 */}
+            sidebarButtonOnCommentDialog={true} /> {/* 6 */}
+            onSidebarButtonOnCommentDialogClick={(event)=>yourMethod(event)} {/* 7 */}
+            hotkeys={true} {/* 9 */}
 
         />
     </div>
@@ -390,6 +449,8 @@ export default function YourDocument() {
       comment-tool="false"  
       ghost-comments="true"
       ghost-comments-indicator="true"
+      sidebar-button-comment-dialog="true"
+      hotkeys="true"
   ></velt-comments>
 
   <div data-velt-iframe-container="true">
@@ -406,6 +467,11 @@ export default function YourDocument() {
     commentElement.disableGhostComments(); // 4
     commentElement.enableGhostCommentsIndicator(); // 5
     commentElement.disableGhostCommentsIndicator(); // 5
+    commentElement.enableSidebarButtonOnCommentDialog() // 6
+    commentElement.disableSidebarButtonOnCommentDialog() // 6
+    commentElement.onSidebarButtonOnCommentDialogClick().subscribe((event) => yourMethod(event)); // 7
+    commentElement.enableHotkey(); // 9
+    commentElement.disableHotkey(); // 9
   }
 </script>
 </body>
