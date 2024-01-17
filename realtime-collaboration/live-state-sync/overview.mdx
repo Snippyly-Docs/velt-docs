@@ -46,6 +46,49 @@ liveStateSyncElement.getLiveStateData(liveStateDataId).subscribe((data) => {
 
 </Step>
 
+<Step title="useLiveState() Hook">
+
+The `useLiveState()` hook can be used to sync data realtime for specific state variables in your code.
+
+
+Hook syntax:
+
+```tsx
+import {useLiveState} from '@veltdev/react'
+```
+
+```tsx
+const [value, setValue] = useLiveState<TYPE_OF_VALUE>(UNIQUE_ID, INITIAL_VALUE, SYNC_DURATION);
+```
+
+- TYPE_OF_VALUE -> optional, only applicable for typescript
+- UNIQUE_ID -> unique id in string to be synced across the screens
+- INITIAL_VALUE -> initial value of the state
+- SYNC_DURATION -> duration in milliseconds to sync realtime (optional, default value 50ms)
+- value -> current state value (similar to useState hook)
+- setValue -> function to be called to set next value (similar to useState hook)
+
+Example:
+
+```tsx
+import { useLiveState } from "@veltdev/react";
+
+export function MyReactComponent() {
+  const [counter, setCounter] = useLiveState < number > ("counter", 0);
+
+  return (
+    <div>
+      <button onClick={() => setCounter((counter || 0) - 1)}>-</button>
+      <span>Counter: {counter}</span>
+      <button onClick={() => setCounter((counter || 0) + 1)}>+</button>
+    </div>
+  );
+}
+```
+
+</Step>
+
+
 
 
 
