@@ -298,7 +298,15 @@
             "async-collaboration/arrows/overview",
             "async-collaboration/arrows/setup",
             "async-collaboration/arrows/customize-behavior",
-            "async-collaboration/arrows/customize-ui"
+            {
+              "group": "Customize UI",
+              "pages": [
+                "async-collaboration/arrows/customize-ui/parts",
+                "async-collaboration/arrows/customize-ui/slots",
+                "async-collaboration/arrows/customize-ui/variables",
+                "async-collaboration/arrows/customize-ui/custom-arrow-button"
+              ]
+            }
 
 
             
