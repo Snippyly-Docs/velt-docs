@@ -146,7 +146,15 @@
           "pages": [
             "realtime-collaboration/huddle/overview",
             "realtime-collaboration/huddle/setup",
-            "realtime-collaboration/huddle/customize-behavior"
+            "realtime-collaboration/huddle/customize-behavior",
+            {
+              "group": "Customize UI",
+              "pages": [
+                "realtime-collaboration/huddle/customize-ui/parts",
+                "realtime-collaboration/huddle/customize-ui/slots",
+                "realtime-collaboration/huddle/customize-ui/variables"
+              ]
+            }
           ]
         },
         {
