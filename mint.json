@@ -47,32 +47,7 @@
       ]
     },
     {
-      "group": "Global Styles",
-      "pages": [
-        "global-styles/global-styles",
-        "global-styles/css-injection"     
-      ]
-    },
-    {
-      "group": "User Contacts List",
-      "pages": [
-        "users/overview",
-        {
-          "group": "Client Side",
-          "pages": [
-            "users/client-side/setup"
-          ]
-        },
-        {
-          "group": "Server Side",
-          "pages": [
-            "users/server-side/api-reset-contact-list"
-          ]
-        }
-      ]
-    },
-    {
-      "group": "Documents and locations",
+      "group": "Documents and Locations",
       "pages": [
         "documents-and-locations/overview",
         {
@@ -91,6 +66,24 @@
             "documents-and-locations/locations/setup/api-delete-data-by-location"            
           ]
         }       
+      ]
+    },
+    {
+      "group": "User Contacts List",
+      "pages": [
+        "users/overview",
+        {
+          "group": "Client Side",
+          "pages": [
+            "users/client-side/setup"
+          ]
+        },
+        {
+          "group": "Server Side",
+          "pages": [
+            "users/server-side/api-reset-contact-list"
+          ]
+        }
       ]
     },
     {
@@ -395,6 +388,13 @@
             "ai-copilot/design/setup"
           ]
         }
+      ]
+    },
+    {
+      "group": "Global Styles",
+      "pages": [
+        "global-styles/global-styles",
+        "global-styles/css-injection"     
       ]
     },
     {
