@@ -15,16 +15,16 @@ You can provide us a webhook endpoint and we will send real time notifications d
 | `newlyAdded`       | When the first comment in a thread is added  |
 | `added`            | When a new comment is added. Not used for the first comment in a thread - see `newlyAdded` |
 | `updated`          | When an existing comment gets updated |
-| `deleted`         | When an existing comments gets deleted |
+| `deleted`          | When an existing comments gets deleted |
 | `approved`         | When the comment is approved by the moderator. This is only applicable if you have turned on Moderator Mode. |
 | `assigned`         | When a comment gets assigned to a user |
-| `resolved`      |    When a comment gets resolved |
+| `resolved`         |    When a comment gets resolved |
 | `reopened`         | When a closed comment gets reopened |
-| `statusChanged`   | When a comment has its status changed (e.g. in progress, resolved, opened) |
-| `priorityChanged` | When a comment has its priority changed (e.g. P0, P1, P2 or custom set priorities) |
-| `accessModeChanged`       | When a comment gets assigned to a user |
-| `accepted`       | When a comment gets accepted by the moderator. This is only applicable if you have turned on Moderator Mode.|
-| `rejected`       | When a comment gets rejected by the moderator. This is only applicable if you have turned on Moderator Mode.|
+| `statusChanged`    | When a comment has its status changed (e.g. in progress, resolved, opened) |
+| `priorityChanged`  | When a comment has its priority changed (e.g. P0, P1, P2 or custom set priorities) |
+| `accessModeChanged`| When a comment gets assigned to a user |
+| `accepted`         | When a comment gets accepted by the moderator. This is only applicable if you have turned on Moderator Mode.|
+| `rejected`         | When a comment gets rejected by the moderator. This is only applicable if you have turned on Moderator Mode.|
 
 
 ## Setting up a Webhook
@@ -33,11 +33,11 @@ To enable Webhooks go to the Configurations -> Webhook Service in the Velt Conso
 
 Then provide the following:
 
- - Webhook Auth Token - this is an optional security feature. You can generate and set a unique auth token(string) on your velt console in the webhooks setting. We will add that to the authorization header whenever we are making a post request to your endpoint. This is so that you can validate that the request is coming from us and not a spammer.
+ - `Webhook Auth Token` - this is an optional security feature. You can generate and set a unique auth token(string) on your velt console in the webhooks setting. We will add that to the authorization header whenever we are making a post request to your endpoint. This is so that you can validate that the request is coming from us and not a spammer.
  
- - Processed Notification URL - endpoint for processed notifications, usually hosted on your server and is used to process the incoming body data in Processed Format
+ - `Processed Notification URL` - endpoint for processed notifications, usually hosted on your server and is used to process the incoming body data in Processed Format
 
- - Raw Notification URL - endpoint for processed notifications, usually hosted on your server and is used to process the incoming body data in Raw Format
+ - `Raw Notification URL` - endpoint for processed notifications, usually hosted on your server and is used to process the incoming body data in Raw Format
 
 ## Processed vs Raw Formats
 
@@ -51,25 +51,25 @@ We recommend using this so that you dont have to maintain the logic on your end.
 
 | Field                 | Type                                  | Required | Description|
 | --------------------- | ------------------------------------- | -------- | -----------|
-| from                  | User                                  | Yes      | The user who added, updated or deleted the target Comment.|
-| commentText           | string                                | Optional | text for the added, updated or deleted Comment. This is empty when entire CommentAnnotation is deleted.|
-| toContactsTagged      | UserContact[]                         | Optional | List of user contacts that are tagged to the target Comment. |
-| toContactsUpdated     | UserContact[]                         | Optional | List of user contacts that are on the target CommentAnnotation. This excludes all the user contacts that are on the target Comment. |
-| pageTitle             | string                                | Yes      | Title of the page on which the target CommentAnnotation is present.|
-| pageUrl               | string                                | Yes      | Full URL of the page on which the target CommentAnnotation is present. |
-| actionType            | string                                | Yes      | This can have 5 values: added, updated, deleted, resolved, approved |
-| targetAnnotationId    | Comment                               | Optional | The ID of the target annotation|
-| targetComment         | Comment                               | Optional | The target Comment object on which the event happened. This field will not be present if the event was at CommentAnnotation level. Eg: deleted the entire comment annotation, resolved comment, approved comment.|
-| targetCommentId       | string                             | Optional | The ID of the target Comment|
+| `from`                  | User                                  | Yes      | The user who added, updated or deleted the target Comment.|
+| `commentText`           | string                                | Optional | text for the added, updated or deleted Comment. This is empty when entire CommentAnnotation is deleted.|
+| `toContactsTagged`      | UserContact[]                         | Optional | List of user contacts that are tagged to the target Comment. |
+| `toContactsUpdated`     | UserContact[]                         | Optional | List of user contacts that are on the target CommentAnnotation. This excludes all the user contacts that are on the target Comment. |
+| `pageTitle`             | string                                | Yes      | Title of the page on which the target CommentAnnotation is present.|
+| `pageUrl`               | string                                | Yes      | Full URL of the page on which the target CommentAnnotation is present. |
+| `actionType`            | string                                | Yes      | This can have 5 values: added, updated, deleted, resolved, approved |
+| `targetAnnotationId`    | Comment                               | Optional | The ID of the target annotation|
+| `targetComment`         | Comment                               | Optional | The target Comment object on which the event happened. This field will not be present if the event was at CommentAnnotation level. Eg: deleted the entire comment annotation, resolved comment, approved comment.|
+| `targetCommentId`       | string                             | Optional | The ID of the target Comment|
 
 
 ## Raw format
 
 | Field                 | Type                                  | Required | Description|
 | --------------------- | ------------------------------------- | -------- | -----------|
-| commentAnnotation     | CommentAnnotation                     | Yes      | The target CommentAnnotation object on which the event happened. |
-| targetComment         | Comment                               | Optional | The target Comment object on which the event happened. This field will not be present if the event was at CommentAnnotation level. Eg: deleted the entire comment annotation, resolved comment, approved comment.|
-| actionType            | string                                | Yes      | This can have 5 values: added, updated, deleted, resolved, approved |
+| `commentAnnotation`     | CommentAnnotation                     | Yes      | The target CommentAnnotation object on which the event happened. |
+| `targetComment`         | Comment                               | Optional | The target Comment object on which the event happened. This field will not be present if the event was at CommentAnnotation level. Eg: deleted the entire comment annotation, resolved comment, approved comment.|
+| `actionType`            | string                                | Yes      | This can have 5 values: added, updated, deleted, resolved, approved |
 
 
 
