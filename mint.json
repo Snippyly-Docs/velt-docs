@@ -418,7 +418,8 @@
       "group": "Security",
       "pages": [  
         "security/content-security-policy",
-        "security/auth-tokens"
+        "security/auth-tokens",
+        "security/jwt-tokens"
       ]
     },
     {
