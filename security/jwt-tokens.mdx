@@ -44,6 +44,29 @@ async function generateVeltAuthToken(userId: string) {
 }
 ```
 
+### Response object
+
+The `generateVeltAuthToken()` method shown above does a fetch call to `https://generateveltauthtoken.api.velt.dev` with the following body:
+
+- `userId` - unique user id of the user you are generating a JWT Token for
+- `apiKey` - Velt API KEy
+- `authToken` - Auth Token from the Velt Console
+
+The following respone object will be returned from the fetch call:
+
+```jsx
+{
+    "result": {
+        "status": "success",
+        "message": "Token generated successfully.",
+        "data": {
+            "token": "USER_AUTH_TOKEN"
+        }
+    }
+}
+```
+
+
 ## Using a JWT Token with `client.identify()`
 
 Once the JWT Token is generated, you can pass it into the `client.identify()` method. The `client.identify()` method has an optional second parameter that takes in a configuration object that includes the `JWT Token` as a field.
