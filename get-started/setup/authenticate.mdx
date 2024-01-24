@@ -72,8 +72,29 @@ Call the `identify()` method and pass in the Velt `User` object.
 ```
 
 <Info>The `client.identify()` method is asynchronous.</Info>
+<Warning>You must call `client.identify` within a child component of the `VeltProvider`, or else it will not work.</Warning>
+
 
 </Step>
+
+<Step title="(Optional) - Add JWT Tokens for additional security">
+
+The second parameter of the `client.identify()` method is an optional configuration object that has a `JWT Token` as a field.
+
+This can be used to add an additional layer of security to prevent user impersonation.
+
+```js
+  await client.identify(user, {
+    authToken: authToken,
+  });
+```
+
+See [JWT Tokens](/security/jwt-tokens) for more information on how to generate a `JWT Token` with the Velt SDK.
+
+
+</Step>
+
+
 </Steps>
 
 
@@ -130,8 +151,27 @@ Make sure you pass the `User` with the fields defined in the `User` object or re
 ```
 
 <Info>The `Velt.identify()` method is asynchronous</Info>
+<Warning>You must call `client.identify` within a child component of the `VeltProvider`, or else it will not work.</Warning>
+
 </Step>
 
+
+<Step title="(Optional) - Add JWT Tokens for additional security">
+
+The second parameter of the `client.identify()` method is an optional configuration object that has a `JWT Token` as a field.
+
+This can be used to add an additional layer of security to prevent user impersonation.
+
+```js
+  await client.identify(user, {
+    authToken: authToken,
+  });
+```
+
+See [JWT Tokens](/security/jwt-tokens) for more information on how to generate a `JWT Token` with the Velt SDK.
+
+
+</Step>
 
 </Steps>
 
