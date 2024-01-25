@@ -30,7 +30,9 @@ Go to [https://console.velt.dev](https://console.velt.dev/dashboard/config/gener
 
 Create an endpoint on your server that will call our `https://generateveltauthtoken.api.velt.dev` endpoint to generate a `JWT Token`.
 
-```
+
+Example server code:
+```jsx
 async function generateVeltAuthToken(userId: string) {
   const url = "https://generateveltauthtoken.api.velt.dev";
   const body = {
@@ -60,14 +62,14 @@ async function generateVeltAuthToken(userId: string) {
     console.error("Error:", error);
   }
 }
+```
 
+Example server endpoint code:
+```jsx
 app.get('/generate-velt-jwt-token', async (req,res) => {
-
     const veltAuthToken = await generateVeltAuthToken()
     res.json(veltAuthToken)
-
 })
-
 ```
 
 ### Request Body:
