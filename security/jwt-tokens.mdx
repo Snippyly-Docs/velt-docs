@@ -1,6 +1,11 @@
 ---
-title: JWT Tokens
+title: "JWT Tokens"
+description: "Generate JWT Tokens for additional security"
+api: "POST https://generateveltauthtoken.api.velt.dev"
 ---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
 
 
 ## Overview
@@ -9,9 +14,9 @@ title: JWT Tokens
 
 ## Generating a JWT Token
 
-With our SDK, you can generate a `JWT Token` using the `generateVeltAuthToken()` method. You can then pass the generated `JWT Token` to your `client.identify()` method.
+You can make a POST request to our `generateveltauthtoken.api.velt.dev` endpoint from your server to receive a `JWT Token` based on the ID of your user. You can then pass that `JWT Token` to your client and use it with our SDK's `client.identify()` method.
 
-
+Example:
 ```tsx
 async function generateVeltAuthToken(userId: string) {
   const url = "https://generateveltauthtoken.api.velt.dev";
@@ -44,26 +49,42 @@ async function generateVeltAuthToken(userId: string) {
 }
 ```
 
-### Response object
-
-The `generateVeltAuthToken()` method shown above does a fetch call to `https://generateveltauthtoken.api.velt.dev` with the following body:
-
-- `userId` - unique user id of the user you are generating a JWT Token for
-- `apiKey` - Velt API KEy
-- `authToken` - Auth Token from the Velt Console
-
-The following respone object will be returned from the fetch call:
+### Request Body:
 
 ```jsx
 {
-    "result": {
-        "status": "success",
-        "message": "Token generated successfully.",
-        "data": {
-            "token": "USER_AUTH_TOKEN"
-        }
-    }
+  "data": {
+    "apiKey": "YOUR_API_KEY", //Velt API Key
+    "authToken": "YOUR_AUTH_TOKEN", // Auth Token from the Velt console
+    "userId": "yourUserId" // unique user id of the user you are generating a JWT Token for
+  }
 }
+```
+
+### Success Response:
+
+```jsx
+{
+  "result": {
+    "status": "success",
+    "message": "Token generated successfully.",
+    "data": {
+      "token": "YOUR_JWT_TOKEN"
+    }
+  }
+}
+```
+
+### Failure Response:
+
+```jsx
+{
+  "error": {
+    "message": "Auth token not found.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
 ```
 
 
@@ -72,15 +93,58 @@ The following respone object will be returned from the fetch call:
 Once the JWT Token is generated, you can pass it into the `client.identify()` method. The `client.identify()` method has an optional second parameter that takes in a configuration object that includes the `JWT Token` as a field.
 
 ```jsx
-async function indentifyUser(user: any) {
-  const authToken = await generateVeltAuthToken(user.userId);
-  client?.identify(user, {
-    authToken: authToken,
+  client.identify(user, {
+    authToken: yourJWTToken,
   });
-};
 ```
 
 
+<ResponseField name="result" type="string">
+Response result
+</ResponseField>
+
+<Expandable title="result" defaultOpen={true}>
+
+
+<ResponseField name="message" type="string">
+Status description message for the response
+</ResponseField>
+
+<ResponseField name="status" type="string">
+Status for the response
+</ResponseField>
+
+
+<ResponseField name="data" type="object">
+Contains data for the response
+</ResponseField>
+
+<Expandable title="result" defaultOpen={true}>
+
+
+<ResponseField name="token" type="object">
+Contains the JWT token generated for the user
+</ResponseField>
+
+
+</Expandable>
+
+
+</Expandable>
 
 
 
+
+<ResponseExample>
+```js
+{
+  "result": {
+    "status": "success",
+    "message": "Token generated successfully.",
+    "data": {
+      "token": "YOUR_JWT_TOKEN"
+    }
+  }
+}
+```
+</ResponseExample>

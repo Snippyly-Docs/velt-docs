@@ -16,21 +16,41 @@ Body:
 
 ```JSON
 {
-  "apiKey": "your_api_key_here",
-  "authToken": "your_token_here",
-  "documentId": "your_document_id_here",
-  "annotationId": "COMMENT_ANNOTATION_ID",
+  "data": {
+    "apiKey": "YOUR_API_KEY",
+    "authToken": "YOUR_AUTH_TOKEN",
+    "annotationId": "COMMENT_ANNOTATION_ID",
+    "documentId": "your_document_id_here"
+  }
 }
 ```
 
-Response:
+Success Response:
 
 ```JSON
 {
-  "status": "success",
-  "message": "System Comment deleted successfully."
+  "result": {
+    "status": "success",
+    "message": "System Comment thread deleted successfully.",
+    "data": {
+      "annotationId": "COMMENT_ANNOTATION_ID",
+      "commentIds": [856787]
+    }
+  }
 }
 ```
+
+Failure Response:
+
+```JSON
+{
+  "error": {
+    "message": "Invalid Api key!",
+    "status": "UNAUTHENTICATED"
+  }
+}
+```
+
 
 <Info>
 Not sure where find your Auth Token? You can follow [these steps](/security/auth-tokens) to generate your Auth Token.
@@ -45,28 +65,50 @@ Body:
 
 ```JSON
 {
-  "apiKey": "API_KEY",
-  "authToken": "AUTH_TOKEN",
-  "documentId": "client-document-id",
-  "annotationId": "COMMENT_ANNOTATION_ID",
-  "commentId": 123456 // child comment id to delete  - can only delete 1 at a time
-}
-```
-
-Response:
-
-```JSON
-{
-  "status": "success",
-  "message": "System Comment thread deleted successfully.",
   "data": {
+    "apiKey": "YOUR_API_KEY",
+    "authToken": "YOUR_AUTH_TOKEN",
     "annotationId": "COMMENT_ANNOTATION_ID",
-    "commentIds": [ // remaining comment ids
-      456789
-    ]
+    "documentId": "your_document_id_here",
+    "commentId": 123456 // child comment id to delete  - can only delete 1 at a time
   }
 }
 ```
+
+Success Response:
+
+```JSON
+{
+  "result": {
+    "status": "success",
+    "message": "System Comment thread deleted successfully.",
+    "data": {
+      "annotationId": "COMMENT_ANNOTATION_ID",
+      "commentIds": [856787] // remaining comment ids
+    }
+  }
+}
+```
+
+Failure Response:
+
+```JSON
+{
+  "error": {
+    "message": "Invalid Api key!",
+    "status": "UNAUTHENTICATED"
+  }
+}
+```
+
+
+
+<ResponseField name="result" type="string">
+Response result
+</ResponseField> 
+
+<Expandable title="result" defaultOpen={true}>
+
 
 <ResponseField name="status" type="string">
 Status for the response
@@ -92,16 +134,19 @@ An array with all child comment ids
 </ResponseField>
 
 </Expandable>
+</Expandable>
+
+
 <ResponseExample>
 ```js
-	{
-  "status": "success",
-  "message": "System Comment added successfully.",
-  "data": {
-    "annotationId": "COMMENT_ANNOTATION_ID", // this is the parent comment annotation id.
-    "commentIds": [ // all the child comment ids will be provided in order in this array.
-      123456
-    ]
+{
+  "result": {
+    "status": "success",
+    "message": "System Comment thread deleted successfully.",
+    "data": {
+      "annotationId": "COMMENT_ANNOTATION_ID",
+      "commentIds": [856787] // remaining comment ids
+    }
   }
 }
 ```

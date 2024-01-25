@@ -57,20 +57,33 @@ This is the priority order of the text to be replaced when comment is accepted:
 replaceContentHtml > replaceContentText > commentHtml > commentText
 
 
-Response:
+Success Response:
 
 ```JSON
 {
-  "status": "success",
-  "message": "System Comment added successfully.",
-  "data": {
-    "annotationId": "COMMENT_ANNOTATION_ID", // this is the parent comment annotation id.
-    "commentIds": [ // all the child comment ids will be provided in order in this array.
-      123456
-    ]
+  "result": {
+    "status": "success",
+    "message": "System Comment added successfully.",
+    "data": {
+      "annotationId": "COMMENT_ANNOTATION_ID", // this is the parent comment annotation id.
+      "commentIds": [372029, 289088, 910121] // all the child comment ids will be provided in order in this array.
+    }
   }
 }
 ```
+
+Failure Response:
+
+```JSON
+{
+  "error": {
+    "message": "Auth Token is required.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+```
+
+
 
 ## Adding a Child System Comment
 
@@ -98,6 +111,11 @@ The `annotationId` field will contain the annotation ID of the parent comment th
 ```
 
 
+<ResponseField name="result" type="string">
+Response result
+</ResponseField> 
+
+<Expandable title="result" defaultOpen={true}>
 
 <ResponseField name="status" type="string">
 Status for the response
@@ -124,10 +142,23 @@ An array with all child comment ids
 
 </Expandable>
 
+</Expandable>
+
 
 
 <ResponseExample>
 ```js
+{
+  "result": {
+    "status": "success",
+    "message": "System Comment added successfully.",
+    "data": {
+      "annotationId": "COMMENT_ANNOTATION_ID", // this is the parent comment annotation id.
+      "commentIds": [372029, 289088, 910121] // all the child comment ids will be provided in order in this array.
+    }
+  }
+}
+
 	{
   "status": "success",
   "message": "System Comment added successfully.",

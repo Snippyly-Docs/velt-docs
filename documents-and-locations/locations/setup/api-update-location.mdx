@@ -35,6 +35,32 @@ Body:
 Not sure where find your Auth Token? You can follow [these steps](/security/auth-tokens) to generate your Auth Token.
 </Info>
 
+Success Response:
+
+```JSON
+{
+  "result": {
+    "status": "success",
+    "message": "Location updated.",
+    "data": null
+  }
+}
+```
+
+
+Failure Response:
+
+```JSON
+{
+  "error": {
+    "message": "Auth Token not found.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+```
+
+
+
 
 ## Example
 
@@ -86,22 +112,18 @@ Then you your body data should look like this:
 
 
 <ResponseField name="message" type="string">
-Status message for the response
+Status description message for the response
 </ResponseField>
+
+<ResponseField name="status" type="string">
+Status for the response
+</ResponseField>
+
 
 <ResponseField name="data" type="object">
-Object that contains status of the result
+Contains data for the response
 </ResponseField>
 
-<Expandable title="data" defaultOpen={true}>
-
-
-<ResponseField name="status" type="boolean">
-Shows a status boolean whether the API call succeeded or not
-</ResponseField>
-
-
-</Expandable>
 
 </Expandable>
 
@@ -111,12 +133,11 @@ Shows a status boolean whether the API call succeeded or not
 <ResponseExample>
 ```js
 {
-    "result": {
-        "message": "Location updated.",
-        "data": {
-            "status": true
-        }
-    }
+  "result": {
+    "status": "success",
+    "message": "Location updated.",
+    "data": null
+  }
 }
 ```
 </ResponseExample>

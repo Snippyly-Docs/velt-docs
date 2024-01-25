@@ -32,6 +32,32 @@ Body:
 Not sure where find your Auth Token? You can follow [these steps](/security/auth-tokens) to generate your Auth Token.
 </Info>
 
+Success Response:
+
+```JSON
+{
+  "result": {
+    "status": "success",
+    "message": "Data deleted successfully.",
+    "data": null
+  }
+}
+```
+
+
+Failure Response:
+
+```JSON
+{
+  "error": {
+    "message": "Invalid Api key!",
+    "status": "UNAUTHENTICATED"
+  }
+}
+```
+
+
+
 ## Example
 
 For example, if you want to delete all the data related to the `location` object with the id of "scene_1" shown below, then you will have to pass below data in body of the post method:
@@ -52,27 +78,22 @@ For example, if you want to delete all the data related to the `location` object
 
 
 
-
 <Expandable title="result" defaultOpen={true}>
 
 
 <ResponseField name="message" type="string">
-Status message for the response
+Status description message for the response
 </ResponseField>
+
+<ResponseField name="status" type="string">
+Status for the response
+</ResponseField>
+
 
 <ResponseField name="data" type="object">
-Object that contains status of the result
+Contains data for the response
 </ResponseField>
 
-<Expandable title="data" defaultOpen={true}>
-
-
-<ResponseField name="status" type="boolean">
-Shows a status boolean whether the API call succeeded or not
-</ResponseField>
-
-
-</Expandable>
 
 </Expandable>
 
@@ -82,12 +103,11 @@ Shows a status boolean whether the API call succeeded or not
 <ResponseExample>
 ```js
 {
-    "result": {
-        "message": "Data deleted successfully.",
-        "data": {
-            "status": true
-        }
-    }
+  "result": {
+    "status": "success",
+    "message": "Data deleted successfully.",
+    "data": null
+  }
 }
 ```
 </ResponseExample>
