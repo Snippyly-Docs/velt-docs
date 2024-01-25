@@ -61,12 +61,12 @@ import {useLiveState} from '@veltdev/react'
 const [value, setValue] = useLiveState<TYPE_OF_VALUE>(UNIQUE_ID, INITIAL_VALUE, SYNC_DURATION);
 ```
 
-- TYPE_OF_VALUE -> optional, only applicable for typescript
-- UNIQUE_ID -> unique id in string to be synced across the screens
-- INITIAL_VALUE -> initial value of the state
-- SYNC_DURATION -> duration in milliseconds to sync realtime (optional, default value 50ms)
-- value -> current state value (similar to useState hook)
-- setValue -> function to be called to set next value (similar to useState hook)
+- `TYPE_OF_VALUE` -> optional, only applicable for typescript
+- `UNIQUE_ID` -> unique id in string to be synced across the screens
+- `INITIAL_VALUE` -> initial value of the state
+- `SYNC_DURATION` -> duration in milliseconds to sync realtime (optional, default value 50ms)
+- `value` -> current state value (similar to useState hook)
+- `setValue` -> function to be called to set next value (similar to useState hook)
 
 Example:
 
