@@ -161,6 +161,88 @@ You are all done! Now you have added an additional level of security with `JWT T
 </Steps>
 
 
+<RequestExample>
+
+
+```jsx Server Code
+import express from 'express';
+
+
+const app = express();
+const PORT = 8080;
+
+async function generateVeltAuthToken(userId: string) {
+  const url = "https://generateveltauthtoken.api.velt.dev";
+  const body = {
+    data: {
+      userId: userId, // Unique user id of your user
+      apiKey: "YOUR_VELT_API_KEY",
+      authToken: "YOUR_CLIENT_AUTH_TOKEN", // Get this token from console.velt.dev
+    },
+  };
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data?.result?.token;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+
+app.get('/generate-velt-jwt-token', async (req,res) => {
+    const veltAuthToken = await generateVeltAuthToken(req.body.userId)
+    res.json(veltAuthToken)
+})
+
+app.listen(PORT, () => {
+  console.log(`JWT Server listening on port ${PORT}`);
+});
+
+```
+
+
+```jsx Client Code
+  async funtion callToYourServerToGetJWTToken(){
+
+    let baseUrl = "your-server.com"
+
+    let result = await fetch(`${baseUrl}/generate-velt-jwt-token`, {
+      method: "POST", 
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userId:"abc123"
+      }),
+    })
+
+    let data = result.json();
+    return data;
+
+  }
+
+  const yourJWTToken = await callToYourServerToGetJWTToken()
+
+  client.identify(user, {
+    authToken: yourJWTToken,
+  });
+
+```
+</RequestExample>
+
 
 
 
