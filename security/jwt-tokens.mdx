@@ -31,7 +31,7 @@ Create a server endpoint that will be used to generate and send a `JWT Token` to
 Example server endpoint code:
 ```jsx
 app.get('/generate-velt-jwt-token', async (req,res) => {
-    const veltAuthToken = await generateVeltAuthToken()
+    const veltAuthToken = await generateVeltAuthToken(req.body.userId)
     res.json(veltAuthToken)
 })
 ```
@@ -88,6 +88,8 @@ async function generateVeltAuthToken(userId: string) {
   }
 }
 ```
+To learn more about generating an Auth Token from the Velt Console, [read here](/security/auth-tokens).
+
 
 ### Success Response for `https://generateveltauthtoken.api.velt.dev`:
 
