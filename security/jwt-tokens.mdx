@@ -69,7 +69,7 @@ async function generateVeltAuthToken(userId: string) {
     }
 
     const data = await response.json();
-    return data?.result?.token;
+    return data?.result?.data?.token;
   } catch (error) {
     console.error("Error:", error);
   }
@@ -201,7 +201,7 @@ async function generateVeltAuthToken(userId) {
     }
 
     const data = await response.json();
-    return data?.result?.token;
+    return data?.result?.data?.token;
   } catch (error) {
     console.error("Error:", error);
   }
@@ -243,7 +243,7 @@ export default function YourAuthComponent() {
   const { client } = useVeltClient();
 
   // Call to your Server to get JWT Token
-  async funtion callToYourServerToGetJWTToken(userId){
+  async function callToYourServerToGetJWTToken(userId){
 
     let baseUrl = "your-server.com"
 
@@ -257,7 +257,7 @@ export default function YourAuthComponent() {
       }),
     })
 
-    let data = result.json();
+    let data = await result.json();
     return data;
 
   }
