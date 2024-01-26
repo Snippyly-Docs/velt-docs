@@ -126,7 +126,7 @@ async function generateVeltAuthToken(userId: string) {
 Call your server endpoint from your client to pass your `JWT Token` to your client.
 
 ```jsx
-  const yourJWTToken = await callToYourServerToGetJWTToken()
+  const yourJWTToken = await callToYourServerToGetJWTToken(userId)
 ```
 
 
@@ -140,7 +140,7 @@ Once the JWT Token is generated, you can pass it into the `client.identify()` me
 
 
 ```jsx
-  const yourJWTToken = await callToYourServerToGetJWTToken()
+  const yourJWTToken = await callToYourServerToGetJWTToken(userId)
   client.identify(user, {
     authToken: yourJWTToken,
   });
