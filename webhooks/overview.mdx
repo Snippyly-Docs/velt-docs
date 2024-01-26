@@ -67,6 +67,9 @@ We recommend using this so that you dont have to maintain the logic on your end.
 | `commentAnnotation`     | CommentAnnotation                     | Yes      | The target CommentAnnotation object on which the event happened. |
 | `targetComment`         | Comment                               | Optional | The target Comment object on which the event happened. This field will not be present if the event was at CommentAnnotation level. Eg: deleted the entire comment annotation, resolved comment, approved comment.|
 | `actionType`            | string                                | Yes      | This can have 5 values: added, updated, deleted, resolved, approved |
+| `notificationSource`    | string                                | Yes      | Indicates the source of the notification |
+| `actionUser`            | string                                | Yes      | Contains information about the user who performed the action, including their name, email, and user ID.|
+| `metadata`              | string                                | Yes      | This field contains additional metadata related to the annotation, such as the API key, client document ID, document ID, and information about various locations where the annotation is associated with a web page. |
 
 
 
