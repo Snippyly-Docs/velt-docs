@@ -167,7 +167,6 @@ You are all done! Now you have added an additional level of security with `JWT T
 ```jsx Server Code
 import express from 'express';
 
-
 const app = express();
 const PORT = 8080;
 
@@ -200,7 +199,6 @@ async function generateVeltAuthToken(userId: string) {
     console.error("Error:", error);
   }
 }
-
 
 app.get('/generate-velt-jwt-token', async (req,res) => {
     const veltAuthToken = await generateVeltAuthToken(req.body.userId)
