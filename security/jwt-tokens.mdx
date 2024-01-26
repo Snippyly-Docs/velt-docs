@@ -170,7 +170,7 @@ import express from 'express';
 const app = express();
 const PORT = 8080;
 
-async function generateVeltAuthToken(userId: string) {
+async function generateVeltAuthToken(userId) {
   const url = "https://generateveltauthtoken.api.velt.dev";
   const body = {
     data: {
@@ -213,7 +213,30 @@ app.listen(PORT, () => {
 
 
 ```jsx Client Code
-  async funtion callToYourServerToGetJWTToken(){
+import { useVeltClient } from "@veltdev/react";
+import { useEffect, useState } from "react";
+
+export default function YourAuthComponent() {
+  let [user, setUser] = useState(null);
+
+  const userService = () => {
+    let randomNum = Math.floor(Math.random() * 10);
+    return {
+      uid: "user" + randomNum,
+      displayName: "User: " + randomNum,
+      email: "user" + randomNum + "@gmail.com",
+      photoURL: "https://i.pravatar.cc/30" + randomNum
+    };
+  };
+
+  // Fetch user data from user service
+  let yourAuthenticatedUser = userService();
+
+  // Get the Velt Client
+  const { client } = useVeltClient();
+
+  // Call to your Server to get JWT Token
+  async funtion callToYourServerToGetJWTToken(userId){
 
     let baseUrl = "your-server.com"
 
@@ -223,7 +246,7 @@ app.listen(PORT, () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        userId:"abc123"
+        userId:userId
       }),
     })
 
@@ -232,11 +255,38 @@ app.listen(PORT, () => {
 
   }
 
-  const yourJWTToken = await callToYourServerToGetJWTToken()
 
-  client.identify(user, {
-    authToken: yourJWTToken,
-  });
+  useEffect(() => {
+    const initVelt = async () => {
+      if (client && yourAuthenticatedUser) {
+        const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
+
+        // Create the Velt user object
+        const user = {
+          userId: uid,
+          name: displayName,
+          email: email,
+          photoUrl: photoURL
+        };
+
+
+        //Get JWT Token from your server
+        const yourJWTToken = await callToYourServerToGetJWTToken(user.userId)
+
+        // Identify the user with the Velt client, with JWT Token
+        await client.identify(user, {
+            authToken: yourJWTToken,
+        });
+
+        setUser(user);
+      }
+    };
+    initVelt().catch(console.error);
+  }, [client]);
+
+  return <div>User: {user?.userId}</div>;
+}
+
 
 ```
 </RequestExample>
