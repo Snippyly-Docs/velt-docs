@@ -1,7 +1,6 @@
 ---
 title: "JWT Tokens"
 description: "Generate JWT Tokens for additional security"
-api: "POST https://generateveltauthtoken.api.velt.dev"
 ---
 {/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
 <script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
@@ -166,52 +165,6 @@ You are all done! Now you have added an additional level of security with `JWT T
 
 
 
-<ResponseField name="result" type="string">
-Response result
-</ResponseField>
-
-<Expandable title="result" defaultOpen={true}>
-
-
-<ResponseField name="message" type="string">
-Status description message for the response
-</ResponseField>
-
-<ResponseField name="status" type="string">
-Status for the response
-</ResponseField>
-
-
-<ResponseField name="data" type="object">
-Contains data for the response
-</ResponseField>
-
-<Expandable title="result" defaultOpen={true}>
-
-
-<ResponseField name="token" type="object">
-Contains the JWT token generated for the user
-</ResponseField>
-
-
-</Expandable>
-
-
-</Expandable>
 
 
 
-
-<ResponseExample>
-```js
-{
-  "result": {
-    "status": "success",
-    "message": "Token generated successfully.",
-    "data": {
-      "token": "YOUR_JWT_TOKEN"
-    }
-  }
-}
-```
-</ResponseExample>
