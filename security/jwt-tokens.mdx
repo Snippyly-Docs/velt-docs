@@ -25,10 +25,9 @@ Go to [https://console.velt.dev](https://console.velt.dev/dashboard/config/gener
 </Step>
 
 
+<Step title="Create a server endpoint for generating and sending JWT Tokens to the client">
 
-<Step title="Generate a JWT Token from your Server">
-
-Create an endpoint on your server that will call our `https://generateveltauthtoken.api.velt.dev` endpoint to generate a `JWT Token`.
+Create a server endpoint that will be used to generate and send a `JWT Token` to the client.
 
 Example server endpoint code:
 ```jsx
@@ -38,6 +37,12 @@ app.get('/generate-velt-jwt-token', async (req,res) => {
 })
 ```
 
+</Step>
+
+
+<Step title="Generate a JWT Token from your server">
+
+In your server endpoint, call our `https://generateveltauthtoken.api.velt.dev` endpoint to generate a `JWT Token`.
 
 Example server code:
 ```jsx
@@ -117,9 +122,9 @@ async function generateVeltAuthToken(userId: string) {
 </Step>
 
 
-<Step title="Call your server endpoint to pass your JWT Token to your client">
+<Step title="Call your server endpoint from your client to pass your JWT Token to your client">
 
-Call your server endpoint to pass your JWT Token to your client.
+Call your server endpoint from your client to pass your `JWT Token` to your client.
 
 ```jsx
   const yourJWTToken = await callToYourServerToGetJWTToken()
