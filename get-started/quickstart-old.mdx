@@ -54,30 +54,38 @@ In **App.js**, add the `VeltProvider` component to the root of your app with you
 ```
 </Step>
 
+<Step title="Initialize the Velt client">
+
+Import `useVeltClient` and then use it to initialize the Velt client.
+
+You will need to do this in both **YourAuthComponent.js** and **YourDocument.js**.
+
+```js
+import { useVeltClient } from '@veltdev/react';
+
+const { client } = useVeltClient();
+```
+
+</Step>
 
 <Step title="Identify your user">
-In **YourAuthComponent.js**, use the `useIdentify()` hook from the Velt SDK to identify your user.
+In **YourAuthComponent.js**, use the Velt client to identify your user.
 
 
 ```js YourAuthComponent.js
-import { useIdentify } from '@veltdev/react';
-
-useIdentify(user)
+await client.identify(user)
 ```
 
-<Warning>Make sure to call `useIdentify()` within a child component of the Velt Provider. Otherwise, it will not work.</Warning>
-
+<Warning>Make sure to call `client.identify()` within a child component of the Velt Provider. Otherwise, it will not work.</Warning>
 </Step>
 
 
   
 <Step title="Set the Document ID">
-In **YourDocument.js**, use the `useSetDocumentId()` hook from the Velt SDK to set the Document ID.
+In **YourDocument.js**, use the Velt client to set the Document ID.
 
 ```js YourDocument.js
-import { useSetDocumentId } from '@veltdev/react';
-
-useSetDocumentId("my-document-id")
+client.setDocumentId('unique-document-id');
 ```
 </Step>
 
@@ -164,50 +172,67 @@ export default function App() {
 ```
 
 ```jsx YourAuthComponent.js
-import { useIdentify} from "@veltdev/react";
-import { useState } from "react";
+import { useVeltClient } from "@veltdev/react";
+import { useEffect, useState } from "react";
 
 export default function YourAuthComponent() {
+  let [user, setUser] = useState(null);
 
   const userService = () => {
     let randomNum = Math.floor(Math.random() * 10);
     return {
       uid: "user" + randomNum,
       displayName: "User: " + randomNum,
-      email: "user" + randomNum + "@gmail.com",
+      email: "user" + randomNum + "@velt.dev",
       photoURL: "https://i.pravatar.cc/30" + randomNum + `?u=user${randomNum}@velt.dev`
     };
   };
 
   // Fetch user data from user service
   let yourAuthenticatedUser = userService();
-  const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
 
-  // Create the Velt user object
-  let veltUser = {
-    userId: uid,
-    name: displayName,
-    email: email,
-    photoUrl: photoURL,
-    groupId: "theoffice2",
-  };
+  // Get the Velt Client
+  const { client } = useVeltClient();
 
-  //identify Velt user
-  useIdentify(veltUser)
+  useEffect(() => {
+    const initVelt = async () => {
+      if (client && yourAuthenticatedUser) {
+        const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
 
-  let [user,setUser] = useState(veltUser)
+        // Create the Velt user object
+        const user = {
+          userId: uid,
+          name: displayName,
+          email: email,
+          photoUrl: photoURL
+        };
+        // Identify the user with the Velt client
+        await client.identify(user);
+        setUser(user);
+      }
+    };
+    initVelt().catch(console.error);
+  }, [client]);
 
   return <div>User: {user?.userId}</div>;
 }
 ```
 
 ```jsx YourDocument.js
-import {  useSetDocumentId, VeltCommentTool, VeltPresence } from '@veltdev/react';
+import { useVeltClient, VeltCommentTool, VeltPresence } from '@veltdev/react';
 import { useEffect, useState } from 'react';
 
 export default function YourDocument() {
 
-  useSetDocumentId('my-document-id')
+  // Get the Velt client
+  const { client } = useVeltClient();
+
+  useEffect(() => {
+    if (client) {
+      // Set a document ID
+      client.setDocumentId('unique-document-id');
+    }
+  }, [client]);
 
   return (
     <div>

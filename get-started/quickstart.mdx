@@ -54,38 +54,30 @@ In **App.js**, add the `VeltProvider` component to the root of your app with you
 ```
 </Step>
 
-<Step title="Initialize the Velt client">
-
-Import `useVeltClient` and then use it to initialize the Velt client.
-
-You will need to do this in both **YourAuthComponent.js** and **YourDocument.js**.
-
-```js
-import { useVeltClient } from '@veltdev/react';
-
-const { client } = useVeltClient();
-```
-
-</Step>
 
 <Step title="Identify your user">
-In **YourAuthComponent.js**, use the Velt client to identify your user.
+In **YourAuthComponent.js**, use the `useIdentify()` hook from the Velt SDK to identify your user.
 
 
 ```js YourAuthComponent.js
-await client.identify(user)
+import { useIdentify } from '@veltdev/react';
+
+useIdentify(user)
 ```
 
-<Warning>Make sure to call `client.identify()` within a child component of the Velt Provider. Otherwise, it will not work.</Warning>
+<Warning>Make sure to call `useIdentify()` within a child component of the Velt Provider. Otherwise, it will not work.</Warning>
+
 </Step>
 
 
   
 <Step title="Set the Document ID">
-In **YourDocument.js**, use the Velt client to set the Document ID.
+In **YourDocument.js**, use the `useSetDocumentId()` hook from the Velt SDK to set the Document ID.
 
 ```js YourDocument.js
-client.setDocumentId('unique-document-id');
+import { useSetDocumentId } from '@veltdev/react';
+
+useSetDocumentId("my-document-id")
 ```
 </Step>
 
@@ -124,17 +116,19 @@ In **YourDocument.js**, add the `VeltCommentTool`to test out the `Comments` func
 Fork this repo if you want all the steps above done for you. You will still need to use your own Velt API Key.
 
 
-[Github Repo](https://github.com/Snippyly-Docs/quickstart-demo)
+[Github Repo](https://github.com/Snippyly-Docs/velt-quickstart-hooks-demo)
 
-[CodeSandBox Link](https://codesandbox.io/s/bold-frog-5y94gx?file=/src/App.js)
+[CodeSandBox Link](https://codesandbox.io/embed/github/Snippyly-Docs/velt-quickstart-hooks-demo?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.tsx&theme=dark&view=editor)
 
-[View Demo in Larger Window](https://quickstart-demo-mocha.vercel.app/)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FSnippyly-Docs%2Fquickstart-demo&demo-title=Velt%20Quickstart%20Demo&demo-description=Get%20started%20with%20Velt&demo-url=https%3A%2F%2Fgithub.com%2FSnippyly-Docs%2Fquickstart-demo)
+[View Demo in Larger Window](https://velt-quickstart-hooks-demo.vercel.app/)
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Snippyly-Docs/velt-quickstart-hooks-demo)
+
 
 <Frame>
 <iframe 
-    src="https://quickstart-demo-mocha.vercel.app/"
+    src="https://velt-quickstart-hooks-demo.vercel.app/"
     class="w-full"
     scrolling="no"
     height="500px">
@@ -172,67 +166,50 @@ export default function App() {
 ```
 
 ```jsx YourAuthComponent.js
-import { useVeltClient } from "@veltdev/react";
-import { useEffect, useState } from "react";
+import { useIdentify} from "@veltdev/react";
+import { useState } from "react";
 
 export default function YourAuthComponent() {
-  let [user, setUser] = useState(null);
 
   const userService = () => {
     let randomNum = Math.floor(Math.random() * 10);
     return {
       uid: "user" + randomNum,
       displayName: "User: " + randomNum,
-      email: "user" + randomNum + "@velt.dev",
+      email: "user" + randomNum + "@gmail.com",
       photoURL: "https://i.pravatar.cc/30" + randomNum + `?u=user${randomNum}@velt.dev`
     };
   };
 
   // Fetch user data from user service
   let yourAuthenticatedUser = userService();
+  const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
 
-  // Get the Velt Client
-  const { client } = useVeltClient();
+  // Create the Velt user object
+  let veltUser = {
+    userId: uid,
+    name: displayName,
+    email: email,
+    photoUrl: photoURL,
+    groupId: "theoffice2",
+  };
 
-  useEffect(() => {
-    const initVelt = async () => {
-      if (client && yourAuthenticatedUser) {
-        const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
+  //identify Velt user
+  useIdentify(veltUser)
 
-        // Create the Velt user object
-        const user = {
-          userId: uid,
-          name: displayName,
-          email: email,
-          photoUrl: photoURL
-        };
-        // Identify the user with the Velt client
-        await client.identify(user);
-        setUser(user);
-      }
-    };
-    initVelt().catch(console.error);
-  }, [client]);
+  let [user,setUser] = useState(veltUser)
 
   return <div>User: {user?.userId}</div>;
 }
 ```
 
 ```jsx YourDocument.js
-import { useVeltClient, VeltCommentTool, VeltPresence } from '@veltdev/react';
+import {  useSetDocumentId, VeltCommentTool, VeltPresence } from '@veltdev/react';
 import { useEffect, useState } from 'react';
 
 export default function YourDocument() {
 
-  // Get the Velt client
-  const { client } = useVeltClient();
-
-  useEffect(() => {
-    if (client) {
-      // Set a document ID
-      client.setDocumentId('unique-document-id');
-    }
-  }, [client]);
+  useSetDocumentId('my-document-id')
 
   return (
     <div>
