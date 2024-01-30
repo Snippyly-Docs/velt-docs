@@ -30,7 +30,7 @@ To enable Webhooks go to the Configurations -> Webhook Service in the Velt Conso
 
 Then provide the following:
 
- - `Webhook Auth Token` - this is an optional security feature. You can generate and set a unique auth token(string) on your velt console in the webhooks setting. We will add that to the authorization header whenever we are making a post request to your endpoint. This is so that you can validate that the request is coming from us and not a spammer.
+ - `Webhook Auth Token` - this is an optional security feature. You can generate and set a unique auth token(string) on your velt console in the webhooks setting. We will add that to the authorization header whenever we are making a post request to your endpoint. It will come in the format of `Bearer YOUR_AUTH_TOKEN`. This is so that you can validate that the request is coming from us and not a spammer.
  
  - `Processed Notification URL` - endpoint for processed notifications, usually hosted on your server and is used to process the incoming body data in Processed Format
 
