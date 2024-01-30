@@ -160,7 +160,9 @@
         {
           "group": "Live State Sync",
           "pages": [
-            "realtime-collaboration/live-state-sync/overview"
+            "realtime-collaboration/live-state-sync/overview",
+            "realtime-collaboration/live-state-sync/setup"
+
           ]
         },
         {
