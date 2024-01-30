@@ -75,6 +75,8 @@ In **YourAuthComponent.js**, use the Velt client to identify your user.
 ```js YourAuthComponent.js
 await client.identify(user)
 ```
+
+<Warning>Make sure to call `client.identify()` within a child component of the Velt Provider. Otherwise, it will not work.</Warning>
 </Step>
 
 
