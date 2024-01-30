@@ -27,6 +27,8 @@ const liveStateSyncElement = client.getLiveStateSyncElement();
 liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
 ```
 
+<Info>Data that is added via Live State Sync will persist until it is manually cleaned up. We don't auto reset the live state data after any period of time.</Info>
+
 </Step>
 
 <Step title="Get a shared live data object">
@@ -126,6 +128,9 @@ const liveStateData = { 'key': 'value' }; // any type of data
 const liveStateSyncElement = Velt.getLiveStateSyncElement();
 liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
 ```
+
+<Info>Data that is added via Live State Sync will persist until it is manually cleaned up. We don't auto reset the live state data after any period of time.</Info>
+
 
 </Step>
 
