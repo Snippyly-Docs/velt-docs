@@ -82,21 +82,21 @@ useSetDocumentId("my-document-id")
 </Step>
 
 <Step title="Add the VeltComments, VeltCommentTool and VeltPresence components">
-In **App.js**, add `VeltComments` and `VeltPresence` to enable the `Comments` and `Presence` functionality.
+In **App.js**, add `VeltComments` to enable the `Comments` functionality.
 
 ```js App.js
 <VeltProvider apiKey="YOUR_API_KEY">
   <VeltComments/>
-  <VeltPresence/>
   <YourAuthComponent/>
   <YourDocument/>
 </VeltProvider>
 ```
 
-In **YourDocument.js**, add the `VeltCommentTool`to test out the `Comments` functionality.
+In **YourDocument.js**, add the `VeltCommentTool` and `VeltPresence` components to test out the `Comments` and `Presence` functionality.
 
 ```js YourDocument.js
 <div>
+  <VeltPresence/>
   <VeltCommentTool/>
 </div>
 ```
