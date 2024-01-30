@@ -168,7 +168,6 @@ import { useIdentify} from "@veltdev/react";
 import { useState } from "react";
 
 export default function YourAuthComponent() {
-  let [user, setUser] = useState(null);
 
   const userService = () => {
     let randomNum = Math.floor(Math.random() * 10);
@@ -176,7 +175,7 @@ export default function YourAuthComponent() {
       uid: "user" + randomNum,
       displayName: "User: " + randomNum,
       email: "user" + randomNum + "@gmail.com",
-      photoURL: "https://i.pravatar.cc/30" + randomNum
+      photoURL: "https://i.pravatar.cc/30" + randomNum + `?u=user${randomNum}@velt.dev`
     };
   };
 
@@ -193,19 +192,6 @@ export default function YourAuthComponent() {
     groupId: "theoffice2",
   };
 
-  veltUser.contacts = [
-      getContact(0),
-      getContact(1),
-      getContact(2),
-      getContact(3),
-      getContact(4),
-      getContact(5),
-      getContact(6),
-      getContact(7),
-      getContact(8),
-      getContact(9)
-  ]
-
   //identify Velt user
   useIdentify(veltUser)
 
@@ -220,9 +206,6 @@ import {  useSetDocumentId, VeltCommentTool, VeltPresence } from '@veltdev/react
 import { useEffect, useState } from 'react';
 
 export default function YourDocument() {
-
-  // Get the Velt client
-  const { client } = useVeltClient();
 
   useSetDocumentId('my-document-id')
 
