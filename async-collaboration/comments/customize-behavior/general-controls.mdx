@@ -13,12 +13,16 @@ title: "General Controls"
 
 <Step title="Allow comments only on certain elements">
 
-Provide a list of element DOM IDs where commenting should be allowed.
+Provide a list of element DOM IDs, class names, or query selectors where commenting should be allowed.
 
 Comments will be disabled for all other elements. Note, this does not impact `Popover` mode.
 
 ```js
-<VeltComments allowedElementIds={['some-element']} />
+<VeltComments 
+  allowedElementIds={['some-element']} 
+  allowedElementClassNames={["class-name-1", "class-name-2"]}
+  allowedElementQuerySelectors={["#id1.class-name-1"]}
+/>
 ````
 
 API Method:
@@ -26,6 +30,8 @@ API Method:
 ```jsx
 const commentElement = client.getCommentElement();
 commentElement.allowedElementIds['some-element'];
+commentElement.allowedElementClassNames(["class-name-1", "class-name-2"]);
+commentElement.allowedElementQuerySelectors(["#id1.class-name-1"]);
 ```
 
 </Step>
@@ -191,6 +197,20 @@ commentElement.disableHotkey();
 
 </Step>
 
+<Step title="Add Comment support on PDF Viewers">
+
+To support comments on top of a pdf viewer, add the `data-velt-pdf-viewer="true"` attribute in the container element of the pdf viewer.
+
+```
+<!-- Add data-velt-pdf-viewer="true" attribute at container level of your pdf viewer -->
+<div id="viewerContainer" data-velt-pdf-viewer="true">
+    <!-- Your pdf viewer here -->
+    <div id="viewer" class="pdfViewer"></div>
+</div>
+```
+
+</Step>
+
 </Steps>
 
 </Tab>
@@ -203,12 +223,19 @@ commentElement.disableHotkey();
 
 <Step title="Allow comments only on certain elements">
 
-Provide a list of element DOM IDs where commenting should be allowed.
+Provide a list of element DOM IDs, class names, or query selectors where commenting should be allowed.
 
 Comments will be disabled for all other elements. Note, this does not impact `Popover` mode.
 
 ```js
-<velt-comments allowed-element-ids="['some-element']"></velt-comments>
+<velt-comments 
+  allowed-element-ids='["some-element"]'
+  allowed-element-class-names='["class-name-1", "class-name-2"]'
+  allowed-element-query-selectors='["#id1.class-name-1"]'
+>
+
+</velt-comments>
+
 ````
 
 API Method:
@@ -216,6 +243,8 @@ API Method:
 ```jsx
 const commentElement = Velt.getCommentElement();
 commentElement.allowedElementIds['some-element'];
+commentElement.allowedElementClassNames(["class-name-1", "class-name-2"]);
+commentElement.allowedElementQuerySelectors(["#id1.class-name-1"]);
 ```
 
 </Step>
@@ -377,6 +406,19 @@ commentElement.disableHotkey();
 
 </Step>
 
+<Step title="Add Comment support on PDF Viewers">
+
+To support comments on top of a pdf viewer, add the `data-velt-pdf-viewer="true"` attribute in the container element of the pdf viewer.
+
+```
+<!-- Add data-velt-pdf-viewer="true" attribute at container level of your pdf viewer -->
+<div id="viewerContainer" data-velt-pdf-viewer="true">
+    <!-- Your pdf viewer here -->
+    <div id="viewer" class="pdfViewer"></div>
+</div>
+```
+
+</Step>
 
 
 
@@ -400,7 +442,9 @@ export default function YourDocument() {
   useEffect(()=>{
     if(client){
       const commentElement = client.getCommentElement();
-      commentElement.allowedElementIds['some-element']; // 1
+      commentElement.allowedElementIds["some-element"]; // 1
+      commentElement.allowedElementClassNames(["class-name-1", "class-name-2"]); // 1
+      commentElement.allowedElementQuerySelectors(["#id1.class-name-1"]); // 1
       commentElement.enableCommentTool(); // 3
       commentElement.disableCommentTool(); // 3
       commentElement.enableGhostComments(); // 4
@@ -425,8 +469,15 @@ export default function YourDocument() {
           <iframe src="https://www.wikipedia.org/" width="500px" height="500px"></iframe>
         </div>
 
+        {/* 10 */}
+        <div id="viewerContainer" data-velt-pdf-viewer="true">
+            <div id="viewer" class="pdfViewer"></div>
+        </div>
+
         <VeltComments  
             allowedElementIds={['some-element']} {/* 1 */}
+            allowedElementClassNames={["class-name-1", "class-name-2"]} {/* 1 */}
+            allowedElementQuerySelectors={["#id1.class-name-1"]} {/* 1 */}
             commentTool={false}  {/* 3 */}
             ghostComments={true} {/* 4 */}
             ghostCommentsIndicator={true} {/* 5 */}
@@ -445,7 +496,9 @@ export default function YourDocument() {
   <div data-velt-comment-disabled></div> 
 
   <velt-comments
-      allowed-element-ids="['some-element']"
+      allowed-element-ids='["some-element"]'
+      allowed-element-class-names='["class-name-1", "class-name-2"]'
+      allowed-element-query-selectors='["#id1.class-name-1"]'
       comment-tool="false"  
       ghost-comments="true"
       ghost-comments-indicator="true"
@@ -457,10 +510,16 @@ export default function YourDocument() {
     <iframe src="https://www.wikipedia.org/" width="500px" height="500px"></iframe>
   </div>
 
+  <div id="viewerContainer" data-velt-pdf-viewer="true">
+      <div id="viewer" class="pdfViewer"></div>
+  </div>
+
 <script>
   if(Velt){
     const commentElement = Velt.getCommentElement();
-    commentElement.allowedElementIds['some-element']; // 1
+    commentElement.allowedElementIds["some-element"]; // 1
+    commentElement.allowedElementClassNames(["class-name-1", "class-name-2"]); // 1
+    commentElement.allowedElementQuerySelectors(["#id1.class-name-1"]); // 1
     commentElement.enableCommentTool(); // 3
     commentElement.disableCommentTool(); // 3
     commentElement.enableGhostComments(); // 4
