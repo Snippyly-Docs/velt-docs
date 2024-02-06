@@ -16,28 +16,30 @@ Body:
 
 ```JSON
 {
-  "apiKey": "your_api_key_here",
-  "authToken": "your_token_here",
-  "documentId": "your_document_id_here",
-  "targetElement": {
-    "elementId": "element_id", // optional (pass elementId if you want to add comment on a specific element)
-    "targetText": "target_text", // optional (pass targetText if you want to add comment on a specific text)
-    "occurrence": 1, // optional (default: 1) This is relevant for text comment. By default, we will attach comment to the first occurence of the target text in your document. You can change this to attach your comment on a more specific text.
-  	"selectAllContent": true, // Set to `true` if you want to select all the text content of the target element.
-  },
-  "status": "open", // optional (default: open)
-  "commentData": [ // an array of comment data. Add additional objects of the same schema for each comment reply in the thread.
-    {
-      "commentText": "This is awesome! Well done.", // To set plain text content
-      "commentHtml": "This <span style=\"color: green; background-color: aliceblue; display: inline-block; padding: 4px; border-radius: 4px;\">is test</span> comment.", // To set HTML formatted content
-      "replaceContentText": "This is new comment", // provide this replaceContentText to replace current text with
-      "replaceContentHtml": "<span>This is <b>new</b> comment.</span>", // If replacement text contains html formatted text, then provide it here
-      "from": {
-        "email": "user1@domain.com", // required
-        "name": "User1" // optional
+  data: {
+    "apiKey": "your_api_key_here",
+    "authToken": "your_token_here",
+    "documentId": "your_document_id_here",
+    "targetElement": {
+      "elementId": "element_id", // optional (pass elementId if you want to add comment on a specific element)
+      "targetText": "target_text", // optional (pass targetText if you want to add comment on a specific text)
+      "occurrence": 1, // optional (default: 1) This is relevant for text comment. By default, we will attach comment to the first occurence of the target text in your document. You can change this to attach your comment on a more specific text.
+      "selectAllContent": true, // Set to `true` if you want to select all the text content of the target element.
+    },
+    "status": "open", // optional (default: open)
+    "commentData": [ // an array of comment data. Add additional objects of the same schema for each comment reply in the thread.
+      {
+        "commentText": "This is awesome! Well done.", // To set plain text content
+        "commentHtml": "This <span style=\"color: green; background-color: aliceblue; display: inline-block; padding: 4px; border-radius: 4px;\">is test</span> comment.", // To set HTML formatted content
+        "replaceContentText": "This is new comment", // provide this replaceContentText to replace current text with
+        "replaceContentHtml": "<span>This is <b>new</b> comment.</span>", // If replacement text contains html formatted text, then provide it here
+        "from": {
+          "email": "user1@domain.com", // required
+          "name": "User1" // optional
+        }
       }
-    }
-  ]
+    ]
+  }
 }
 ```
 
@@ -92,26 +94,28 @@ To add a child system comment, we use the same endpoint for sending system comme
 The `annotationId` field will contain the annotation ID of the parent comment that your child comment will be added to.
 
 ```JSON
-{
-  "apiKey": "your_api_key_here",
-  "authToken": "your_token_here",
-  "documentId": "your_document_id_here",
-  "annotationId": "COMMENT_ANNOTATION_ID", // Pass the annotation ID to add a child comment to it.
-  "commentData": [ // NOTE: this will be appeneded to the previous comments array
-    {
-      "commentText": "This is awesome! Well done.", // To set plain text content
-      "commentHtml": "This <span style=\"color: green; background-color: aliceblue; display: inline-block; padding: 4px; border-radius: 4px;\">is test</span> comment.", // To set HTML formatted content
-      "from": {
-        "email": "user1@domain.com", // required
-        "name": "User1" // optional
+{ 
+  data: {
+    "apiKey": "your_api_key_here",
+    "authToken": "your_token_here",
+    "documentId": "your_document_id_here",
+    "annotationId": "COMMENT_ANNOTATION_ID", // Pass the annotation ID to add a child comment to it.
+    "commentData": [ // NOTE: this will be appeneded to the previous comments array
+      {
+        "commentText": "This is awesome! Well done.", // To set plain text content
+        "commentHtml": "This <span style=\"color: green; background-color: aliceblue; display: inline-block; padding: 4px; border-radius: 4px;\">is test</span> comment.", // To set HTML formatted content
+        "from": {
+          "email": "user1@domain.com", // required
+          "name": "User1" // optional
+        }
       }
-    }
-  ]
+    ]
+  }
 }
 ```
 
 
-<ResponseField name="result" type="string">
+<ResponseField name="result" type="object">
 Response result
 </ResponseField> 
 
