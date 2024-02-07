@@ -20,6 +20,13 @@ Body:
     "apiKey": "your_api_key_here",
     "authToken": "your_token_here",
     "documentId": "your_document_id_here",
+    "location": {     // You can pass location object to set a comment to any specific location
+      "locationName": "YOUR_LOCATION",
+      "version": { //You can optionally set a version in the locatin object // Note: if you set version then id and name fields are mandatory
+        "id": "v1",
+        "name": "Version 1"
+      }
+    },
     "targetElement": {
       "elementId": "element_id", // optional (pass elementId if you want to add comment on a specific element)
       "targetText": "target_text", // optional (pass targetText if you want to add comment on a specific text)
