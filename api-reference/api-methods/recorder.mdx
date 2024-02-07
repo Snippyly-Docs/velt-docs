@@ -6,16 +6,56 @@
 <Steps>
 <Step title="initRecording()">
 This method initializes recording.
+
+Example:
 ```jsx
 const recorderElement = client.getRecorderElement();
-recorderElement.initRecording();
+recorderElement.initRecording(type: string, panelId?: string);
 ```
+
+**Signature:**  
+```
+(type: string, panelId?: string) => any
+```
+
+**Params:** 
+```
+type: string, panelId?: string
+```
+
+**Returns:**  
+```
+any
+```
+
+
+
 </Step>
 <Step title="onRecordedData()">
-This method handles recorded data.
+This method listens to recorded data.
+
+Example:
 ```jsx
 const recorderElement = client.getRecorderElement();
-recorderElement.onRecordedData();
+recorderElement.onRecordedData((id,tag) => {
+    console.log(id,tag)
+});
 ```
+
+**Signature:**  
+```
+() => Observable<any>
+```
+
+**Params:** 
+```
+none
+```
+
+**Returns:**  
+```
+any
+```
+
 </Step>
 </Steps>

@@ -4,32 +4,73 @@
 
 <Steps>
 
-<Step title="getLiveCursorsOnCurrentDocument()">
-This method retrieves the live cursors in the current document.
-```jsx
-const cursorElement = client.getCursorElement();
-cursorElement.getLiveCursorsOnCurrentDocument();
-```
-</Step>
+
+
+
+
 <Step title="getOnlineUsersOnCurrentDocument()">
-This method retrieves the online users in the current document.
-```jsx
-const cursorElement = client.getCursorElement();
-cursorElement.getOnlineUsersOnCurrentDocument();
+Subscribe to cursors of all online users who are either active or inactive on the current document.
+
+
+**Signature:** 
 ```
+getOnlineUsersOnCurrentDocument: () => Observable<CursorUser[] | null>
+```
+
+**Params:** 
+```
+none
+```
+
+**Returns:** 
+```
+Observable<CursorUser[] | null>
+```
+
 </Step>
+
+
+
 <Step title="setInactivityTime()">
-This method sets the inactivity time.
-```jsx
-const cursorElement = client.getCursorElement();
-cursorElement.setInactivityTime();
+This method sets the inactivity time in milliseconds.
+
+**Signature:** 
 ```
+setInactivityTime: (milliseconds: number) => void;
+```
+
+**Params:** 
+```
+milliseconds: number
+```
+
+**Returns:** 
+```
+void
+```
+
 </Step>
+
+
+
 <Step title="allowedElementIds()">
-This method retrieves the allowed element IDs.
-```jsx
-const cursorElement = client.getCursorElement();
-cursorElement.allowedElementIds();
+To allow cursors in specific elements only.
+
+**Signature:** 
 ```
+allowedElementIds: (elementIds: string[]) => any
+```
+
+**Params:** 
+```
+elementIds: string[]
+```
+
+**Returns:** 
+```
+any
+```
+
+
 </Step>
 </Steps>

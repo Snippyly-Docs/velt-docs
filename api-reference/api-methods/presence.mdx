@@ -3,51 +3,113 @@
 <script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
 
 <Steps>
+
 <Step title="getOnlineUsersOnCurrentDocument()">
-This method retrieves the online users in the current document.
+Subscribe to a list of all online users who are either active or inactive on the current document. You can also use this find how many users are online on the current document and show them custom messages.
+
+Example:
 ```jsx
 const presenceElement = client.getPresenceElement();
 presenceElement.getOnlineUsersOnCurrentDocument();
 ```
+
+**Signature:** 
+```
+getOnlineUsersOnCurrentDocument: () => Observable<PresenceUser[] | null>
+```
+
+**Params:** 
+```
+none
+```
+
+**Returns:** 
+```
+Observable<PresenceUser[] | null>
+```
+
+
 </Step>
 
 <Step title="setInactivityTime()">
-This method sets the inactivity time.
+By default if the user is inactive for >5 minutes, we mark them offline. By inactive we mean they haven't moved their mouse or haven't made any keyboard event. You can configure this default threshold using this method.
+
+Example:
 ```jsx
 const presenceElement = client.getPresenceElement();
 presenceElement.setInactivityTime();
 ```
+
+**Signature:** 
+```
+setInactivityTime: (milliseconds: number) => void
+```
+
+**Params:** 
+```
+milliseconds: number
+```
+
+**Returns:** 
+```
+void
+```
+
 </Step>
 
-<Step title="enableFlockMode()">
-This method enables Flock mode.
+<Step title="enableFollowAlongMode()">
+
+This method enables Follow Along Mode.
+
+
+Example:
 ```jsx
 const presenceElement = client.getPresenceElement();
-presenceElement.enableFlockMode();
+presenceElement.enableFollowAlongMode();
 ```
+
+**Signature:** 
+```
+enableFollowAlongMode: (useHistoryAPI: boolean) => any
+```
+
+**Params:** 
+```
+useHistoryAPI: boolean
+```
+
+**Returns:** 
+```
+any
+```
+
 </Step>
 
-<Step title="disableFlockMode()">
-This method disables Flock mode.
+<Step title="disableFollowAlongMode()">
+This method disables Follow Along Mode.
+
+Example:
 ```jsx
 const presenceElement = client.getPresenceElement();
-presenceElement.disableFlockMode();
+presenceElement.disableFollowAlongMode();
 ```
+
+**Signature:**  
+```
+disableFollowAlongMode: () => any
+```
+
+**Params:** 
+```
+none
+```
+
+**Returns:**  
+```
+any
+```
+
+
 </Step>
 
-<Step title="startFollowingUser()">
-This method starts following a user.
-```jsx
-const presenceElement = client.getPresenceElement();
-presenceElement.startFollowingUser();
-```
-</Step>
-
-<Step title="stopFollowingUser()">
-This method stops following a user.
-```jsx
-const presenceElement = client.getPresenceElement();
-presenceElement.stopFollowingUser();
-```
-</Step>
 </Steps>
