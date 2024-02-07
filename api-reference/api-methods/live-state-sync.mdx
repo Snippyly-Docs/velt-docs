@@ -1,190 +1,475 @@
 {/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
-<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script id="setWindowVariableScript" src="https://snippylydemohtmldev.web.app/setwindowvariable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
 <script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
 
+<Steps>
 
-## getLiveStateData
+<Step title="getLiveStateData">
 
 Retrieves live state data as an observable based on the provided ID.
 
-- **Signature**: `getLiveStateData(liveStateDataId?: string): Observable<any>`
-- **Params**:
-  - `liveStateDataId` (optional): A string representing the ID for the live state data.
-- **Returns**: `Observable<any>`
+**Signature**: 
+```
+getLiveStateData(liveStateDataId?: string): Observable<any>
+```
 
+**Params**:
+```
+liveStateDataId?:string
+```
 
-## setLiveStateData
+**Returns**: 
+```
+Observable<any>
+```
+
+</Step>
+
+<Step title="setLiveStateData">
 
 Sets live state data for the provided ID and data.
 
-- **Signature**: `setLiveStateData(liveStateDataId: string, liveStateData: any): any`
-- **Params**:
-  - `liveStateDataId`: A string representing the ID for the live state data.
-  - `liveStateData`: The data to set for the specified ID.
-- **Returns**: `any`
+**Signature**: 
+```
+setLiveStateData(liveStateDataId: string, liveStateData: any): any
+```
+**Params**:
+```
+liveStateDataId: string, liveStateData: any
+```
 
-## enableSingleEditorMode
+
+**Returns**:
+```
+any
+```
+</Step>
+
+
+<Step title="enableSingleEditorMode">
 
 Enables the single editor mode with an optional configuration.
 
-- **Signature**: `enableSingleEditorMode(config?: SingleEditorConfig): void`
-- **Params**:
-  - `config` (optional): Configuration settings for the single editor mode.
-- **Returns**: None (void).
+**Signature**: 
+```
+enableSingleEditorMode(config?: SingleEditorConfig): void
+```
 
-## disableSingleEditorMode
+**Params**:
+```
+config?: SingleEditorConfig
+```
+
+**Returns**: 
+```
+void
+```
+</Step>
+
+
+<Step title="disableSingleEditorMode">
 
 Disables the single editor mode.
 
-- **Signature**: `disableSingleEditorMode(): void`
-- **Params**: None.
-- **Returns**: None (void).
+**Signature**: 
+```
+disableSingleEditorMode(): void
+```
+
+**Params**: 
+```
+none
+```
+
+**Returns**: 
+```
+void
+```
+</Step>
 
 
-## isUserEditor
+<Step title="isUserEditor">
 
 Checks if the current user is an editor. Returns an observable.
 
-- **Signature**: `isUserEditor(): Observable<UserEditorAccess | null>`
-- **Params**: None.
-- **Returns**: An `Observable<UserEditorAccess | null>` indicating the editor access of the current user.
+**Signature**: 
+```
+isUserEditor(): Observable<UserEditorAccess | null>
+```
 
-## getEditor
+**Params**: 
+```
+none
+```
+
+**Returns**: 
+```
+Observable<UserEditorAccess | null>
+``` 
+</Step>
+
+
+<Step title="getEditor">
 
 Retrieves the current editor information.
 
-- **Signature**: `getEditor(): Observable<User | null>`
-- **Params**: None.
-- **Returns**: `Observable<User | null>`
+**Signature**: 
+```
+getEditor(): Observable<User | null>
+```
 
-## setUserAsEditor
+**Params**: 
+```
+none
+```
+
+**Returns**: 
+```
+Observable<User | null>
+```
+</Step>
+
+
+<Step title="setUserAsEditor">
 
 Sets the current user as an editor.
 
-- **Signature**: `setUserAsEditor(): void`
-- **Params**: None.
-- **Returns**: None (void).
+**Signature**: 
+```
+setUserAsEditor(): void
+```
 
-## resetUserAccess
+**Params**: 
+```
+none
+```
+
+**Returns**: 
+```
+void
+```
+</Step>
+
+
+<Step title="resetUserAccess">
 
 Resets the user access.
 
-- **Signature**: `resetUserAccess(): void`
-- **Params**: None.
-- **Returns**: None (void).
+**Signature**: 
+```
+resetUserAccess(): void
+```
 
-## singleEditorModeContainerIds
+**Params**: 
+```
+none
+```
+
+**Returns**: 
+```
+void
+```
+</Step>
+
+
+<Step title="singleEditorModeContainerIds">
 
 Disables elements inside specific elements only when single editor mode is on.
 
-- **Signature**: `singleEditorModeContainerIds(elementIds: string[]): void`
-- **Params**:
-  - `elementIds`: An array of strings representing the IDs of elements that should be disabled in single editor mode.
-- **Returns**: None (void).
+**Signature**: 
+```
+singleEditorModeContainerIds(elementIds: string[]): void
+```
 
-## enableAutoSyncState
+**Params**:
+```
+elementIds: string[]
+```
 
-Enables the auto-sync state feature.
+**Returns**: 
+```
+void
+```
+</Step>
 
-- **Signature**: `enableAutoSyncState(): void`
-- **Params**: None.
-- **Returns**: None (void).
 
-## disableAutoSyncState
+<Step title="enableAutoSyncState">
 
-Disables the auto-sync state feature.
+Enables the autosync state feature.
 
-- **Signature**: `disableAutoSyncState(): void`
-- **Params**: None.
-- **Returns**: None (void).
+**Signature**: 
+```
+enableAutoSyncState(): void
+```
 
-## requestEditorAccess
+**Params**: 
+```
+none
+```
+
+**Returns**: 
+```
+void
+```
+</Step>
+
+
+<Step title="disableAutoSyncState">
+
+Disables the autosync state feature.
+
+**Signature**: 
+```
+disableAutoSyncState(): void
+```
+
+**Params**: 
+```
+none
+```
+
+**Returns**: 
+```
+void
+```
+</Step>
+
+
+<Step title="requestEditorAccess">
 
 Initiates a request for editor access.
 
-- **Signature**: `requestEditorAccess(): Observable<boolean | null>`
-- **Params**: None.
-- **Returns**: `Observable<boolean | null>` indicating whether the request was accepted or rejected
+**Signature**: 
+```
+requestEditorAccess(): Observable<boolean | null>
+```
 
-## isEditorAccessRequested
+**Params**: 
+```
+none
+```
+
+**Returns**: 
+```
+Observable<boolean | null>
+```
+
+</Step>
+
+
+<Step title="isEditorAccessRequested">
 
 Checks if editor access has been requested.
 
-- **Signature**: `isEditorAccessRequested(): Observable<{ requestStatus: string, requestedBy: User } | null>`
-- **Params**: None.
-- **Returns**: `Observable<{ requestStatus: string, requestedBy: User } | null>`
+**Signature**: 
+```
+isEditorAccessRequested(): Observable<{ requestStatus: string, requestedBy: User } | null>
+```
 
-## acceptEditor
+**Params**: 
+```
+none
+```
+
+**Returns**: 
+```
+Observable<{ requestStatus: string, requestedBy: User } | null>
+```
+</Step>
+
+
+<Step title="acceptEditorAccessRequest">
 
 AccessRequest
 
 Accepts an editor access request.
 
-- **Signature**: `acceptEditorAccessRequest(): void`
-- **Params**: None.
-- **Returns**: None (void).
+**Signature**: 
+```
+acceptEditorAccessRequest(): void
+```
+**Params**: 
+```
+none
+```
 
-## rejectEditorAccessRequest
+**Returns**: 
+```
+void
+```
+</Step>
+
+
+<Step title="rejectEditorAccessRequest">
 
 Rejects an editor access request.
 
-- **Signature**: `rejectEditorAccessRequest(): void`
-- **Params**: None.
-- **Returns**: None (void).
+**Signature**: 
+```
+rejectEditorAccessRequest(): void
+```
 
-## cancelEditorAccessRequest
+**Params**: 
+```
+none
+```
+
+**Returns**: 
+```
+void
+```
+</Step>
+
+
+
+<Step title="cancelEditorAccessRequest">
 
 Cancels an editor access request.
 
-- **Signature**: `cancelEditorAccessRequest(): void`
-- **Params**: None.
-- **Returns**: None (void).
+**Signature**: 
+```
+cancelEditorAccessRequest(): void
+```
 
-## editCurrentTab
+**Params**: 
+```
+none
+```
+
+**Returns**: 
+```
+void
+```
+</Step>
+
+
+
+<Step title="editCurrentTab">
 
 Edits the current tab.
 
-- **Signature**: `editCurrentTab(): void`
-- **Params**: None.
-- **Returns**: None (void).
+**Signature**: 
+```
+editCurrentTab(): void
+```
 
-## setEditorAccessTimeout
+**Params**: 
+```
+none
+```
 
-Sets a timeout for editor access.
+**Returns**: 
+```
+void
+```
+</Step>
 
-- **Signature**: `setEditorAccessTimeout(timeout: number): void`
-- **Params**:
-  - `timeout`: The duration in milliseconds after which the editor access will timeout.
-- **Returns**: None (void).
 
-## enableEditorAccessTransferOnTimeOut
+
+<Step title="setEditorAccessTimeout">
+
+Sets a timeout for editor access. (in milliseconds)
+
+**Signature**: 
+```
+setEditorAccessTimeout(timeout: number): void
+```
+
+**Params**:
+```
+timeout: number
+```
+
+**Returns**: 
+```
+void
+```
+</Step>
+
+
+
+<Step title="enableEditorAccessTransferOnTimeOut">
 
 Enables the transfer of editor access on timeout.
-  
-- **Signature**: `enableEditorAccessTransferOnTimeOut(): void`
-- **Params**: None.
-- **Returns**: None (void).
 
-## disableEditorAccessTransferOnTimeOut
+**Signature**: 
+```
+enableEditorAccessTransferOnTimeOut(): void
+```
+
+**Params**: 
+```
+none
+```
+
+**Returns**: 
+```
+void
+```
+</Step>
+
+
+
+<Step title="disableEditorAccessTransferOnTimeOut">
 
 Disables the transfer of editor access on timeout.
 
-- **Signature**: `disableEditorAccessTransferOnTimeOut(): void`
-- **Params**: None.
-- **Returns**: None (void).
+**Signature**: 
+```
+disableEditorAccessTransferOnTimeOut(): void
+```
 
-## enableDefaultSingleEditorUI
+**Params**: 
+```
+none
+```
+
+**Returns**: 
+```
+void
+```
+</Step>
+
+
+<Step title="enableDefaultSingleEditorUI">
 
 Enables the default UI for single editor mode.
 
-- **Signature**: `enableDefaultSingleEditorUI(): void`
-- **Params**: None.
-- **Returns**: None (void).
+**Signature**: 
+```
+enableDefaultSingleEditorUI(): void
+```
 
-## disableDefaultSingleEditorUI
+**Params**: 
+```
+none
+```
+
+**Returns**: 
+```
+void
+```
+
+</Step>
+
+
+<Step title="disableDefaultSingleEditorUI">
 
 Disables the default UI for single editor mode.
 
-- **Signature**: `disableDefaultSingleEditorUI(): void`
-- **Params**: None.
-- **Returns**: None (void).
+**Signature**: 
+```
+disableDefaultSingleEditorUI(): void
+```
+
+**Params**: 
+```
+none
+```
+
+**Returns**: 
+```
+void
+```
+</Step>
+</Steps>
