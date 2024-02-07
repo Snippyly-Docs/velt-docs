@@ -425,6 +425,23 @@
       ]
     },
     {
+      "group": "API Reference",
+      "pages": [
+        {
+          "group": "API Methods",
+          "pages": [
+            "api-reference/api-methods/contact",
+            "api-reference/api-methods/cursors",
+            "api-reference/api-methods/live-state-sync",
+            "api-reference/api-methods/presence",
+            "api-reference/api-methods/recorder",
+            "api-reference/api-methods/rewriter",
+            "api-reference/api-methods/selection"
+          ]
+        }
+      ]
+    }
+    {
       "group": "Examples",
       "pages": [
         "examples/overview",
