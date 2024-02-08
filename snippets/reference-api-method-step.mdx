@@ -1,0 +1,44 @@
+import { commentsJSON } from '/snippets/comments-method-json.mdx';
+
+
+export const ReferenceAPIMethodStep = ({ methodName,description,signature,parameters,returnType }) => (
+  <div>
+    <h1>{methodName}()</h1>
+    <p>{description}</p>
+
+
+    <b>Signature:</b>
+
+    <br/>
+
+
+    <pre><code>
+    {signature}
+    </code></pre>
+
+    <br/>
+
+    <b>Params:</b>
+
+    <br/>
+
+    <pre><code>
+    {parameters}
+    </code></pre>
+
+    <br/>
+
+    <b>Returns:</b>
+
+    <br/>
+
+    <pre><code>
+    {returnType}
+    </code></pre>
+
+    <br/>
+
+
+  </div>
+);
+
