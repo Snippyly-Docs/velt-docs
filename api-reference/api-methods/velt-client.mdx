@@ -2,258 +2,277 @@
 <script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
 <script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
 
-## initConfig
-
-Initialize Snippyly configuration with the provided API key and optional configuration.
-
-```javascript
-client.initConfig(apiKey: string, config?: Config)
-```
-
-## identify
-
-Identify the user and return a Promise with an unknown result. Useful for tracking user activity.
-
-```javascript
-client.identify(user: User, userOptions?: UserOptions)
-```
-
-## updateUser
-
-Update information about the currently logged-in user.
-
-```javascript
-client.updateUser(user: User)
-```
-
-## setDocumentId
-
-Set the unique document ID for the current document/resource to enable collaboration.
-
-```javascript
-client.setDocumentId(id: string)
-```
-
-## setLocation
-
-Set custom parameters for the current document/resource, allowing sub-document identification.
-
-```javascript
-client.setLocation(params: Location, appendLocation?: boolean)
-```
-
-## removeLocation
-
-Remove a location from the user, which may include sub-document identification.
-
-```javascript
-client.removeLocation(location?: Location)
-```
-
-## setScrollableElementsIds
-
-Inform Snippyly about scrollable elements' IDs to track their scroll changes.
-
-```javascript
-client.setScrollableElementsIds(ids: string[])
-```
-
-## removeScrollableElementsIds
-
-Remove scrollable elements' IDs from tracking.
-
-```javascript
-client.removeScrollableElementsIds()
-```
-
-## getPresenceElement
-
-Retrieve the Presence Element Object for accessing raw presence data, suitable for advanced users who want to design their own UI.
-
-```javascript
-client.getPresenceElement()
-```
-
-## getCursorElement
-
-Retrieve the Cursor Element Object for accessing raw cursor data, suitable for advanced users who want to design their own UI.
-
-```javascript
-client.getCursorElement()
-```
-
-## getCommentElement
-
-Retrieve the Comment Element Object for accessing raw comment data, suitable for advanced users who want to design their own UI.
-
-```javascript
-client.getCommentElement()
-```
-
-## getTagElement
-
-Retrieve the Tag Pin Annotation Object for accessing raw tag data, suitable for advanced users who want to design their own UI.
-
-```javascript
-client.getTagElement()
-```
-
-## getSelectionElement
-
-Retrieve the Selection Object for enabling/disabling features.
-
-```javascript
-client.getSelectionElement()
-```
-
-## getRecorderElement
-
-Retrieve the Recorder Object.
-
-```javascript
-client.getRecorderElement()
-```
-
-## getContactElement
-
-Retrieve the Contact Object.
-
-```javascript
-client.getContactElement()
-```
-
-## getRewriterElement
-
-Retrieve the Rewriter Object.
-
-```javascript
-client.getRewriterElement()
-```
-
-## getLiveStateSyncElement
-
-Retrieve the LiveStateSync Object.
-
-```javascript
-client.getLiveStateSyncElement()
-```
-
-## getArrowElement
-
-Retrieve the Arrow Object.
-
-```javascript
-client.getArrowElement()
-```
-
-## signOutUser
-
-Sign out the current user.
-
-```javascript
-client.signOutUser()
-```
-
-## disableFeatures
-
-Provide a list of features to disable or an empty array to enable all features.
-
-```javascript
-client.disableFeatures(features: Array<FeatureType>)
-```
-
-## addLocation
-
-Add a location to show comments, tags, recorders, etc., for the provided location. Deprecated, use `setLocation` with `appendLocation: true` instead.
-
-```javascript
-client.addLocation(location: any)
-```
-
-## isUserAllowed$
-
-Check if the user is allowed in the provided document. Returns an Observable.
-
-```javascript
-client.isUserAllowed$()
-```
-
-## getUserRole$
-
-Get the user's role in the provided document. Returns an Observable.
-
-```javascript
-client.getUserRole$()
-```
-
-## isPlanExpired$
-
-Check if the plan is expired or not. Returns an Observable.
-
-```javascript
-client.isPlanExpired$()
-```
-
-## inviteUsers
-
-Invite a list of users to the document.
-
-```javascript
-client.inviteUsers(documentUsers: Array<DocumentUser>)
-```
-
-## removeSnippylyContent
-
-Remove Snippyly-specific content from provided HTML content.
-
-```javascript
-client.removeSnippylyContent(htmlContent: string)
-```
-
-## removeVeltContent
-
-Remove Velt-specific content from provided HTML content.
-
-```javascript
-client.removeVeltContent(htmlContent: string)
-```
-
-## injectCustomCss
-
-Inject custom CSS.
-
-```javascript
-client.injectCustomCss(customCss: CustomCss)
-```
-
-## setLanguage
-
-Set the language for Snippyly.
-
-```javascript
-client.setLanguage(language: string)
-```
-
-## setTranslations
-
-Set translations for the specified language.
-
-```javascript
-client.setTranslations(language: string, translations: { [key: string]: string })
-```
-
-## enableAutoTranslation
-
-Enable auto-translation.
-
-```javascript
-client.enableAutoTranslation()
-```
-
-## disableAutoTranslation
-
-Disable auto-translation.
-
-```javascript
-client.disableAutoTranslation()
-```
+import { ReferenceAPIMethodStep } from '/snippets/reference-api-method-step.mdx';
+import { veltClientJSON } from '/snippets/velt-client-methods-json.mdx';
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[0].methodName}
+    description={veltClientJSON[0].description}
+    signature={veltClientJSON[0].signature}
+    parameters={veltClientJSON[0].parameters}
+    returnType={veltClientJSON[0].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[1].methodName}
+    description={veltClientJSON[1].description}
+    signature={veltClientJSON[1].signature}
+    parameters={veltClientJSON[1].parameters}
+    returnType={veltClientJSON[1].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[2].methodName}
+    description={veltClientJSON[2].description}
+    signature={veltClientJSON[2].signature}
+    parameters={veltClientJSON[2].parameters}
+    returnType={veltClientJSON[2].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[3].methodName}
+    description={veltClientJSON[3].description}
+    signature={veltClientJSON[3].signature}
+    parameters={veltClientJSON[3].parameters}
+    returnType={veltClientJSON[3].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[4].methodName}
+    description={veltClientJSON[4].description}
+    signature={veltClientJSON[4].signature}
+    parameters={veltClientJSON[4].parameters}
+    returnType={veltClientJSON[4].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[5].methodName}
+    description={veltClientJSON[5].description}
+    signature={veltClientJSON[5].signature}
+    parameters={veltClientJSON[5].parameters}
+    returnType={veltClientJSON[5].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[6].methodName}
+    description={veltClientJSON[6].description}
+    signature={veltClientJSON[6].signature}
+    parameters={veltClientJSON[6].parameters}
+    returnType={veltClientJSON[6].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[7].methodName}
+    description={veltClientJSON[7].description}
+    signature={veltClientJSON[7].signature}
+    parameters={veltClientJSON[7].parameters}
+    returnType={veltClientJSON[7].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[8].methodName}
+    description={veltClientJSON[8].description}
+    signature={veltClientJSON[8].signature}
+    parameters={veltClientJSON[8].parameters}
+    returnType={veltClientJSON[8].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[9].methodName}
+    description={veltClientJSON[9].description}
+    signature={veltClientJSON[9].signature}
+    parameters={veltClientJSON[9].parameters}
+    returnType={veltClientJSON[9].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[10].methodName}
+    description={veltClientJSON[10].description}
+    signature={veltClientJSON[10].signature}
+    parameters={veltClientJSON[10].parameters}
+    returnType={veltClientJSON[10].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[11].methodName}
+    description={veltClientJSON[11].description}
+    signature={veltClientJSON[11].signature}
+    parameters={veltClientJSON[11].parameters}
+    returnType={veltClientJSON[11].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[12].methodName}
+    description={veltClientJSON[12].description}
+    signature={veltClientJSON[12].signature}
+    parameters={veltClientJSON[12].parameters}
+    returnType={veltClientJSON[12].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[13].methodName}
+    description={veltClientJSON[13].description}
+    signature={veltClientJSON[13].signature}
+    parameters={veltClientJSON[13].parameters}
+    returnType={veltClientJSON[13].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[14].methodName}
+    description={veltClientJSON[14].description}
+    signature={veltClientJSON[14].signature}
+    parameters={veltClientJSON[14].parameters}
+    returnType={veltClientJSON[14].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[15].methodName}
+    description={veltClientJSON[15].description}
+    signature={veltClientJSON[15].signature}
+    parameters={veltClientJSON[15].parameters}
+    returnType={veltClientJSON[15].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[16].methodName}
+    description={veltClientJSON[16].description}
+    signature={veltClientJSON[16].signature}
+    parameters={veltClientJSON[16].parameters}
+    returnType={veltClientJSON[16].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[17].methodName}
+    description={veltClientJSON[17].description}
+    signature={veltClientJSON[17].signature}
+    parameters={veltClientJSON[17].parameters}
+    returnType={veltClientJSON[17].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[18].methodName}
+    description={veltClientJSON[18].description}
+    signature={veltClientJSON[18].signature}
+    parameters={veltClientJSON[18].parameters}
+    returnType={veltClientJSON[18].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[19].methodName}
+    description={veltClientJSON[19].description}
+    signature={veltClientJSON[19].signature}
+    parameters={veltClientJSON[19].parameters}
+    returnType={veltClientJSON[19].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[20].methodName}
+    description={veltClientJSON[20].description}
+    signature={veltClientJSON[20].signature}
+    parameters={veltClientJSON[20].parameters}
+    returnType={veltClientJSON[20].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[21].methodName}
+    description={veltClientJSON[21].description}
+    signature={veltClientJSON[21].signature}
+    parameters={veltClientJSON[21].parameters}
+    returnType={veltClientJSON[21].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[22].methodName}
+    description={veltClientJSON[22].description}
+    signature={veltClientJSON[22].signature}
+    parameters={veltClientJSON[22].parameters}
+    returnType={veltClientJSON[22].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[23].methodName}
+    description={veltClientJSON[23].description}
+    signature={veltClientJSON[23].signature}
+    parameters={veltClientJSON[23].parameters}
+    returnType={veltClientJSON[23].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[24].methodName}
+    description={veltClientJSON[24].description}
+    signature={veltClientJSON[24].signature}
+    parameters={veltClientJSON[24].parameters}
+    returnType={veltClientJSON[24].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[25].methodName}
+    description={veltClientJSON[25].description}
+    signature={veltClientJSON[25].signature}
+    parameters={veltClientJSON[25].parameters}
+    returnType={veltClientJSON[25].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[26].methodName}
+    description={veltClientJSON[26].description}
+    signature={veltClientJSON[26].signature}
+    parameters={veltClientJSON[26].parameters}
+    returnType={veltClientJSON[26].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[27].methodName}
+    description={veltClientJSON[27].description}
+    signature={veltClientJSON[27].signature}
+    parameters={veltClientJSON[27].parameters}
+    returnType={veltClientJSON[27].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[28].methodName}
+    description={veltClientJSON[28].description}
+    signature={veltClientJSON[28].signature}
+    parameters={veltClientJSON[28].parameters}
+    returnType={veltClientJSON[28].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[29].methodName}
+    description={veltClientJSON[29].description}
+    signature={veltClientJSON[29].signature}
+    parameters={veltClientJSON[29].parameters}
+    returnType={veltClientJSON[29].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[30].methodName}
+    description={veltClientJSON[30].description}
+    signature={veltClientJSON[30].signature}
+    parameters={veltClientJSON[30].parameters}
+    returnType={veltClientJSON[30].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[31].methodName}
+    description={veltClientJSON[31].description}
+    signature={veltClientJSON[31].signature}
+    parameters={veltClientJSON[31].parameters}
+    returnType={veltClientJSON[31].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[32].methodName}
+    description={veltClientJSON[32].description}
+    signature={veltClientJSON[32].signature}
+    parameters={veltClientJSON[32].parameters}
+    returnType={veltClientJSON[32].returnType}
+></ReferenceAPIMethodStep>
+
+<ReferenceAPIMethodStep 
+    methodName={veltClientJSON[33].methodName}
+    description={veltClientJSON[33].description}
+    signature={veltClientJSON[33].signature}
+    parameters={veltClientJSON[33].parameters}
+    returnType={veltClientJSON[33].returnType}
+></ReferenceAPIMethodStep>

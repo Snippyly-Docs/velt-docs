@@ -1,0 +1,240 @@
+export const veltClientJSON = [
+ {
+   "methodName": "initConfig",
+   "description": "initial configurations to be applied when using the Velt SDK",
+   "signature": "(apiKey: string, config?: Config)",
+   "parameters": "apiKey: string, config?: Config",
+   "returnType": "none"
+ },
+ {
+   "methodName": "identify",
+   "description": "used to authenticate a user with the Velt SDK",
+   "signature": "(user: User, userOptions?: UserOptions)",
+   "parameters": "user: User, userOptions?: UserOptions",
+   "returnType": "Promise<unknown>"
+ },
+ {
+   "methodName": "updateUser",
+   "description": "used to update user on the client that is authenticated with the Velt SDK",
+   "signature": "(user: User)",
+   "parameters": "user: User",
+   "returnType": "none"
+ },
+ {
+   "methodName": "setDocumentId",
+   "description": "Tell us the unique ID of the current document/resource on which you want to enable collaboration.",
+   "signature": "(id: string)",
+   "parameters": "id: string",
+   "returnType": "none"
+ },
+ {
+   "methodName": "setDocumentParams",
+   "description": "Tell us the custom params of the current document/resource to identify sub document inside a document.",
+   "signature": "(params: Location)",
+   "parameters": "params: Location",
+   "returnType": "none"
+ },
+ {
+   "methodName": "setLocation",
+   "description": "Tell us the custom params of the current document/resource to identify sub document inside a document.",
+   "signature": "(params: Location, appendLocation?: boolean)",
+   "parameters": "params: Location, appendLocation?: boolean",
+   "returnType": "none"
+ },
+ {
+   "methodName": "removeDocumentParams",
+   "description": "To remove document params from a User.",
+   "signature": "()",
+   "parameters": "",
+   "returnType": "none"
+ },
+ {
+   "methodName": "removeLocation",
+   "description": "To remove location from a User.",
+   "signature": "(location?: Location)",
+   "parameters": "location?: Location",
+   "returnType": "none"
+ },
+ {
+   "methodName": "setScrollableElementsIds",
+   "description": "Tell us about the scrollable document ids to keep track on its scroll changes.",
+   "signature": "(ids: string[])",
+   "parameters": "ids: string[]",
+   "returnType": "none"
+ },
+ {
+   "methodName": "removeScrollableElementsIds",
+   "description": "To remove document params from a User.",
+   "signature": "()",
+   "parameters": "",
+   "returnType": "none"
+ },
+ {
+   "methodName": "getPresenceElement",
+   "description": "Get the Presence Element Object to access the raw presence data.",
+   "signature": "()",
+   "parameters": "",
+   "returnType": "PresenceElement"
+ },
+ {
+   "methodName": "getCursorElement",
+   "description": "Get the Cursor Element Object to access the raw cursor data.",
+   "signature": "()",
+   "parameters": "",
+   "returnType": "CursorElement"
+ },
+ {
+   "methodName": "getCommentElement",
+   "description": "Get the Comment Element Object to access the raw comment data.",
+   "signature": "()",
+   "parameters": "",
+   "returnType": "CommentElement"
+ },
+ {
+   "methodName": "getTagElement",
+   "description": "Get the Tag Pin Annotation Object to access the raw tag data.",
+   "signature": "()",
+   "parameters": "",
+   "returnType": "TagElement"
+ },
+ {
+   "methodName": "getSelectionElement",
+   "description": "Get the Selection Object to enable/disable the feature.",
+   "signature": "()",
+   "parameters": "",
+   "returnType": "SelectionElement"
+ },
+ {
+   "methodName": "getRecorderElement",
+   "description": "Get the Recorder Object.",
+   "signature": "()",
+   "parameters": "",
+   "returnType": "RecorderElement"
+ },
+ {
+   "methodName": "getContactElement",
+   "description": "Get the Contact Object.",
+   "signature": "()",
+   "parameters": "",
+   "returnType": "ContactElement"
+ },
+ {
+   "methodName": "getRewriterElement",
+   "description": "Get the Rewriter Object.",
+   "signature": "()",
+   "parameters": "",
+   "returnType": "RewriterElement"
+ },
+ {
+   "methodName": "getLiveStateSyncElement",
+   "description": "Get the LiveStateSync Object.",
+   "signature": "()",
+   "parameters": "",
+   "returnType": "LiveStateSyncElement"
+ },
+ {
+   "methodName": "getArrowElement",
+   "description": "Get the Arrow Object.",
+   "signature": "()",
+   "parameters": "",
+   "returnType": "ArrowElement"
+ },
+ {
+   "methodName": "signOutUser",
+   "description": "To signout a user.",
+   "signature": "()",
+   "parameters": "",
+   "returnType": "any"
+ },
+ {
+   "methodName": "disableFeatures",
+   "description": "Provide a list of features to disable. Provide an empty array to enable all the features.",
+   "signature": "(features: Array<FeatureType>)",
+   "parameters": "features: Array<FeatureType>",
+   "returnType": "none"
+ },
+ {
+   "methodName": "addLocation",
+   "description": "Add location to show comments, tags, recorders etc. for provided location also.",
+   "signature": "(location: any)",
+   "parameters": "location: any",
+   "returnType": "none"
+ },
+ {
+   "methodName": "isUserAllowed$",
+   "description": "To check if user allowed in provided document or not.",
+   "signature": "()",
+   "parameters": "",
+   "returnType": "Observable<boolean>"
+ },
+ {
+   "methodName": "getUserRole$",
+   "description": "To get user role in provided document.",
+   "signature": "()",
+   "parameters": "",
+   "returnType": "Observable<string | null>"
+ },
+ {
+   "methodName": "isPlanExpired$",
+   "description": "To check if plan is expired or not.",
+   "signature": "()",
+   "parameters": "",
+   "returnType": "Observable<boolean>"
+ },
+ {
+   "methodName": "inviteUsers",
+   "description": "To invite list of users to the document.",
+   "signature": "(documentUsers: Array<DocumentUser>)",
+   "parameters": "documentUsers: Array<DocumentUser>",
+   "returnType": "none"
+ },
+ {
+   "methodName": "removeSnippylyContent",
+   "description": "To remove snippyly specific content from provided html content.",
+   "signature": "(htmlContent: string)",
+   "parameters": "htmlContent: string",
+   "returnType": "string"
+ },
+ {
+   "methodName": "removeVeltContent",
+   "description": "To remove velt specific content from provided html content.",
+   "signature": "(htmlContent: string)",
+   "parameters": "htmlContent: string",
+   "returnType": "string"
+ },
+ {
+   "methodName": "injectCustomCss",
+   "description": "To inject custom css.",
+   "signature": "(customCss: CustomCss)",
+   "parameters": "customCss: CustomCss",
+   "returnType": "none"
+ },
+ {
+   "methodName": "setLanguage",
+   "description": "To set the language.",
+   "signature": "(language: string)",
+   "parameters": "language: string",
+   "returnType": "none"
+ },
+ {
+   "methodName": "setTranslations",
+   "description": "To set the translations for the language.",
+   "signature": "(language: string, translations: { [key: string]: string })",
+   "parameters": "language: string, translations: { [key: string]: string }",
+   "returnType": "none"
+ },
+ {
+   "methodName": "enableAutoTranslation",
+   "description": "To enable auto translation.",
+   "signature": "()",
+   "parameters": "",
+   "returnType": "none"
+ },
+ {
+   "methodName": "disableAutoTranslation",
+   "description": "To disable auto translation.",
+   "signature": "()",
+   "parameters": "",
+   "returnType": "none"
+ }
+]
