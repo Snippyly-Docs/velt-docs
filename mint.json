@@ -437,7 +437,8 @@
             "api-reference/api-methods/presence",
             "api-reference/api-methods/recorder",
             "api-reference/api-methods/rewriter",
-            "api-reference/api-methods/selection"
+            "api-reference/api-methods/selection",
+            "api-reference/api-methods/velt-client"
           ]
         }
       ]

@@ -1,35 +1,35 @@
-Method Name;Description;Method Signature;Method Parameters;Return Type
-initConfig;none;(apiKey: string, config?: Config);apiKey: string, config?: Config;none
-identify;none;(user: User, userOptions?: UserOptions);user: User, userOptions?: UserOptions;Promise<unknown>
-updateUser;none;(user: User);user: User;none
-setDocumentId;Tell us the unique ID of the current document/resource on which you want to enable collaboration.;(id: string);id: string;none
-setDocumentParams;Tell us the custom params of the current document/resource to identify sub document inside a document.;(params: Location);params: Location;none
-setLocation;Tell us the custom params of the current document/resource to identify sub document inside a document.;(params: Location, appendLocation?: boolean);params: Location, appendLocation?: boolean;none
-removeDocumentParams;To remove document params from a User.;();;none
-removeLocation;To remove location from a User.;(location?: Location);location?: Location;none
-setScrollableElementsIds;Tell us about the scrollable document ids to keep track on its scroll changes.;(ids: string[]);ids: string[];none
-removeScrollableElementsIds;To remove document params from a User.;();;none
-getPresenceElement;Get the Presence Element Object to access the raw presence data.;();;PresenceElement
-getCursorElement;Get the Cursor Element Object to access the raw cursor data.;();;CursorElement
-getCommentElement;Get the Comment Element Object to access the raw comment data.;();;CommentElement
-getTagElement;Get the Tag Pin Annotation Object to access the raw tag data.;();;TagElement
-getSelectionElement;Get the Selection Object to enable/disable the feature.;();;SelectionElement
-getRecorderElement;Get the Recorder Object.;();;RecorderElement
-getContactElement;Get the Contact Object.;();;ContactElement
-getRewriterElement;Get the Rewriter Object.;();;RewriterElement
-getLiveStateSyncElement;Get the LiveStateSync Object.;();;LiveStateSyncElement
-getArrowElement;Get the Arrow Object.;();;ArrowElement
-signOutUser;To signout a user.;();;any
-disableFeatures;Provide a list of features to disable. Provide an empty array to enable all the features.;(features: Array<FeatureType>);features: Array<FeatureType>;none
-addLocation;Add location to show comments, tags, recorders etc. for provided location also.;(location: any);location: any;none
-isUserAllowed$;To check if user allowed in provided document or not.;();;Observable<boolean>
-getUserRole$;To get user role in provided document.;();;Observable<string | null>
-isPlanExpired$;To check if plan is expired or not.;();;Observable<boolean>
-inviteUsers;To invite list of users to the document.;(documentUsers: Array<DocumentUser>);documentUsers: Array<DocumentUser>;none
-removeSnippylyContent;To remove snippyly specific content from provided html content.;(htmlContent: string);htmlContent: string;string
-removeVeltContent;To remove velt specific content from provided html content.;(htmlContent: string);htmlContent: string;string
-injectCustomCss;To inject custom css.;(customCss: CustomCss);customCss: CustomCss;none
-setLanguage;To set the language.;(language: string);language: string;none
-setTranslations;To set the translations for the language.;(language: string, translations: { [key: string]: string });language: string, translations: { [key: string]: string };none
-enableAutoTranslation;To enable auto translation.;();;none
-disableAutoTranslation;To disable auto translation.;();;none
+methodName;description;signature;parameters;returnType
+initConfig;none;initConfig(apiKey: string, config?: Config);apiKey: string, config?: Config;none
+identify;none;identify(user: User, userOptions?: UserOptions);user: User, userOptions?: UserOptions;Promise<unknown>
+updateUser;none;updateUser(user: User);user: User;none
+setDocumentId;Tell us the unique ID of the current document/resource on which you want to enable collaboration.;setDocumentId(id: string);id: string;none
+setDocumentParams;Tell us the custom params of the current document/resource to identify sub document inside a document.;setDocumentParams(params: Location);params: Location;none
+setLocation;Tell us the custom params of the current document/resource to identify sub document inside a document.;setLocation(params: Location, appendLocation?: boolean);params: Location, appendLocation?: boolean;none
+removeDocumentParams;To remove document params from a User.;removeDocumentParams();none;none
+removeLocation;To remove location from a User.;removeLocation(location?: Location);location?: Location;none
+setScrollableElementsIds;Tell us about the scrollable document ids to keep track on its scroll changes.;setScrollableElementsIds(ids: string[]);ids: string[];none
+removeScrollableElementsIds;To remove document params from a User.;removeScrollableElementsIds();none;none
+getPresenceElement;Get the Presence Element Object to access the raw presence data.;getPresenceElement();none;PresenceElement
+getCursorElement;Get the Cursor Element Object to access the raw cursor data.;getCursorElement();none;CursorElement
+getCommentElement;Get the Comment Element Object to access the raw comment data.;getCommentElement();none;CommentElement
+getTagElement;Get the Tag Pin Annotation Object to access the raw tag data.;getTagElement();none;TagElement
+getSelectionElement;Get the Selection Object to enable/disable the feature.;getSelectionElement();none;SelectionElement
+getRecorderElement;Get the Recorder Object.;getRecorderElement();none;RecorderElement
+getContactElement;Get the Contact Object.;getContactElement();none;ContactElement
+getRewriterElement;Get the Rewriter Object.;getRewriterElement();none;RewriterElement
+getLiveStateSyncElement;Get the LiveStateSync Object.;getLiveStateSyncElement();none;LiveStateSyncElement
+getArrowElement;Get the Arrow Object.;getArrowElement();none;ArrowElement
+signOutUser;To signout a user.;signOutUser();none;any
+disableFeatures;Provide a list of features to disable. Provide an empty array to enable all the features.;disableFeatures(features: Array<FeatureType>);features: Array<FeatureType>;none
+addLocation;Add location to show comments, tags, recorders etc. for provided location also.;addLocation(location: any);location: any;none
+isUserAllowed$;To check if user allowed in provided document or not.;isUserAllowed$();none;Observable<boolean>
+getUserRole$;To get user role in provided document.;getUserRole$();none;Observable<string | null>
+isPlanExpired$;To check if plan is expired or not.;isPlanExpired$();none;Observable<boolean>
+inviteUsers;To invite list of users to the document.;inviteUsers(documentUsers: Array<DocumentUser>);documentUsers: Array<DocumentUser>;none
+removeSnippylyContent;To remove snippyly specific content from provided html content.;removeSnippylyContent(htmlContent: string);htmlContent: string;string
+removeVeltContent;To remove velt specific content from provided html content.;removeVeltContent(htmlContent: string);htmlContent: string;string
+injectCustomCss;To inject custom css.;injectCustomCss(customCss: CustomCss);customCss: CustomCss;none
+setLanguage;To set the language.;setLanguage(language: string);language: string;none
+setTranslations;To set the translations for the language.;setTranslations(language: string, translations: { [key: string]: string });language: string, translations: { [key: string]: string };none
+enableAutoTranslation;To enable auto translation.;enableAutoTranslation();none;none
+disableAutoTranslation;To disable auto translation.;disableAutoTranslation();none;none
