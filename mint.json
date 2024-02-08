@@ -430,6 +430,7 @@
         {
           "group": "API Methods",
           "pages": [
+            "api-reference/api-methods/comments",
             "api-reference/api-methods/contact",
             "api-reference/api-methods/cursors",
             "api-reference/api-methods/live-state-sync",
