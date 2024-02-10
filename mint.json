@@ -442,7 +442,7 @@
           ]
         },
         {
-          "group": "API Methods",
+          "group": "Data Models",
           "pages": [
             "/api-reference/data-models/AnnotationProperty",
             "/api-reference/data-models/AreaAnnotation",
