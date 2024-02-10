@@ -19,8 +19,8 @@
 | `status`            | Observable            | No       | Status of the Media Recorder             |
 | `stream`            | MediaStream           | Yes      | Stream being recorded                    |
 | `recordedTime`      | Observable            | No       | Time duration of the recording           |
-| `type`              | String                | No       | Type of media recorder used              |
-| `recordedRawData`$  | Observable            | No       | Observable of recorded raw data          |
+| `type`              | 'audio' \| 'video' \| 'screen'    | No       | Type of media recorder used              |
+| `recordedRawData$`  | Observable            | No       | Observable of recorded raw data          |
 
 ## `RecordedRawData` Class Properties
 
@@ -28,9 +28,18 @@
 |-------------------|-----------------------|----------|------------------------------------------|
 | `blob`              | Blob                  | No       | Blob object of the recorded data         |
 | `url`               | String                | No       | Base64 URL of the recorded data          |
-| `type`              | String                | No       | Type of the recorded data                |
+| `type`              | 'audio' \| 'video' \| 'screen'               | No       | Type of the recorded data                |
 | `thumbnail`         | String                | Yes      | Base64 encoded thumbnail of video frame  |
 | `recordedTime`      | Object                | Yes      | Information about the recorded time      |
+
+## `recordedTime` Object
+
+```jsx
+recordedTime?: {
+        duration?: number;
+        display?: string;
+    } 
+```
 
 ## `RecordedData` Class Properties
 

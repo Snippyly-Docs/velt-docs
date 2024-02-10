@@ -4,26 +4,28 @@
 
 ## `User` Class Properties
 
-| Property        | Type           | Optional | Description                                                                                         |
-|-----------------|----------------|----------|-----------------------------------------------------------------------------------------------------|
-| `userId`          | String         | No       | Unique identifier used to identify your user.                                                       |
-| `name`            | String         | Yes      | The user's full name. Defaults to a random avatar name if not provided.                             |
-| `photoUrl`        | String         | Yes      | URL for the user's display picture. Defaults to a random avatar image if not provided.              |
-| `email`           | String         | Yes      | Required for sending email or Slack notifications related to comments and tags.                     |
-| `contacts`        | `UserContact[]`  | Yes      | A list of user contacts, used to show a dropdown for tagging in comments.                           |
-| `plan`            | String         | Yes      | The product plan the user is on.                                                                    |
-| `groupId`         | String         | Yes      | An identifier used to cluster groups of users, such as a domain name.                               |
-| `userSnippylyId`  | String         | Yes      | An auto-generated unique ID linked with your app's user ID for internal processing.                 |
-| `color`           | String         | Yes      | A randomly assigned color for the user's session, used for avatar borders and live cursor.          |
-| `type`            | String         | Yes      | The user's type.                                                                                    |
-| `isAdmin`         | Boolean        | Yes      | Indicates if the user has admin privileges.                                                         |
-| `isReadOnly`      | Boolean        | Yes      | If true, the user has read-only access.                                                             |
-| `isAnonymous`     | Boolean        | Yes      | Anonymous users can only view comments.                                                             |
-| `isGuest`         | Boolean        | Yes      | Indicates if the user is a guest.                                                                   |
+| Property         | Type          | Optional | Description                                                                                               |
+|------------------|---------------|----------|-----------------------------------------------------------------------------------------------------------|
+| `userId`         | string        | No       | Unique user identifier used to identify your user.                                                        |
+| `name`           | string        | Yes      | The full name of your user. Defaults to a random avatar name if not provided.                             |
+| `photoUrl`       | string        | Yes      | The display picture URL of your user. Defaults to a random avatar image if not provided.                  |
+| `email`          | string        | Yes      | Required for sending email or Slack notifications to users about comments and mentions.                   |
+| `contacts`       | UserContact[] | Yes      | A list of contacts to show in a dropdown when a user wants to tag co-workers in a comment.                |
+| `plan`           | string        | Yes      | The product plan the user is on.                                                                          |
+| `groupId`        | string        | Yes      | A domain name or identifier used to cluster a group of users who work together.                           |
+| `clientGroupId`  | string        | Yes      | The original groupId provided by the user.                                                                |
+| `userSnippylyId` | string        | Yes      | Auto-generated unique user ID linked with your app's user ID, needed for internal processing.             |
+| `color`          | string        | Yes      | A random color assigned to the user for the current session, used for avatar border and live cursor.      |
+| `type`           | string        | Yes      | The type of user.                                                                                         |
+| `isAdmin`        | boolean       | Yes      | Indicates if the user has administrative privileges.                                                      |
+| `isReadOnly`     | boolean       | Yes      | Indicates if the user has read-only access.                                                               |
+| `isAnonymous`    | boolean       | Yes      | Indicates if the user is anonymous and can only view comments.                                            |
+| `isGuest`        | boolean       | Yes      | Indicates if the user is a guest.                                                                         |                                                          |
 
 ## `UserOptions` Class Properties
 
 | Property        | Type    | Optional | Description                                                                      |
-|-----------------|---------|----------|----------------------------------------------------------------------------------|
-| `replaceContacts` | Boolean | Yes      | If set, it replaces both personal and group contacts of the user with new ones.  |
+|------------------|---------|----------|-----------------------------------------------------------------------------------|
+| `replaceContacts`| boolean | Yes      | If set to true, it will replace the user's personal and group contacts with the ones provided. |
+| `authToken`      | string  | Yes      | The authentication token of the user.                                             |
 

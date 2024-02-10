@@ -12,10 +12,18 @@
 | `state.screenSharingState` | boolean                            | No       | Shows if the attendee is currently sharing their screen.                                                                                                                                                                        |
 | `timestamp`              | number                               | Yes      | A Unix timestamp likely representing the time of the attendee's last status change or action within the meeting.                                                                                                                 |
 | `initialHuddleMode`      | Object                               | Yes      | Stores the attendee's initial preferences or the default state for audio, video, and screen sharing upon entering the huddle (which is another term for a collaborative session or a smaller group within a larger meeting).    |
-| `initialHuddleModeaudioState` | boolean                       | Yes      | The initial or preferred state of the attendee's audio during the start of a huddle.                                                                                                                                            |
-| `initialHuddleModevideoState` | boolean                       | Yes      | The initial or preferred state of the attendee's video when joining a huddle.                                                                                                                                                   |
+| `initialHuddleMode.audioState` | boolean                       | Yes      | The initial or preferred state of the attendee's audio during the start of a huddle.                                                                                                                                            |
+| `initialHuddleMode.videoState` | boolean                       | Yes      | The initial or preferred state of the attendee's video when joining a huddle.                                                                                                                                                   |
 | `initialHuddleMode.screenSharing` | boolean                   | Yes      | The attendee's initial preference for screen sharing at the beginning of a huddle.                                                                                                                                              |
 | `streamMetadata`         | any                                  | Yes      | Additional metadata associated with the attendee's media stream, which could include details like resolution, bitrate, or other technical parameters.                                                                            |
 | `initialHuddleType`      | 'audio' \| 'video' \| 'presentation' | Yes      | Specifies the type of huddle the attendee initially joins or prefers, such as an audio-only call, a video call, or a presentation-focused session.                                                                              |
 | `huddleOnCursorMode`     | boolean                              | Yes      | A flag indicating whether the attendee's stream or presence should be displayed or highlighted on other participants' cursors, potentially as an overlay or an avatar within a collaborative interface.                         |
 
+## `Message` Class Properties
+
+| Property   | Type   | Optional | Description                       |
+|------------|--------|----------|-----------------------------------|
+| `id`       | number | No       | Unique identifier for the message.|
+| `message`  | string | Yes      | The content of the message.       |
+| `timestamp`| any    | Yes      | The time when the message was sent.|
+| `from`     | User   | Yes      | The user who sent the message.    |

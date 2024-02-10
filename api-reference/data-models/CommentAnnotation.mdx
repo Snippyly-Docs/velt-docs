@@ -45,15 +45,14 @@ title: CommentAnnotation
 | `areaAnnotationId`    | string                    | Yes      | Connected area annotation id.                                                                 |
 | `context`             | any                       | Yes      | Custom context data provided by the user.                                                     |
 | `iam`                 | CommentIAMConfig          | No       | IAM configuration for the comment annotation.                                                 |
+| `isPageAnnotation`    | boolean                   | Yes      | Whether the annotation is a page level annotation or not.                                     |
 
 ## `GhostComment` Class Properties
 
 | Property        | Type                      | Optional | Description                                                                                   |
 |-----------------|---------------------------|----------|-----------------------------------------------------------------------------------------------|
 | `targetElement` | TargetElement \| null     | Yes      | The target element related to the ghost comment.                                              |
-| `message`       | string                    | Yes      | The message of
-
- the ghost comment.                                                             |
+| `message`       | string                    | Yes      | The message of the ghost comment.                                                             |
 | `type`          | string                    | Yes      | The type of the ghost comment.                                                                |
 | `isSameGroup`   | boolean                   | Yes      | To check if comment is from the same device group or not.                                     |
 

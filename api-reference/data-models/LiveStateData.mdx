@@ -18,12 +18,32 @@ title: LiveStateData
 
 ## `SingleEditorLiveStateData` Class
 
-| Property               | Type                     | Optional | Description                                                                                                                                                   |
-|------------------------|--------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `editor`                 | `User` \| null             | Yes      | References the current editor if the document or state is being edited by a single user at a time.                                                             |
-| `requestEditorAccess`    | object \| null           | Yes      | An object representing a request from a user to gain editing access, with details about the request.                                                           |
-| └─ `user`                | `User`                     | No       | The user requesting editor access.                                                                                                                            |
-| └─ `requestedAt`        | any                      | No       | A timestamp or similar data when the access was requested.                                                                                                    |
-| └─ `status`              | 'pending' \| 'accepted' \| 'rejected' | No       | The current status of the editor access request.                                                                                                               |
-| └─ `waitTime`            | number                   | No       | A numerical value, possibly indicating how long the user has waited or should wait for a response to their access request.                                     |
+| Property                  | Type                                                    | Optional | Description                                                   |
+|---------------------------|---------------------------------------------------------|----------|---------------------------------------------------------------|
+| `editor`                  | User \| null                                            | Yes      | The user who is currently editing, if any.                    |
+| `requestEditorAccess`     | Object \| null                                          | Yes      | Details about a request for editor access.                    |
+| `tabId`                   | string \| null                                          | Yes      | The identifier of the tab, if applicable.                     |
 
+## `requestEditorAccess` Class:
+
+| Property                  | Type                                                    | Optional | Description                                                   |
+|---------------------------|---------------------------------------------------------|----------|---------------------------------------------------------------|
+| `user`                    | User                                                    | No       | The user requesting editor access.                            |
+| `requestedAt`             | any                                                     | No       | The timestamp when the access was requested.                  |
+| `status`                  | 'pending' \| 'accepted' \| 'rejected' \| 'cancelled'    | No       | The status of the access request.                             |
+| `editorAccessTimeout`     | number                                                  | No       | Timeout duration for the editor access.                       |
+| `tabId`                   | string \| null                                          | Yes      | The identifier of the tab related to the access request.      |
+
+## `SingleEditorConfig` Class
+
+| Property          | Type    | Optional | Description                                                             |
+|-------------------|---------|----------|-------------------------------------------------------------------------|
+| `customMode`      | boolean | Yes      | Enables/disables custom mode. In custom mode, input elements are not disabled for the viewer. |
+| `singleTabEditor` | boolean | No       | Enables/disables editor mode on a single tab only.                      |
+
+## `UserEditorAccess` Class 
+
+| Property              | Type    | Optional | Description                                          |
+|-----------------------|---------|----------|------------------------------------------------------|
+| `isEditor`            | boolean | Yes      | Indicates whether the user has editor privileges.    |
+| `isEditorOnCurrentTab`| boolean | Yes      | Indicates whether the user is an editor on the current tab. |

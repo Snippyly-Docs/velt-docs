@@ -23,4 +23,34 @@
 | `userFeedback`          | `UserFeedback`                  | Yes      | Feedback provided by a user                                        |
 | `userReportBug`         | `UserReportBug`                 | Yes      | Bug report submitted by a user                                     |
 | `userContactUs`         | `UserContactUs`                 | Yes      | Contact us submission by a user                                    |
+| `userInvite`         | `UserInvite`                 | Yes      | User Invite object data                                 |
 
+## `UserInvite` Class
+
+```jsx
+userInvite?: {
+        admin?: {
+            emails: string[];
+            emailProperties: {
+                url?: string;
+                message?: string;
+            };
+        };
+        helper?: {
+            emails: string[];
+            emailProperties: {
+                url?: string;
+                message?: string;
+            };
+        };
+        commenter?: {
+            clientDocumentId: string;
+            documentId: string;
+            emails: string[];
+            emailProperties: {
+                url?: string;
+                message?: string;
+            };
+        };
+    };
+```
