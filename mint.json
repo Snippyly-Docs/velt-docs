@@ -449,10 +449,13 @@
             "/api-reference/data-models/Attachment",
             "/api-reference/data-models/ChatGPT",
             "/api-reference/data-models/Comment",
+            "/api-reference/data-models/CommentSidebarConfig",
             "/api-reference/data-models/CommentAnnotation",
             "/api-reference/data-models/Config",
             "/api-reference/data-models/CursorPosition",
             "/api-reference/data-models/CursorUser",
+            "/api-reference/data-models/CustomCssr",
+            "/api-reference/data-models/CustomerMetadata",
             "/api-reference/data-models/CustomFilter",
             "/api-reference/data-models/DeviceInfo",
             "/api-reference/data-models/DocumentIAM",
@@ -490,6 +493,7 @@
             "/api-reference/data-models/UserReportBug",
             "/api-reference/data-models/UserRequest",
             "/api-reference/data-models/UserRole",
+            "/api-reference/data-models/Views",
             "/api-reference/data-models/WorkspaceIAM"
           ]
           

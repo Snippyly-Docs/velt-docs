@@ -1,0 +1,38 @@
+
+---
+title: CustomerMetadata
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+
+## `CustomerMetadata` Class
+
+| Property        | Type           | Optional | Description                                    |
+|-----------------|----------------|----------|------------------------------------------------|
+| `customBranding`| CustomBranding | Yes      | Configuration for custom branding elements.    |
+
+## `CustomBranding` Class
+
+For the `CustomBranding` class, due to its nested structure, the table below describes the top-level `logo` property, and subsequent tables break down the nested objects:
+
+| Property | Type  | Optional | Description                    |
+|----------|-------|----------|--------------------------------|
+| `logo`   | Object| Yes      | Configuration for custom logos.|
+
+### Logo Object in `CustomBranding` Class
+
+| Property   | Type   | Optional | Description                      |
+|------------|--------|----------|----------------------------------|
+| `logoMark` | Object | Yes      | Configuration for the logo mark. |
+| `wordMark` | Object | Yes      | Configuration for the word mark. |
+
+### `LogoMark` and `WordMark` Objects Class
+
+Each of these objects (`logoMark` and `wordMark`) have the same structure:
+
+| Property  | Type   | Optional | Description                                 |
+|-----------|--------|----------|---------------------------------------------|
+| `lightUrl`| string | Yes      | URL of the light mode version of the logo.  |
+| `darkUrl` | string | Yes      | URL of the dark mode version of the logo.   |

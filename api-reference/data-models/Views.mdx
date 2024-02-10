@@ -1,0 +1,31 @@
+
+---
+title: Views
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+## `Views` Class
+
+```jsx
+export declare class Views {
+    comment?: {
+        [commentAnnotationId: string]: {
+            views: {
+                [userSnippylyId: string]: View;
+            };
+            comments: {
+                [commentId: string]: {
+                    views: {
+                        [userSnippylyId: string]: View;
+                    };
+                };
+            };
+        };
+    };
+}
+export declare class View {
+    timestamp: any;
+}
+```

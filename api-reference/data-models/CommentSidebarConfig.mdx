@@ -1,0 +1,45 @@
+
+---
+title: CommentSidebarConfig
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+## `FilterTypeConfig` Class
+
+| Property         | Type    | Optional | Description                                         |
+|------------------|---------|----------|-----------------------------------------------------|
+| `name`           | string  | Yes      | The name of the filter type.                        |
+| `enable`         | boolean | Yes      | Enables or disables the filter type.                |
+| `multiSelection` | boolean | Yes      | Allows multiple selections if set to true.          |
+| `enableGrouping` | boolean | Yes      | Enables grouping within the filter type if set to true. |
+
+## `CommentSidebarFilterConfig` Class
+
+| Property      | Type             | Optional | Description                                 |
+|---------------|------------------|----------|---------------------------------------------|
+| `location`    | FilterTypeConfig | Yes      | Configuration for the location filter type. |
+| `people`      | FilterTypeConfig | Yes      | Configuration for the people filter type.   |
+| `priority`    | FilterTypeConfig | Yes      | Configuration for the priority filter type. |
+| `category`    | FilterTypeConfig | Yes      | Configuration for the category filter type. |
+| `commentType` | FilterTypeConfig | Yes      | Configuration for the comment type filter.  |
+| `version`     | FilterTypeConfig | Yes      | Configuration for the version filter type.  |
+
+## `CommentSidebarGroupConfig` Class
+
+| Property | Type    | Optional | Description                        |
+|----------|---------|----------|------------------------------------|
+| `enable` | boolean | Yes      | Enables or disables grouping.      |
+| `name`   | string  | Yes      | The name of the group.             |
+
+## `CommentSidebarFilters` Class
+
+| Property   | Type            | Optional | Description                                                |
+|------------|-----------------|----------|------------------------------------------------------------|
+| `location` | Location[]      | Yes      | Array of `Location` objects for the location filters.      |
+| `people`   | Object[]        | Yes      | Array of objects with `userId`, `email`, and `name` for people filters. |
+| `priority` | string[]        | Yes      | Array of priority filters.                                 |
+| `status`   | string[]        | Yes      | Array of status filters.                                   |
+| `category` | string[]        | Yes      | Array of category filters.                                 |
+| `version`  | Object[]        | Yes      | Array of objects with `id` and optional `name` for version filters. |
