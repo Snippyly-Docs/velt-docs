@@ -22,11 +22,6 @@ Endpoint:
 https://updatecontactlist.api.velt.dev
 ```
 
-Header:
-```jsx
-Authorization: Bearer {AUTH_TOKEN}
-```
-
 <Info>
 Not sure where find your Auth Token? You can follow [these steps](/security/auth-tokens) to generate your Auth Token.
 </Info>
@@ -37,7 +32,7 @@ Body:
   "data": {
     "apiKey": "YOUR_API_KEY",
     "groupId": "GROUPID", // no hyphens or special characters allowed
-    "authToken": "YOUR_AUTH_TOKEN", //alternative to using Auth Token in  Header
+    "authToken": "YOUR_AUTH_TOKEN", 
     "contacts": [
       {
         "email": "contact1@gmail.com",
