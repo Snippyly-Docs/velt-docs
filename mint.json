@@ -400,7 +400,8 @@
       "group": "Global Styles",
       "pages": [
         "global-styles/global-styles",
-        "global-styles/css-injection"     
+        "global-styles/css-injection",
+        "global-styles/dark-mode"       
       ]
     },
     {
