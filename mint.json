@@ -25,6 +25,10 @@
       "url": "examples"
     },
     {
+      "name": "Release Notes",
+      "url": "release-notes"
+    },
+    {
       "name": "Community",
       "url": "https://discord.gg/GupvcYH27h"
     }
@@ -497,6 +501,14 @@
             "/api-reference/data-models/WorkspaceIAM"
           ]
         }
+      ]
+    },
+    {
+      "group": "Release Notes",
+      "pages": [
+        "release-notes/feb-13-2024.mdx",
+        "release-notes/oct-12-2023.mdx",
+        "release-notes/sept-15-2023.mdx"
       ]
     },
     {
