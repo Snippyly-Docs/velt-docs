@@ -446,6 +446,12 @@
           ]
         },
         {
+          "group": "Hooks",
+          "pages": [
+            "api-reference/hooks/hooks"
+          ]
+        },
+        {
           "group": "Data Models",
           "pages": [
             "/api-reference/data-models/AnnotationProperty",
