@@ -549,7 +549,12 @@
     "playground": {
       "mode": "simple"
     }
-  }
+  },
+  "analytics": {
+    "koala": {
+        "publicApiKey": "pk_f1329f0b28d1edfde18d6b398966ae78acda"
+    }
+}
 }
 
 
