@@ -107,14 +107,14 @@ import { useLiveStateSyncUtils } from '@veltdev/react';
 
 export default function YourDocument() {
 
-  let liveStateSyncElement = useLiveSelectionUtils()
+  let liveStateSyncElement = useLiveStateSyncUtils()
   //Enable Single Editor Mode
   liveStateSyncElement?.enableSingleEditorMode();
 
 
   return (
     <div>
-        <button onClick={handleSetLocation}>Set Location to Scene 1</button>
+        <input/>
     </div>
   )
 }
@@ -214,37 +214,176 @@ export default function YourDocument= () {
 
 Hook that calls `client.getPresenceElement()`.
 
+
+```jsx
+import { usePresenceUtils } from '@veltdev/react';
+
+export default function YourDocument() {
+
+  let presenceElement = usePresenceUtils();
+
+  return (
+    <div>
+       
+    </div>
+  )
+}
+```
+
+
 ## useCursorUtils()
 
 Hook that calls `client.getCursorElement()`.
+
+```jsx
+import { useCursorUtils } from '@veltdev/react';
+
+export default function YourDocument() {
+
+  let cursorElement = useCursorUtils();
+
+  return (
+    <div>
+       
+    </div>
+  )
+}
+```
 
 ## useCommentUtils()
 
 Hook that calls `client.getCommentElement()`.
 
+
+```jsx
+import { useCommentUtils } from '@veltdev/react';
+
+export default function YourDocument() {
+
+  let commentElement = useCommentUtils();
+
+  return (
+    <div>
+       
+    </div>
+  )
+}
+```
+
 ## useTagUtils()
 
 Hook that calls `client.getTagElement()`.
+
+```jsx
+import { useTagUtils } from '@veltdev/react';
+
+export default function YourDocument() {
+
+  let tagElement = useTagUtils();
+
+  return (
+    <div>
+       
+    </div>
+  )
+}
+```
 
 ## useLiveSelectionUtils()
 
 Hook that calls `client.getLiveSelectElement()`.
 
+```jsx
+import { useLiveSelectionUtils } from '@veltdev/react';
+
+export default function YourDocument() {
+
+  let liveSelectionElement = useLiveSelectionUtils()
+
+  return (
+    <div>
+        <input/>
+    </div>
+  )
+}
+```
+
 ## useRecorderUtils()
 
 Hook that calls `client.getRecorderElement()`.
+
+```jsx
+import { useRecorderUtils } from '@veltdev/react';
+
+export default function YourDocument() {
+
+  let recorderElement = useRecorderUtils();
+
+  return (
+    <div>
+       
+    </div>
+  )
+}
+```
 
 ## useContactUtils()
 
 Hook that calls `client.getContactElement()`.
 
+```jsx
+import { useContactUtils } from '@veltdev/react';
+
+export default function YourDocument() {
+
+  let contactElement = useContactUtils();
+
+  return (
+    <div>
+       
+    </div>
+  )
+}
+```
+
 ## useAIRewriterUtils()
 
 Hook that calls `client.getRewriterElement()`.
 
+```jsx
+import { useAIRewriterUtils } from '@veltdev/react';
+
+export default function YourDocument() {
+
+  let AIRewriterElement = useAIRewriterUtils();
+
+  return (
+    <div>
+       
+    </div>
+  )
+}
+```
+
+
 ## useHuddleUtils()
 
 Hook that calls `client.getHuddleElement()`.
+
+```jsx
+import { useHuddleUtils } from '@veltdev/react';
+
+export default function YourDocument() {
+
+  let huddleElement = useHuddleUtils();
+
+  return (
+    <div>
+       
+    </div>
+  )
+}
+```
 
 
 ## useCommentAnnotations()
@@ -270,9 +409,6 @@ Hook that calls `commentElement.onSidebarButtonOnCommentDialogClick()`
 ## useCursorUsers()
 
 Hook that calls `cursorElement.getOnlineUsersOnCurrentDocument()`
-
-
-
 
 ## usePresenceUsers()
 
