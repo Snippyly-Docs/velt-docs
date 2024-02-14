@@ -45,6 +45,25 @@ arrowElement.allowedElementIds(['ALLOWED_ID_1', 'ALLOWED_ID_2']);
 
 </Step>
 
+<Step title="Dark Mode">
+Whether dark mode is enabled.
+
+`Default: false`
+
+```js
+<VeltArrows darkMode={true} />
+````
+
+API Method:
+
+```jsx
+const arrowElement = client.getCommentElement();
+arrowElement.enableDarkMode();
+arrowElement.disableDarkMode();
+```
+
+</Step>
+
 
 </Steps>
 
@@ -71,7 +90,7 @@ You can use the `allowedElementIds()` property to set an allowed list of element
 
 
 ```jsx
-<velt-arrows allowedElementIds="['ALLOWED_ID_1', 'ALLOWED_ID_2']"></velt-arrows>
+<velt-arrows allowed-element-ids="['ALLOWED_ID_1', 'ALLOWED_ID_2']"></velt-arrows>
 ```
 
 
@@ -84,6 +103,26 @@ arrowElement.allowedElementIds(['ALLOWED_ID_1', 'ALLOWED_ID_2']);
 ```
 
 </Step>
+
+<Step title="Dark Mode">
+Whether dark mode is enabled.
+
+`Default: false`
+
+```js
+<velt-comments dark-mode="true"></velt-comments>
+````
+
+API Method:
+
+```jsx
+const arrowElement = Velt.getCommentElement();
+arrowElement.enableDarkMode();
+arrowElement.disableDarkMode();
+```
+
+</Step>
+
 </Steps>
 
 </Tab>
@@ -108,12 +147,17 @@ export default function YourDocument() {
     if(client){
       const arrowElement = client.getArrowElement();
       arrowElement.allowedElementIds(['ALLOWED_ID_1', 'ALLOWED_ID_2']);
+      arrowElement.enableDarkMode();
+      arrowElement.disableDarkMode();
     }
   })
 
   return (
     <div>
-      <VeltArrows allowedElementIds={['ALLOWED_ID_1', 'ALLOWED_ID_2']}>
+      <VeltArrows 
+        allowedElementIds={['ALLOWED_ID_1', 'ALLOWED_ID_2']}
+        darkMode={true}
+      />
       <VeltArrowTool/>
     </div>
   )
@@ -124,7 +168,8 @@ export default function YourDocument() {
 ```html HTML
 <body>
 <velt-arrows 
-  allowedElementIds="['ALLOWED_ID_1', 'ALLOWED_ID_2']"
+  allowed-element-ids="['ALLOWED_ID_1', 'ALLOWED_ID_2']"
+  dark-mode="true"
 </velt-arrows>
 
 <velt-arrow-tool></velt-arrow-tool>
@@ -133,6 +178,8 @@ export default function YourDocument() {
 if(Velt){
     const arrowElement = Velt.getArrowElement();
     arrowElement.allowedElementIds(['ALLOWED_ID_1', 'ALLOWED_ID_2']);
+    arrowElement.enableDarkMode();
+    arrowElement.disableDarkMode();
 }
 </script>
 </body>
