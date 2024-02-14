@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/schema.json",
   "name": "Velt",
-  "logo":{
+  "logo": {
     "light": "/velt-logo-big-light.png",
     "dark": "/velt-logo-big.png",
     "href": "https://docs.velt.dev"
@@ -47,7 +47,7 @@
             "get-started/setup/initialize-document",
             "get-started/setup/advanced"
           ]
-        }     
+        }
       ]
     },
     {
@@ -56,9 +56,7 @@
         "documents-and-locations/overview",
         {
           "group": "Documents",
-          "pages": [
-            "documents-and-locations/documents/setup"
-          ]
+          "pages": ["documents-and-locations/documents/setup"]
         },
         {
           "group": "Locations",
@@ -67,9 +65,9 @@
             "documents-and-locations/locations/setup/multiple-locations",
             "documents-and-locations/locations/setup/remove-locations",
             "documents-and-locations/locations/setup/api-update-location",
-            "documents-and-locations/locations/setup/api-delete-data-by-location"            
+            "documents-and-locations/locations/setup/api-delete-data-by-location"
           ]
-        }       
+        }
       ]
     },
     {
@@ -78,15 +76,11 @@
         "users/overview",
         {
           "group": "Client Side",
-          "pages": [
-            "users/client-side/setup"
-          ]
+          "pages": ["users/client-side/setup"]
         },
         {
           "group": "Server Side",
-          "pages": [
-            "users/server-side/api-reset-contact-list"
-          ]
+          "pages": ["users/server-side/api-reset-contact-list"]
         }
       ]
     },
@@ -105,11 +99,8 @@
                 "realtime-collaboration/presence/customize-ui/parts",
                 "realtime-collaboration/presence/customize-ui/variables",
                 "realtime-collaboration/presence/customize-ui/create-your-own-ui"
-
               ]
             }
-
-            
           ]
         },
         {
@@ -125,7 +116,6 @@
                 "realtime-collaboration/cursors/customize-ui/parts",
                 "realtime-collaboration/cursors/customize-ui/variables",
                 "realtime-collaboration/cursors/customize-ui/create-your-own-ui"
-
               ]
             }
           ]
@@ -166,7 +156,6 @@
           "pages": [
             "realtime-collaboration/live-state-sync/overview",
             "realtime-collaboration/live-state-sync/setup"
-
           ]
         },
         {
@@ -178,15 +167,11 @@
         },
         {
           "group": "Live Co-Editing",
-          "pages": [
-            "live-co-editing/overview"
-          ]
+          "pages": ["live-co-editing/overview"]
         },
         {
           "group": "Video Player Sync",
-          "pages": [
-            "realtime-collaboration/video-player-sync/overview"
-          ]
+          "pages": ["realtime-collaboration/video-player-sync/overview"]
         }
       ]
     },
@@ -222,7 +207,6 @@
                 "async-collaboration/comments/customize-behavior/ui-controls",
                 "async-collaboration/comments/customize-behavior/visibility-controls",
                 "async-collaboration/comments/customize-behavior/webhooks"
-                
               ]
             },
             {
@@ -258,7 +242,6 @@
             },
             "webhooks/overview",
             "notifications/email/overview"
-
           ]
         },
         {
@@ -285,7 +268,6 @@
               "pages": [
                 "async-collaboration/video-player-comments/setup/video-player-setup",
                 "async-collaboration/video-player-comments/setup/lottie-player-setup"
-                
               ]
             }
           ]
@@ -297,7 +279,6 @@
             "async-collaboration/system-comments/setup",
             "async-collaboration/system-comments/api-add-system-comment",
             "async-collaboration/system-comments/api-delete-system-comments"
-
           ]
         },
         {
@@ -315,9 +296,6 @@
                 "async-collaboration/arrows/customize-ui/custom-button"
               ]
             }
-
-
-            
           ]
         },
         {
@@ -342,9 +320,6 @@
                 "async-collaboration/recorder/customize-ui/custom-button"
               ]
             }
-
-            
-
           ]
         }
       ]
@@ -379,8 +354,6 @@
               ]
             }
           ]
-          
-          
         }
       ]
     },
@@ -389,10 +362,7 @@
       "pages": [
         {
           "group": "Design",
-          "pages": [
-            "ai-copilot/design/overview",
-            "ai-copilot/design/setup"
-          ]
+          "pages": ["ai-copilot/design/overview", "ai-copilot/design/setup"]
         }
       ]
     },
@@ -401,29 +371,25 @@
       "pages": [
         "global-styles/global-styles",
         "global-styles/css-injection",
-        "global-styles/dark-mode"       
+        "global-styles/dark-mode"
       ]
     },
     {
       "group": "Webhooks",
-      "pages": [
-        "webhooks/overview"
-      ]
+      "pages": ["webhooks/overview"]
     },
     {
       "group": "Notifications",
       "pages": [
         {
           "group": "Email",
-          "pages": [
-            "notifications/email/overview"
-          ]
+          "pages": ["notifications/email/overview"]
         }
       ]
     },
     {
       "group": "Security",
-      "pages": [  
+      "pages": [
         "security/content-security-policy",
         "security/auth-tokens",
         "security/jwt-tokens"
@@ -448,64 +414,62 @@
         },
         {
           "group": "Hooks",
-          "pages": [
-            "api-reference/hooks/hooks"
-          ]
+          "pages": ["api-reference/hooks/hooks"]
         },
         {
           "group": "Models",
           "pages": [
-            "/api-reference/models/AnnotationProperty",
-            "/api-reference/models/AreaAnnotation",
-            "/api-reference/models/Attachment",
-            "/api-reference/models/ChatGPT",
-            "/api-reference/models/Comment",
-            "/api-reference/models/CommentSidebarConfig",
-            "/api-reference/models/CommentAnnotation",
-            "/api-reference/models/Config",
-            "/api-reference/models/CursorPosition",
-            "/api-reference/models/CursorUser",
-            "/api-reference/models/CustomCss",
-            "/api-reference/models/CustomerMetadata",
-            "/api-reference/models/CustomFilter",
-            "/api-reference/models/DeviceInfo",
-            "/api-reference/models/DocumentIAM",
-            "/api-reference/models/DocumentMetadata",
-            "/api-reference/models/DocumentPaths",
-            "/api-reference/models/DocumentUser",
-            "/api-reference/models/FlockOptions",
-            "/api-reference/models/Huddle",
-            "/api-reference/models/LiveStateData",
-            "/api-reference/models/LiveStateDataMap",
-            "/api-reference/models/LocalStorageData",
-            "/api-reference/models/Location",
-            "/api-reference/models/LocationMetadata",
-            "/api-reference/models/MediaPreviewConfig",
-            "/api-reference/models/Notification",
-            "/api-reference/models/PageInfo",
-            "/api-reference/models/Permission",
-            "/api-reference/models/PresenceUser",
-            "/api-reference/models/Recorder",
-            "/api-reference/models/RecorderAnnotation",
-            "/api-reference/models/RewriterAnnotation",
-            "/api-reference/models/ScreenSize",
-            "/api-reference/models/Selection",
-            "/api-reference/models/SyncVideoPlayer",
-            "/api-reference/models/TagAnnotation",
-            "/api-reference/models/TargetElement",
-            "/api-reference/models/TargetTextRange",
-            "/api-reference/models/Toast",
-            "/api-reference/models/Transcription",
-            "/api-reference/models/User",
-            "/api-reference/models/UserContact",
-            "/api-reference/models/UserContactUs",
-            "/api-reference/models/UserFeedback",
-            "/api-reference/models/UserIAM",
-            "/api-reference/models/UserReportBug",
-            "/api-reference/models/UserRequest",
-            "/api-reference/models/UserRole",
-            "/api-reference/models/Views",
-            "/api-reference/models/WorkspaceIAM"
+            "api-reference/models/AnnotationProperty",
+            "api-reference/models/AreaAnnotation",
+            "api-reference/models/Attachment",
+            "api-reference/models/ChatGPT",
+            "api-reference/models/Comment",
+            "api-reference/models/CommentSidebarConfig",
+            "api-reference/models/CommentAnnotation",
+            "api-reference/models/Config",
+            "api-reference/models/CursorPosition",
+            "api-reference/models/CursorUser",
+            "api-reference/models/CustomCss",
+            "api-reference/models/CustomerMetadata",
+            "api-reference/models/CustomFilter",
+            "api-reference/models/DeviceInfo",
+            "api-reference/models/DocumentIAM",
+            "api-reference/models/DocumentMetadata",
+            "api-reference/models/DocumentPaths",
+            "api-reference/models/DocumentUser",
+            "api-reference/models/FlockOptions",
+            "api-reference/models/Huddle",
+            "api-reference/models/LiveStateData",
+            "api-reference/models/LiveStateDataMap",
+            "api-reference/models/LocalStorageData",
+            "api-reference/models/Location",
+            "api-reference/models/LocationMetadata",
+            "api-reference/models/MediaPreviewConfig",
+            "api-reference/models/Notification",
+            "api-reference/models/PageInfo",
+            "api-reference/models/Permission",
+            "api-reference/models/PresenceUser",
+            "api-reference/models/Recorder",
+            "api-reference/models/RecorderAnnotation",
+            "api-reference/models/RewriterAnnotation",
+            "api-reference/models/ScreenSize",
+            "api-reference/models/Selection",
+            "api-reference/models/SyncVideoPlayer",
+            "api-reference/models/TagAnnotation",
+            "api-reference/models/TargetElement",
+            "api-reference/models/TargetTextRange",
+            "api-reference/models/Toast",
+            "api-reference/models/Transcription",
+            "api-reference/models/User",
+            "api-reference/models/UserContact",
+            "api-reference/models/UserContactUs",
+            "api-reference/models/UserFeedback",
+            "api-reference/models/UserIAM",
+            "api-reference/models/UserReportBug",
+            "api-reference/models/UserRequest",
+            "api-reference/models/UserRole",
+            "api-reference/models/Views",
+            "api-reference/models/WorkspaceIAM"
           ]
         }
       ]
@@ -552,13 +516,10 @@
   },
   "analytics": {
     "koala": {
-        "publicApiKey": "pk_f1329f0b28d1edfde18d6b398966ae78acda"
+      "publicApiKey": "pk_f1329f0b28d1edfde18d6b398966ae78acda"
     },
     "mixpanel": {
       "projectToken": "6fe5c5cd3adeb341288776482e7bb147"
     }
   }
 }
-
-
-
