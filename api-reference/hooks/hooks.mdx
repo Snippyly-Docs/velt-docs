@@ -1,6 +1,6 @@
 ## useIdentify()
 
-Hook that calls `client.identify()`.
+Hook that calls [client.identify()](/get-started/setup/authenticate)
 
 ```jsx
 import { useIdentify } from "@veltdev/react";
@@ -31,7 +31,7 @@ export default function YourAuthComponent() {
 
 ## useSetDocumentId()
 
-Hook that calls `client.setDocumentId()`.
+Hook that calls [client.setDocumentId()](/get-started/setup/initialize-document)
 
 
 ```jsx
@@ -51,7 +51,7 @@ export default function YourDocument() {
 
 ## useSetLocation()
 
-Hook that calls `client.setLocation()`.
+Hook that calls [client.setLocation()](/documents-and-locations/locations/setup/setup)
 
 ```jsx
 import { useSetLocation } from '@veltdev/react';
@@ -75,7 +75,7 @@ export default function YourDocument() {
 
 ## useAddLocation()
 
-Hook that calls `client.addLocation()`.
+Hook that calls [client.addLocation()](/documents-and-locations/locations/setup/multiple-locations)
 
 ```jsx
 import { useAddLocation } from '@veltdev/react';
@@ -99,7 +99,7 @@ export default function YourDocument() {
 
 ## useLiveStateSyncUtils()
 
-Hook that calls `client.getLiveStateSyncElement()`.
+Hook that calls [client.getLiveStateSyncElement()](/realtime-collaboration/single-editor-mode/setup)
 
 
 ```jsx
@@ -123,7 +123,7 @@ export default function YourDocument() {
 
 ## useLiveStateData()
 
-Hook that calls `liveStateSyncElement.getLiveStateData()`
+Hook that calls [liveStateSyncElement.getLiveStateData()](/realtime-collaboration/live-state-sync/setup)
 
 
 ```jsx
@@ -148,7 +148,7 @@ export default function YourDocument() {
 
 ## useSetLiveStateData()
 
-Hook that calls `liveStateSyncElement.setLiveStateData()`
+Hook that calls [liveStateSyncElement.setLiveStateData()](/realtime-collaboration/live-state-sync/setup)
 
 ```jsx
 import { useLiveStateData, useSetLiveStateData} from '@veltdev/react';
@@ -173,7 +173,7 @@ export default function YourDocument() {
 
 ## useUserEditorState()
 
-Hook that calls `liveStateSyncElement.isUserEditor()`
+Hook that calls [liveStateSyncElement.isUserEditor()](/realtime-collaboration/single-editor-mode/setup)
 
 ```jsx
 import { useUserEditorState} from '@veltdev/react';
@@ -193,7 +193,7 @@ export default function YourDocument() {
 
 ## useEditorAccessRequestHandler()
 
-Hook that calls `liveStateSyncElement.isEditorAccessRequested()`
+Hook that calls [liveStateSyncElement.isEditorAccessRequested()](/realtime-collaboration/single-editor-mode/setup)
 
 ```jsx
 import { useEditorAccessRequestHandler } from '@veltdev/react';
@@ -270,24 +270,6 @@ export default function YourDocument() {
 }
 ```
 
-## useTagUtils()
-
-Hook that calls `client.getTagElement()`.
-
-```jsx
-import { useTagUtils } from '@veltdev/react';
-
-export default function YourDocument() {
-
-  let tagElement = useTagUtils();
-
-  return (
-    <div>
-       
-    </div>
-  )
-}
-```
 
 ## useLiveSelectionUtils()
 
