@@ -390,34 +390,174 @@ export default function YourDocument() {
 
 Hook that calls `commentElement.getAllCommentAnnotations()`
 
+See [CommentAnnotations Class Model](/api-reference/models/CommentAnnotation)
+
+```jsx
+import { useCommentAnnotations } from '@veltdev/react';
+
+export default function YourDocument() {
+
+  let commentAnnotations = useCommentAnnotations('my-document-id, { id:'my-location-id',locationName:"MyLocationName"})
+
+
+  return (
+    <div>
+       {commentAnnotations.map(x => <div>{x.annotationId}</div>)}
+    </div>
+  )
+}
+```
+
 ## useCommentModeState()
 
-Hook that calls `commentElement.onCommentModeChange()`
+Hook that calls [commentElement.onCommentModeChange()](/async-collaboration/comments/customize-behavior/event-handlers)
+
+
+```jsx
+import { useCommentModeState } from '@veltdev/react';
+
+export default function YourDocument() {
+
+  let commentModeState = useCommentModeState()
+
+  return (
+    <div>
+       Comment Mode is turned on: {commentModeState}
+    </div>
+  )
+}
+```
+
 
 ## useCommentAddHandler()
 
-Hook that calls `commentElement.onCommentAdd()`
+Hook that calls [commentElement.onCommentAdd()](/async-collaboration/comments/customize-behavior/event-handlers)
+
+```jsx
+import { useCommentAddHandler} from '@veltdev/react';
+
+export default function YourDocument() {
+
+  const yourMethod = (event) => {
+    console.log(event)
+  }
+
+  useCommentAddHandler(yourMethod)
+
+  return (
+    <div>
+       
+    </div>
+  )
+}
+```
+
 
 ## useCommentUpdateHandler()
 
-Hook that calls `commentElement.onCommentUpdate()`
+Hook that calls [commentElement.onCommentUpdate()](/async-collaboration/comments/customize-behavior/event-handlers)
+
+```jsx
+import { useCommentUpdateHandler} from '@veltdev/react';
+
+export default function YourDocument() {
+
+  const yourMethod = (event) => {
+    console.log(event)
+  }
+
+  useCommentUpdateHandler(yourMethod)
+
+  return (
+    <div>
+       
+    </div>
+  )
+}
+```
 
 ## useCommentDialogSidebarClickHandler()
 
-Hook that calls `commentElement.onSidebarButtonOnCommentDialogClick()`
+Hook that calls [commentElement.onSidebarButtonOnCommentDialogClick()](/async-collaboration/comments/customize-behavior/general-controls)
+
+
+```jsx
+import { useCommentDialogSidebarClickHandler} from '@veltdev/react';
+
+export default function YourDocument() {
+
+  const yourMethod = (event) => {
+    console.log(event)
+  }
+
+  useCommentDialogSidebarClickHandler(yourMethod)
+
+  return (
+    <div>
+       
+    </div>
+  )
+}
+```
 
 ## useCursorUsers()
 
-Hook that calls `cursorElement.getOnlineUsersOnCurrentDocument()`
+Hook that calls [cursorElement.getOnlineUsersOnCurrentDocument()](/realtime-collaboration/cursors/customize-ui/create-your-own-ui)
+
+```jsx
+import { useCursorUsers} from '@veltdev/react';
+
+export default function YourDocument() {
+
+  let cursorUsers = useCursorUsers()
+
+  return (
+    <div>
+       Users: {cursorUsers.length} 
+    </div>
+  )
+}
+```
 
 ## usePresenceUsers()
 
-Hook that calls `presenceElement.getOnlineUsersOnCurrentDocument()`
+Hook that calls [presenceElement.getOnlineUsersOnCurrentDocument()](/realtime-collaboration/presence/customize-ui/create-your-own-ui)
+
+```jsx
+import { usePresenceUsers} from '@veltdev/react';
+
+export default function YourDocument() {
+
+  let presenceUsers = usePresenceUsers()
+
+  return (
+    <div>
+       Users: {presenceUsers.length} 
+    </div>
+  )
+}
+```
 
 ## useRecorderAddHandler()
 
-Hook that calls `recorderElement.onRecordedData()`
+Hook that calls [recorderElement.onRecordedData()](/async-collaboration/recorder/customize-behavior/velt-recorder-control-panel)
 
-## useTagAnnotations()
 
-Hook that calls `tagElement.getAllTagAnnotations()`
+```jsx
+import { useRecorderAddHandler} from '@veltdev/react';
+
+export default function YourDocument() {
+
+  const onRecordedData = (id,tag) => {
+    console.log(id,tag)
+  }
+
+  useRecorderAddHandler(onRecordedData)
+
+  return (
+    <div>
+       
+    </div>
+  )
+}
+```
