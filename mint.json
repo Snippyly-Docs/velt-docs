@@ -21,10 +21,6 @@
   },
   "tabs": [
     {
-      "name": "Examples",
-      "url": "examples"
-    },
-    {
       "name": "Release Notes",
       "url": "release-notes"
     },
@@ -269,7 +265,8 @@
                 "async-collaboration/video-player-comments/setup/video-player-setup",
                 "async-collaboration/video-player-comments/setup/lottie-player-setup"
               ]
-            }
+            },
+            "async-collaboration/video-player-comments/customize-behavior"
           ]
         },
         {
@@ -320,6 +317,14 @@
                 "async-collaboration/recorder/customize-ui/custom-button"
               ]
             }
+          ]
+        },
+        {
+          "group": "View Analytics",
+          "pages": [
+            "async-collaboration/view-analytics/overview",
+            "async-collaboration/view-analytics/setup",
+            "async-collaboration/view-analytics/customize-behavior"
           ]
         }
       ]
@@ -480,20 +485,6 @@
         "release-notes/feb-13-2024",
         "release-notes/jan-14-2023",
         "release-notes/dec-28-2023"
-      ]
-    },
-    {
-      "group": "Examples",
-      "pages": [
-        "examples/overview",
-        "examples/video-editor",
-        "examples/docs",
-        "examples/sheets",
-        "examples/slides",
-        "examples/dashboard",
-        "examples/creative-tool",
-        "examples/workflow-builder",
-        "examples/toolbar"
       ]
     }
   ],

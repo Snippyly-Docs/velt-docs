@@ -1,0 +1,67 @@
+---
+title : "Customize Behavior"
+---
+
+
+
+<Tabs>
+    <Tab title="React / Next.js">
+
+
+
+## Remove Comment Tool from `VeltVideoPlayer` control panel
+
+To remove the `Comment Tool` from the `VeltVideoPlayer` control panel, set the `commentTool` property to `false`.
+
+```jsx
+<VeltVideoPlayer commentTool={false} />
+```
+
+
+
+
+</Tab>
+
+
+<Tab title="HTML">
+
+
+## Remove Comment Tool from `<velt-video-player>` control panel
+
+To remove the `Comment Tool` from the `<velt-video-player>` control panel, set the `commentTool` property to `false`.
+
+```jsx
+<velt-video-player comment-tool="false"></velt-video-player>
+```
+
+
+
+</Tab>
+
+</Tabs>
+
+
+
+
+<RequestExample>
+
+```js React / Next.js
+import { VeltVideoPlayer} from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <VeltVideoPlayer commentTool={false}/>
+  );
+}
+```
+
+
+```html HTML
+<div>
+  <velt-video-player comment-tool="false"></velt-video-player>
+</div>
+
+```
+
+</RequestExample>

@@ -1,0 +1,179 @@
+---
+title : "Customize Behavior"
+---
+
+
+
+<Tabs>
+    <Tab title="React / Next.js">
+
+
+
+## Customize for `Location` specific tracking
+
+If you want to specify `Location` specific tracking, you can add two additional properties:
+  - type - this should be either 'document' or 'location' (default: 'location')
+  - location-id - if type is 'location', you can provide a location id here
+
+```jsx
+<div className="toolbar">
+  <VeltViewAnalytics type="location" location-id="MY_LOCATION_ID" />
+</div>
+```
+
+API Methods:
+```jsx
+const viewsElement = client.getViewsElement();
+
+// to get unique views by user
+viewsElement.getUniqueViewsByUser().subscribe((viewsByUser) => {
+	console.log('Unique views by user: ', viewsByUser);
+});
+// you can optionally pass client-location-id to get unique views by users for that location
+viewsElement.getUniqueViewsByUser('your-location-id').subscribe((viewsByUser) => {
+	console.log('Unique views by date for location: ', viewsByUser);
+});
+
+// to get unique views by date
+viewsElement.getUniqueViewsByDate().subscribe((viewsByDate) => {
+	console.log('Unique views by date: ', viewsByDate);
+});
+// you can optionally pass client-location-id to get unique views by date for that location
+viewsElement.getUniqueViewsByDate('your-location-id').subscribe((viewsByDate) => {
+	console.log('Unique views by date for location: ', viewsByDate);
+});
+```
+
+
+Hooks:
+
+```jsx
+import { useUniqueViewsByDate, useUniqueViewsByUser } from '@veltdev/react';
+// to get document level views by date
+const viewsByDate = useUniqueViewsByDate();
+// to get location level views by date
+const viewsByDateForLocation = useUniqueViewsByDate('your-location-id');
+
+// to get document level views by user
+const viewsByUser = useUniqueViewsByUser();
+// to get location level views by user
+const viewsByUserForLocation = useUniqueViewsByUser('your-location-id');
+```
+
+
+</Tab>
+
+
+<Tab title="HTML">
+
+
+## Customize for `Location` specific tracking
+
+If you want to specify `Location` specific tracking, you can add two additional properties:
+  - type - this should be either 'document' or 'location' (default: 'location')
+  - location-id - if type is 'location', you can provide a location id here
+
+```js
+<div className="toolbar">
+  <velt-view-analytics
+	type="location"
+	location-id="your-location-id"
+  ></velt-view-analytics>
+</div>
+```
+
+API Methods:
+```jsx
+const viewsElement = client.getViewsElement();
+
+// to get unique views by user
+viewsElement.getUniqueViewsByUser().subscribe((viewsByUser) => {
+	console.log('Unique views by user: ', viewsByUser);
+});
+// you can optionally pass client-location-id to get unique views by users for that location
+viewsElement.getUniqueViewsByUser('your-location-id').subscribe((viewsByUser) => {
+	console.log('Unique views by date for location: ', viewsByUser);
+});
+
+// to get unique views by date
+viewsElement.getUniqueViewsByDate().subscribe((viewsByDate) => {
+	console.log('Unique views by date: ', viewsByDate);
+});
+// you can optionally pass client-location-id to get unique views by date for that location
+viewsElement.getUniqueViewsByDate('your-location-id').subscribe((viewsByDate) => {
+	console.log('Unique views by date for location: ', viewsByDate);
+});
+```
+
+
+</Tab>
+
+</Tabs>
+
+
+
+
+<RequestExample>
+
+```jsx React / Next.js
+import { VeltViewAnalytics} from '@veltdev/react';
+import { useUniqueViewsByDate, useUniqueViewsByUser } from '@veltdev/react';
+
+
+
+
+export default function App() {
+
+  // to get document level views by date
+  const viewsByDate = useUniqueViewsByDate();
+  // to get location level views by date
+  const viewsByDateForLocation = useUniqueViewsByDate('your-location-id');
+
+  // to get document level views by user
+  const viewsByUser = useUniqueViewsByUser();
+  // to get location level views by user
+  const viewsByUserForLocation = useUniqueViewsByUser('your-location-id');
+
+  return (
+    <div className="toolbar">
+      <VeltViewAnalytics type={'location'} locationId={'your-location-id'} />
+    </div>
+  );
+}
+```
+
+
+```html HTML
+<script>
+const viewsElement = Velt.getViewsElement();
+
+// to get unique views by user
+viewsElement.getUniqueViewsByUser().subscribe((viewsByUser) => {
+	console.log('Unique views by user: ', viewsByUser);
+});
+// you can optionally pass client-location-id to get unique views by users for that location
+viewsElement.getUniqueViewsByUser('your-location-id').subscribe((viewsByUser) => {
+	console.log('Unique views by date for location: ', viewsByUser);
+});
+
+// to get unique views by date
+viewsElement.getUniqueViewsByDate().subscribe((viewsByDate) => {
+	console.log('Unique views by date: ', viewsByDate);
+});
+// you can optionally pass client-location-id to get unique views by date for that location
+viewsElement.getUniqueViewsByDate('your-location-id').subscribe((viewsByDate) => {
+	console.log('Unique views by date for location: ', viewsByDate);
+});
+</script>
+<body>
+  <div className="toolbar">
+    <velt-view-analytics>
+    type="location"
+    location-id="your-location-id"
+    ></velt-view-analytics>
+  </div>
+</body>
+
+```
+
+</RequestExample>
