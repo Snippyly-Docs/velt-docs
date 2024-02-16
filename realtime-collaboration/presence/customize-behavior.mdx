@@ -72,6 +72,17 @@ Whenever the `Presence` for any `User` changes, we emit this event with the upda
 
 </Step>
 
+<Step title="Dark Mode">
+Whether dark mode is enabled.
+
+`Default: false`
+
+```js
+<VeltPresence darkMode={true} />
+````
+
+</Step>
+
 
 </Steps>
 
@@ -151,6 +162,16 @@ if(Velt){
 
 </Step>
 
+<Step title="Dark Mode">
+Whether dark mode is enabled.
+
+`Default: false`
+
+```js
+<velt-presence dark-mode="true"></velt-presence>
+````
+
+</Step>
 
 </Steps>
 
@@ -178,6 +199,7 @@ export default function App() {
         maxUsers={3} {/* 3) Set max users */}
         flockMode={true} {/* 4) Enable Flock Mode */}
         onPresenceUserChange={(presenceUsers) => yourMethod(presenceUsers)} {/* 5) Subscribe to changes in User Presence */}
+        darkMode=={true} {/* 6 Dark Mode */}
       />
     </div>
   );
@@ -207,6 +229,7 @@ export default function App() {
         location='{"page": 1}' <!-- 2) Add Presence to a Location -->
         max-users="3" <!-- 3) Set max users -->
         flock-mode='true' <!-- 4) Enable Flock Mode -->
+        dark-mode='true' <!-- 4) Dark Mode -->
       ></velt-presence> 
     </div>
   </body>

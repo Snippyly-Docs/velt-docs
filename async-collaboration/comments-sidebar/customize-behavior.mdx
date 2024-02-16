@@ -1,7 +1,9 @@
 ---
 title: "Customize Behavior"
 ---
-
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
 
 <Tabs>
 <Tab title="React / Next.js">
@@ -210,6 +212,28 @@ commentElement.setCommentSidebarFilters(filters);
 ```
 
 </Step>
+
+<Step title="Dark Mode">
+Whether dark mode is enabled.
+
+`Default: false`
+
+```jsx
+<VeltComments darkMode={true} />
+````
+
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableDarkMode();
+commentElement.disableDarkMode();
+```
+
+</Step>
+
+
+
 </Steps>
 
 
@@ -431,6 +455,26 @@ commentElement.setCommentSidebarFilters(filters);
 
 </Step>
 
+<Step title="Dark Mode">
+Whether dark mode is enabled.
+
+`Default: false`
+
+```jsx
+<velt-comments dark-mode="true"></velt-comments>
+````
+
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableDarkMode();
+commentElement.disableDarkMode();
+```
+
+</Step>
+
+
 
 </Steps>
 </Tab>
@@ -474,6 +518,8 @@ export default function App() {
       commentElement.toggleCommentSidebar(); // toggles the comments side bar
       commentElement.enableSidebarUrlNavigation();
       commentElement.disableSidebarUrlNavigation();
+      commentElement.enableDarkMode();
+      commentElement.disableDarkMode();
     }
   })
 
@@ -484,6 +530,7 @@ export default function App() {
         urlNavigation={false}
         currentLocationSuffix={true}
         pageMode={true}
+        darkMode={true}
       />
 
     </VeltProvider>
@@ -501,9 +548,13 @@ export default function App() {
   <body>
 
     <velt-comments></velt-comments>
-    <velt-comments-sidebar url-navigation="false"></velt-comments-sidebar>
-    <velt-comments-sidebar current-location-suffix="true"></velt-comments-sidebar>
-    <velt-comments-sidebar page-mode="true"></velt-comments-sidebar>
+    <velt-comments-sidebar
+      url-navigation="false"
+      current-location-suffix="true"
+      page-mode="true"
+      dark-mode="true"
+    >
+    </velt-comments-sidebar>
 
 
   <script>
@@ -529,6 +580,8 @@ export default function App() {
       commentElement.toggleCommentSidebar(); // toggles the comments side bar
       commentElement.enableSidebarUrlNavigation();
       commentElement.disableSidebarUrlNavigation();
+      commentElement.enableDarkMode();
+      commentElement.disableDarkMode();
       
     }
   </script>
