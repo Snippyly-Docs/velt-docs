@@ -5,8 +5,100 @@ description: "Autheticate your logged in users with the SDK."
 
 
 <Tabs>
+
+<Tab title="React / Next.js with Hooks">
+
+<Warning>It is critical that you do the following steps within a child component and not within the same root component where you placed the VeltProvider.</Warning>
+<Info>Realistically, these steps should be done inside your component that handles authentication.</Info>
+
+<Steps titleSize="h2">
+
+<Step title="Import the useIdentify Hook">
+
+Import the `useIdentify` hook.
+
+```js
+  import { useIdentify } from '@veltdev/react'
+```
+
+</Step>
+
+<Step title="Fetch relevant user info">
+Create a Velt `User` object.
+
+```js
+
+  // Fetch the relevant user info from `yourAuthenticatedUser`
+  const { uid, displayName, email, photoURL, groupId } = yourAuthenticatedUser;
+
+  // Create the Velt user object
+  const user = {
+    userId: uid,
+    name: displayName,
+    email: email,
+    photoUrl: photoURL,
+    groupId: groupId // this is the organization id the user belongs to.
+  };
+```
+
+<Info>
+To enable `@mention` in the comments, you need to pass the user's contacts. Learn more about how it works [here](https://docs.velt.dev/users/add-user-contacts/setup).
+</Info>
+
+</Step>
+
+<Step title=" Pass the User object to the SDK">
+Call the `useIdentify()` hook and pass in the Velt `User` object.
+
+
+
+
+```js
+  useIdentify(user);
+```
+
+<Info>The `useIdentify()` method is asynchronous.</Info>
+<Warning>You must call `useIdentify` within a child component of the `VeltProvider`, or else it will not work.</Warning>
+
+
+</Step>
+
+<Step title="(Optional) - Add JWT Tokens for additional security">
+
+The second parameter of the `useIdentify()` method is an optional configuration object that has a `JWT Token` as a field.
+
+This can be used to add an additional layer of security to prevent user impersonation.
+
+```js
+  useIdentify(user, {
+    authToken: authToken,
+  });
+```
+
+See [JWT Tokens](/security/jwt-tokens) for more information on how to generate a `JWT Token` with the Velt SDK.
+
+
+</Step>
+
+
+</Steps>
+
+
+
+
+
+
+
+
+
+
+
+  </Tab>
+
+
   <Tab title="React / Next.js">
 
+<Note>We recommend following the setup guide that uses `React / Next.js with Hooks` for a cleaner experience.</Note>
 <Warning>It is critical that you do the following steps within a child component and not within the same root component where you placed the VeltProvider.</Warning>
 <Info>Realistically, these steps should be done inside your component that handles authentication.</Info>
 
@@ -29,6 +121,8 @@ const { client } = useVeltClient();
 </Step>
 
 <Step title="Create a useEffect hook">
+
+The code in the following steps will go inside this `useEffect` hook.
 ```js
   useEffect(() => {
     if (client && yourAuthenticatedUser) {
@@ -36,6 +130,7 @@ const { client } = useVeltClient();
     }
   }, [client, yourAuthenticatedUser]);
 ```
+
 </Step>
 
 <Step title="Fetch relevant user info">
@@ -177,6 +272,52 @@ See [JWT Tokens](/security/jwt-tokens) for more information on how to generate a
 </Tabs>
 
 <RequestExample>
+
+```js React / Next.js with Hooks
+//Warning: Make sure this is a child component to VeltProvider 
+//and not within the same file where VeltProvider is placed.
+
+// 1) Import the useIdentify hook
+import { useIdentify } from '@veltdev/react';
+
+export default function YourAuthComponent() {
+
+  const userService = () => {
+    return {
+      uid:"123",
+      displayName:"Bob",
+      email:"bob@gmail.com",
+      photoURL:'https://i.pravatar.cc/300',
+      groupId: groupId
+    }
+  }
+
+  let yourAuthenticatedUser = userService()
+
+  // 2) Fetch the relevant User info from yourAuthenticatedUser
+  const { uid, displayName, email, photoURL, groupId } = yourAuthenticatedUser;
+
+  // Create the Velt user object
+  const user = {
+    userId: uid,
+    name: displayName,
+    email: email,
+    photoUrl: photoURL,
+    groupId: groupId
+  };
+
+  //3) Pass the user object to the SDK
+  useIdentify(user)
+      
+
+  return (
+    <div>
+    // Your auth component template
+    </div>
+  );
+}
+
+```
 
 ```js React / Next.js
 //Warning: Make sure this is a child component to VeltProvider 

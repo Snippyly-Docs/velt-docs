@@ -5,8 +5,50 @@ description: "A Document is the space where you want your users to collaborate. 
 
 
 <Tabs>
-  <Tab title="React / Next.js">
 
+<Tab title="React / Next.js with Hooks">
+<Warning>It is critical that you do the following steps within a child component and not within the same root component where you placed the VeltProvider.</Warning> 
+<Info>Realistically, these steps should be done inside your component that represents your document.</Info>
+
+
+<Steps titleSize="h2">
+
+<Step title="Import the useSetDocumentId hook">
+Import the `useSetDocumentId` hook.
+
+```js
+import { useSetDocumentId } from '@veltdev/react';
+```
+
+</Step>
+
+<Step title="Set a document ID">
+When your document has initialized and is ready for collaboration, call the `useSetDocumentId()` hook and pass a unique ID representing your document.
+
+Users logged into the same document ID can see each other's `Presence`, `Cursors`, `Comments` etc. 
+
+The SDK will not work without this call.
+
+You can use separate document IDs to represent separate documents.
+
+
+```js
+useSetDocumentId('unique-document-id');
+```
+</Step>
+
+</Steps>
+
+
+
+
+
+
+  </Tab>
+
+
+  <Tab title="React / Next.js">
+<Note>We recommend following the setup guide that uses `React / Next.js with Hooks` for a cleaner experience.</Note>
 <Warning>It is critical that you do the following steps within a child component and not within the same root component where you placed the VeltProvider.</Warning> 
 <Info>Realistically, these steps should be done inside your component that represents your document.</Info>
 
@@ -95,6 +137,29 @@ if(Velt){
 
 <RequestExample>
 
+```js React / Next.js with Hooks
+// 1) Create a component that will represent your document 
+
+//Warning: Make sure this is a child component to VeltProvider 
+//and not within the same file where VeltProvider is placed.
+
+// 2) Import the useSetDocumentId hook
+import { useSetDocumentId } from '@veltdev/react';
+
+export default function YourDocument() {
+
+  // 3) Set a document ID
+  useSetDocumentId('unique-document-id');
+
+  return (
+    <div>
+      //your document template - add Velt Components here
+    </div>
+    
+  );
+}
+```
+
 ```js React / Next.js
 // 1) Create a component that will represent your document 
 
@@ -120,7 +185,7 @@ export default function YourDocument() {
 
   return (
     <div>
-      //your document template
+      //your document template - add Velt Components here
     </div>
     
   );
@@ -147,7 +212,7 @@ export default function YourDocument() {
     </script>
   </head>
   <body>
-    
+    //your document template - add Velt Components here
   </body>
 </html>
 ```
