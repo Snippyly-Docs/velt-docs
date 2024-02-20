@@ -318,6 +318,14 @@
               ]
             }
           ]
+        },
+        {
+          "group": "View Analytics",
+          "pages": [
+            "async-collaboration/view-analytics/overview",
+            "async-collaboration/view-analytics/setup",
+            "async-collaboration/view-analytics/customize-behavior"
+          ]
         }
       ]
     },
