@@ -256,6 +256,13 @@
           ]
         },
         {
+          "group": "Comment Thread",
+          "pages": [
+            "async-collaboration/comment-thread/overview",
+            "async-collaboration/comment-thread/setup"
+          ]
+        },
+        {
           "group": "Media Player Comments",
           "pages": [
             "async-collaboration/video-player-comments/overview",
