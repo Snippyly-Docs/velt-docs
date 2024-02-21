@@ -22,7 +22,7 @@ import { VeltCommentThread, useCommentAnnotations } from '@veltdev/react';
 
 <Step title="Retrieve all Comment Annotation Ids">
 
-Retrive all Comment Annotations using the `useCommentAnnotations()` hook.
+Retrive all `Comment Annotations` using the `useCommentAnnotations()` hook.
 
 To learn more about the `useCommentAnnotations()` hook, [read here](/api-reference/hooks/hooks#usecommentannotations).
 
@@ -36,7 +36,7 @@ let commentAnnotations = useCommentAnnotations()
 
 <Step title="Add the VeltCommentThread component">
 
-Add the `VeltCommentThread` component and pass in the comment annotation Ids.
+Add the `VeltCommentThread` component and pass in the `Comment Annotation Ids`.
 
 ```jsx
 
@@ -86,7 +86,7 @@ async function loadVelt() {
 
 <Step title="Retrieve all Comment Annotation Ids">
 
-Retrieve all existing Comment Annotation Ids using the `getAllCommentAnnotations()` method.
+Retrieve all existing `Comment Annotation Ids` using the `getAllCommentAnnotations()` method.
 
 To learn more about the getAllCommentAnnotations` method, [read here](/async-collaboration/comments/customize-behavior/retrieve-comments).
 
@@ -102,9 +102,9 @@ commentElement.getAllCommentAnnotations().subscribe((comments) => {
 </Step>
 
 <Step title="Place the <velt-comment-thread> component">
-Place the `<velt-comment-thread>` component where you want the comment thread to appear.
+Place the `<velt-comment-thread>` component where you want the `Comment Thread` to appear.
 
-Add the `annotation-id` property to set the comment thread data.
+Add the `annotation-id` property to set the `Comment Thread` data.
 
 ```html
 <velt-comment-thread annotation-id="ANNOTATION_ID"></velt-comment-thread>
