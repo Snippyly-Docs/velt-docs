@@ -115,6 +115,28 @@ To make a `UserContact` a private contact, meaning they will only be added to th
 }
 ```
 
+## Replace Private and Group Contacts Separately
+
+If you want to replace Private and Group Contacts separately, you can configure it in the `userOptions` parameter in the `identify(user, userOptions)` method.
+
+To do so, set the following attributes to `true` according to how you want to configure the settings:
+ - `replaceContacts` - to replace both private and group contacts
+ - `replacePrivateContacts` - to replace only private contacts
+ - `replaceGroupContacts` - to replace only group contacts
+
+
+```jsx
+const userOptions = {
+	// to replace both private and groups contacts 
+	replaceContacts: true, 
+	// to replace only private contacts
+	replacePrivateContacts: true, 
+	// to replace only group contacts 
+	replaceGroupContacts: true
+};
+
+client.identify(yourUser, userOptions);
+```
 
 
   </Tab>
@@ -227,6 +249,29 @@ To make a `UserContact` a private contact, meaning they will only be added to th
 {
   visibility: 'private'
 }
+```
+
+## Replace Private and Group Contacts Separately
+
+If you want to replace Private and Group Contacts separately, you can configure it in the `userOptions` parameter in the `identify(user, userOptions)` method.
+
+To do so, set the following attributes to `true` according to how you want to configure the settings:
+ - `replaceContacts` - to replace both private and group contacts
+ - `replacePrivateContacts` - to replace only private contacts
+ - `replaceGroupContacts` - to replace only group contacts
+
+
+```jsx
+const userOptions = {
+	// to replace both private and groups contacts 
+	replaceContacts: true, 
+	// to replace only private contacts
+	replacePrivateContacts: true, 
+	// to replace only group contacts 
+	replaceGroupContacts: true
+};
+
+Velt.identify(yourUser, userOptions);
 ```
 
   </Tab>
