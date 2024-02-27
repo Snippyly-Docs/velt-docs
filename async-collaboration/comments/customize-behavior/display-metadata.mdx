@@ -26,12 +26,12 @@ commentElement.enableCommentIndex();
 commentElement.disableCommentIndex();
 ```
 </Step>
-<Step title="Device type indicator">
+<Step title="Device Type Info">
 Whether device type indicator is enabled.
 
 `Default: false`
 
-When this is on, we show a small device type icon indicating which device the comment was created on. This is useful especially for design tools, where additional context is needed for debugging issues.
+When this is on, we show additional information in the `Comment Annotation` indicating which device the comment was created on. This is useful especially for design tools, where additional context is needed for debugging issues.
 
 
 ```js
@@ -47,6 +47,30 @@ commentElement.disableDeviceInfo();
 ```
 
 </Step>
+
+<Step title="Device Indicator on Comment Pins">
+Whether the device type indicator on `Comment Pins` is enabled.
+
+`Default: false`
+
+When this is on, we show a small device type icon on the `Comment Pin` indicating which device the comment was created on. This is useful especially for design tools, where additional context is needed for debugging issues.
+
+
+```js
+<VeltComments deviceIndicatorOnCommentPins={true} />
+````
+
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableDeviceIndicatorOnCommentPins();
+commentElement.disableDeviceIndicatorOnCommentPins();
+```
+
+</Step>
+
+
 </Steps>
 
 </Tab>
@@ -73,7 +97,7 @@ commentElement.enableCommentIndex();
 commentElement.disableCommentIndex();
 ```
 </Step>
-<Step title="Device type indicator">
+<Step title="Device Type Info">
 Whether device type indicator is enabled.
 
 `Default: false`
@@ -95,6 +119,29 @@ commentElement.disableDeviceInfo();
 ```
 
 </Step>
+
+<Step title="Device Indicator on Comment Pins">
+Whether the device type indicator on `Comment Pins` is enabled.
+
+`Default: false`
+
+When this is on, we show a small device type icon on the `Comment Pin` indicating which device the comment was created on. This is useful especially for design tools, where additional context is needed for debugging issues.
+
+
+```js
+<velt-comments device-indicator-on-comment-pins="true"></velt-comments>
+````
+
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableDeviceIndicatorOnCommentPins();
+commentElement.disableDeviceIndicatorOnCommentPins();
+```
+
+</Step>
+
 </Steps>
 
 </Tab>
@@ -119,6 +166,9 @@ export default function YourDocument() {
       commentElement.disableCommentIndex(); // 1
       commentElement.enableDeviceInfo(); // 2 
       commentElement.disableDeviceInfo(); // 2
+      commentElement.enableDeviceIndicatorOnCommentPins(); // 3
+      commentElement.disableDeviceIndicatorOnCommentPins(); // 3
+
     }
 
   })
@@ -128,6 +178,7 @@ export default function YourDocument() {
         <VeltComments  
             commentIndex={true} {/* 1 */}
             deviceInfo={true}  {/* 2 */}
+            deviceIndicatorOnCommentPins={true}  {/* 2 */}
         />
     </div>
   )
@@ -137,7 +188,8 @@ export default function YourDocument() {
 <body>
 <velt-comments 
   comment-index="true" 
-  device-info="true">
+  device-info="true"
+  device-indicator-on-comment-pins="true">
 </velt-comments>
 
 <script>
@@ -147,6 +199,8 @@ if(Velt){
     commentElement.disableCommentIndex(); // 1
     commentElement.enableDeviceInfo(); // 2 
     commentElement.disableDeviceInfo(); // 2
+    commentElement.enableDeviceIndicatorOnCommentPins(); // 3
+    commentElement.disableDeviceIndicatorOnCommentPins(); // 3
   }
 </script>
 </body>
