@@ -82,7 +82,28 @@ commentElement.addCommentOnElement(element);
 
 </Step>
 
+<Step title="Get the Xpath of the DOM element on which the comment was added">
 
+This will return the Xpath of the DOM element on which the comment was added.
+
+```jsx
+const commentElement = client.getCommentElement();
+let elementRef = commentElement.getElementRefByAnnotationId('annotationId')
+
+```
+
+</Step>
+
+<Step title="Scroll the page directly to the comment element">
+
+This will scroll the page to the element directly. This will work if the element is present on the DOM.
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.scrollToCommentByAnnotationId('annotationId')
+```
+
+</Step>
 
 </Steps>
 
@@ -166,6 +187,28 @@ commentElement.addCommentOnElement(element);
 
 </Step>
 
+<Step title="Get the Xpath of the DOM element on which the comment was added">
+
+This will return the Xpath of the DOM element on which the comment was added.
+
+```jsx
+const commentElement = Velt.getCommentElement();
+let elementRef = commentElement.getElementRefByAnnotationId('annotationId')
+
+```
+
+</Step>
+
+<Step title="Scroll the page directly to the comment element">
+
+This will scroll the page to the element directly. This will work if the element is present on the DOM.
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.scrollToCommentByAnnotationId('annotationId')
+```
+
+</Step>
 
 
 </Steps>
@@ -194,6 +237,9 @@ export default function YourDocument() {
       commentElement.addCommentOnSelectedText(); // 2
       commentElement.enableCommentMode() // 3
       commentElement.disableCommentMode() // 3
+      let elementRef = commentElement.getElementRefByAnnotationId('annotationId') // 4
+      commentElement.scrollToCommentByAnnotationId('annotationId') // 5
+
     }
   })
 
@@ -215,6 +261,8 @@ if(Velt){
   commentElement.addCommentOnSelectedText(); // 2
   commentElement.enableCommentMode() // 3
   commentElement.disableCommentMode() // 3
+  let elementRef = commentElement.getElementRefByAnnotationId('annotationId') // 4
+  commentElement.scrollToCommentByAnnotationId('annotationId') // 5
 }
 </script>
 ```
