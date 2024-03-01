@@ -260,3 +260,13 @@ import { veltClientJSON } from '/snippets/velt-client-methods-json.mdx';
 ></ReferenceAPIMethodStep>
 
 
+{new Array(veltClientJSON.length)
+  .fill() 
+  .map((_, i) => <ReferenceAPIMethodStep
+    methodName={veltClientJSON[i].methodName}
+    description={veltClientJSON[i].description}
+    signature={veltClientJSON[i].signature}
+    parameters={veltClientJSON[i].parameters}
+    returnType={veltClientJSON[i].returnType}
+></ReferenceAPIMethodStep>)}
+
