@@ -8,13 +8,31 @@ title: "Use multiple Locations at once"
 
 ## Add multiple Locations
 
-There are two main steps to adding multiple locations that are both required:
- 1. Add additional locations with `setLocation()`.
- 2. Bind location container elements on the page to `locations` using location data attribute.
+There are three main steps to adding multiple locations that are both required:
+ 1. Add a root location
+ 2. Add additional locations with `setLocation(locationObject,true)`.
+ 3. Bind location container elements on the page to `locations` using location data attribute.
 
 <Steps>
+<Step title="Add a root location">
+
+```jsx
+client.setDocumentId('some_document_id');
+
+client.setLocation({ 
+  'id': 'locationRoot',
+  'locationName': 'PageWithVideo',
+  'version': {
+		'id': 'v1.0',
+		'name': 'Version Name'
+	},
+})
+```
+
+<Step>
+
 <Step title="Add additional locations with setLocation()">
-To add multiple locations that are meant to be active at the same time, use the `client.setLocation()` method and pass in `true` as the second parameter. 
+To add multiple locations that are meant to be active at the same time, use the `setLocation()` method and pass in `true` as the second parameter. 
 
 ```jsx
 client.setDocumentId('some_document_id');
@@ -26,7 +44,6 @@ client.setLocation({
 		'id': 'v1.0',
 		'name': 'Version Name'
 	},
-  'page': 'scene1',
   'videoFrame': '120'
 }, true)
 
@@ -37,7 +54,6 @@ client.setLocation({
 		'id': 'v1.0',
 		'name': 'Version Name'
 	},
-  'page': 'scene2',
   'videoFrame': '50'
 }, true)
 
@@ -48,7 +64,6 @@ client.setLocation({
 		'id': 'v1.0',
 		'name': 'Version Name'
 	},
-  'page': 'scene3',
   'videoFrame': '80'
 }, true)
 ```
@@ -109,11 +124,28 @@ let dataAttributeObject2 = {
 
 ## Add multiple Locations
 
-There are two main steps to adding multiple locations that are both required:
- 1. Add additional locations with `setLocation()`.
- 2. Bind location container elements on the page to `locations` using location data attribute.
+There are three main steps to adding multiple locations that are both required:
+ 1. Add a root location
+ 2. Add additional locations with `setLocation(locationObject,true)`.
+ 3. Bind location container elements on the page to `locations` using location data attribute.
+
 
 <Steps>
+<Step title="Add a root location">
+
+```jsx
+Velt.setDocumentId('some_document_id');
+
+Velt.setLocation({ 
+  'id': 'locationRoot',
+  'locationName': 'PageWithVideo',
+  'version': {
+		'id': 'v1.0',
+		'name': 'Version Name'
+	},
+})
+```
+
 <Step title="Add additional locations with setLocation()">
 To add multiple locations that are meant to be active at the same time, use the `Velt.setLocation()` method and pass in `true` as the second parameter. 
 
