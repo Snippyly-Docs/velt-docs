@@ -1,0 +1,76 @@
+## Versions
+
+- Latest SDK: [1.0.91](https://www.npmjs.com/package/@veltdev/react)
+- Latest Types: [1.0.106](https://www.npmjs.com/package/@veltdev/types)
+
+
+New Features:
+## getElementRefByAnnotationId()
+Introducing a [new method(/async-collaboration/comments/customize-behavior/action-methods)] that returns the XPath of the DOM element where the specified comment was added.
+
+```jsx
+const commentElement = client.getCommentElement();
+let elementRef = commentElement.getElementRefByAnnotationId('annotationId')
+```
+
+## scrollToCommentByAnnotationId()
+Added a [new method(/async-collaboration/comments/customize-behavior/action-methods)] that scrolls the page to the specified element where the comment was added. This functionality is contingent upon the presence of the element in the DOM.
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.scrollToCommentByAnnotationId('annotationId')
+```
+
+
+
+## Live selection configuration
+Added the ability to [customize the styling of Live Selection](/realtime-collaboration/live-selection/customize-behavior) by passing a style object to the `data-live-selection-config` attribute.
+
+
+
+```jsx
+/**
+ * live selection configuration:
+ * position:
+ * - horizontal: 'left'
+ * border:
+ * - border: false
+ */
+<p data-live-selection-enabled="true" 
+   data-live-selection-config='{ "horizontal": "left", "border": false }' 
+   contenteditable="true">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, consequatur.
+</p>
+```
+
+
+
+## onPresenceUserClick
+
+Implemented an [event handler(/realtime-collaboration/presence/customize-behavior)] for click events on Presence avatar circles.
+
+```jsx
+const onPresenceUserClickEvent = (user) => {
+  console.log("Clicked presence user: ", user);
+}
+	
+
+<VeltPresence onPresenceUserClick={(user) => onPresenceUserClickEvent(user)} />
+```
+
+
+## Presence self prop
+
+Added a [feature to include or disclude the current user in the list of Presence users](/realtime-collaboration/presence/customize-behavior). By default the current user is added.
+
+```js
+<VeltPresence self={false} />
+````
+
+API Method:
+
+```jsx
+const presenceElement = client.getPresenceElement();
+presenceElement.enableSelf();
+presenceElement.disableSelf();
+```
