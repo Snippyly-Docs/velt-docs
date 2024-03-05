@@ -102,6 +102,20 @@ presenceElement.disableSelf();
 ```
 </Step>
 
+<Step title="Handle Presence User Click Events">
+
+To handle click events on `Presence` avatar circles, pass an event handler to the  `onPresenceUserClick` event.
+
+```jsx
+const onPresenceUserClickEvent = (user) => {
+  console.log("Clicked presence user: ", user);
+}
+	
+
+<VeltPresence onPresenceUserClick={(user) => onPresenceUserClickEvent(user)} />
+```
+
+</Step>
 
 </Steps>
 
@@ -211,6 +225,20 @@ presenceElement.disableSelf();
 ```
 </Step>
 
+
+<Step title="Handle Presence User Click Events">
+
+To handle click events on `Presence` avatar circles, add an event listern on the `onPresenceUserClick` event.
+
+```jsx
+const presenceTag = document.querySelector('velt-presence');
+	presenceTag.addEventListener('onPresenceUserClick', (event) => {
+		console.log("Clicked presence user: ", event.detail);
+});
+```
+
+</Step>
+
 </Steps>
 
 
@@ -231,6 +259,11 @@ import { useEffect } from 'react';
 export default function App() {
   let client = useVeltClient()
 
+  const onPresenceUserClickEvent = (user) => {
+    console.log("Clicked presence user: ", user);
+  }
+
+
   useEffect(() => {
     if(client){
       const presenceElement = client.getPresenceElement();
@@ -250,6 +283,7 @@ export default function App() {
         onPresenceUserChange={(presenceUsers) => yourMethod(presenceUsers)} {/* 5) Subscribe to changes in User Presence */}
         darkMode={true} {/* 6) Dark Mode */}
         self={false} {/* 7) Disclude Self in list of Presence Users */}
+        onPresenceUserClick={(user) => onPresenceUserClickEvent(user)} {/* 8) Handle Presence User Click Events */}
       />
     </div>
   );
@@ -270,8 +304,18 @@ export default function App() {
         console.log("onPresenceUserChange", event?.detail);
       });
 
+     
+
       presenceElement.enableSelf(); // 7
       presenceElement.disableSelf(); // 7
+
+       // 8) Subscribe to changes in User Presence
+      const presenceTag = document.querySelector('velt-presence');
+      presenceTag.addEventListener('onPresenceUserClick', (event) => {
+        console.log("Clicked presence user: ", event.detail);
+      });
+
+
     }
     </script>
   </head>
