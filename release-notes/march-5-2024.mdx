@@ -3,16 +3,18 @@
 - Latest SDK: [1.0.91](https://www.npmjs.com/package/@veltdev/react)
 - Latest Types: [1.0.106](https://www.npmjs.com/package/@veltdev/types)
 
-## getElementRefByAnnotationId()
-Introducing a [new method](/async-collaboration/comments/customize-behavior/action-methods) that returns the XPath of the DOM element where the specified comment was added.
+
+## Method to return XPath of DOM element where a Comment was added.
+
+Introducing the [getElementRefByAnnotationId() method](/async-collaboration/comments/customize-behavior/action-methods) that returns the XPath of the DOM element where the specified comment was added.
 
 ```jsx
 const commentElement = client.getCommentElement();
 let elementRef = commentElement.getElementRefByAnnotationId('annotationId')
 ```
 
-## scrollToCommentByAnnotationId()
-Added a [new method](/async-collaboration/comments/customize-behavior/action-methods) that scrolls the page to the specified element where the comment was added. This functionality is contingent upon the presence of the element in the DOM.
+## Method to scroll the page to a specific Comment
+Added the [scrollToCommentByAnnotationId() method](/async-collaboration/comments/customize-behavior/action-methods) that scrolls the page to the specified element where the comment was added. This functionality is contingent upon the presence of the element in the DOM.
 
 ```jsx
 const commentElement = client.getCommentElement();
@@ -23,8 +25,6 @@ commentElement.scrollToCommentByAnnotationId('annotationId')
 
 ## Live selection style configuration
 Added the ability to [customize the styling of Live Selection](/realtime-collaboration/live-selection/customize-behavior) by passing a style object to the `data-live-selection-config` attribute.
-
-
 
 ```jsx
 /**
@@ -41,11 +41,9 @@ Added the ability to [customize the styling of Live Selection](/realtime-collabo
 </p>
 ```
 
+## Event Handler for Click Events on Presence Users
 
-
-## onPresenceUserClick
-
-Implemented an [event handler](/realtime-collaboration/presence/customize-behavior) for click events on Presence avatar circles.
+Implemented the [onPresenceUserClick event handler](/realtime-collaboration/presence/customize-behavior) for click events on Presence avatar circles.
 
 ```jsx
 const onPresenceUserClickEvent = (user) => {
@@ -56,9 +54,9 @@ const onPresenceUserClickEvent = (user) => {
 ```
 
 
-## Presence self prop
+## Option to disclude current user from list of Presence Users
 
-Added a [feature to include or disclude the current user in the list of Presence users](/realtime-collaboration/presence/customize-behavior). By default the current user is added.
+The [self]((/realtime-collaboration/presence/customize-behavior)) property can be used to include or disclude the current user from the list of Presence users. By default the current user is added.
 
 ```js
 <VeltPresence self={false} />
