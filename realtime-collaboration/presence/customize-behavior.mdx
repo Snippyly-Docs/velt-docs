@@ -83,6 +83,25 @@ Whether dark mode is enabled.
 
 </Step>
 
+<Step title="Include Self in List of Presence Users">
+
+Whether to include yourself in the list of `Presence` users.
+
+`Default: true`
+
+```js
+<VeltPresence self={false} />
+````
+
+API Method:
+
+```jsx
+const presenceElement = client.getPresenceElement();
+presenceElement.enableSelf();
+presenceElement.disableSelf();
+```
+</Step>
+
 
 </Steps>
 
@@ -173,6 +192,25 @@ Whether dark mode is enabled.
 
 </Step>
 
+<Step title="Include Self in List of Presence Users">
+
+Whether to include yourself in the list of `Presence` users.
+
+`Default: true`
+
+```js
+<velt-presence self="false"></velt-presence>
+````
+
+API Method:
+
+```jsx
+const presenceElement = client.getPresenceElement();
+presenceElement.enableSelf();
+presenceElement.disableSelf();
+```
+</Step>
+
 </Steps>
 
 
@@ -187,9 +225,20 @@ Whether dark mode is enabled.
 <RequestExample>
 
 ```jsx React / Next.js
-import { VeltPresence } from '@veltdev/react';
+import { VeltPresence, useVeltClient } from '@veltdev/react';
+import { useEffect } from 'react';
 
 export default function App() {
+  let client = useVeltClient()
+
+  useEffect(() => {
+    if(client){
+      const presenceElement = client.getPresenceElement();
+      presenceElement.enableSelf(); // 7
+      presenceElement.disableSelf(); // 7
+    }
+
+  })
 
   return (
     <div className="toolbar">
@@ -199,7 +248,8 @@ export default function App() {
         maxUsers={3} {/* 3) Set max users */}
         flockMode={true} {/* 4) Enable Flock Mode */}
         onPresenceUserChange={(presenceUsers) => yourMethod(presenceUsers)} {/* 5) Subscribe to changes in User Presence */}
-        darkMode=={true} {/* 6 Dark Mode */}
+        darkMode={true} {/* 6) Dark Mode */}
+        self={false} {/* 7) Disclude Self in list of Presence Users */}
       />
     </div>
   );
@@ -219,6 +269,9 @@ export default function App() {
       presenceElement.addEventListener('onPresenceUserChange', (event) => {
         console.log("onPresenceUserChange", event?.detail);
       });
+
+      presenceElement.enableSelf(); // 7
+      presenceElement.disableSelf(); // 7
     }
     </script>
   </head>
@@ -229,7 +282,8 @@ export default function App() {
         location='{"page": 1}' <!-- 2) Add Presence to a Location -->
         max-users="3" <!-- 3) Set max users -->
         flock-mode='true' <!-- 4) Enable Flock Mode -->
-        dark-mode='true' <!-- 4) Dark Mode -->
+        dark-mode='true' <!-- 6) Dark Mode -->
+        self='false' <!-- 7) Dark Mode -->
       ></velt-presence> 
     </div>
   </body>
