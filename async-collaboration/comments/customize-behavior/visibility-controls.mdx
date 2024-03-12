@@ -91,6 +91,24 @@ commentElement.disableFloatingCommentDialog();
 ```
 </Step>
 
+<Step title="Enable Popover mode triangle">
+Whether the popover triangle appears when Popover Mode is enabled.
+
+`Default: true`
+
+```jsx
+<VeltComments popoverTriangleComponent={true}/>
+```
+
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enablePopoverTriangleComponent();
+commentElement.disablePopoverTriangleComponent();
+```
+
+</Step>
 
 </Steps>
 
@@ -184,6 +202,27 @@ commentElement.disableFloatingCommentDialog();
 ```
 </Step>
 
+</Step>
+
+<Step title="Enable Popover mode triangle">
+Whether the popover triangle appears when Popover Mode is enabled.
+
+`Default: true`
+
+```jsx
+<velt-comments popover-triangle-component="true"></velt-comments> 
+```
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enablePopoverTriangleComponent();
+commentElement.disablePopoverTriangleComponent();
+```
+
+</Step>
+
 
 </Steps>
 
@@ -214,6 +253,8 @@ export default function YourDocument() {
       commentElement.disableDialogOnTargetElementClick(); // 3
       commentElement.enableFloatingCommentDialog(); // 4 
       commentElement.disableFloatingCommentDialog(); // 4
+      commentElement.enablePopoverTriangleComponent(); // 5
+      commentElement.disablePopoverTriangleComponent(); // 5
     }
     
 
@@ -226,6 +267,7 @@ export default function YourDocument() {
             dialogOnHover={true} {/* 2 */}
             dialogOnTargetElementClick={true} {/* 3 */}
             floatingCommentDialog={true} {/* 4 */}
+            popoverTriangleComponent={true} {/* 5 */}
         />
     </div>
 ```
@@ -237,6 +279,8 @@ export default function YourDocument() {
     dialog-on-hover="true" 
     dialog-on-target-element-click="true"
     floating-comment-dialog="true" 
+    popover-triangle-component="true"
+
   >
 </velt-comments>
 
@@ -251,6 +295,8 @@ export default function YourDocument() {
     commentElement.disableDialogOnTargetElementClick(); // 3
     commentElement.enableFloatingCommentDialog(); // 4 
     commentElement.disableFloatingCommentDialog(); // 4
+    commentElement.enablePopoverTriangleComponent(); // 5
+    commentElement.disablePopoverTriangleComponent(); // 5
   }
 </script>
 
