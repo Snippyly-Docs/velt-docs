@@ -340,8 +340,9 @@
           "pages": [
             "async-collaboration/notifications/overview",
             "async-collaboration/notifications/setup",
-            "async-collaboration/notifications/customize-behavior",
-            "async-collaboration/notifications/api-add-notification"
+            "async-collaboration/notifications/api-add-notification",
+            "async-collaboration/notifications/customize-behavior"
+            
           ]
         }
       ]
@@ -412,8 +413,8 @@
           "pages": [
             "async-collaboration/notifications/overview",
             "async-collaboration/notifications/setup",
-            "async-collaboration/notifications/customize-behavior",
-            "async-collaboration/notifications/api-add-notification"
+            "async-collaboration/notifications/api-add-notification",
+            "async-collaboration/notifications/customize-behavior"
           ]
         }
 
