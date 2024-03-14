@@ -1,0 +1,123 @@
+---
+title: "Add Notification"
+sidebarTitle: "Add Notification"
+description: "This process outlines the steps to add notifications through an API."
+api: "POST https://api.velt.dev/addnotification"
+---
+
+
+## Adding a System Comment
+
+To add a notification via the API, send a POST request to `https://api.velt.dev/addnotification` with the following body data.
+
+Body:
+
+```jsx
+{
+    "data": {
+        "apiKey": "YOUR_API_KEY",
+        "authToken": "YOUR_AUTH_TOKEN",
+        "documentId": "YOUR_DOCUMENT_ID", 
+        "actionUser": {
+            "email": "actionuseremail@domain", // required
+            "name": "Action Username", // optional
+            "photoUrl": "Action User Photo URL", // optional
+            "userId": "User ID", // required
+        },
+        "displayHeadlineMessageTemplate": "This is main template, you can pass variables using curly brackets like this: {actionUser}, {recipientUser}, {yourCustomVariableWithStringValue}",
+        "displayHeadlineMessageTemplateData": {
+            "actionUser": {
+                "email": "actionuseremail@domain", // required
+                "name": "Action Username", // optional
+                "photoUrl": "Action User Photo URL", // optional
+                "userId": "User ID", // required
+            },
+            "recipientUser": {
+                "email": "recipientuseremail@domain", // required
+                "name": "Recipient Username", // optional
+                "photoUrl": "Recipient User Photo URL", // optional
+                "userId": "User ID", // required
+            },
+            "yourCustomVariableWithStringValue": "Variable will be replaced with this text"
+        },
+        "displayBodyMessage": "This is body message (Secondary message)",
+
+	 // Pass list of users who should be notified, notification will be shown to all the users in all section in notification panel and notification history panel, but it will be shown in 'forYou' section also to notifyUsers.
+        "notifyUsers": [
+            {
+                "email": "notifyuseremail@domain", // required
+                "name": "Notify User Name", // optional
+                "photoUrl": "Notify User Photo URL", // optional
+                "userId": "User ID", // required
+            }
+        ]
+    }
+}
+```
+<Info>
+Not sure where find your Auth Token? You can follow [these steps](/security/auth-tokens) to generate your Auth Token.
+</Info>
+
+
+Success Response:
+
+```JSON
+{
+    "result": {
+        "status": "success",
+        "message": "Notification added successfully.",
+        "data": null
+    }
+}
+
+```
+
+Failure Response:
+
+```JSON
+{
+    "error": {
+        "message": "Invalid Auth token.",
+        "status": "INVALID_ARGUMENT"
+    }
+}
+```
+
+
+
+
+<ResponseField name="result" type="object">
+Response result
+</ResponseField> 
+
+<Expandable title="result" defaultOpen={true}>
+
+<ResponseField name="status" type="string">
+Status for the response
+</ResponseField> 
+
+<ResponseField name="message" type="string">
+Status message for the response
+</ResponseField>
+
+<ResponseField name="data" type="object">
+Not used for this API call, should be null.
+</ResponseField>
+
+
+
+</Expandable>
+
+
+
+<ResponseExample>
+```js
+{
+  "result": {
+    "status": "success",
+    "message": "Notification added successfully.",
+    "data": null
+  }
+}
+```
+</ResponseExample>
