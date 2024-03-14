@@ -238,7 +238,25 @@
               ]
             },
             "webhooks/overview",
-            "notifications/email/overview"
+            {
+              "group": "Notifications",
+              "pages": [
+                {
+                  "group": "Email",
+                  "pages": ["notifications/email/overview"]
+                },
+                {
+                  "group": "In-app Notifications",
+                  "pages": [
+                    "async-collaboration/notifications/overview",
+                    "async-collaboration/notifications/setup",
+                    "async-collaboration/notifications/api-add-notification",
+                    "async-collaboration/notifications/customize-behavior"
+                  ]
+                }
+        
+              ]
+            }
           ]
         },
         {
