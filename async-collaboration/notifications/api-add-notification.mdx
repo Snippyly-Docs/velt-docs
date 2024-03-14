@@ -6,11 +6,21 @@ api: "POST https://api.velt.dev/addnotification"
 ---
 
 
-## Adding a System Comment
-
 To add a notification via the API to our [Notifications component](/async-collaboration/notifications/overview), send a POST request to `https://api.velt.dev/addnotification` with the following body data.
 
-Body:
+
+Sample Post Request:
+
+```jsx
+const options = {method: 'POST', body: JSON.stringify(body)};
+
+fetch('https://api.velt.dev/addnotification', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
+```
+
+Sample Body:
 
 ```jsx
 {
