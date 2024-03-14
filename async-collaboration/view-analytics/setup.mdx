@@ -12,8 +12,8 @@ title: "Setup"
 
 Import the `VeltViewAnalytics` component
 
-```js
-import { ViewAnalytics } from '@veltdev/react';
+```jsx
+import { VeltViewAnalytics } from '@veltdev/react';
 ```
 </Step>
 
@@ -21,7 +21,7 @@ import { ViewAnalytics } from '@veltdev/react';
 <Step title="Place the VeltViewAnalytics component">
 Place the `VeltViewAnalytics` component wherever you want the View Analytics component to appear.
 
-```js
+```jsx
 <div className="toolbar">
   <VeltViewAnalytics />
 </div>
@@ -48,7 +48,7 @@ Place the `VeltViewAnalytics` component wherever you want the View Analytics com
 
 <Step title="Initialize with your API Key">
 Put this in your root app script:
-```js
+```jsx
 async function loadVelt() {
     await Velt.init("YOUR_VELT_API_KEY");
 }
@@ -59,7 +59,7 @@ async function loadVelt() {
 <Step title="Place the velt-view-analytics component">
 Place the `<velt-view-analytics>` component wherever you want the View Analytics component to appear.
 
-```js
+```jsx
 <div className="toolbar">
   <velt-view-analytics></velt-view-analytics>
 </div>

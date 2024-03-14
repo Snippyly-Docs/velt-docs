@@ -334,6 +334,14 @@
             "async-collaboration/view-analytics/setup",
             "async-collaboration/view-analytics/customize-behavior"
           ]
+        },
+        {
+          "group": "Notifications",
+          "pages": [
+            "async-collaboration/notifications/overview",
+            "async-collaboration/notifications/setup",
+            "async-collaboration/notifications/customize-behavior"
+          ]
         }
       ]
     },
@@ -397,7 +405,16 @@
         {
           "group": "Email",
           "pages": ["notifications/email/overview"]
+        },
+        {
+          "group": "In-app Notifications",
+          "pages": [
+            "async-collaboration/notifications/overview",
+            "async-collaboration/notifications/setup",
+            "async-collaboration/notifications/customize-behavior"
+          ]
         }
+
       ]
     },
     {
@@ -450,6 +467,7 @@
             "api-reference/models/DocumentMetadata",
             "api-reference/models/DocumentPaths",
             "api-reference/models/DocumentUser",
+            "api-reference/models/FeatureTypes",
             "api-reference/models/FlockOptions",
             "api-reference/models/Huddle",
             "api-reference/models/LiveStateData",

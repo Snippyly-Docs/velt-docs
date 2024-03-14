@@ -1,0 +1,396 @@
+---
+title : "Customize Behavior"
+---
+
+
+
+<Tabs>
+<Tab title="React / Next.js">
+
+<Steps>
+
+
+<Step title="Get the Notifications Element">
+
+The `Notifications Element` is an object that contains several methods relating to `Notifications` in the Velt SDK.
+
+To get the `Notifications Element`, you can use one of the following methods.
+
+API Methods:
+
+```jsx
+const notificationElement = client.getNotificationElement();
+```
+
+Hooks:
+
+```jsx
+import { useNotificationsUtils } from '@veltdev/react';
+```
+
+```jsx
+const notificationElement = useNotificationsUtils();
+```
+
+</Step>
+
+<Step title="Get Notifications Data">
+
+You can use one of the following methods to subscribe to incoming notifications and access the notification data.
+
+Notifications Schema:
+
+
+| Property                | Type     | Optional | Description                                    |
+|-------------------------|----------|----------|------------------------------------------------|
+| `id`                    | `string` | No       | Notification ID                                |
+| `notificationSource`    | `string` | Yes      | Notification source                            |
+| `actionType`            | `string` | Yes      | Notification type                              |
+| `isUnread`              | `boolean`| Yes      | Notification is read or not for the user      |
+| `actionUser`            | `User`   | Yes      | Action user of the notification                |
+| `timestamp`             | `number` | Yes      | Timestamp of the notification                 |
+| `displayHeadlineMessage`| `string` | Yes      | Notification headline message                  |
+| `displayBodyMessage`    | `string` | Yes      | Notification body message                      |
+| `forYou`                | `boolean`| Yes      | Is notification for you                        |
+
+
+
+
+API Methods:
+
+```jsx
+notificationElement.getNotificationsData().subscribe((notifications) => {
+    console.log("Notifications: ", notifications)
+});
+```
+
+Hooks:
+
+```jsx
+import { useNotificationsData } from '@veltdev/react';
+```
+
+```jsx
+const notificationData = useNotificationsData();
+```
+
+
+
+</Step>
+
+<Step title="Open, Close, or Toggle the Notifications History Panel">
+
+You can use the following methods to Open, Close, or Toggle the `Notifications History Panel` component.
+
+```jsx
+// to open notifications history panel
+notificationElement.openHistoryPanel();
+
+// to close notifications history panel
+notificationElement.closeHistoryPanel();
+
+// to toggle notifications history panel
+notificationElement.toggleHistoryPanel();
+```
+
+
+</Step>
+
+
+
+
+
+<Step title="Embed the Notifications Panel">
+
+By default, the `Notifications Panel` appears floating over the `Notification Tool` button when the button is clicked without needing to add the `VeltNotificationsPanel` component.
+
+The `Notifications Panel` has an option to be embedded within another component, instead of hovering over the `Notification Tool` button.
+
+To do this, add the `VeltNotificationsPanel` component in your app template where you want the panel to be embedded.
+
+```jsx
+<div>
+  <VeltNotificationsTool/>
+  <div className="sidepanel">
+    <VeltNotificationsPanel/>
+  </div>
+</div>
+```
+
+</Step>
+
+
+<Step title="Embed the Notifications History Panel">
+
+By default, the `Notifications History Panel` appears on the side when it is opened.
+
+The `Notifications History Panel` has an option to be embedded within another component, instead appearing in the side.
+
+To do this, set the `embedMode` property to `true` on the `VeltNotificationsHistoryPanel` component.
+
+```jsx
+<div className="embedpanel">
+  <VeltNotificationsHistoryPanel embedMode={true}/>
+</div>
+```
+
+</Step>
+
+<Step title="Take action when a Notification is clicked">
+
+The `onNotificationClick` event is emitted when a notification is clicked.
+
+This can be applied to `Notifications` on either the `Notification Panel`. or the `Notification History Panel`.
+
+```jsx
+const onNotificationClickEvent = (notification) => {
+	console.log('onNotificationClick: ', notification);
+}
+```
+
+```jsx
+<VeltNotificationsPanel onNotificationClick={(notification) => onNotificationClickEvent(notification)} />
+<VeltNotificationsHistoryPanel onNotificationClick={(notification) => onNotificationClickEvent(notification)} />
+```
+
+</Step>
+
+
+</Steps>
+
+
+</Tab>
+
+
+<Tab title="HTML">
+
+<Steps>
+
+
+<Step title="Get the Notifications Element">
+
+The `Notifications Element` is an object that contains several methods relating to `Notifications` in the Velt SDK.
+
+To get the `Notifications Element`, you can use the following method:
+
+API Methods:
+
+```jsx
+const notificationElement = Velt.getNotificationElement();
+```
+
+
+</Step>
+
+<Step title="Get Notifications Data">
+
+You can use one of the following methods to subscribe to incoming notifications and access the notification data.
+
+Notifications Schema:
+
+
+| Property                | Type     | Optional | Description                                    |
+|-------------------------|----------|----------|------------------------------------------------|
+| `id`                    | `string` | No       | Notification ID                                |
+| `notificationSource`    | `string` | Yes      | Notification source                            |
+| `actionType`            | `string` | Yes      | Notification type                              |
+| `isUnread`              | `boolean`| Yes      | Notification is read or not for the user      |
+| `actionUser`            | `User`   | Yes      | Action user of the notification                |
+| `timestamp`             | `number` | Yes      | Timestamp of the notification                 |
+| `displayHeadlineMessage`| `string` | Yes      | Notification headline message                  |
+| `displayBodyMessage`    | `string` | Yes      | Notification body message                      |
+| `forYou`                | `boolean`| Yes      | Is notification for you                        |
+
+
+
+API Methods:
+
+```jsx
+notificationElement.getNotificationsData().subscribe((notifications) => {
+    console.log("Notifications: ", notifications)
+});
+```
+
+
+
+</Step>
+
+<Step title="Open, Close, or Toggle the Notifications History Panel">
+
+You can use the following methods to Open, Close, or Toggle the `Notifications History Panel` component.
+
+```jsx
+// to open notifications history panel
+notificationElement.openHistoryPanel();
+
+// to close notifications history panel
+notificationElement.closeHistoryPanel();
+
+// to toggle notifications history panel
+notificationElement.toggleHistoryPanel();
+```
+
+
+</Step>
+
+
+
+
+
+<Step title="Embed the Notifications Panel">
+
+By default, the `Notifications Panel` appears floating over the `Notification Tool` button when the button is clicked without needing to add the `VeltNotificationsPanel` component.
+
+The `Notifications Panel` has an option to be embedded within another component, instead of hovering over the `Notification Tool` button.
+
+To do this, add the `<velt-notifications-panel>` component in your app template where you want the panel to be embedded.
+
+```jsx
+<div>
+  <velt-notifications-tool></velt-notifications-tool>
+  <div className="sidepanel">
+    <velt-notifications-panel></velt-notifications-panel>
+  </div>
+</div>
+```
+
+</Step>
+
+
+<Step title="Embed the Notifications History Panel">
+
+By default, the `Notifications History Panel` appears on the side when it is opened.
+
+The `Notifications History Panel` has an option to be embedded within another component, instead appearing in the side.
+
+To do this, set the `embedMode` property to `true` on the `<velt-notifications-history-panel>` component.
+
+```jsx
+<div className="embedpanel">
+  <velt-notifications-history-panel embed-mode="true"></velt-notifications-history-panel>
+</div>
+```
+
+</Step>
+
+<Step title="Take action when a Notification is clicked">
+
+The `onNotificationClick` event is emitted when a notification is clicked.
+
+This can be applied to `Notifications` on either the `Notification Panel`. or the `Notification History Panel`.
+
+```jsx
+  const notificationsPanel = document.querySelector('velt-notifications-panel');
+	notificationsPanel?.addEventListener('onNotificationClick', (event) => {
+	  console.log('onNotificationClick: ', event.detail);
+  })
+
+  const notificationsHistoryPanel = document.querySelector('velt-notifications-history-panel');
+	notificationsPanel?.addEventListener('onNotificationClick', (event) => {
+	  console.log('onNotificationClick: ', event.detail);
+  })
+```
+
+
+</Step>
+
+
+</Steps>
+
+
+</Tab>
+
+</Tabs>
+
+
+
+
+<RequestExample>
+
+```jsx React / Next.js
+import { VeltNotificationsTool, useNotificationsUtils, useNotificationsData } from '@veltdev/react';
+
+
+
+
+export default function App() {
+
+  // 1
+  const notificationElement = useNotificationsUtils();
+
+  // 2
+  const notificationData = useNotificationsData();
+
+
+
+  // 3
+  notificationElement.openHistoryPanel();
+  notificationElement.closeHistoryPanel();
+  notificationElement.toggleHistoryPanel();
+
+  // 6
+  const onNotificationClickEvent = (notification) => {
+    console.log('onNotificationClick: ', notification);
+  }
+
+  return (
+    <div>
+      <VeltNotificationsTool/>
+      <div className="sidepanel">
+        <VeltNotificationsPanel onNotificationClick={(notification) => onNotificationClickEvent(notification)}/>
+      </div>
+      <div className="embedpanel">
+        <VeltNotificationsHistoryPanel embedMode={true} onNotificationClick={(notification) => onNotificationClickEvent(notification)}/>
+      </div>
+    </div>
+  );
+}
+```
+
+
+```html HTML
+<script>
+
+// 1
+const notificationsElement = Velt.getNotificationsElement();
+
+// 2
+notificationElement.getNotificationsData().subscribe((notifications) => {
+    console.log("Notifications: ", notifications)
+});
+
+// 3
+notificationElement.openHistoryPanel();
+notificationElement.closeHistoryPanel();
+notificationElement.toggleHistoryPanel();
+
+// 6
+const notificationsPanel = document.querySelector('velt-notifications-panel');
+notificationsPanel?.addEventListener('onNotificationClick', (event) => {
+  console.log('onNotificationClick: ', event.detail);
+})
+
+const notificationsHistoryPanel = document.querySelector('velt-notifications-history-panel');
+notificationsPanel?.addEventListener('onNotificationClick', (event) => {
+  console.log('onNotificationClick: ', event.detail);
+})
+
+
+
+
+</script>
+<body>
+  <div>
+    <velt-notifications-tool></velt-notifications-tool>
+    <div className="sidepanel">
+      <velt-notifications-panel></velt-notifications-panel>
+    </div>
+    <div className="embedpanel">
+      <velt-notifications-history-panel embed-mode="true"></velt-notifications-history-panel>
+    </div>
+  </div>
+</body>
+
+```
+
+</RequestExample>
