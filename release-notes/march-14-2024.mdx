@@ -1,0 +1,43 @@
+## Versions
+
+- Latest SDK: [1.0.96](https://www.npmjs.com/package/@veltdev/react)
+- Latest Types: [1.0.111](https://www.npmjs.com/package/@veltdev/types)
+
+## Notifications Component
+
+The [Notifications](/async-collaboration/notifications/setup) component can be used to notify your users in-app when they receive a reply to a comment or are `@mentioned` by a teammate.
+
+Additionally, you can [send custom notifications](/async-collaboration/notifications/api-add-notification) to this component using one of our APIs.
+
+
+<Frame>
+<iframe
+      src="https://landing-page-demo-velt.vercel.app/?feature=notifications"
+      allow="camera; microphone"
+      scrolling="no"
+      frameBorder="0"
+      className="w-full"
+      height="700px"
+    ></iframe>
+</Frame>
+
+[Open in larger window](https://landing-page-demo-velt.vercel.app/?feature=notifications)
+
+
+To implement `Notifications`, simply add it to your app like this:
+
+
+```jsx React / Next.js
+import { VeltNotificationsTool, VeltNotificationsHistoryPanel} from '@veltdev/react';
+
+function YourComponent() {
+
+  return (
+    <div className="toolbar">
+      <VeltNotificationsTool />
+      <VeltNotificationsHistoryPanel />
+    </div>
+  )
+  
+}
+```
