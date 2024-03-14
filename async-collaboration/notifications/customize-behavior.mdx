@@ -310,18 +310,12 @@ This can be applied to `Notifications` on either the `Notification Panel`. or th
 ```jsx React / Next.js
 import { VeltNotificationsTool, useNotificationsUtils, useNotificationsData } from '@veltdev/react';
 
-
-
-
 export default function App() {
-
   // 1
   const notificationElement = useNotificationsUtils();
 
   // 2
   const notificationData = useNotificationsData();
-
-
 
   // 3
   notificationElement.openHistoryPanel();
@@ -374,9 +368,6 @@ const notificationsHistoryPanel = document.querySelector('velt-notifications-his
 notificationsPanel?.addEventListener('onNotificationClick', (event) => {
   console.log('onNotificationClick: ', event.detail);
 })
-
-
-
 
 </script>
 <body>
