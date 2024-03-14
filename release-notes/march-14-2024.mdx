@@ -41,3 +41,37 @@ function YourComponent() {
   
 }
 ```
+
+## Dark Mode on All Components
+
+You can now configure Dark Mode individually on all Components in the Velt SDK.
+
+Example:
+
+
+```jsx
+<VeltCommentTool darkMode={true} />
+<VeltSidebarButton darkMode={true} />
+<VeltHuddleTool darkMode={true} />
+<VeltRecorderTool darkMode={true} />
+<VeltUserInviteTool darkMode={true} />
+<VeltArrowTool darkMode={true} />
+<VeltNotificationsTool darkMode={true} />
+<VeltNotificationsPanel darkMode={true} />
+<VeltNotificationsHistoryPanel darkMode={true} />
+```
+
+If you want to configure Dark Mode globally, you can also use:
+
+```jsx
+client.setDarkMode(true)
+```
+
+
+## Bug Fixes
+
+- Fixed bug where you could still drag comments into restricted areas
+- Fixed user email related issue for admin users in invite dialog
+- Fixed typed related issues in darkMode
+- Added option to disable live selection with disableFeatures()
+
