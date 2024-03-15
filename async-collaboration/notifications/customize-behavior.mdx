@@ -140,7 +140,7 @@ To do this, set the `embedMode` property to `true` on the `VeltNotificationsHist
 
 The `onNotificationClick` event is emitted when a notification is clicked.
 
-This can be applied to `Notifications` on either the `Notification Panel`. or the `Notification History Panel`.
+This can be applied to `Notifications` on either the `Notification Tool`, `Notification Panel` or the `Notification History Panel`.
 
 ```jsx
 const onNotificationClickEvent = (notification) => {
@@ -149,6 +149,7 @@ const onNotificationClickEvent = (notification) => {
 ```
 
 ```jsx
+<VeltNotificationsTool onNotificationClick={(notification) => onNotificationClickEvent(notification)} />
 <VeltNotificationsPanel onNotificationClick={(notification) => onNotificationClickEvent(notification)} />
 <VeltNotificationsHistoryPanel onNotificationClick={(notification) => onNotificationClickEvent(notification)} />
 ```
@@ -277,9 +278,15 @@ To do this, set the `embedMode` property to `true` on the `<velt-notifications-h
 
 The `onNotificationClick` event is emitted when a notification is clicked.
 
-This can be applied to `Notifications` on either the `Notification Panel`. or the `Notification History Panel`.
+This can be applied to `Notifications` on either the `Notification Tool`, `Notification Panel`. or the `Notification History Panel`.
 
 ```jsx
+
+  const notificationsTool = document.querySelector('velt-notifications-tool');
+	notificationsPanel?.addEventListener('onNotificationClick', (event) => {
+	  console.log('onNotificationClick: ', event.detail);
+  })
+
   const notificationsPanel = document.querySelector('velt-notifications-panel');
 	notificationsPanel?.addEventListener('onNotificationClick', (event) => {
 	  console.log('onNotificationClick: ', event.detail);

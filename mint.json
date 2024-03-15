@@ -498,6 +498,7 @@
             "api-reference/models/LocationMetadata",
             "api-reference/models/MediaPreviewConfig",
             "api-reference/models/Notification",
+            "api-reference/models/NotificationRawData",
             "api-reference/models/PageInfo",
             "api-reference/models/Permission",
             "api-reference/models/PresenceUser",
