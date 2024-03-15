@@ -336,7 +336,7 @@ export default function App() {
 
   return (
     <div>
-      <VeltNotificationsTool/>
+      <VeltNotificationsTool onNotificationClick={(notification) => onNotificationClickEvent(notification)}/>
       <div className="sidepanel">
         <VeltNotificationsPanel onNotificationClick={(notification) => onNotificationClickEvent(notification)}/>
       </div>
@@ -366,6 +366,13 @@ notificationElement.closeHistoryPanel();
 notificationElement.toggleHistoryPanel();
 
 // 6
+
+const notificationsTool = document.querySelector('velt-notifications-tool');
+notificationsPanel?.addEventListener('onNotificationClick', (event) => {
+  console.log('onNotificationClick: ', event.detail);
+})
+
+
 const notificationsPanel = document.querySelector('velt-notifications-panel');
 notificationsPanel?.addEventListener('onNotificationClick', (event) => {
   console.log('onNotificationClick: ', event.detail);
