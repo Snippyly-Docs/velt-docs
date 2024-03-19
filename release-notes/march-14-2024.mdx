@@ -7,8 +7,6 @@
 
 The [Notifications](/async-collaboration/notifications/setup) component can be used to notify your users in-app when they receive a reply to a comment or are `@mentioned` by a teammate.
 
-Additionally, you can [send custom notifications](/async-collaboration/notifications/api-add-notification) to this component using one of our APIs.
-
 
 <Frame>
 <iframe
@@ -39,6 +37,65 @@ function YourComponent() {
     </div>
   )
   
+}
+```
+
+## Custom Notifications
+
+Additionally, you can [send custom notifications](/async-collaboration/notifications/api-add-notification) to this component using our  `https://api.velt.dev/addnotification` API end point.
+
+
+Sample Post Request:
+```jsx
+const options = {method: 'POST', body: JSON.stringify(body)};
+
+fetch('https://api.velt.dev/addnotification', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
+```
+
+Sample Body:
+```jsx
+{
+    "data": {
+        "apiKey": "YOUR_API_KEY",
+        "authToken": "YOUR_AUTH_TOKEN",
+        "documentId": "YOUR_DOCUMENT_ID", 
+        "actionUser": {
+            "email": "actionuseremail@domain", // required
+            "name": "Action Username", // optional
+            "photoUrl": "Action User Photo URL", // optional
+            "userId": "User ID", // required
+        },
+        "displayHeadlineMessageTemplate": "This is main template, you can pass variables using curly brackets like this: {actionUser}, {recipientUser}, {yourCustomVariableWithStringValue}",
+        "displayHeadlineMessageTemplateData": {
+            "actionUser": {
+                "email": "actionuseremail@domain", // required
+                "name": "Action Username", // optional
+                "photoUrl": "Action User Photo URL", // optional
+                "userId": "User ID", // required
+            },
+            "recipientUser": {
+                "email": "recipientuseremail@domain", // required
+                "name": "Recipient Username", // optional
+                "photoUrl": "Recipient User Photo URL", // optional
+                "userId": "User ID", // required
+            },
+            "yourCustomVariableWithStringValue": "Variable will be replaced with this text"
+        },
+        "displayBodyMessage": "This is body message (Secondary message)",
+
+	 // Pass list of users who should be notified, notification will be shown to all the users in all section in notification panel and notification history panel, but it will be shown in 'forYou' section also to notifyUsers.
+        "notifyUsers": [
+            {
+                "email": "notifyuseremail@domain", // required
+                "name": "Notify User Name", // optional
+                "photoUrl": "Notify User Photo URL", // optional
+                "userId": "User ID", // required
+            }
+        ]
+    }
 }
 ```
 
